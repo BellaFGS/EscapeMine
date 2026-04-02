@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://sp8t4kril18c"]
+
+[ext_resource type="Script" uid="uid://befydv8r813h" path="res://scripts/Item_vida.gd" id="1_88nf6"]
+
+[node name="ItemVida" type="Area2D" unique_id=1489750621]
+script = ExtResource("1_88nf6")

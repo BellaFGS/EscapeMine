@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b5kbin4hkstve"]
+
+[ext_resource type="Script" uid="uid://5qrevpocg8ps" path="res://scripts/Item_forca.gd" id="1_4itk4"]
+
+[node name="ItemForca" type="Area2D" unique_id=589116336]
+script = ExtResource("1_4itk4")
