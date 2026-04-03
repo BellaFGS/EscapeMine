@@ -43,13 +43,17 @@ animations = [{
 size = Vector2(11, 1.5)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=672706225]
+scale = Vector2(5, 5)
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_7p1mj")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=580554484]
+position = Vector2(-0.39999998, -5.9999995)
 sprite_frames = SubResource("SpriteFrames_7p1mj")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1933795473]
-position = Vector2(0.5, 6)
+position = Vector2(0.100000024, 4.7683716e-07)
 shape = SubResource("RectangleShape2D_4ra3w")

@@ -4,6 +4,7 @@ var player
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
+	speed += GameManager.dificuldade * 10
 	vida += GameManager.dificuldade * 10
 	dano += GameManager.dificuldade * 2
 

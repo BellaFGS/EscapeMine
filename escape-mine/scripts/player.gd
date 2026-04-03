@@ -1,5 +1,9 @@
 extends "res://scripts/Character.gd"
 
+
+func _ready():
+	speed = 200
+
 func _physics_process(delta):
 	var direcao = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
