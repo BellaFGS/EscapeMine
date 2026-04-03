@@ -1,27 +1,55 @@
 [gd_scene format=3 uid="uid://c2nuq8dccxc0i"]
 
 [ext_resource type="Script" uid="uid://bh8bcw7piq4uw" path="res://scripts/Enemy.gd" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://b2w4dp58ocr5g" path="res://sprites/characters/slime.png" id="2_md0e3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7p1mj"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_md0e3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ra3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uy6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4w8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
-size = Vector2(7.5, 1)
+size = Vector2(11, 1.5)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=672706225]
 script = ExtResource("1_7p1mj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=580554484]
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=580554484]
 sprite_frames = SubResource("SpriteFrames_7p1mj")
+animation = &"idle"
+autoplay = "idle"
 
-[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D" unique_id=261693790]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(1, 0, 0, 1)
-position = Vector2(0.25, 0.24999964)
-scale = Vector2(7.5, 7.5)
-texture = SubResource("CanvasTexture_md0e3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1933795473]
-position = Vector2(0.25, 3.5)
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1933795473]
+position = Vector2(0.5, 6)
 shape = SubResource("RectangleShape2D_4ra3w")

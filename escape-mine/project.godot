@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://b32pqodawoe60"
+DropSystem="*uid://qo7bqwyuq7rv"
 
 [display]
 
@@ -60,12 +61,20 @@ atacar={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemys"
+2d_physics/layer_3="items"
+2d_physics/layer_4="mapa"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
