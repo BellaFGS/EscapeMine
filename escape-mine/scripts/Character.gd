@@ -20,12 +20,10 @@ func mover(direcao):
 
 # 🔥 CONTROLE DE ANIMAÇÃO
 func atualizar_animacao(direcao):
-	if anim == null:
-		return
 	if anim == null or is_attack:
 		return
 	if direcao == Vector2.ZERO:
-		anim.play("idle")
+		anim.play("idle_" + ultima_direcao)
 		return
 	# Define direção
 	if abs(direcao.x) > abs(direcao.y):
@@ -39,7 +37,7 @@ func atualizar_animacao(direcao):
 		else:
 			ultima_direcao = "up"
 	
-	#anim.play("walk_" + ultima_direcao)
+	anim.play("walk_" + ultima_direcao)
 
 # ⚔️ ATAQUE (você chama isso quando quiser)
 func atacar():
@@ -72,3 +70,4 @@ func morrer():
 func _on_Animator_animation_finished():
 	if anim.animation.begins_with("attack"):
 		is_attack = false
+		anim.play("idle_" + ultima_direcao)

@@ -67,6 +67,8 @@ attack={
 2d_physics/layer_2="enemys"
 2d_physics/layer_3="items"
 2d_physics/layer_4="mapa"
+2d_physics/layer_5="hurt"
+2d_physics/layer_6="hit"
 
 [physics]
 

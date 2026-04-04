@@ -1,7 +1,7 @@
 extends "res://scripts/Character.gd"
 
 func _ready():
-	speed = 200
+	speed = 100
 	
 
 func _physics_process(delta):
@@ -17,11 +17,12 @@ func _physics_process(delta):
 func morrer():
 	GameManager.finalizar_jogo("LOSE")
 
-func pegar_item(item):
-	item.aplicar(self)
-	item.queue_free()
+#func pegar_item(item):
+	#item.aplicar(self)
+	#item.queue_free()
 
 
 func _on_animator_animation_finished(anim_name: StringName) -> void:
 	if anim_name.begins_with("attack"):
 		is_attack = false
+		anim.play("idle_" + ultima_direcao)
