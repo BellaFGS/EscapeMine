@@ -22,3 +22,9 @@ func morrer():
 		item.global_position = global_position
 
 	queue_free()
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	print("colidiu com:", area)
+	if "dano" in area and "dono" in area:
+		receber_dano(area.dano, area.dono.global_position)
+		print("Player me bateu")

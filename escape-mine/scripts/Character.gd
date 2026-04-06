@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var anim = get_node_or_null("Animator")
+@onready var texture = get_node_or_null("Texture")
+
 var vida = 100
 var dano = 10
 var speed = 100
@@ -8,9 +10,24 @@ var speed = 100
 var ultima_direcao = "down"
 var esta_morto = false
 var is_attack = false
+var tomando_dano = false
+var knockback_velocity = Vector2.ZERO
 
 func mover(direcao):
 	if esta_morto:
+		return
+	
+	if tomando_dano:
+		velocity = knockback_velocity
+		move_and_slide()
+		
+		# desacelera knockback
+		knockback_velocity = knockback_velocity.lerp(Vector2.ZERO, 0.2)
+		
+		# para quando estiver fraco
+		if knockback_velocity.length() < 10:
+			tomando_dano = false
+		
 		return
 	
 	velocity = direcao * speed
@@ -39,24 +56,37 @@ func atualizar_animacao(direcao):
 	
 	anim.play("walk_" + ultima_direcao)
 
-# ⚔️ ATAQUE (você chama isso quando quiser)
+# ⚔️ ATAQUE 
 func atacar():
 	if esta_morto or is_attack:
 		return
 	
 	is_attack = true
+	var hitbox = $hitBox
+	hitbox.dano = dano
+	hitbox.dono = self
+	
 	anim.play("attack_" + ultima_direcao)
 
 # ❤️ DANO
-func receber_dano(valor):
+func receber_dano(valor, origem: Vector2):
 	if esta_morto:
 		return
 	
 	vida -= valor
 	
+	tomando_dano = true
+	
+	# 💥 KNOCKBACK
+	var direcao = (global_position - origem).normalized()
+	var forca = 900
+	knockback_velocity = direcao * forca
+	
+	# ❤️ FLASH (separado)
+	flash_dano()
+	
 	if vida <= 0:
 		morrer()
-
 # 💀 MORTE
 func morrer():
 	esta_morto = true
@@ -67,7 +97,17 @@ func morrer():
 	#await anim.animation_finished
 	queue_free()
 
+func flash_dano():
+	if texture:
+		texture.modulate = Color(1, 0, 0)
+	
+	await get_tree().create_timer(0.2).timeout
+	
+	if texture:
+		texture.modulate = Color(1, 1, 1)
+
 func _on_Animator_animation_finished():
 	if anim.animation.begins_with("attack"):
 		is_attack = false
 		anim.play("idle_" + ultima_direcao)
+		

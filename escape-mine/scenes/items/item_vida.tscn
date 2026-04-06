@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://sp8t4kril18c"]
 
 [ext_resource type="Script" uid="uid://befydv8r813h" path="res://scripts/Item_vida.gd" id="1_88nf6"]
+[ext_resource type="Texture2D" uid="uid://brgpwigy4mi8b" path="res://sprites/objects/items/BluePotion.png" id="2_f5v1c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mur4f"]
+radius = 27.018513
 
 [node name="ItemVida" type="Area2D" unique_id=1489750621]
+collision_layer = 4
+collision_mask = 9
 script = ExtResource("1_88nf6")
+
+[node name="texture" type="Sprite2D" parent="." unique_id=894297007]
+texture = ExtResource("2_f5v1c")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=254977842]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_mur4f")

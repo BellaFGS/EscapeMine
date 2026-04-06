@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bulhx16817wa1"
-path="res://.godot/imported/objects.png-aad4b30c6e42f654910cacc4fa0b52d4.ctex"
+uid="uid://brgpwigy4mi8b"
+path="res://.godot/imported/BluePotion.png-32379f77db0a60b983fe44839e0a5214.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/objects/objects.png"
-dest_files=["res://.godot/imported/objects.png-aad4b30c6e42f654910cacc4fa0b52d4.ctex"]
+source_file="res://sprites/objects/items/BluePotion.png"
+dest_files=["res://.godot/imported/BluePotion.png-32379f77db0a60b983fe44839e0a5214.ctex"]
 
 [params]
 

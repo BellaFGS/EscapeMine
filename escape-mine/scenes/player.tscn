@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwkwh6npbwvsd" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://2gc1nya7yivu" path="res://sprites/characters/player.png" id="2_g2els"]
+[ext_resource type="Script" uid="uid://hy37j6jnwt5y" path="res://scripts/hit_box.gd" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("2_g2els")
@@ -1473,10 +1474,10 @@ size = Vector2(9, 1.25)
 size = Vector2(17, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(12, 18)
+size = Vector2(9, 13)
 
 [node name="player" type="CharacterBody2D" unique_id=2066799720 groups=["player"]]
-collision_mask = 15
+collision_mask = 14
 script = ExtResource("1_3vyb7")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=485456328]
@@ -1503,21 +1504,23 @@ libraries/ = SubResource("AnimationLibrary_smehm")
 position = Vector2(0, -0.575)
 shape = SubResource("RectangleShape2D_dqkch")
 
-[node name="Camera" type="Camera2D" parent="." unique_id=727662530]
-zoom = Vector2(4, 4)
-
 [node name="hitBox" type="Area2D" parent="." unique_id=946173995]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("3_qhqgy")
 
 [node name="Collision" type="CollisionShape2D" parent="hitBox" unique_id=963937144]
-visible = false
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_ur7pv")
 
 [node name="hurtBox" type="Area2D" parent="." unique_id=394209059]
+collision_layer = 16
+collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=1375003985]
-position = Vector2(0, -9)
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_g2els")
 debug_color = Color(1, 0, 0.105882354, 0.2627451)
 
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
+[connection signal="body_entered" from="hurtBox" to="." method="_on_hurt_box_body_entered"]
