@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://25f6msodd5sj"]
 
 [ext_resource type="Script" uid="uid://c3v5uia4tqhir" path="res://scripts/intro_video.gd" id="1_dm6qt"]
-[ext_resource type="VideoStream" uid="uid://cng6is4inelgg" path="res://telas/video/escapeMineIntro.ogv" id="1_io162"]
+[ext_resource type="VideoStream" uid="uid://bn1nxs61i626s" path="res://telas/video/escapeMineIntro.ogv" id="1_io162"]
 [ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="3_hpd4y"]
 
 [node name="IntroVideo" type="Node2D" unique_id=1821177310]

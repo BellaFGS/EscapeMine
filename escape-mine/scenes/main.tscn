@@ -16,4 +16,31 @@ collision_mask = 12
 [node name="Tela_Pause" parent="." unique_id=1788756212 instance=ExtResource("3_sugp2")]
 
 [node name="EnemySpawner" parent="." unique_id=346873360 instance=ExtResource("1_tbgi4")]
-position = Vector2(167, 512)
+position = Vector2(-219, 220)
+
+[node name="EnemySpawner2" parent="." unique_id=317786326 instance=ExtResource("1_tbgi4")]
+position = Vector2(691, 813)
+
+[node name="EnemySpawner3" parent="." unique_id=827817483 instance=ExtResource("1_tbgi4")]
+position = Vector2(1551, 396)
+
+[node name="EnemySpawner4" parent="." unique_id=2134977065 instance=ExtResource("1_tbgi4")]
+position = Vector2(675, -367)
+
+[node name="EnemySpawner5" parent="." unique_id=893714358 instance=ExtResource("1_tbgi4")]
+position = Vector2(-872, -364)
+
+[node name="EnemySpawner6" parent="." unique_id=1156969487 instance=ExtResource("1_tbgi4")]
+position = Vector2(-775, 775)
+
+[node name="EnemySpawner7" parent="." unique_id=2000100603 instance=ExtResource("1_tbgi4")]
+position = Vector2(-241, 1387)
+
+[node name="EnemySpawner8" parent="." unique_id=1005074069 instance=ExtResource("1_tbgi4")]
+position = Vector2(1711, 1287)
+
+[node name="EnemySpawner9" parent="." unique_id=774030156 instance=ExtResource("1_tbgi4")]
+position = Vector2(1711, -453)
+
+[node name="EnemySpawner10" parent="." unique_id=1054092780 instance=ExtResource("1_tbgi4")]
+position = Vector2(-88, -958)

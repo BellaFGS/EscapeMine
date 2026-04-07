@@ -21,7 +21,9 @@ func morrer():
 		get_parent().add_child(item)
 		item.global_position = global_position
 
-	queue_free()
+	# desativa colisão com segurança
+	$hurtBox.set_deferred("monitoring", false)
+	call_deferred("queue_free")
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	print("colidiu com:", area)

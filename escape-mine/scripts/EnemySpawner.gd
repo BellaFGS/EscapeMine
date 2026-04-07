@@ -1,13 +1,12 @@
 extends Node2D
 
-var enemy_scene: PackedScene
+@export var enemy_scene: PackedScene
 var intervalo = 5.0
 var timer = 0
 
 func _process(delta):
 	if GameManager.estado != "RUNNING":
 		return
-
 	timer -= delta
 
 	if timer <= 0:

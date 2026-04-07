@@ -6,7 +6,7 @@ extends "res://scripts/Character.gd"
 func _ready():
 	speed = 300
 	vida = 10
-	dano = 1
+	dano = 20
 
 func _physics_process(delta):
 	var direcao = Vector2(
