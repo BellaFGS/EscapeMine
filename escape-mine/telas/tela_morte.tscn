@@ -38,6 +38,7 @@ theme_override_font_sizes/font_size = 27
 text = "VOCÊ MORREU!"
 
 [node name="btn_retomar" type="Button" parent="Menu" unique_id=1757579034]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_hsgcq")
 text = "REINICIAR"

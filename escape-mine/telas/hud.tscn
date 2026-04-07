@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bxshgsx3lpexj"]
+
+[ext_resource type="Script" uid="uid://cg7mvalaq3yci" path="res://scripts/hud_manager.gd" id="1_x568p"]
+[ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_ho806"]
+
+[node name="hud" type="CanvasLayer" unique_id=1794209725]
+
+[node name="control" type="Control" parent="." unique_id=826050976]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x568p")
+
+[node name="container" type="MarginContainer" parent="control" unique_id=116192819]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="contador_container" type="HBoxContainer" parent="control/container" unique_id=1790114569]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="text_timer" type="Label" parent="control/container/contador_container" unique_id=84640444]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ho806")
+theme_override_font_sizes/font_size = 40
+text = "TIMER: "
+
+[node name="text_contador" type="Label" parent="control/container/contador_container" unique_id=1257480403]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ho806")
+theme_override_font_sizes/font_size = 40
+text = "00"
+
+[node name="barras_player" type="HBoxContainer" parent="control/container" unique_id=1191471798]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="control/container/barras_player" unique_id=981313194]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 5
+
+[node name="BarraVida" type="ProgressBar" parent="control/container/barras_player/VBoxContainer" unique_id=1938656970]
+layout_mode = 2
+value = 100.0
+
+[node name="BarraDano" type="ProgressBar" parent="control/container/barras_player/VBoxContainer" unique_id=1445899704]
+layout_mode = 2
+max_value = 50.0

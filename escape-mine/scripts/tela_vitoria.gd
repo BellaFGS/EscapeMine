@@ -8,8 +8,7 @@ func _ready() -> void:
 func _on_btn_sair_pressed() -> void:
 	get_tree().quit()
 
-# Botão REINICIAR
-func _on_btn_reiniciar_pressed() -> void:
-	# Reinicia a cena principal do jogo sem voltar para a tela inicial
+
+func _on_btn_retomar_pressed() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()

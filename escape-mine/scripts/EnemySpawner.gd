@@ -1,8 +1,7 @@
 extends Node2D
 
-@export var enemy_scene: PackedScene
-@export var intervalo = 5.0
-
+var enemy_scene: PackedScene
+var intervalo = 5.0
 var timer = 0
 
 func _process(delta):

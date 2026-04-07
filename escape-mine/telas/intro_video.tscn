@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://25f6msodd5sj"]
+
+[ext_resource type="Script" uid="uid://c3v5uia4tqhir" path="res://scripts/intro_video.gd" id="1_dm6qt"]
+[ext_resource type="VideoStream" uid="uid://cng6is4inelgg" path="res://telas/video/escapeMineIntro.ogv" id="1_io162"]
+
+[node name="IntroVideo" type="Node2D" unique_id=1821177310]
+script = ExtResource("1_dm6qt")
+
+[node name="Control" type="Control" parent="." unique_id=900865623]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=1188256996]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 1279.0
+offset_bottom = 719.0
+stream = ExtResource("1_io162")
+autoplay = true
+expand = true
+
+[connection signal="finished" from="Control/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

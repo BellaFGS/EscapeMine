@@ -2,14 +2,14 @@ extends "res://scripts/Character.gd"
 
 var player
 
-func _ready():
+func _ready(): 
 	player = get_tree().get_first_node_in_group("player")
 	speed += GameManager.dificuldade * 10
 	vida += GameManager.dificuldade * 10
 	dano += GameManager.dificuldade * 2
 
 func _physics_process(delta):
-	if player:
+	if player: 
 		var direcao = (player.global_position - global_position).normalized()
 		mover(direcao)
 

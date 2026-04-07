@@ -8,7 +8,7 @@ func _ready() -> void:
 func _on_btn_comecar_pressed() -> void:
 	# Troca para a cena principal do jogo
 	# Ajuste o caminho para a cena correta do seu jogo
-	get_tree().change_scene("res://cenas/world_one.tscn")
+	get_tree().change_scene_to_file("res://telas/intro_video.tscn")
 
 # Botão SAIR
 func _on_btn_sair_pressed() -> void:

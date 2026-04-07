@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.18431373, 0.8, 0.35686275, 0.5568628)
+color = Color(0.10596786, 0.4521457, 0.19674501, 1)
 
 [node name="Menu" type="VBoxContainer" parent="." unique_id=99307723]
 anchors_preset = 14
@@ -35,6 +35,7 @@ theme_override_font_sizes/font_size = 26
 text = "Parabéns, você conseguiu escapar da caverna e prometeu a si mesmo pedir um aumento"
 
 [node name="btn_retomar" type="Button" parent="Menu" unique_id=1757579034]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_by7js")
 text = "RETOMAR"
