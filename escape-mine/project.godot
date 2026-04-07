@@ -25,6 +25,15 @@ DropSystem="*uid://qo7bqwyuq7rv"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[file_customization]
+
+folder_colors={
+"res://scenes/": "blue",
+"res://scripts/": "yellow",
+"res://sprites/": "purple",
+"res://telas/": "red"
+}
+
 [global_group]
 
 player=""
