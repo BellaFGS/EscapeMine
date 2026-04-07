@@ -21,3 +21,11 @@ func aumentar_dificuldade():
 func finalizar_jogo(resultado):
 	estado = resultado
 	print("Fim de jogo:", resultado)
+
+	# Instancia a tela correspondente
+	if resultado == "WIN":
+		var tela_vitoria = preload("res://telas/tela_vitoria.tscn").instantiate()
+		get_tree().current_scene.add_child(tela_vitoria)
+	elif resultado == "LOSE":
+		var tela_morte = preload("res://telas/tela_morte.tscn").instantiate()
+		get_tree().current_scene.add_child(tela_morte)

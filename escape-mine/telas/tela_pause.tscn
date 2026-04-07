@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://754k33pvudct"]
+
+[ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="1_2qjsy"]
+[ext_resource type="Script" uid="uid://rro8rvbrkfsu" path="res://scripts/tela_pause.gd" id="1_x51w4"]
+
+[node name="Tela_Pause" type="CanvasLayer" unique_id=1788756212]
+process_mode = 3
+script = ExtResource("1_x51w4")
+
+[node name="fundo_tela" type="ColorRect" parent="." unique_id=1125106746]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.12941177)
+
+[node name="Menu" type="VBoxContainer" parent="." unique_id=99307723]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -65.0
+offset_right = -1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="btn_retomar" type="Button" parent="Menu" unique_id=1757579034]
+layout_mode = 2
+theme = ExtResource("1_2qjsy")
+text = "RETOMAR"
+
+[node name="btn_sair" type="Button" parent="Menu" unique_id=848326941]
+layout_mode = 2
+theme = ExtResource("1_2qjsy")
+text = "SAIR"
+
+[connection signal="pressed" from="Menu/btn_retomar" to="." method="_on_btn_retomar_pressed"]
+[connection signal="pressed" from="Menu/btn_sair" to="." method="_on_btn_sair_pressed"]
