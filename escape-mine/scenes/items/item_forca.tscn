@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://b5kbin4hkstve"]
 
 [ext_resource type="Script" uid="uid://5qrevpocg8ps" path="res://scripts/Item_forca.gd" id="1_4itk4"]
+[ext_resource type="Texture2D" uid="uid://brgpwigy4mi8b" path="res://sprites/objects/items/BluePotion.png" id="2_pmmu3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x0h8x"]
+radius = 28.284271
 
 [node name="ItemForca" type="Area2D" unique_id=589116336]
+collision_layer = 4
 script = ExtResource("1_4itk4")
+
+[node name="texture" type="Sprite2D" parent="." unique_id=958898594]
+texture = ExtResource("2_pmmu3")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1082423822]
+position = Vector2(-1, 10)
+shape = SubResource("CircleShape2D_x0h8x")

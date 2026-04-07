@@ -1,9 +1,9 @@
 extends Node
 
-var tempo_restante = 60
-var dificuldade = 1
-var player_tem_chave = false
-var estado = "RUNNING"
+@export var tempo_restante = 60
+@export var dificuldade = 1
+@export var player_tem_chave = false
+@export var estado = "RUNNING"
 
 func _process(delta):
 	if estado != "RUNNING":

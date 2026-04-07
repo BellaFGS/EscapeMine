@@ -3,57 +3,61 @@
 [ext_resource type="Script" uid="uid://bh8bcw7piq4uw" path="res://scripts/Enemy.gd" id="1_7p1mj"]
 [ext_resource type="Texture2D" uid="uid://b2w4dp58ocr5g" path="res://sprites/characters/slime.png" id="2_md0e3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
-atlas = ExtResource("2_md0e3")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="Animation" id="Animation_md0e3"]
+resource_name = "walk_down"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
-atlas = ExtResource("2_md0e3")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="Animation" id="Animation_4ra3w"]
+resource_name = "walk_left"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
-atlas = ExtResource("2_md0e3")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="Animation" id="Animation_5uy6h"]
+resource_name = "walk_right"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
-atlas = ExtResource("2_md0e3")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="Animation" id="Animation_c4w8v"]
+resource_name = "walk_up"
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_7p1mj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ra3w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5uy6h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c4w8v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xwavj")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xwavj"]
+_data = {
+&"walk_down": SubResource("Animation_md0e3"),
+&"walk_left": SubResource("Animation_4ra3w"),
+&"walk_right": SubResource("Animation_5uy6h"),
+&"walk_up": SubResource("Animation_c4w8v")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
-size = Vector2(11, 1.5)
+size = Vector2(10.200003, 8.550003)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=672706225]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+size = Vector2(10.700001, 8.900002)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=672706225 groups=["enemy"]]
 scale = Vector2(5, 5)
 collision_layer = 2
-collision_mask = 9
+collision_mask = 11
 script = ExtResource("1_7p1mj")
 
-[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=580554484]
-position = Vector2(-0.39999998, -5.9999995)
-sprite_frames = SubResource("SpriteFrames_7p1mj")
-animation = &"idle"
-autoplay = "idle"
+[node name="Texture" type="Sprite2D" parent="." unique_id=1180903061]
+position = Vector2(-0.2, -5.6)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("2_md0e3")
+hframes = 7
+vframes = 5
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=606936104]
+libraries/ = SubResource("AnimationLibrary_xwavj")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1933795473]
-position = Vector2(0.100000024, 4.7683716e-07)
+position = Vector2(-0.29999992, -3.5249991)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_4ra3w")
+
+[node name="hurtBox" type="Area2D" parent="." unique_id=1672287291]
+collision_layer = 16
+collision_mask = 32
+
+[node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=411996516]
+position = Vector2(-0.25000042, -3.35)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_md0e3")
+debug_color = Color(0.987686, 0, 0.3153667, 0.41960785)
+
+[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
