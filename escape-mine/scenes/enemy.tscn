@@ -30,7 +30,7 @@ size = Vector2(10.200003, 8.550003)
 size = Vector2(10.700001, 8.900002)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=672706225 groups=["enemy"]]
-scale = Vector2(5, 5)
+scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 11
 script = ExtResource("1_7p1mj")

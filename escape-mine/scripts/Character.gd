@@ -3,9 +3,9 @@ extends CharacterBody2D
 @onready var anim = get_node_or_null("Animator")
 @onready var texture = get_node_or_null("Texture")
 
-var vida = 100
-var dano = 10
-var speed = 100
+@export var speed = 100
+@export var vida = 5
+@export var dano = 1
 
 var ultima_direcao = "down"
 var esta_morto = false
@@ -74,6 +74,7 @@ func receber_dano(valor, origem: Vector2):
 		return
 	
 	vida -= valor
+	#emit_signal("vida_alterada", vida)
 	
 	tomando_dano = true
 	

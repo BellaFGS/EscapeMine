@@ -1,18 +1,22 @@
 [gd_scene format=3 uid="uid://cixpcdgmomouj"]
 
 [ext_resource type="Script" uid="uid://1lswx0fjmkeq" path="res://scripts/Item_chave.gd" id="1_wqqx3"]
-[ext_resource type="Texture2D" uid="uid://brgpwigy4mi8b" path="res://sprites/objects/items/BluePotion.png" id="2_gk4im"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0dynu"]
-radius = 26.305893
+[sub_resource type="CanvasTexture" id="CanvasTexture_wqqx3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk4im"]
+size = Vector2(32, 32)
 
 [node name="ItemChave" type="Area2D" unique_id=82965891]
 collision_layer = 4
 script = ExtResource("1_wqqx3")
 
 [node name="texture" type="Sprite2D" parent="." unique_id=1036862829]
-texture = ExtResource("2_gk4im")
+self_modulate = Color(1, 0.7411765, 0, 1)
+scale = Vector2(33, 33)
+texture = SubResource("CanvasTexture_wqqx3")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=2129788443]
-position = Vector2(0, 11)
-shape = SubResource("CircleShape2D_0dynu")
+shape = SubResource("RectangleShape2D_gk4im")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

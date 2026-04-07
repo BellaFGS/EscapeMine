@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://25f6msodd5sj"]
+
+[ext_resource type="Script" uid="uid://c3v5uia4tqhir" path="res://scripts/intro_video.gd" id="1_dm6qt"]
+[ext_resource type="VideoStream" uid="uid://bn1nxs61i626s" path="res://telas/video/escapeMineIntro.ogv" id="1_io162"]
+[ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="3_hpd4y"]
+
+[node name="IntroVideo" type="Node2D" unique_id=1821177310]
+script = ExtResource("1_dm6qt")
+
+[node name="Control" type="Control" parent="." unique_id=900865623]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=1188256996]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 1279.0
+offset_bottom = 719.0
+stream = ExtResource("1_io162")
+autoplay = true
+expand = true
+
+[node name="Button" type="Button" parent="Control" unique_id=852827724]
+layout_mode = 0
+offset_left = 1067.0
+offset_top = 646.0
+offset_right = 1249.0
+offset_bottom = 691.0
+theme_override_fonts/font = ExtResource("3_hpd4y")
+theme_override_font_sizes/font_size = 30
+text = "PULAR INTRO"
+
+[connection signal="finished" from="Control/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

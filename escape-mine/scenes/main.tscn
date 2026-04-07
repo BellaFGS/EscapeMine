@@ -1,14 +1,31 @@
 [gd_scene format=3 uid="uid://dqmtqk8rhl5d3"]
 
 [ext_resource type="PackedScene" uid="uid://bv5252sg3b7gi" path="res://scenes/player.tscn" id="1_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://b5kbin4hkstve" path="res://scenes/items/item_forca.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://du2do3bckhynf" path="res://scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://d3lxxw82qo3oy" path="res://scenes/enemy_spawner.tscn" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://754k33pvudct" path="res://telas/tela_pause.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node2D" unique_id=224908309]
-
-[node name="ItemForca" parent="." unique_id=589116336 instance=ExtResource("2_0wfyh")]
-position = Vector2(595, 315)
+script = ExtResource("1_jyhfs")
 
 [node name="player" parent="." unique_id=2066799720 instance=ExtResource("1_0wfyh")]
 position = Vector2(248.99998, 207.99998)
-scale = Vector2(5, 5)
+scale = Vector2(2, 2)
 collision_mask = 12
+
+[node name="Tela_Pause" parent="." unique_id=1788756212 instance=ExtResource("3_sugp2")]
+
+[node name="EnemySpawner" parent="." unique_id=346873360 instance=ExtResource("1_tbgi4")]
+position = Vector2(-20598, 14388)
+
+[node name="EnemySpawner2" parent="." unique_id=317786326 instance=ExtResource("1_tbgi4")]
+position = Vector2(18298, 17300)
+
+[node name="EnemySpawner3" parent="." unique_id=827817483 instance=ExtResource("1_tbgi4")]
+position = Vector2(28344, 6199)
+
+[node name="EnemySpawner4" parent="." unique_id=2134977065 instance=ExtResource("1_tbgi4")]
+position = Vector2(11263, -17831)
+
+[node name="EnemySpawner5" parent="." unique_id=893714358 instance=ExtResource("1_tbgi4")]
+position = Vector2(-17575, -11744)

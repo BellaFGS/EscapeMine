@@ -2,14 +2,14 @@ extends "res://scripts/Character.gd"
 
 var player
 
-func _ready():
+func _ready(): 
 	player = get_tree().get_first_node_in_group("player")
 	speed += GameManager.dificuldade * 10
 	vida += GameManager.dificuldade * 10
 	dano += GameManager.dificuldade * 2
 
 func _physics_process(delta):
-	if player:
+	if player: 
 		var direcao = (player.global_position - global_position).normalized()
 		mover(direcao)
 
@@ -21,7 +21,9 @@ func morrer():
 		get_parent().add_child(item)
 		item.global_position = global_position
 
-	queue_free()
+	# desativa colisão com segurança
+	$hurtBox.set_deferred("monitoring", false)
+	call_deferred("queue_free")
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	print("colidiu com:", area)

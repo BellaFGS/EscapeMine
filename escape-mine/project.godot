@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="EscapeMine"
+run/main_scene="uid://25f6msodd5sj"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,6 +24,15 @@ DropSystem="*uid://qo7bqwyuq7rv"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+
+[file_customization]
+
+folder_colors={
+"res://scenes/": "blue",
+"res://scripts/": "yellow",
+"res://sprites/": "purple",
+"res://telas/": "red"
+}
 
 [global_group]
 

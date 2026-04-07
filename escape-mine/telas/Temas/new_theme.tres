@@ -1,0 +1,21 @@
+[gd_resource type="Theme" format=3 uid="uid://b31pt65ykruq8"]
+
+[ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="1_fg1gk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_evgwg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qjsy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x51w4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3df4y"]
+
+[resource]
+Button/colors/font_focus_color = Color(0.3764706, 0.64705884, 0.99215686, 1)
+Button/colors/font_hover_color = Color(0.3764706, 0.64705884, 0.99215686, 1)
+Button/font_sizes/font_size = 27
+Button/fonts/font = ExtResource("1_fg1gk")
+Button/styles/focus = SubResource("StyleBoxEmpty_evgwg")
+Button/styles/hover = SubResource("StyleBoxEmpty_2qjsy")
+Button/styles/normal = SubResource("StyleBoxEmpty_x51w4")
+Button/styles/pressed = SubResource("StyleBoxEmpty_3df4y")
