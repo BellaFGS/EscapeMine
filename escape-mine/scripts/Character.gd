@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var texture = get_node_or_null("Texture")
 
 @export var speed = 100
-@export var vida = 10
+@export var vida = 5
 @export var dano = 1
 
 var ultima_direcao = "down"
@@ -74,7 +74,7 @@ func receber_dano(valor, origem: Vector2):
 		return
 	
 	vida -= valor
-	emit_signal("vida_alterada", vida)
+	#emit_signal("vida_alterada", vida)
 	
 	tomando_dano = true
 	

@@ -35,3 +35,9 @@ func finalizar_jogo(resultado):
 	elif resultado == "LOSE":
 		var tela_morte = preload("res://telas/tela_morte.tscn").instantiate()
 		get_tree().current_scene.add_child(tela_morte)
+
+func resetar():
+	estado = "RUNNING"
+	tempo_restante = 60
+	dificuldade = 1
+	player_tem_chave = false

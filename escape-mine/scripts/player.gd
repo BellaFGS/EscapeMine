@@ -1,13 +1,12 @@
 extends "res://scripts/Character.gd"
 
-signal vida_alterada(valor)
-signal dano_alterado(valor)
+#signal vida_alterada(valor)
+#signal dano_alterado(valor)
 
 func _ready():
 	speed = 300
 	vida = 10
 	dano = 1
-	
 
 func _physics_process(delta):
 	var direcao = Vector2(
@@ -24,10 +23,9 @@ func morrer():
 
 func pegar_item(item):
 	item.aplicar(self)
-	emit_signal("vida_alterada", vida)
-	emit_signal("dano_alterado", dano)
+	#emit_signal("vida_alterada", vida)
+	#emit_signal("dano_alterado", dano)
 	item.queue_free()
-
 
 func _on_animator_animation_finished(anim_name: StringName) -> void:
 	if anim_name.begins_with("attack"):

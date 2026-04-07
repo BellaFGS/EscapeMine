@@ -34,16 +34,15 @@ theme_override_fonts/font = ExtResource("2_aqq3q")
 theme_override_font_sizes/font_size = 26
 text = "Parabéns, você conseguiu escapar da caverna e prometeu a si mesmo pedir um aumento"
 
-[node name="btn_retomar" type="Button" parent="Menu" unique_id=1757579034]
-visible = false
+[node name="btn_voltar" type="Button" parent="Menu" unique_id=1757579034]
 layout_mode = 2
 theme = ExtResource("2_by7js")
-text = "RETOMAR"
+text = "VOLTAR PARA O INÍCIO"
 
 [node name="btn_sair" type="Button" parent="Menu" unique_id=848326941]
 layout_mode = 2
 theme = ExtResource("2_by7js")
 text = "SAIR"
 
-[connection signal="pressed" from="Menu/btn_retomar" to="." method="_on_btn_retomar_pressed"]
+[connection signal="pressed" from="Menu/btn_voltar" to="." method="_on_btn_voltar_pressed"]
 [connection signal="pressed" from="Menu/btn_sair" to="." method="_on_btn_sair_pressed"]

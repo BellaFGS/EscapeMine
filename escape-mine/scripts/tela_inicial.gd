@@ -3,6 +3,7 @@ extends CanvasLayer
 func _ready() -> void:
 	# Garantir que a tela inicial esteja visível ao iniciar o jogo
 	visible = true
+	get_tree().paused = false
 
 # Botão COMEÇAR
 func _on_btn_comecar_pressed() -> void:
