@@ -296,11 +296,13 @@ frame = 7
 libraries/ = SubResource("AnimationLibrary_xwavj")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1933795473]
+visible = false
 position = Vector2(-0.29999992, -3.5249991)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_4ra3w")
 
 [node name="hurtBox" type="Area2D" parent="." unique_id=1672287291]
+visible = false
 collision_layer = 16
 collision_mask = 32
 
