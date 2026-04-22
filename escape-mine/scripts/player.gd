@@ -1,7 +1,8 @@
 extends "res://scripts/Character.gd"
 
-#signal vida_alterada(valor)
-#signal dano_alterado(valor)
+signal vida_alterada(valor)
+signal dano_alterado(valor)
+
 
 func _ready():
 	speed = 300

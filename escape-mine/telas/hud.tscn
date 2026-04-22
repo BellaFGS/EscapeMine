@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxshgsx3lpexj"]
 
-[ext_resource type="Script" uid="uid://cg7mvalaq3yci" path="res://scripts/hud_manager.gd" id="1_x568p"]
+[ext_resource type="Script" uid="uid://cg7mvalaq3yci" path="res://scripts/HudManager.gd" id="1_x568p"]
 [ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_ho806"]
 
 [node name="hud" type="CanvasLayer" unique_id=1794209725]

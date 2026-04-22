@@ -88,14 +88,24 @@ func receber_dano(valor, origem: Vector2):
 	
 	if vida <= 0:
 		morrer()
+
 # 💀 MORTE
+#func morrer():
+	#esta_morto = true
+	#velocity = Vector2.ZERO
+	#
+	##anim.play("death")
+	#
+	##await anim.animation_finished
+	#queue_free()
+	
 func morrer():
+	if esta_morto:
+		return
 	esta_morto = true
-	velocity = Vector2.ZERO
-	
-	#anim.play("death")
-	
-	#await anim.animation_finished
+	call_deferred("_morrer_impl")
+
+func _morrer_impl():
 	queue_free()
 
 func flash_dano():

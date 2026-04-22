@@ -14,16 +14,24 @@ func _physics_process(delta):
 		mover(direcao)
 
 func morrer():
+	if esta_morto:
+		return
+	esta_morto = true
+	call_deferred("_morrer_safe")
+
+func _morrer_safe():
 	var item_scene = DropSystem.gerar_drop()
 
 	if item_scene:
 		var item = item_scene.instantiate()
-		get_parent().add_child(item)
-		item.global_position = global_position
+		
+		var scene = get_tree().current_scene
+		if scene:
+			scene.add_child(item)
+			item.global_position = global_position
 
-	# desativa colisão com segurança
 	$hurtBox.set_deferred("monitoring", false)
-	call_deferred("queue_free")
+	queue_free()
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	print("colidiu com:", area)

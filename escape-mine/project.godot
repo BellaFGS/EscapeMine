@@ -85,6 +85,7 @@ pause={
 2d_physics/layer_4="mapa"
 2d_physics/layer_5="hurt"
 2d_physics/layer_6="hit"
+2d_physics/layer_7="traps"
 
 [physics]
 
