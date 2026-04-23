@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://m4aukhpqlmv8"]
+
+[ext_resource type="Script" uid="uid://c4ta2e7aocuej" path="res://scripts/fantasma.gd" id="1_t212r"]
+[ext_resource type="PackedScene" uid="uid://cjdfuhvb1303f" path="res://scenes/barra_vida.tscn" id="2_n64ir"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_n64ir"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hk8gv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t212r"]
+
+[node name="Fantasma" type="CharacterBody2D" unique_id=1973135355 groups=["enemy"]]
+script = ExtResource("1_t212r")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=777088505]
+scale = Vector2(13.5, 11.5)
+texture = SubResource("CanvasTexture_n64ir")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1129512150]
+shape = SubResource("CircleShape2D_hk8gv")
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=468177457]
+
+[node name="hurtBox" type="Area2D" parent="." unique_id=1809746303]
+
+[node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=118639856]
+shape = SubResource("CircleShape2D_t212r")
+
+[node name="BarraVida" parent="." unique_id=716871242 instance=ExtResource("2_n64ir")]
+visible = true
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 8.0
+offset_bottom = -9.0

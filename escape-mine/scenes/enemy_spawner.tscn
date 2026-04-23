@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://d3lxxw82qo3oy"]
 
 [ext_resource type="Script" uid="uid://bqql2c8f54el7" path="res://scripts/EnemySpawner.gd" id="1_ks1gq"]
-[ext_resource type="PackedScene" uid="uid://c2nuq8dccxc0i" path="res://scenes/enemy.tscn" id="2_devoi"]
+[ext_resource type="PackedScene" uid="uid://c2nuq8dccxc0i" path="res://scenes/slime.tscn" id="2_devoi"]
+[ext_resource type="PackedScene" uid="uid://bmf7v555iqyes" path="res://scenes/esqueleto.tscn" id="3_ih16b"]
+[ext_resource type="PackedScene" uid="uid://m4aukhpqlmv8" path="res://scenes/fantasma.tscn" id="4_31irv"]
 
-[node name="EnemySpawner" type="Node2D" unique_id=317786326]
+[sub_resource type="CanvasTexture" id="CanvasTexture_ih16b"]
+
+[node name="EnemySpawner" type="Node2D" unique_id=317786326 groups=["spawner"]]
 script = ExtResource("1_ks1gq")
-enemy_scene = ExtResource("2_devoi")
+slime_scene = ExtResource("2_devoi")
+esqueleto_scene = ExtResource("3_ih16b")
+fantasma_scene = ExtResource("4_31irv")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=459171718]
+texture = SubResource("CanvasTexture_ih16b")
