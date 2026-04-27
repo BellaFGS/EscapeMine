@@ -27,6 +27,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="contador_container" type="HBoxContainer" parent="control/container" unique_id=1790114569]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -68,3 +69,7 @@ value = 100.0
 [node name="BarraDano" type="ProgressBar" parent="control/container/barras_player/VBoxContainer" unique_id=1445899704]
 layout_mode = 2
 max_value = 50.0
+
+[node name="BarraXp" type="ProgressBar" parent="control/container/barras_player/VBoxContainer" unique_id=1962713491]
+visible = false
+layout_mode = 2

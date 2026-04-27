@@ -5,6 +5,8 @@ signal dano_alterado(valor)
 
 
 func _ready():
+	add_to_group("player")
+
 	speed = 300
 	vida = 10
 	dano = 20
@@ -24,10 +26,14 @@ func morrer():
 
 func pegar_item(item):
 	item.aplicar(self)
-	#emit_signal("vida_alterada", vida)
-	#emit_signal("dano_alterado", dano)
+	emit_signal("vida_alterada", vida)
+	emit_signal("dano_alterado", dano)
 	item.queue_free()
 
+func receber_dano(valor, origem: Vector2):
+	vida -= valor
+	emit_signal("vida_alterada", vida)
+	
 func _on_animator_animation_finished(anim_name: StringName) -> void:
 	if anim_name.begins_with("attack"):
 		is_attack = false
