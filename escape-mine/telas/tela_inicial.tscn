@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://d2wfv4xd1rnd3" path="res://scripts/tela_inicial.gd" id="1_6hiqg"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="1_xs8lk"]
+[ext_resource type="Texture2D" uid="uid://deaqmoxihdbuo" path="res://sprites/artes/FundoJogo.png" id="2_5sd8u"]
 
 [node name="Tela_Inicial" type="CanvasLayer" unique_id=1788756212]
 script = ExtResource("1_6hiqg")
+
+[node name="fundo_tela2" type="TextureRect" parent="." unique_id=608561164]
+offset_left = -179.0
+offset_right = 1460.5415
+offset_bottom = 722.0
+texture = ExtResource("2_5sd8u")
 
 [node name="fundo_tela" type="ColorRect" parent="." unique_id=1125106746]
 anchors_preset = 15
@@ -12,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.85490197)
+color = Color(0, 0, 0, 0.18039216)
 
 [node name="Menu" type="VBoxContainer" parent="." unique_id=99307723]
 anchors_preset = 14
