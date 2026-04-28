@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bv5252sg3b7gi"]
 
 [ext_resource type="Script" uid="uid://cwkwh6npbwvsd" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://cjkoe6s4c1c26" path="res://scripts/Inventario.gd" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://2gc1nya7yivu" path="res://sprites/characters/player.png" id="2_g2els"]
 [ext_resource type="Script" uid="uid://hy37j6jnwt5y" path="res://scripts/hit_box.gd" id="3_qhqgy"]
 
@@ -1292,6 +1293,9 @@ size = Vector2(10, 15)
 [node name="player" type="CharacterBody2D" unique_id=2066799720 groups=["player"]]
 collision_mask = 14
 script = ExtResource("1_3vyb7")
+
+[node name="Inventario" type="Node2D" parent="." unique_id=413010151]
+script = ExtResource("2_dqkch")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=1201391331]
 position = Vector2(-0.5, -17)

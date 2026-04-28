@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bmf7v555iqyes"]
+
+[ext_resource type="Script" uid="uid://dgbkn4utbimig" path="res://scripts/Esqueleto.gd" id="1_aglst"]
+[ext_resource type="PackedScene" uid="uid://cjdfuhvb1303f" path="res://scenes/barra_vida.tscn" id="2_oxjr5"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_oxjr5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20qjs"]
+size = Vector2(18, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aglst"]
+size = Vector2(16, 16)
+
+[node name="Esqueleto" type="CharacterBody2D" unique_id=1797031235 groups=["enemy"]]
+script = ExtResource("1_aglst")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=659011188]
+position = Vector2(0, -9.536743e-07)
+scale = Vector2(18, 18)
+texture = SubResource("CanvasTexture_oxjr5")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=2113694502]
+shape = SubResource("RectangleShape2D_20qjs")
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=1546996488]
+
+[node name="hurtBox" type="Area2D" parent="." unique_id=305173592]
+
+[node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=293969665]
+shape = SubResource("RectangleShape2D_aglst")
+
+[node name="BarraVida" parent="." unique_id=716871242 instance=ExtResource("2_oxjr5")]
+visible = true
+offset_left = -8.0
+offset_top = -12.0
+offset_right = 7.0
+offset_bottom = -10.0

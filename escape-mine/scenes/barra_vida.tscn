@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cjdfuhvb1303f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsipl"]
+bg_color = Color(0.20871013, 0.20871016, 0.20871004, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54s70"]
+bg_color = Color(0.6666667, 0, 0.03137255, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(0, 0, 0, 0.5058824)
+
+[node name="BarraVida" type="ProgressBar" unique_id=716871242]
+visible = false
+offset_right = 48.0
+offset_bottom = 6.0
+theme_override_styles/background = SubResource("StyleBoxFlat_wsipl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_54s70")
+value = 50.0
+show_percentage = false

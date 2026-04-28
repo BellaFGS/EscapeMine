@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://754k33pvudct" path="res://telas/tela_pause.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://d3lxxw82qo3oy" path="res://scenes/enemy_spawner.tscn" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://ca0wfsf7mwjjj" path="res://sprites/tilesets/PC _ Computer - Stardew Valley - Tilesets - The Mines _ Skull Cavern.png" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c2nuq8dccxc0i" path="res://scenes/slime.tscn" id="5_tefeu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 texture = ExtResource("5_tbgi4")
@@ -5179,10 +5179,10 @@ sources/0 = SubResource("TileSetAtlasSource_tefeu")
 [node name="Main" type="Node2D" unique_id=224908309]
 script = ExtResource("1_jyhfs")
 
-[node name="TileMap" type="TileMap" parent="." unique_id=585627674]
+[node name="map" type="TileMapLayer" parent="." unique_id=932798031]
+use_parent_material = true
+tile_map_data = PackedByteArray(0, 0, 25, 0, 21, 0, 0, 0, 3, 0, 29, 0, 0, 0, 25, 0, 22, 0, 0, 0, 3, 0, 30, 0, 0, 0, 26, 0, 21, 0, 0, 0, 3, 0, 29, 0, 0, 16, 26, 0, 22, 0, 0, 0, 3, 0, 30, 0, 0, 16)
 tile_set = SubResource("TileSet_o6xl0")
-format = 2
-layer_0/tile_data = PackedInt32Array(-393080, 196608, 29, -327544, 196608, 30, -393079, 196608, 268435485, -327543, 196608, 268435486, 1376281, 196608, 29, 1441817, 196608, 30, 1376282, 196608, 268435485, 1441818, 196608, 268435486)
 
 [node name="player" parent="." unique_id=2066799720 instance=ExtResource("1_0wfyh")]
 position = Vector2(248.99998, 207.99998)
@@ -5191,7 +5191,9 @@ collision_mask = 12
 
 [node name="Tela_Pause" parent="." unique_id=1788756212 instance=ExtResource("3_sugp2")]
 
-[node name="EnemySpawner" parent="." unique_id=317786326 instance=ExtResource("4_jyhfs")]
-position = Vector2(732, 414)
+[node name="Slime" parent="." unique_id=672706225 instance=ExtResource("5_tefeu")]
+position = Vector2(482, 226)
 
-[node name="hud" parent="." unique_id=1794209725 instance=ExtResource("6_tefeu")]
+[node name="EnemySpawner" parent="." unique_id=317786326 node_paths=PackedStringArray("spawn_points") instance=ExtResource("4_jyhfs")]
+position = Vector2(372, 260)
+spawn_points = [NodePath(".")]
