@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="1_2qjsy"]
 [ext_resource type="Script" uid="uid://rro8rvbrkfsu" path="res://scripts/tela_pause.gd" id="1_x51w4"]
+[ext_resource type="Texture2D" uid="uid://yaay6v72jgqh" path="res://sprites/artes/btn Pause.png" id="3_3df4y"]
 
 [node name="Tela_Pause" type="CanvasLayer" unique_id=1788756212]
 process_mode = 3
@@ -36,6 +37,13 @@ text = "RETOMAR"
 layout_mode = 2
 theme = ExtResource("1_2qjsy")
 text = "SAIR"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=201148708]
+offset_left = 66.0
+offset_top = 67.0
+offset_right = 126.0
+offset_bottom = 139.0
+texture = ExtResource("3_3df4y")
 
 [connection signal="pressed" from="Menu/btn_retomar" to="." method="_on_btn_retomar_pressed"]
 [connection signal="pressed" from="Menu/btn_sair" to="." method="_on_btn_sair_pressed"]
