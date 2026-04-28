@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d2wfv4xd1rnd3" path="res://scripts/tela_inicial.gd" id="1_6hiqg"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="1_xs8lk"]
 [ext_resource type="Texture2D" uid="uid://deaqmoxihdbuo" path="res://sprites/artes/FundoJogo.png" id="2_5sd8u"]
+[ext_resource type="FontFile" uid="uid://s1ji84wvit06" path="res://telas/CutePixel.ttf" id="4_5bdny"]
 
 [node name="Tela_Inicial" type="CanvasLayer" unique_id=1788756212]
 script = ExtResource("1_6hiqg")
@@ -40,6 +41,19 @@ text = "COMEÇAR"
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
 text = "SAIR"
+
+[node name="Label" type="Label" parent="." unique_id=1923486494]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -244.0
+offset_top = 110.0
+offset_right = 244.0
+offset_bottom = 221.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_5bdny")
+theme_override_font_sizes/font_size = 110
+text = "Escape Mine"
 
 [connection signal="pressed" from="Menu/btn_comecar" to="." method="_on_btn_comecar_pressed"]
 [connection signal="pressed" from="Menu/btn_sair" to="." method="_on_btn_sair_pressed"]
