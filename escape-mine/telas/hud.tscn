@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cg7mvalaq3yci" path="res://scripts/HudManager.gd" id="1_x568p"]
 [ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_ho806"]
-[ext_resource type="Script" uid="uid://b43y6glha8yvq" path="res://telas/barra_dano_textura.gd" id="3_am62c"]
+[ext_resource type="Script" path="res://telas/barra_dano_textura.gd" id="3_am62c"]
 [ext_resource type="Texture2D" uid="uid://caragfwj1jahx" path="res://sprites/Bars/healthbarUnder.png" id="3_tiyv1"]
-[ext_resource type="Script" uid="uid://d2kdrmtoefi07" path="res://telas/barra_vida_textura.gd" id="4_logno"]
+[ext_resource type="Script" path="res://telas/barra_vida_textura.gd" id="4_logno"]
 [ext_resource type="Texture2D" uid="uid://kkpnlavv23uq" path="res://sprites/Bars/healthbarProgress.png" id="4_prpkp"]
 [ext_resource type="Texture2D" uid="uid://dabo2gmr6qfu" path="res://sprites/Bars/damagebarProgress.png" id="4_q0dk2"]
 
@@ -57,24 +57,6 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_ho806")
 theme_override_font_sizes/font_size = 40
 text = "00"
-
-[node name="barras_player" type="HBoxContainer" parent="control/container" unique_id=1191471798]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="control/container/barras_player" unique_id=981313194]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_constants/separation = 5
-
-[node name="BarraVida" type="ProgressBar" parent="control/container/barras_player/VBoxContainer" unique_id=1938656970]
-layout_mode = 2
-value = 100.0
-
-[node name="BarraDano" type="ProgressBar" parent="control/container/barras_player/VBoxContainer" unique_id=1445899704]
-layout_mode = 2
-max_value = 50.0
 
 [node name="BarraDanoTextura" type="TextureProgressBar" parent="control" unique_id=1098307183]
 layout_mode = 0

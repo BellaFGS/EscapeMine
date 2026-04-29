@@ -1,6 +1,6 @@
 extends "res://scripts/Character.gd"
 
-signal vida_alterada(valor)
+#signal vida_alterada(valor)
 signal forca_alterado(valor)
 signal xp_alterado(valor)
 signal nivel_up(nivel)

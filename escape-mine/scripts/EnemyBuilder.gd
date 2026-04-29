@@ -2,7 +2,7 @@ extends Node
 
 var slime_scene
 var vida = 5
-var forca = 1
+var forca = 10
 var cor = Color(0, 1, 0)
 
 func set_vida(v):
