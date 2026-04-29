@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d3lxxw82qo3oy" path="res://scenes/enemy_spawner.tscn" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://ca0wfsf7mwjjj" path="res://sprites/tilesets/PC _ Computer - Stardew Valley - Tilesets - The Mines _ Skull Cavern.png" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://c2nuq8dccxc0i" path="res://scenes/slime.tscn" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="7_o6xl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 texture = ExtResource("5_tbgi4")
@@ -5197,3 +5198,5 @@ position = Vector2(482, 226)
 [node name="EnemySpawner" parent="." unique_id=317786326 node_paths=PackedStringArray("spawn_points") instance=ExtResource("4_jyhfs")]
 position = Vector2(372, 260)
 spawn_points = [NodePath(".")]
+
+[node name="hud" parent="." unique_id=1794209725 instance=ExtResource("7_o6xl0")]

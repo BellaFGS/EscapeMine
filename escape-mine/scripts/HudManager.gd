@@ -14,16 +14,16 @@ func _ready():
 		return
 	
 	player.vida_alterada.connect(atualizar_vida)
-	player.dano_alterado.connect(atualizar_dano)
+	player.forca_alterado.connect(forca_alterado)
 
 	atualizar_vida(player.vida)
-	atualizar_dano(player.dano)
+	forca_alterado(player.forca)
 	
 	
 func atualizar_vida(valor):
 	barra_vida.value = valor
 
-func atualizar_dano(valor):
+func forca_alterado(valor):
 	barra_dano.value = valor
 
 #func atualizar_tempo(valor):

@@ -69,21 +69,19 @@ size_flags_horizontal = 8
 theme_override_constants/separation = 5
 
 [node name="BarraVida" type="ProgressBar" parent="control/container/barras_player/VBoxContainer" unique_id=1938656970]
-visible = false
 layout_mode = 2
 value = 100.0
 
 [node name="BarraDano" type="ProgressBar" parent="control/container/barras_player/VBoxContainer" unique_id=1445899704]
-visible = false
 layout_mode = 2
 max_value = 50.0
 
 [node name="BarraDanoTextura" type="TextureProgressBar" parent="control" unique_id=1098307183]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 8.0
-offset_right = 73.0
-offset_bottom = 18.0
+offset_left = 10.0
+offset_top = 50.999996
+offset_right = 74.0
+offset_bottom = 60.999996
 scale = Vector2(2.5, 2.5)
 texture_under = ExtResource("3_tiyv1")
 texture_progress = ExtResource("4_q0dk2")
@@ -92,9 +90,9 @@ script = ExtResource("3_am62c")
 [node name="BarraVidaTextura" type="TextureProgressBar" parent="control" unique_id=30270309]
 layout_mode = 0
 offset_left = 10.0
-offset_top = 47.0
+offset_top = 10.000003
 offset_right = 74.0
-offset_bottom = 57.0
+offset_bottom = 20.000004
 scale = Vector2(2.5, 2.5)
 texture_under = ExtResource("3_tiyv1")
 texture_progress = ExtResource("4_prpkp")
