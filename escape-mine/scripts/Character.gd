@@ -68,8 +68,10 @@ func atacar():
 func receber_dano(valor, origem: Vector2):
 	if esta_morto:
 		return
-	
+		
+
 	vida -= valor
+	emit_signal("vida_alterada", vida)
 	atualizar_barra_vida()
 	tomando_dano = true
 	
