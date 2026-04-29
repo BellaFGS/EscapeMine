@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://up548yd0hqea" path="res://scripts/tela_vitoria.gd" id="1_6r4ui"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="2_by7js"]
-[ext_resource type="FontFile" uid="uid://s1ji84wvit06" path="res://telas/CutePixel.ttf" id="3_by7js"]
+[ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="3_aqq3q"]
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_aqq3q"]
 
 [node name="Tela_Vitoria" type="CanvasLayer" unique_id=1788756212]
@@ -49,7 +49,7 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
-theme_override_fonts/font = ExtResource("3_by7js")
+theme_override_fonts/font = ExtResource("3_aqq3q")
 theme_override_font_sizes/font_size = 35
 text = "Parabéns, você conseguiu escapar 
 da caverna e prometeu a si mesmo 
