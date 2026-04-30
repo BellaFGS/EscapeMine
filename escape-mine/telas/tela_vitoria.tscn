@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://blqrsmgh2a1nm"]
 
 [ext_resource type="Script" uid="uid://up548yd0hqea" path="res://scripts/tela_vitoria.gd" id="1_6r4ui"]
-[ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_aqq3q"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="2_by7js"]
+[ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="3_aqq3q"]
+[ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_aqq3q"]
 
 [node name="Tela_Vitoria" type="CanvasLayer" unique_id=1788756212]
 process_mode = 3
@@ -26,14 +27,6 @@ offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Menu" unique_id=259556751]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_aqq3q")
-theme_override_font_sizes/font_size = 26
-text = "Parabéns, você conseguiu escapar da caverna e prometeu a si mesmo pedir um aumento"
-
 [node name="btn_voltar" type="Button" parent="Menu" unique_id=1757579034]
 layout_mode = 2
 theme = ExtResource("2_by7js")
@@ -43,6 +36,44 @@ text = "VOLTAR PARA O INÍCIO"
 layout_mode = 2
 theme = ExtResource("2_by7js")
 text = "SAIR"
+
+[node name="Label" type="Label" parent="." unique_id=259556751]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -306.0
+offset_top = 487.0
+offset_right = 304.0
+offset_bottom = 601.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("3_aqq3q")
+theme_override_font_sizes/font_size = 35
+text = "Parabéns, você conseguiu escapar 
+da caverna e prometeu a si mesmo 
+pedir um aumento"
+horizontal_alignment = 1
+
+[node name="Voce Venceu!" type="Label" parent="." unique_id=956935653]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.0
+offset_top = -217.0
+offset_right = 305.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("4_aqq3q")
+theme_override_font_sizes/font_size = 67
+text = "VOCÊ VENCEU!"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Menu/btn_voltar" to="." method="_on_btn_voltar_pressed"]
 [connection signal="pressed" from="Menu/btn_sair" to="." method="_on_btn_sair_pressed"]
