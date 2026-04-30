@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dvnys41yw1gfb" path="res://sprites/characters/ghoust.png" id="2_2mxae"]
 [ext_resource type="PackedScene" uid="uid://cjdfuhvb1303f" path="res://scenes/barra_vida.tscn" id="2_n64ir"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hk8gv"]
-radius = 6.0827627
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mxae"]
+size = Vector2(9.5, 12.5)
 
 [sub_resource type="Animation" id="Animation_2mxae"]
 length = 0.001
@@ -47,7 +47,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_e5ye4"]
-resource_name = "walk_dawn"
+resource_name = "walk_down"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -209,21 +209,22 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e5ye4"]
 _data = {
 &"RESET": SubResource("Animation_2mxae"),
-&"walk_dawn": SubResource("Animation_e5ye4"),
+&"walk_down": SubResource("Animation_e5ye4"),
 &"walk_left": SubResource("Animation_galht"),
 &"walk_right": SubResource("Animation_cn670"),
 &"walk_up": SubResource("Animation_ptde3")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t212r"]
-radius = 7.071068
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptde3"]
+size = Vector2(11, 14)
 
 [node name="Fantasma" type="CharacterBody2D" unique_id=1973135355 groups=["enemy"]]
-position = Vector2(0, -9)
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 11
 script = ExtResource("1_t212r")
 
 [node name="BarraVida" parent="." unique_id=716871242 instance=ExtResource("2_n64ir")]
-visible = true
 offset_left = -7.0
 offset_top = -10.0
 offset_right = 8.0
@@ -239,15 +240,19 @@ frame = 10
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1129512150]
 position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_hk8gv")
+shape = SubResource("RectangleShape2D_2mxae")
 
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=468177457]
 libraries/ = SubResource("AnimationLibrary_e5ye4")
 speed_scale = 0.8
 
 [node name="hurtBox" type="Area2D" parent="." unique_id=1809746303]
+collision_layer = 16
+collision_mask = 32
 
 [node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=118639856]
 position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_t212r")
+shape = SubResource("RectangleShape2D_ptde3")
 debug_color = Color(0.9848905, 0, 0.343713, 0.41960785)
+
+[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]

@@ -4,10 +4,7 @@ var player
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-	speed = 120
-	forca = 2
-	vida_max = 8
-	vida = vida_max
+
 
 func _physics_process(delta):
 	

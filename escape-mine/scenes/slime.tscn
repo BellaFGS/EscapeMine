@@ -273,10 +273,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
-size = Vector2(10.200003, 8.550003)
+size = Vector2(12.500003, 9.000002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
-size = Vector2(10.700001, 8.900002)
+size = Vector2(14.500004, 10.500002)
 
 [node name="Slime" type="CharacterBody2D" unique_id=672706225 groups=["enemy"]]
 scale = Vector2(2, 2)
@@ -297,18 +297,16 @@ frame = 7
 libraries/ = SubResource("AnimationLibrary_xwavj")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1933795473]
-visible = false
-position = Vector2(-0.29999992, -3.5249991)
+position = Vector2(-0.25, -3)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_4ra3w")
 
 [node name="hurtBox" type="Area2D" parent="." unique_id=1672287291]
-visible = false
 collision_layer = 16
 collision_mask = 32
 
 [node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=411996516]
-position = Vector2(-0.25000042, -3.35)
+position = Vector2(-0.25000024, -3.2499998)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_md0e3")
 debug_color = Color(0.987686, 0, 0.3153667, 0.41960785)

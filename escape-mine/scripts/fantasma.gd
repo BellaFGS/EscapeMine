@@ -4,10 +4,7 @@ var player
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-	speed = 150
-	forca = 3
-	vida_max = 6
-	vida = vida_max
+
 
 func _physics_process(delta):
 	
@@ -16,8 +13,7 @@ func _physics_process(delta):
 	
 	if player:
 		var direcao = (player.global_position - global_position).normalized()
-		velocity = direcao * speed
-		move_and_slide()
+		mover(direcao)
 
 
 # 💀 MORTE

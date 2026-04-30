@@ -7,7 +7,6 @@ signal nivel_up(nivel)
 
 var xp: int = 0
 var nivel: int = 1
-
 @onready var inventario = $Inventario
 
 func _ready():
@@ -15,6 +14,7 @@ func _ready():
 	vida_max = 100
 	vida = vida_max
 	forca = 1
+	add_child(inventario)
 
 func _physics_process(delta):
 	var direcao = Vector2(

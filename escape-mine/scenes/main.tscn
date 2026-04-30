@@ -3,10 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bv5252sg3b7gi" path="res://scenes/player.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://du2do3bckhynf" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://754k33pvudct" path="res://telas/tela_pause.tscn" id="3_sugp2"]
-[ext_resource type="PackedScene" uid="uid://d3lxxw82qo3oy" path="res://scenes/enemy_spawner.tscn" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://ca0wfsf7mwjjj" path="res://sprites/tilesets/PC _ Computer - Stardew Valley - Tilesets - The Mines _ Skull Cavern.png" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://c2nuq8dccxc0i" path="res://scenes/slime.tscn" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://bmf7v555iqyes" path="res://scenes/esqueleto.tscn" id="7_tipki"]
+[ext_resource type="PackedScene" uid="uid://m4aukhpqlmv8" path="res://scenes/fantasma.tscn" id="8_85g3d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 texture = ExtResource("5_tbgi4")
@@ -5195,8 +5196,9 @@ collision_mask = 12
 [node name="Slime" parent="." unique_id=672706225 instance=ExtResource("5_tefeu")]
 position = Vector2(482, 226)
 
-[node name="EnemySpawner" parent="." unique_id=317786326 node_paths=PackedStringArray("spawn_points") instance=ExtResource("4_jyhfs")]
-position = Vector2(372, 260)
-spawn_points = [NodePath(".")]
-
 [node name="hud" parent="." unique_id=1794209725 instance=ExtResource("7_o6xl0")]
+
+[node name="Esqueleto" parent="." unique_id=1797031235 instance=ExtResource("7_tipki")]
+scale = Vector2(2, 2)
+
+[node name="Fantasma" parent="." unique_id=1973135355 instance=ExtResource("8_85g3d")]
