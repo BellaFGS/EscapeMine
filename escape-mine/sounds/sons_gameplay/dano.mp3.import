@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dn0slcafki7ni"
-path="res://.godot/imported/dano.mp3-541609ebe79ddee9374e680918b77dd6.mp3str"
+path="res://.godot/imported/dano.mp3-803f83a250aa31576748a7f270a88bab.mp3str"
 
 [deps]
 
-source_file="res://sounds/sons_gameplay/dano.mp3"
-dest_files=["res://.godot/imported/dano.mp3-541609ebe79ddee9374e680918b77dd6.mp3str"]
+source_file="res://Sounds/sons_gameplay/dano.mp3"
+dest_files=["res://.godot/imported/dano.mp3-803f83a250aa31576748a7f270a88bab.mp3str"]
 
 [params]
 

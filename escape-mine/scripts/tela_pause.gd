@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	visible = false
@@ -9,10 +8,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _unhandled_input(event) -> void:
+func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		visible = true
-		get_tree().paused = true
+		visible = !visible
+		get_tree().paused = visible
 
 # voltar ao world one e adicionar uma corrente e adicionar a tela_pause
 func _on_btn_retomar_pressed() -> void:

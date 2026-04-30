@@ -18,6 +18,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.61960787)
 
 [node name="Menu" type="VBoxContainer" parent="." unique_id=99307723]
+process_mode = 3
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -30,11 +31,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="btn_retomar" type="Button" parent="Menu" unique_id=1757579034]
+process_mode = 3
 layout_mode = 2
 theme = ExtResource("1_2qjsy")
 text = "RETOMAR"
 
 [node name="btn_sair" type="Button" parent="Menu" unique_id=848326941]
+process_mode = 3
 layout_mode = 2
 theme = ExtResource("1_2qjsy")
 text = "SAIR"
