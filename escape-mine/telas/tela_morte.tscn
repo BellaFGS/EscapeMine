@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bckj1qecdis5a" path="res://scripts/tela_morte.gd" id="1_hsgcq"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="2_hsgcq"]
-[ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_pk3fm"]
-
-[sub_resource type="Theme" id="Theme_0p6np"]
+[ext_resource type="FontFile" uid="uid://s1ji84wvit06" path="res://telas/CutePixel.ttf" id="3_hsgcq"]
 
 [node name="Tela_Morte" type="CanvasLayer" unique_id=1788756212]
 process_mode = 3
@@ -28,15 +26,6 @@ offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Menu" unique_id=1189893356]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = SubResource("Theme_0p6np")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_pk3fm")
-theme_override_font_sizes/font_size = 27
-text = "VOCÊ MORREU!"
-
 [node name="btn_voltar" type="Button" parent="Menu" unique_id=1757579034]
 layout_mode = 2
 theme = ExtResource("2_hsgcq")
@@ -46,6 +35,21 @@ text = "REINICIAR"
 layout_mode = 2
 theme = ExtResource("2_hsgcq")
 text = "SAIR"
+
+[node name="Label" type="Label" parent="." unique_id=1189893356]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 242.0
+offset_right = 100.0
+offset_bottom = 284.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_hsgcq")
+theme_override_font_sizes/font_size = 41
+text = "VOCÊ MORREU!"
 
 [connection signal="pressed" from="Menu/btn_voltar" to="." method="_on_btn_voltar_pressed"]
 [connection signal="pressed" from="Menu/btn_sair" to="." method="_on_btn_sair_pressed"]
