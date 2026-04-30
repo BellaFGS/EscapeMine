@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ddaqroq0oihjw"]
+
+[ext_resource type="Script" uid="uid://bxq7lt38bewc8" path="res://scripts/music_manager.gd" id="1_axqfx"]
+
+[node name="MusicManager" type="Node2D" unique_id=300977207]
+script = ExtResource("1_axqfx")
+
+[node name="musica_fundo" type="AudioStreamPlayer" parent="." unique_id=816579760]

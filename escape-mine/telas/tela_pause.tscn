@@ -41,7 +41,8 @@ text = "SAIR"
 
 [node name="btn_config" type="Button" parent="Menu" unique_id=1010696268]
 layout_mode = 2
-text = "Config"
+theme = ExtResource("1_2qjsy")
+text = "CONFIGURAÇÕES"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=201148708]
 offset_left = 66.0
