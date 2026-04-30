@@ -38,7 +38,7 @@ func selecionar_enemy():
 	
 	match dificuldade:
 		"Fácil":
-			return criar_slime(Color.BLUE, 5, 1)
+			return criar_slime(Color.GREEN, 5, 50)
 		
 		"Médio":
 			if rand < 0.7:

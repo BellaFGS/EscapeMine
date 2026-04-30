@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal vida_alterada(valor)
+
 @onready var anim = get_node_or_null("Animator")
 @onready var texture = get_node_or_null("Texture")
 @onready var barra_vida = get_node_or_null("BarraVida")
@@ -68,8 +70,9 @@ func atacar():
 func receber_dano(valor, origem: Vector2):
 	if esta_morto:
 		return
-	
+		
 	vida -= valor
+	emit_signal("vida_alterada", vida)
 	atualizar_barra_vida()
 	tomando_dano = true
 	
