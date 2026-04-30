@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://brev50rvm7hfi" path="res://scripts/tela_config.gd" id="1_lgoop"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="2_76fbb"]
 [ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_78uk1"]
-[ext_resource type="Texture2D" uid="uid://yaay6v72jgqh" path="res://sprites/artes/btn Pause.png" id="3_78uk1"]
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_8huyt"]
+[ext_resource type="Texture2D" uid="uid://dontxxp7wbqs4" path="res://sprites/artes/config3.png" id="4_78uk1"]
 [ext_resource type="AudioStream" uid="uid://cm1bc40ay1skt" path="res://sounds/sons_gameplay/musica_de_fundo.mp3" id="5_p3w5a"]
 
 [node name="Tela_Config" type="CanvasLayer" unique_id=1788756212]
@@ -51,11 +51,11 @@ theme = ExtResource("2_76fbb")
 text = "VOLTAR"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=201148708]
-offset_left = 66.0
-offset_top = 67.0
-offset_right = 126.0
-offset_bottom = 139.0
-texture = ExtResource("3_78uk1")
+offset_left = 51.0
+offset_top = 57.0
+offset_right = 129.0
+offset_bottom = 135.0
+texture = ExtResource("4_78uk1")
 
 [node name="Label" type="Label" parent="." unique_id=1565058819]
 offset_left = 151.0
