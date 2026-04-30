@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cg7mvalaq3yci" path="res://scripts/HudManager.gd" id="1_x568p"]
 [ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_ho806"]
-[ext_resource type="Script" uid="uid://b43y6glha8yvq" path="res://telas/barra_dano_textura.gd" id="3_am62c"]
+[ext_resource type="Script" uid="uid://b43y6glha8yvq" path="res://scripts/barra_dano_textura.gd" id="3_am62c"]
 [ext_resource type="Texture2D" uid="uid://caragfwj1jahx" path="res://sprites/Bars/healthbarUnder.png" id="3_tiyv1"]
-[ext_resource type="Script" uid="uid://d2kdrmtoefi07" path="res://telas/barra_vida_textura.gd" id="4_logno"]
+[ext_resource type="Script" uid="uid://d2kdrmtoefi07" path="res://scripts/barra_vida_textura.gd" id="4_logno"]
 [ext_resource type="Texture2D" uid="uid://kkpnlavv23uq" path="res://sprites/Bars/healthbarProgress.png" id="4_prpkp"]
 [ext_resource type="Texture2D" uid="uid://dabo2gmr6qfu" path="res://sprites/Bars/damagebarProgress.png" id="4_q0dk2"]
 [ext_resource type="Texture2D" uid="uid://dnl1kcg3c7b0e" path="res://sprites/Bars/whiteMeter01.png" id="8_g8g4g"]

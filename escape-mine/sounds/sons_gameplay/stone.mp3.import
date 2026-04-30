@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bfqmdth1xcpy0"
-path="res://.godot/imported/stone.mp3-5014ca47a2866d137603426767a96f36.mp3str"
+path="res://.godot/imported/stone.mp3-58e6984026a3058e3b23eb83be7261a2.mp3str"
 
 [deps]
 
-source_file="res://Sounds/sons_gameplay/stone.mp3"
-dest_files=["res://.godot/imported/stone.mp3-5014ca47a2866d137603426767a96f36.mp3str"]
+source_file="res://sounds/sons_gameplay/stone.mp3"
+dest_files=["res://.godot/imported/stone.mp3-58e6984026a3058e3b23eb83be7261a2.mp3str"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://nh82rws8mu80"
-path="res://.godot/imported/vitoria.mp3-cb893a382976e91eb5aea1d2cff7e784.mp3str"
+path="res://.godot/imported/vitoria.mp3-389582f9445fd428218fe345d8c1620d.mp3str"
 
 [deps]
 
-source_file="res://Sounds/sons_gameplay/vitoria.mp3"
-dest_files=["res://.godot/imported/vitoria.mp3-cb893a382976e91eb5aea1d2cff7e784.mp3str"]
+source_file="res://sounds/sons_gameplay/vitoria.mp3"
+dest_files=["res://.godot/imported/vitoria.mp3-389582f9445fd428218fe345d8c1620d.mp3str"]
 
 [params]
 

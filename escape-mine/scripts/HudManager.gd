@@ -9,11 +9,12 @@ extends Control
 @onready var texto_nivel = $Nivel
 @onready var texto_dificuldade = $Nivel_Dificuldade
 #@onready var text_timer = $container/contador_container/text_contador
+var player
 
 func _ready():
 	await get_tree().process_frame
 	
-	var player = get_tree().get_first_node_in_group("player")
+	player = get_tree().get_first_node_in_group("player")
 	
 	if player == null:
 		print("Player não encontrado")
@@ -33,20 +34,17 @@ func _ready():
 	
 	
 func atualizar_vida(valor):
-	var player = get_tree().get_first_node_in_group("player")
 	barra_vida.value = valor
-	texto_vida.text = str(player.vida) + "/" + str(player.vida_max);
+	texto_vida.text = str(self.player.vida) + "/" + str(self.player.vida_max);
 
 func forca_alterado(valor):
-	var player = get_tree().get_first_node_in_group("player")
 	barra_dano.value = valor
-	texto_força.text = str(player.forca);
+	texto_força.text = str(self.player.forca);
 
 func xp_alterado(valor):
-	var player = get_tree().get_first_node_in_group("player")
 	barra_xp.value = valor
 	barra_xp.max_value = player.limite
-	texto_xp.text = str(player.xp) + "/" + str(player.limite);
+	texto_xp.text = str(self.player.xp) + "/" + str(self.player.limite);
 	
 func nivel_up(valor):
 	texto_nivel.text = str(valor)

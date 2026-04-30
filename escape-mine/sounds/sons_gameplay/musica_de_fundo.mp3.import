@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cm1bc40ay1skt"
-path="res://.godot/imported/musica_de_fundo.mp3-2d207c637f578596801ce143319389dd.mp3str"
+path="res://.godot/imported/musica_de_fundo.mp3-bdc8bd73bdda6be7c169369c5f1f92cf.mp3str"
 
 [deps]
 
-source_file="res://Sounds/sons_gameplay/musica_de_fundo.mp3"
-dest_files=["res://.godot/imported/musica_de_fundo.mp3-2d207c637f578596801ce143319389dd.mp3str"]
+source_file="res://sounds/sons_gameplay/musica_de_fundo.mp3"
+dest_files=["res://.godot/imported/musica_de_fundo.mp3-bdc8bd73bdda6be7c169369c5f1f92cf.mp3str"]
 
 [params]
 
