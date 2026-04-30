@@ -22,3 +22,7 @@ func _on_btn_retomar_pressed() -> void:
 
 func _on_btn_sair_pressed() -> void:
 	get_tree().quit()
+
+func _on_btn_config_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://telas/tela_config.tscn")
