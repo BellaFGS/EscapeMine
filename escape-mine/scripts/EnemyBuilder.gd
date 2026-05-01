@@ -24,7 +24,6 @@ func build():
 	slime.vida = vida
 	slime.forca = forca
 	
-	# 🔥 GARANTE QUE SET_COR É CHAMADO DEPOIS QUE O NODE EXISTE
 	slime.call_deferred("set_cor", cor)
 	
 	return slime

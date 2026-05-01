@@ -8,13 +8,14 @@ func _ready():
 func explodir():
 	var area = $explosionArea
 	area.monitoring = true
-
-	await get_tree().process_frame # 💥 ISSO AQUI RESOLVE
-
-	for body in area.get_overlapping_bodies():
-		print("pegou:", body.name)
-		if body.has_method("receber_dano"):
-			body.receber_dano(100, global_position)
+	area.forca = 50
+	area.dono = self
+	
+	for body in get_tree().get_nodes_in_group("enemy"):
+		body.receber_dano(50, global_position)
+	for body in get_tree().get_nodes_in_group("player"):
+		body.receber_dano(50, global_position)
+	await get_tree().physics_frame
 
 	anim.play("explosao")
 	await anim.animation_finished

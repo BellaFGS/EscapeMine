@@ -48,7 +48,6 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("trap"):
 		receber_dano(50, area.global_position)
 
-
 func _on_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player = body

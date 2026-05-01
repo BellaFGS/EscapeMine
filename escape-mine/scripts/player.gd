@@ -7,6 +7,7 @@ signal nivel_up(nivel)
 
 var xp: int = 0
 var nivel: int = 1
+var limite: int = 10
 var cena_dinamite = preload("res://scenes/items/dinamite_ativa.tscn")
 @onready var inventario = $Inventario
 
@@ -35,6 +36,7 @@ func ganhar_xp(valor: int):
 
 func verificar_level_up():
 	var limite = 10 + (nivel - 1) * 15
+	emit_signal("limite_up", limite)
 	
 	if xp >= limite:
 		xp -= limite

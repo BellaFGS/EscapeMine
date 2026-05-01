@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://d2kdrmtoefi07" path="res://scripts/barra_vida_textura.gd" id="4_logno"]
 [ext_resource type="Texture2D" uid="uid://kkpnlavv23uq" path="res://sprites/Bars/healthbarProgress.png" id="4_prpkp"]
 [ext_resource type="Texture2D" uid="uid://dabo2gmr6qfu" path="res://sprites/Bars/damagebarProgress.png" id="4_q0dk2"]
+[ext_resource type="Texture2D" uid="uid://dnl1kcg3c7b0e" path="res://sprites/Bars/whiteMeter01.png" id="8_g8g4g"]
+[ext_resource type="Script" uid="uid://f0k0gqhbby3d" path="res://telas/barra_xp_textura.gd" id="8_q0dk2"]
+[ext_resource type="Texture2D" uid="uid://sgqo8ct7qoxt" path="res://sprites/Bars/whiteMeter10.png" id="9_j0801"]
 
 [node name="hud" type="CanvasLayer" unique_id=1794209725]
 
@@ -60,10 +63,10 @@ text = "00"
 
 [node name="BarraDanoTextura" type="TextureProgressBar" parent="control" unique_id=1098307183]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 50.999996
-offset_right = 74.0
-offset_bottom = 60.999996
+offset_left = 48.999996
+offset_top = 48.999996
+offset_right = 113.0
+offset_bottom = 58.999996
 scale = Vector2(2.5, 2.5)
 texture_under = ExtResource("3_tiyv1")
 texture_progress = ExtResource("4_q0dk2")
@@ -71,11 +74,64 @@ script = ExtResource("3_am62c")
 
 [node name="BarraVidaTextura" type="TextureProgressBar" parent="control" unique_id=30270309]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 10.000003
-offset_right = 74.0
-offset_bottom = 20.000004
+offset_left = 48.999996
+offset_top = 8.000003
+offset_right = 113.0
+offset_bottom = 18.000004
 scale = Vector2(2.5, 2.5)
 texture_under = ExtResource("3_tiyv1")
 texture_progress = ExtResource("4_prpkp")
 script = ExtResource("4_logno")
+
+[node name="BarraXpTextura" type="TextureProgressBar" parent="control" unique_id=307783242]
+layout_mode = 0
+offset_left = 477.0
+offset_top = 691.0
+offset_right = 541.0
+offset_bottom = 699.0
+scale = Vector2(4, 2)
+texture_under = ExtResource("8_g8g4g")
+texture_progress = ExtResource("9_j0801")
+script = ExtResource("8_q0dk2")
+
+[node name="TextoVida" type="Label" parent="control" unique_id=581827015]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 8.0
+offset_right = 157.0
+offset_bottom = 31.0
+text = "100/200"
+
+[node name="TextoForca" type="Label" parent="control" unique_id=1661892000]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 49.0
+offset_right = 135.0
+offset_bottom = 72.0
+text = "1"
+horizontal_alignment = 1
+
+[node name="TextoXp" type="Label" parent="control" unique_id=1101355491]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 686.0
+offset_right = 641.0
+offset_bottom = 709.0
+text = "100/200"
+horizontal_alignment = 1
+
+[node name="Nivel" type="Label" parent="control" unique_id=503118720]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 40.0
+offset_bottom = 32.0
+horizontal_alignment = 1
+
+[node name="Nivel_Dificuldade" type="Label" parent="control" unique_id=2073264020]
+layout_mode = 0
+offset_left = 1148.0
+offset_top = 2.0
+offset_right = 1280.0
+offset_bottom = 25.0
+horizontal_alignment = 2
