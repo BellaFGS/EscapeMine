@@ -522,7 +522,7 @@ shape = SubResource("RectangleShape2D_4ra3w")
 
 [node name="hurtBox" type="Area2D" parent="." unique_id=1672287291]
 collision_layer = 16
-collision_mask = 32
+collision_mask = 96
 
 [node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=411996516]
 position = Vector2(-0.25000024, -3.2499998)

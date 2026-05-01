@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b5kqmf8jw2jqw" path="res://scenes/items/ItemDinamite.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://d3lxxw82qo3oy" path="res://scenes/enemy_spawner.tscn" id="7_tipki"]
+[ext_resource type="PackedScene" uid="uid://c2nuq8dccxc0i" path="res://scenes/slime.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://bs10qhe3bjt60" path="res://telas/tela_config.tscn" id="9_choun"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 texture = ExtResource("5_tbgi4")
@@ -5188,8 +5190,6 @@ use_parent_material = true
 tile_map_data = PackedByteArray(0, 0, 25, 0, 21, 0, 0, 0, 3, 0, 29, 0, 0, 0, 25, 0, 22, 0, 0, 0, 3, 0, 30, 0, 0, 0, 26, 0, 21, 0, 0, 0, 3, 0, 29, 0, 0, 16, 26, 0, 22, 0, 0, 0, 3, 0, 30, 0, 0, 16)
 tile_set = SubResource("TileSet_o6xl0")
 
-[node name="Tela_Pause" parent="." unique_id=1788756212 instance=ExtResource("3_sugp2")]
-
 [node name="hud" parent="." unique_id=1794209725 instance=ExtResource("7_o6xl0")]
 
 [node name="ItemDinamite" parent="." unique_id=429296414 instance=ExtResource("6_tefeu")]
@@ -5198,3 +5198,12 @@ position = Vector2(318, 261)
 [node name="EnemySpawner" parent="." unique_id=317786326 node_paths=PackedStringArray("spawn_points") instance=ExtResource("7_tipki")]
 position = Vector2(164, 340)
 spawn_points = [NodePath(".")]
+
+[node name="Slime" parent="." unique_id=672706225 instance=ExtResource("9_85g3d")]
+position = Vector2(577, 251)
+scale = Vector2(1.5, 1.5)
+
+[node name="Tela_Pause" parent="." unique_id=1788756212 instance=ExtResource("3_sugp2")]
+
+[node name="Tela_Config" parent="." unique_id=1996362643 instance=ExtResource("9_choun")]
+visible = false

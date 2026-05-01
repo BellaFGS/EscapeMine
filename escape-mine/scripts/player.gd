@@ -36,7 +36,7 @@ func ganhar_xp(valor: int):
 
 func verificar_level_up():
 	var limite = 10 + (nivel - 1) * 15
-	emit_signal("limite_up", limite)
+#	emit_signal("limite_up", limite)
 	
 	if xp >= limite:
 		xp -= limite
