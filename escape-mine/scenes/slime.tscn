@@ -521,8 +521,8 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_4ra3w")
 
 [node name="hurtBox" type="Area2D" parent="." unique_id=1672287291]
-collision_layer = 16
-collision_mask = 32
+collision_layer = 2
+collision_mask = 96
 
 [node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=411996516]
 position = Vector2(-0.25000024, -3.2499998)
@@ -537,8 +537,7 @@ offset_right = 9.0
 offset_bottom = -13.5
 
 [node name="detector" type="Area2D" parent="." unique_id=862275611]
-collision_layer = 2
-collision_mask = 65
+collision_layer = 0
 
 [node name="Collision" type="CollisionShape2D" parent="detector" unique_id=1846790154]
 shape = SubResource("CircleShape2D_n6pvg")

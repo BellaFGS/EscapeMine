@@ -1291,6 +1291,7 @@ size = Vector2(17, 25)
 size = Vector2(10, 15)
 
 [node name="player" type="CharacterBody2D" unique_id=2066799720 groups=["player"]]
+collision_layer = 3
 collision_mask = 78
 script = ExtResource("1_3vyb7")
 
@@ -1322,8 +1323,8 @@ position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_ur7pv")
 
 [node name="hurtBox" type="Area2D" parent="." unique_id=394209059]
-collision_layer = 16
-collision_mask = 66
+collision_layer = 49
+collision_mask = 82
 
 [node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=1375003985]
 position = Vector2(0, -7.5)

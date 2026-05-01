@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5kqmf8jw2jqw" path="res://scenes/items/ItemDinamite.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://d3lxxw82qo3oy" path="res://scenes/enemy_spawner.tscn" id="7_tipki"]
+[ext_resource type="PackedScene" uid="uid://jpp8a12sc7fk" path="res://scenes/dunger_zone.tscn" id="8_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 texture = ExtResource("5_tbgi4")
@@ -5198,3 +5199,5 @@ position = Vector2(318, 261)
 [node name="EnemySpawner" parent="." unique_id=317786326 node_paths=PackedStringArray("spawn_points") instance=ExtResource("7_tipki")]
 position = Vector2(164, 340)
 spawn_points = [NodePath(".")]
+
+[node name="ItemSpawner" parent="." unique_id=1069560770 instance=ExtResource("8_tipki")]
