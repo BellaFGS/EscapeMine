@@ -86,3 +86,12 @@ func _on_animator_animation_finished(anim_name: StringName) -> void:
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		receber_dano(body.forca, body.global_position)
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	print("colidiu com:", area.name)
+	
+	if area.is_in_group("enemy"):
+		receber_dano(area.get_parent().forca, area.global_position)
+	
+	elif area.is_in_group("trap"):
+		receber_dano(50, area.global_position)

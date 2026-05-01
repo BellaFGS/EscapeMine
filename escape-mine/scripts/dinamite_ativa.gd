@@ -14,7 +14,7 @@ func explodir():
 	for body in area.get_overlapping_bodies():
 		print("pegou:", body.name)
 		if body.has_method("receber_dano"):
-			body.receber_dano(50, global_position)
+			body.receber_dano(100, global_position)
 
 	anim.play("explosao")
 	await anim.animation_finished

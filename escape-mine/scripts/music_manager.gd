@@ -1,9 +1,12 @@
 extends Node
 
-@onready var musica_fundo: AudioStreamPlayer = $musica_fundo
+var musica_fundo: AudioStreamPlayer
+
+func _ready():
+	musica_fundo = AudioStreamPlayer.new()
+	add_child(musica_fundo)
 
 func play_music(stream: AudioStream):
-	# evita reiniciar a mesma música
 	if musica_fundo.stream == stream and musica_fundo.playing:
 		return
 	

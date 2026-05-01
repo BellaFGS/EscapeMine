@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://dqmtqk8rhl5d3"]
 
-[ext_resource type="PackedScene" uid="uid://bv5252sg3b7gi" path="res://scenes/player.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://du2do3bckhynf" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://754k33pvudct" path="res://telas/tela_pause.tscn" id="3_sugp2"]
 [ext_resource type="Texture2D" uid="uid://ca0wfsf7mwjjj" path="res://sprites/tilesets/PC _ Computer - Stardew Valley - Tilesets - The Mines _ Skull Cavern.png" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b5kqmf8jw2jqw" path="res://scenes/items/ItemDinamite.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://bs10qhe3bjt60" path="res://telas/tela_config.tscn" id="7_tipki"]
+[ext_resource type="PackedScene" uid="uid://lswm5cqifi5o" path="res://scenes/items/dinamite_ativa.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://c2nuq8dccxc0i" path="res://scenes/slime.tscn" id="9_85g3d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 texture = ExtResource("5_tbgi4")
@@ -5179,17 +5181,24 @@ sources/0 = SubResource("TileSetAtlasSource_tefeu")
 [node name="Main" type="Node2D" unique_id=224908309]
 script = ExtResource("1_jyhfs")
 
-[node name="player" parent="." unique_id=2066799720 instance=ExtResource("1_0wfyh")]
-position = Vector2(258, 225)
-
 [node name="map" type="TileMapLayer" parent="." unique_id=932798031]
 use_parent_material = true
 tile_map_data = PackedByteArray(0, 0, 25, 0, 21, 0, 0, 0, 3, 0, 29, 0, 0, 0, 25, 0, 22, 0, 0, 0, 3, 0, 30, 0, 0, 0, 26, 0, 21, 0, 0, 0, 3, 0, 29, 0, 0, 16, 26, 0, 22, 0, 0, 0, 3, 0, 30, 0, 0, 16)
 tile_set = SubResource("TileSet_o6xl0")
 
-[node name="Tela_Pause" parent="." unique_id=1788756212 instance=ExtResource("3_sugp2")]
-
 [node name="hud" parent="." unique_id=1794209725 instance=ExtResource("7_o6xl0")]
 
 [node name="ItemDinamite" parent="." unique_id=429296414 instance=ExtResource("6_tefeu")]
 position = Vector2(318, 261)
+collision_mask = 1
+
+[node name="Tela_Pause" parent="." unique_id=1788756212 instance=ExtResource("3_sugp2")]
+
+[node name="Tela_Config" parent="." unique_id=2099632232 instance=ExtResource("7_tipki")]
+visible = false
+
+[node name="dinamiteAtiva" parent="." unique_id=892914883 instance=ExtResource("8_tipki")]
+position = Vector2(343, 185)
+
+[node name="Slime" parent="." unique_id=672706225 instance=ExtResource("9_85g3d")]
+position = Vector2(370, 203)

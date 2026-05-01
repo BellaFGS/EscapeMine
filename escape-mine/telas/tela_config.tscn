@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://dtl4pntx6ekjs"]
+[gd_scene format=3 uid="uid://bs10qhe3bjt60"]
 
-[ext_resource type="Script" uid="uid://brev50rvm7hfi" path="res://scripts/tela_config.gd" id="1_lgoop"]
+[ext_resource type="Script" path="res://scripts/tela_config.gd" id="1_lgoop"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="2_76fbb"]
 [ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_78uk1"]
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_8huyt"]
 [ext_resource type="Texture2D" uid="uid://dontxxp7wbqs4" path="res://sprites/artes/config3.png" id="4_78uk1"]
-[ext_resource type="AudioStream" uid="uid://cm1bc40ay1skt" path="res://sounds/sons_gameplay/musica_de_fundo.mp3" id="5_p3w5a"]
+[ext_resource type="AudioStream" uid="uid://naqi2mcj7twl" path="res://sounds/sons_gameplay/musica_de_fundo.mp3" id="5_p3w5a"]
 
 [node name="Tela_Config" type="CanvasLayer" unique_id=1788756212]
 process_mode = 3
@@ -88,9 +88,8 @@ max_value = 20.0
 step = 0.01
 value = 1.0
 
-[node name="musica_fundo" type="AudioStreamPlayer2D" parent="." unique_id=2116763259]
+[node name="musica_fundo" type="AudioStreamPlayer2D" parent="." unique_id=1619913725]
 stream = ExtResource("5_p3w5a")
-autoplay = true
 
 [connection signal="pressed" from="Menu/btn_voltar" to="." method="_on_btn_voltar_pressed"]
 [connection signal="value_changed" from="ctr_geral" to="." method="_on_ctr_geral_value_changed"]

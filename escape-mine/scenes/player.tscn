@@ -1335,4 +1335,5 @@ visible = false
 zoom = Vector2(3, 3)
 
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
+[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="hurtBox" to="." method="_on_hurt_box_body_entered"]

@@ -381,9 +381,9 @@ vframes = 2
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=1350390241]
 libraries/ = SubResource("AnimationLibrary_fd1f8")
 
-[node name="explosionArea" type="Area2D" parent="." unique_id=195311063]
+[node name="explosionArea" type="Area2D" parent="." unique_id=195311063 groups=["trap"]]
 collision_layer = 64
-collision_mask = 3
+collision_mask = 19
 
 [node name="Collision" type="CollisionShape2D" parent="explosionArea" unique_id=2073867189]
 shape = SubResource("CircleShape2D_tusw8")
