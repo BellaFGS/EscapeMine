@@ -46,7 +46,6 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if "forca" in area and "dono" in area:
 		receber_dano(area.forca, area.dono.global_position)
 
-
 func _on_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player = body

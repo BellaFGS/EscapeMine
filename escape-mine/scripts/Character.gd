@@ -125,3 +125,6 @@ func _on_Animator_animation_finished():
 	if anim.animation.begins_with("attack"):
 		is_attack = false
 		anim.play("idle_" + ultima_direcao)
+		
+func _on_hurt_box_area_entered(area):
+	print("COLIDIU COM:", area)
