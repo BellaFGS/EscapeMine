@@ -1,6 +1,13 @@
 extends "res://scripts/Item.gd"
+class_name DinamiteItem
 
-@export var valor: int = 1
+func _ready():
+	pass
+	
+func _on_body_entered(body):
+	if body.name == "player":
+		aplicar(body)
 
 func aplicar(player):
-	player.ganhar_xp(valor)
+	player.inventario.adicionar_item("dinamite", 1)
+	queue_free()

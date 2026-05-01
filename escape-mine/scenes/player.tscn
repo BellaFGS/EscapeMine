@@ -1291,7 +1291,7 @@ size = Vector2(17, 25)
 size = Vector2(10, 15)
 
 [node name="player" type="CharacterBody2D" unique_id=2066799720 groups=["player"]]
-collision_mask = 14
+collision_mask = 78
 script = ExtResource("1_3vyb7")
 
 [node name="Inventario" type="Node2D" parent="." unique_id=413010151]
@@ -1323,7 +1323,7 @@ shape = SubResource("RectangleShape2D_ur7pv")
 
 [node name="hurtBox" type="Area2D" parent="." unique_id=394209059]
 collision_layer = 16
-collision_mask = 2
+collision_mask = 66
 
 [node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=1375003985]
 position = Vector2(0, -7.5)
@@ -1331,6 +1331,7 @@ shape = SubResource("RectangleShape2D_g2els")
 debug_color = Color(1, 0, 0.105882354, 0.2627451)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=768081014]
+visible = false
 zoom = Vector2(3, 3)
 
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
