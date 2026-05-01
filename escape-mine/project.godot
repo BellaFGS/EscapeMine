@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://b32pqodawoe60"
 DropSystem="*uid://qo7bqwyuq7rv"
+MusicManager="*uid://ddaqroq0oihjw"
 
 [display]
 
