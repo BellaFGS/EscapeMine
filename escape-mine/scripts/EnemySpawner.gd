@@ -38,8 +38,8 @@ func selecionar_enemy():
 	
 	match dificuldade:
 		"Fácil":
-			return criar_slime(Color.GREEN, 5, 50)
-		
+			return criar_slime(Color.YELLOW, 5, 10)
+			return esqueleto_scene.instantiate()
 		"Médio":
 			if rand < 0.7:
 				return criar_slime(Color.BLUE, 6, 1)
@@ -81,7 +81,11 @@ func spawn_enemy():
 		print("SEM SPAWN POINT")
 		return
 	
-	var enemy = slime_scene.instantiate()
+	var enemy = selecionar_enemy()  # 🔥 AQUI ESTÁ A CORREÇÃO
+	
+	if enemy == null:
+		print("enemy null")
+		return
 	
 	var ponto = spawn_points.pick_random()
 	enemy.global_position = ponto.global_position

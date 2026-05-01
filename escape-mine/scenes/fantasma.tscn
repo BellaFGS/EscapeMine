@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dvnys41yw1gfb" path="res://sprites/characters/ghoust.png" id="2_2mxae"]
 [ext_resource type="PackedScene" uid="uid://cjdfuhvb1303f" path="res://scenes/barra_vida.tscn" id="2_n64ir"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hk8gv"]
-radius = 6.0827627
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mxae"]
+size = Vector2(9.5, 12.5)
 
 [sub_resource type="Animation" id="Animation_2mxae"]
 length = 0.001
@@ -46,8 +46,168 @@ tracks/2/keys = {
 "values": [10]
 }
 
+[sub_resource type="Animation" id="Animation_r338s"]
+resource_name = "idle_down"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2mxae")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_ikiw7"]
+resource_name = "idle_left"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2mxae")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_qq8is"]
+resource_name = "idle_right"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2mxae")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_6o4r4"]
+resource_name = "idle_up"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2mxae")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
+}
+
 [sub_resource type="Animation" id="Animation_e5ye4"]
-resource_name = "walk_dawn"
+resource_name = "walk_down"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -209,21 +369,29 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e5ye4"]
 _data = {
 &"RESET": SubResource("Animation_2mxae"),
-&"walk_dawn": SubResource("Animation_e5ye4"),
+&"idle_down": SubResource("Animation_r338s"),
+&"idle_left": SubResource("Animation_ikiw7"),
+&"idle_right": SubResource("Animation_qq8is"),
+&"idle_up": SubResource("Animation_6o4r4"),
+&"walk_down": SubResource("Animation_e5ye4"),
 &"walk_left": SubResource("Animation_galht"),
 &"walk_right": SubResource("Animation_cn670"),
 &"walk_up": SubResource("Animation_ptde3")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t212r"]
-radius = 7.071068
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptde3"]
+size = Vector2(11, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2mxae"]
+radius = 97.68444
 
 [node name="Fantasma" type="CharacterBody2D" unique_id=1973135355 groups=["enemy"]]
-position = Vector2(0, -9)
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 11
 script = ExtResource("1_t212r")
 
 [node name="BarraVida" parent="." unique_id=716871242 instance=ExtResource("2_n64ir")]
-visible = true
 offset_left = -7.0
 offset_top = -10.0
 offset_right = 8.0
@@ -239,15 +407,27 @@ frame = 10
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1129512150]
 position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_hk8gv")
+shape = SubResource("RectangleShape2D_2mxae")
 
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=468177457]
 libraries/ = SubResource("AnimationLibrary_e5ye4")
 speed_scale = 0.8
 
 [node name="hurtBox" type="Area2D" parent="." unique_id=1809746303]
+collision_layer = 16
+collision_mask = 32
 
 [node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=118639856]
 position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_t212r")
+shape = SubResource("RectangleShape2D_ptde3")
 debug_color = Color(0.9848905, 0, 0.343713, 0.41960785)
+
+[node name="detector" type="Area2D" parent="." unique_id=2002925909]
+collision_layer = 2
+
+[node name="Collision" type="CollisionShape2D" parent="detector" unique_id=111806262]
+shape = SubResource("CircleShape2D_2mxae")
+
+[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
+[connection signal="body_exited" from="detector" to="." method="_on_detector_body_exited"]

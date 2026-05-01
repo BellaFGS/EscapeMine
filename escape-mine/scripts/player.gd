@@ -7,8 +7,7 @@ signal nivel_up(nivel)
 
 var xp: int = 0
 var nivel: int = 1
-var limite: int = 10
-
+var cena_dinamite = preload("res://scenes/items/dinamite_ativa.tscn")
 @onready var inventario = $Inventario
 
 func _ready():
@@ -35,8 +34,7 @@ func ganhar_xp(valor: int):
 	verificar_level_up()
 
 func verificar_level_up():
-	limite = 10 + (nivel - 1) * 15
-	emit_signal("limite", limite)
+	var limite = 10 + (nivel - 1) * 15
 	
 	if xp >= limite:
 		xp -= limite
@@ -69,6 +67,16 @@ func usar_item(tipo: String):
 
 func morrer():
 	GameManager.finalizar_jogo("LOSE")
+
+func _input(event):
+	if event.is_action_pressed("usar_item"): # tecla E
+		usar_dinamite()
+
+func usar_dinamite():
+	if inventario.usar_item("dinamite"):
+		var d = cena_dinamite.instantiate()
+		get_parent().add_child(d)
+		d.global_position = global_position + Vector2(20, 0) # joga pra frente
 
 func _on_animator_animation_finished(anim_name: StringName) -> void:
 	if anim_name.begins_with("attack"):

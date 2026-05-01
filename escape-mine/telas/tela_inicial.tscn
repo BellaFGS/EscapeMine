@@ -42,6 +42,11 @@ layout_mode = 2
 theme = ExtResource("1_xs8lk")
 text = "SAIR"
 
+[node name="btn_config" type="Button" parent="Menu" unique_id=1811723080]
+layout_mode = 2
+theme = ExtResource("1_xs8lk")
+text = "CONFIGURAÇÕES"
+
 [node name="Label" type="Label" parent="." unique_id=1923486494]
 anchors_preset = 5
 anchor_left = 0.5
@@ -57,3 +62,4 @@ text = "Escape Mine"
 
 [connection signal="pressed" from="Menu/btn_comecar" to="." method="_on_btn_comecar_pressed"]
 [connection signal="pressed" from="Menu/btn_sair" to="." method="_on_btn_sair_pressed"]
+[connection signal="pressed" from="Menu/btn_config" to="." method="_on_btn_config_pressed"]
