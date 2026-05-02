@@ -5,9 +5,9 @@ func _ready():
 	pass
 	
 func _on_body_entered(body):
-	if body.name == "player":
+	if body.is_in_group("player"):
 		aplicar(body)
 
 func aplicar(player):
-	player.inventario.adicionar_item("dinamite", 1)
+	player.adicionar_item("dinamite")
 	queue_free()

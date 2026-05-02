@@ -4,14 +4,17 @@ extends "res://scripts/Character.gd"
 signal forca_alterado(valor)
 signal xp_alterado(valor)
 signal nivel_up(nivel)
+signal dinamite_up(dinamite)
 
 var xp: int = 0
 var nivel: int = 1
 var limite: int = 10
+var dinamite: int = 0
 var cena_dinamite = preload("res://scenes/items/dinamite_ativa.tscn")
 @onready var inventario = $Inventario
 
 func _ready():
+	add_to_group("player")
 	speed = 300
 	vida_max = 100
 	vida = vida_max
@@ -57,12 +60,18 @@ func aplicar_update(tipo: String):
 
 # 🎒 ITEM
 func pegar_item(item):
+	print("pegou dinamite")
+	dinamite += 1
+	emit_signal("dinamite_up", dinamite)
 	item.aplicar(self)
 	item.queue_free()
 
-# 👉 usado pelos itens
 func adicionar_item(tipo: String):
-	inventario.adicionar_item(tipo)
+	print("pegou dinamite")
+	dinamite += 1
+	emit_signal("dinamite_up", dinamite)
+
+	inventario.adicionar_item(tipo, 1)
 
 func usar_item(tipo: String):
 	return inventario.usar_item(tipo)
@@ -78,7 +87,10 @@ func usar_dinamite():
 	if inventario.usar_item("dinamite"):
 		var d = cena_dinamite.instantiate()
 		get_parent().add_child(d)
-		d.global_position = global_position + Vector2(20, 0) # joga pra frente
+		d.global_position = global_position + Vector2(20, 0)
+		print("usou dinamite")
+		dinamite -= 1
+		emit_signal("dinamite_up", dinamite)
 
 func _on_animator_animation_finished(anim_name: StringName) -> void:
 	if anim_name.begins_with("attack"):
