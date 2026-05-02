@@ -9,14 +9,20 @@ extends Control
 @onready var texto_nivel = $Nivel
 @onready var texto_dificuldade = $Nivel_Dificuldade
 @onready var texto_dinamite = $Dinamite
+@onready var texto_chave = $Chave
 #@onready var text_timer = $container/contador_container/text_contador
 var player
 
+func _process(delta):
+	if GameManager.player_tem_chave:
+		texto_chave.text = "1"
+	else:
+		texto_chave.text = "0"
+		
 func _ready():
 	await get_tree().process_frame
 	
 	player = get_tree().get_first_node_in_group("player")
-	print("player hud: ",player)
 	if player == null:
 		print("Player não encontrado")
 		return

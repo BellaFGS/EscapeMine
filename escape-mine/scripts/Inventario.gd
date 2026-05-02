@@ -2,7 +2,8 @@ extends Node
 
 
 var itens = {
-	"dinamite": 0
+	"dinamite": 0,
+	"chave": 0
 }
 
 func adicionar_item(nome, quantidade):

@@ -8,7 +8,6 @@ func _ready() -> void:
 
 	await get_tree().physics_frame
 
-	# pega quem já estava dentro
 	for area in get_overlapping_areas():
 		_aplicar_dano(area)
 
@@ -18,8 +17,6 @@ func _on_explosionArea_area_entered(area):
 
 
 func _aplicar_dano(area):
-	print("area:", area.name)
-	print("parent:", area.get_parent().name)
 	var alvo = area.get_parent()
 	
 	if alvo.is_in_group("player"):

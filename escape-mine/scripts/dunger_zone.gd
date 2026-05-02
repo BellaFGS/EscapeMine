@@ -13,6 +13,9 @@ func spawn_loop() -> void:
 	while is_inside_tree():
 		await get_tree().create_timer(intervalo_spawn).timeout
 		
+		if GameManager.estado != "RUNNING":
+			return
+		
 		if get_tree().paused:
 			continue
 			

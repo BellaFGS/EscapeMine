@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bias2qybihdi8"]
+
+[ext_resource type="Script" path="res://scripts/item_spawner.gd" id="1_cu1q2"]
+[ext_resource type="PackedScene" uid="uid://b5kqmf8jw2jqw" path="res://scenes/items/ItemDinamite.tscn" id="2_mqubi"]
+
+[node name="ItemSpawner" type="Node2D" unique_id=1069560770]
+script = ExtResource("1_cu1q2")
+item_scene = ExtResource("2_mqubi")

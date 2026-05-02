@@ -169,6 +169,7 @@ _data = {
 size = Vector2(32, 61)
 
 [node name="Door" type="Area2D" unique_id=456153555]
+collision_layer = 8
 script = ExtResource("1_hpvv5")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=521512769]
