@@ -6,12 +6,17 @@ var intervalo_spawn: float = 1.5
 @export var item_scene: PackedScene = preload("res://scenes/items/armadilha.tscn")
 
 func _ready():
+	await get_tree().process_frame
 	spawn_loop()
 
 func spawn_loop() -> void:
-	while true:
-		spawn_item_ao_redor()
+	while is_inside_tree():
 		await get_tree().create_timer(intervalo_spawn).timeout
+		
+		if get_tree().paused:
+			continue
+			
+		spawn_item_ao_redor()
 
 func spawn_item_ao_redor():
 	var player = get_tree().get_first_node_in_group("player")
@@ -24,7 +29,7 @@ func spawn_item_ao_redor():
 	print("spawnando item")
 	
 	var item = item_scene.instantiate()
-	get_tree().current_scene.add_child(item)
+	get_tree().current_scene.call_deferred("add_child", item)
 
 	var angle = randf_range(0, TAU)
 	var distancia = randf_range(raio_spawn * 0.5, raio_spawn)
