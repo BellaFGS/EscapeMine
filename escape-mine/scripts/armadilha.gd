@@ -18,5 +18,9 @@ func _on_explosionArea_area_entered(area):
 
 
 func _aplicar_dano(area):
-	if area.get_parent().has_method("receber_dano"):
-		area.get_parent().receber_dano(forca, global_position)
+	print("area:", area.name)
+	print("parent:", area.get_parent().name)
+	var alvo = area.get_parent()
+	
+	if alvo.is_in_group("player"):
+		alvo.receber_dano(forca, global_position)

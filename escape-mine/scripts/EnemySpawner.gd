@@ -81,7 +81,7 @@ func spawn_enemy():
 		print("SEM SPAWN POINT")
 		return
 	
-	var enemy = selecionar_enemy()  # 🔥 AQUI ESTÁ A CORREÇÃO
+	var enemy = selecionar_enemy() 
 	
 	if enemy == null:
 		print("enemy null")
