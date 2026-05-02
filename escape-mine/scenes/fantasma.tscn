@@ -382,9 +382,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptde3"]
 size = Vector2(11, 14)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2mxae"]
-radius = 97.68444
-
 [node name="Fantasma" type="CharacterBody2D" unique_id=1973135355 groups=["enemy"]]
 scale = Vector2(2, 2)
 collision_layer = 2
@@ -422,12 +419,4 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ptde3")
 debug_color = Color(0.9848905, 0, 0.343713, 0.41960785)
 
-[node name="detector" type="Area2D" parent="." unique_id=2002925909]
-collision_layer = 2
-
-[node name="Collision" type="CollisionShape2D" parent="detector" unique_id=111806262]
-shape = SubResource("CircleShape2D_2mxae")
-
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
-[connection signal="body_exited" from="detector" to="." method="_on_detector_body_exited"]

@@ -1331,9 +1331,10 @@ position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_g2els")
 debug_color = Color(1, 0, 0.105882354, 0.2627451)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=768081014]
+[node name="Camera" type="Camera2D" parent="." unique_id=768081014]
 visible = false
 zoom = Vector2(3, 3)
 
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
+[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="hurtBox" to="." method="_on_hurt_box_body_entered"]

@@ -767,9 +767,6 @@ size = Vector2(13, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlre5"]
 size = Vector2(13, 8)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tlre5"]
-radius = 97.68444
-
 [node name="Esqueleto" type="CharacterBody2D" unique_id=1797031235 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 11
@@ -814,12 +811,4 @@ visible = false
 position = Vector2(-1, 128)
 shape = SubResource("RectangleShape2D_tlre5")
 
-[node name="detector" type="Area2D" parent="." unique_id=461551942]
-collision_layer = 2
-
-[node name="Collision" type="CollisionShape2D" parent="detector" unique_id=1332826158]
-shape = SubResource("CircleShape2D_tlre5")
-
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
-[connection signal="body_exited" from="detector" to="." method="_on_detector_body_exited"]

@@ -10,6 +10,10 @@ var xp: int = 0
 var nivel: int = 1
 var limite: int = 10
 var dinamite: int = 0
+
+var regen_intervalo := 0.5 # tempo pra ganhar +1 vida
+var delay_regen := 2.0 # espera 2s sem tomar dano
+
 var cena_dinamite = preload("res://scenes/items/dinamite_ativa.tscn")
 @onready var inventario = $Inventario
 
@@ -28,6 +32,21 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("attack") and not is_attack:
 		atacar()
+	
+	# ⏱️ tempo sem tomar dano
+	tempo_sem_dano += delta
+
+	# 💚 regeneração 
+	if tempo_sem_dano >= delay_regen and vida < vida_max:
+		regen_timer += delta
+		
+		if regen_timer >= regen_intervalo:
+			regen_timer = 0.0
+			vida += 1
+			vida = min(vida, vida_max)
+			
+			emit_signal("vida_alterada", vida)
+			atualizar_barra_vida()
 
 	mover(direcao)
 
@@ -39,7 +58,7 @@ func ganhar_xp(valor: int):
 
 func verificar_level_up():
 	var limite = 10 + (nivel - 1) * 15
-	emit_signal("limite_up", limite)
+#	emit_signal("limite_up", limite)
 	
 	if xp >= limite:
 		xp -= limite
@@ -100,3 +119,12 @@ func _on_animator_animation_finished(anim_name: StringName) -> void:
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		receber_dano(body.forca, body.global_position)
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	print("colidiu com:", area.name)
+	
+	if area.is_in_group("enemy"):
+		receber_dano(area.get_parent().forca, area.global_position)
+	
+	elif area.is_in_group("trap"):
+		receber_dano(50, area.global_position)

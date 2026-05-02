@@ -3,10 +3,14 @@
 [ext_resource type="Script" uid="uid://d2wfv4xd1rnd3" path="res://scripts/tela_inicial.gd" id="1_6hiqg"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="1_xs8lk"]
 [ext_resource type="Texture2D" uid="uid://deaqmoxihdbuo" path="res://sprites/artes/FundoJogo.png" id="2_5sd8u"]
+[ext_resource type="PackedScene" uid="uid://bs10qhe3bjt60" path="res://telas/tela_config.tscn" id="2_lnd7q"]
 [ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="4_5bdny"]
 
 [node name="Tela_Inicial" type="CanvasLayer" unique_id=1788756212]
 script = ExtResource("1_6hiqg")
+
+[node name="Tela_Config" parent="." unique_id=1129727158 instance=ExtResource("2_lnd7q")]
+visible = false
 
 [node name="fundo_tela2" type="TextureRect" parent="." unique_id=608561164]
 offset_left = -179.0
