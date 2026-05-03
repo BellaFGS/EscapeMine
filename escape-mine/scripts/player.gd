@@ -24,6 +24,10 @@ func _ready():
 	vida = vida_max
 	forca = 1
 
+	if GameManager.upgrade_pendente != "":
+		aplicar_update(GameManager.upgrade_pendente)
+		GameManager.upgrade_pendente = ""
+
 func _physics_process(delta):
 	var direcao = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
@@ -57,13 +61,17 @@ func ganhar_xp(valor: int):
 	verificar_level_up()
 
 func verificar_level_up():
-	var limite = 10 + (nivel - 1) * 15
-#	emit_signal("limite_up", limite)
+	limite = 10 + (nivel - 1) * 15
 	
-	if xp >= limite:
+	while xp >= limite:
 		xp -= limite
 		nivel += 1
+		limite = 10 + (nivel - 1) * 15
+		
 		emit_signal("nivel_up", nivel)
+		
+		var level_up_tela = preload("res://telas/level_up.tscn").instantiate()
+		get_tree().current_scene.add_child(level_up_tela)
 
 # 🔼 UPGRADE
 func aplicar_update(tipo: String):
@@ -79,17 +87,12 @@ func aplicar_update(tipo: String):
 
 # 🎒 ITEM
 func pegar_item(item):
-	print("pegou dinamite")
-	dinamite += 1
-	emit_signal("dinamite_up", dinamite)
 	item.aplicar(self)
 	item.queue_free()
 
 func adicionar_item(tipo: String):
-	print("pegou dinamite")
 	dinamite += 1
 	emit_signal("dinamite_up", dinamite)
-
 	inventario.adicionar_item(tipo, 1)
 
 func usar_item(tipo: String):
@@ -107,7 +110,7 @@ func usar_dinamite():
 		var d = cena_dinamite.instantiate()
 		get_parent().add_child(d)
 		d.global_position = global_position + Vector2(20, 0)
-		print("usou dinamite")
+
 		dinamite -= 1
 		emit_signal("dinamite_up", dinamite)
 

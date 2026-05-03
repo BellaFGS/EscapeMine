@@ -10,6 +10,7 @@ var dificuldade: int = 1
 var player_tem_chave = false
 var estado = "RUNNING"
 var enemy_spawner
+var upgrade_pendente: String = ""
 
 func _ready():
 	enemy_spawner = get_tree().get_first_node_in_group("spawner")
