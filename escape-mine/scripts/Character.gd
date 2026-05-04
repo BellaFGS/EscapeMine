@@ -5,6 +5,7 @@ signal vida_alterada(valor)
 @onready var anim = get_node_or_null("Animator")
 @onready var texture = get_node_or_null("Texture")
 @onready var barra_vida = get_node_or_null("BarraVida")
+var cor_original: Color = Color(1, 1, 1)
 
 @export var speed = 100
 @export var vida_max = 5
@@ -17,12 +18,15 @@ var is_attack = false
 var tomando_dano = false
 var knockback_velocity = Vector2.ZERO
 
+var tempo_sem_dano := 0.0
+var regen_timer := 0.0
+
 func _ready():
 	vida = vida_max
 	atualizar_barra_vida()
 	
 
-func mover(direcao):
+func mover(direcao):	
 	if esta_morto:
 		return
 	
@@ -41,6 +45,11 @@ func mover(direcao):
 	move_and_slide()
 
 	atualizar_animacao(direcao)
+
+func set_cor(cor):
+	cor_original = cor
+	if texture:
+		texture.modulate = cor
 
 func atualizar_animacao(direcao):
 	if anim == null or is_attack:
@@ -68,6 +77,9 @@ func atacar():
 	anim.play("attack_" + ultima_direcao)
 
 func receber_dano(valor, origem: Vector2):
+	tempo_sem_dano = 0.0
+	regen_timer = 0.0
+	
 	if esta_morto:
 		return
 		
@@ -77,7 +89,7 @@ func receber_dano(valor, origem: Vector2):
 	tomando_dano = true
 	
 	var direcao = (global_position - origem).normalized()
-	knockback_velocity = direcao * 900
+	knockback_velocity = direcao * 1200
 	
 	flash_dano()
 	
@@ -94,11 +106,16 @@ func _morrer_impl():
 	queue_free()
 
 func flash_dano():
-	if texture:
-		texture.modulate = Color(1, 0, 0)
+	if not texture:
+		return
+	
+	var cor_hit = cor_original.lerp(Color(1, 0, 0), 0.7)
+	texture.modulate = cor_hit
+	
 	await get_tree().create_timer(0.2).timeout
-	if texture:
-		texture.modulate = Color(1, 1, 1)
+	
+	if is_instance_valid(self) and texture:
+		texture.modulate = cor_original
 
 func atualizar_barra_vida():
 	if barra_vida:
@@ -114,3 +131,6 @@ func _on_Animator_animation_finished():
 	if anim.animation.begins_with("attack"):
 		is_attack = false
 		anim.play("idle_" + ultima_direcao)
+		
+func _on_hurt_box_area_entered(area):
+	print("COLIDIU COM:", area)

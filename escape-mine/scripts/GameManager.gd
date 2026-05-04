@@ -9,8 +9,8 @@ var intervalo_dificuldade: float = 30.0 # a cada 30s sobe nível
 var dificuldade: int = 1
 var player_tem_chave = false
 var estado = "RUNNING"
-
 var enemy_spawner
+var upgrade_pendente: String = ""
 
 func _ready():
 	enemy_spawner = get_tree().get_first_node_in_group("spawner")
@@ -27,10 +27,6 @@ func _process(delta):
 	if tempo_total >= intervalo_dificuldade:
 		tempo_total = 0
 		aumentar_dificuldade()
-
-	# 🏁 condição de vitória continua igual
-	if player_tem_chave:
-		finalizar_jogo("WIN")
 
 # 🎯 Nome da dificuldade
 func get_dificuldade_nome():

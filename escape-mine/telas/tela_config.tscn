@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://dtl4pntx6ekjs"]
+
+[ext_resource type="Script" uid="uid://brev50rvm7hfi" path="res://scripts/tela_config.gd" id="1_lgoop"]
+[ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="2_76fbb"]
+[ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_78uk1"]
+[ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_8huyt"]
+[ext_resource type="Texture2D" uid="uid://dontxxp7wbqs4" path="res://sprites/artes/config3.png" id="4_78uk1"]
+[ext_resource type="AudioStream" uid="uid://naqi2mcj7twl" path="res://sounds/sons_gameplay/musica_de_fundo.mp3" id="5_p3w5a"]
+
+[node name="Tela_Config" type="CanvasLayer" unique_id=1788756212]
+process_mode = 3
+script = ExtResource("1_lgoop")
+
+[node name="fundo_tela" type="ColorRect" parent="." unique_id=1125106746]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.61960787)
+
+[node name="Menu" type="VBoxContainer" parent="." unique_id=99307723]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -65.0
+offset_right = -1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Menu" unique_id=796166915]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_78uk1")
+theme_override_font_sizes/font_size = 27
+text = "Volume Geral:"
+
+[node name="Label2" type="Label" parent="Menu" unique_id=405205841]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_78uk1")
+theme_override_font_sizes/font_size = 27
+text = "Volume do Jogo:"
+
+[node name="btn_voltar" type="Button" parent="Menu" unique_id=885510997]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_76fbb")
+text = "VOLTAR"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=201148708]
+offset_left = 51.0
+offset_top = 57.0
+offset_right = 129.0
+offset_bottom = 135.0
+texture = ExtResource("4_78uk1")
+
+[node name="Label" type="Label" parent="." unique_id=1565058819]
+offset_left = 151.0
+offset_top = 79.0
+offset_right = 221.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("4_8huyt")
+theme_override_font_sizes/font_size = 32
+text = "CONFIGURAÇÕES"
+
+[node name="ctr_geral" type="HSlider" parent="." unique_id=10014624]
+offset_left = 760.0
+offset_top = 304.0
+offset_right = 1071.0
+offset_bottom = 320.0
+size_flags_horizontal = 4
+min_value = -80.0
+max_value = 20.0
+step = 0.01
+value = 1.0
+
+[node name="ctr_jogo" type="HSlider" parent="." unique_id=579234341]
+offset_left = 760.0
+offset_top = 341.0
+offset_right = 1071.0
+offset_bottom = 357.0
+size_flags_horizontal = 4
+min_value = -80.0
+max_value = 20.0
+step = 0.01
+value = 1.0
+
+[node name="musica_fundo" type="AudioStreamPlayer2D" parent="." unique_id=1619913725]
+stream = ExtResource("5_p3w5a")
+
+[connection signal="pressed" from="Menu/btn_voltar" to="." method="_on_btn_voltar_pressed"]
+[connection signal="value_changed" from="ctr_geral" to="." method="_on_ctr_geral_value_changed"]
+[connection signal="value_changed" from="ctr_jogo" to="." method="_on_ctr_geral_value_changed"]

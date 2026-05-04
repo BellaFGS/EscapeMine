@@ -1,9 +1,9 @@
 extends Node
 
 var slime_scene
-var vida = 5
-var forca = 10
-var cor = Color(0, 1, 0)
+var vida 
+var forca 
+var cor
 
 func set_vida(v):
 	vida = v
@@ -24,7 +24,6 @@ func build():
 	slime.vida = vida
 	slime.forca = forca
 	
-	if slime.texture:
-		slime.texture.modulate = cor
+	slime.call_deferred("set_cor", cor)
 	
 	return slime

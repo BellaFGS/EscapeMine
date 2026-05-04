@@ -42,3 +42,5 @@ func _morrer_safe():
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if "forca" in area and "dono" in area:
 		receber_dano(area.forca, area.dono.global_position)
+	elif area.is_in_group("trap"):
+		receber_dano(50, area.global_position)

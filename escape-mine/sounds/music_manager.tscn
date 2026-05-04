@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cacw6fj37xqof"]
+
+[ext_resource type="Script" path="res://scripts/music_manager.gd" id="1_axqfx"]
+[ext_resource type="AudioStream" uid="uid://naqi2mcj7twl" path="res://sounds/sons_gameplay/musica_de_fundo.mp3" id="2_axqfx"]
+
+[node name="MusicManager" type="Node2D" unique_id=300977207]
+script = ExtResource("1_axqfx")
+
+[node name="musica_fundo" type="AudioStreamPlayer" parent="." unique_id=816579760]
+stream = ExtResource("2_axqfx")
+autoplay = true
+parameters/looping = false

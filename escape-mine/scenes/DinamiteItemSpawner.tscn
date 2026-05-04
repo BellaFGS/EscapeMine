@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dlxjwj3gjoym7"]
+
+[ext_resource type="Script" uid="uid://cbyl2jkwpttfv" path="res://scripts/dinamite_item_spawner.gd" id="1_blxst"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blxst"]
+size = Vector2(2734, 2322)
+
+[node name="DinamiteItemSpawner" type="Node2D" unique_id=289099363]
+script = ExtResource("1_blxst")
+
+[node name="AreaValida" type="Area2D" parent="." unique_id=479678138]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaValida" unique_id=497785255]
+position = Vector2(1357, 1151)
+shape = SubResource("RectangleShape2D_blxst")

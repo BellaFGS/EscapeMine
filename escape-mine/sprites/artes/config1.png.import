@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca0wfsf7mwjjj"
-path="res://.godot/imported/PC _ Computer - Stardew Valley - Tilesets - The Mines _ Skull Cavern.png-94852e8cacb238746cef28a54c4496ac.ctex"
+uid="uid://cn8jlhtf8yf48"
+path="res://.godot/imported/config1.png-c3c459307930e06a53d64201784a78a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tilesets/PC _ Computer - Stardew Valley - Tilesets - The Mines _ Skull Cavern.png"
-dest_files=["res://.godot/imported/PC _ Computer - Stardew Valley - Tilesets - The Mines _ Skull Cavern.png-94852e8cacb238746cef28a54c4496ac.ctex"]
+source_file="res://sprites/artes/config1.png"
+dest_files=["res://.godot/imported/config1.png-c3c459307930e06a53d64201784a78a0.ctex"]
 
 [params]
 

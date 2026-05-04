@@ -1,7 +1,11 @@
-extends Area2D
+extends Node2D
+class_name Item
 
 func _aplicar(player):
 	pass
+
+func clonar():
+	return duplicate()
 
 func _on_body_entered(body):
 	print("colidiu com:", body)
