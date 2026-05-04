@@ -10475,12 +10475,11 @@ spawn_points = [NodePath(".")]
 
 [node name="DinamiteItemSpawner" parent="." unique_id=289099363 instance=ExtResource("6_85g3d")]
 
+[node name="ArmadilhaSpawner" parent="." unique_id=1069560770 instance=ExtResource("7_choun")]
+
 [node name="player" parent="." unique_id=2066799720 instance=ExtResource("1_0wfyh")]
 position = Vector2(88, 59)
 scale = Vector2(2, 2)
-
-[node name="ArmadilhaSpawner" parent="." unique_id=1069560770 instance=ExtResource("7_choun")]
-position = Vector2(30, 5)
 
 [node name="hud" parent="." unique_id=1794209725 instance=ExtResource("7_o6xl0")]
 
