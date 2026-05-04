@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://suqbxhtcmw81" path="res://scripts/dinamite_ativa.gd" id="1_v57hd"]
 [ext_resource type="Texture2D" uid="uid://cb0xdc64gohsr" path="res://sprites/objects/items/mina_terrestre.png" id="2_v57hd"]
 [ext_resource type="Texture2D" uid="uid://3ry66hrpq0ip" path="res://sprites/objects/efects/explosion.png" id="3_77uf5"]
-[ext_resource type="Script" path="res://scripts/armadilha.gd" id="4_v57hd"]
+[ext_resource type="Script" uid="uid://bsbcml1750t4p" path="res://scripts/armadilha.gd" id="4_v57hd"]
 
 [sub_resource type="Animation" id="Animation_s2ssf"]
 length = 0.001

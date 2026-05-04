@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cnwdjffwqu38c" path="res://sprites/characters/esqueleto.png" id="2_tlre5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20qjs"]
-size = Vector2(11, 14)
+size = Vector2(21, 31)
 
 [sub_resource type="Animation" id="Animation_tlre5"]
 length = 0.001
@@ -762,7 +762,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aglst"]
-size = Vector2(13, 16)
+size = Vector2(25, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlre5"]
 size = Vector2(13, 8)
@@ -773,22 +773,23 @@ collision_mask = 11
 script = ExtResource("1_aglst")
 
 [node name="BarraVida" parent="." unique_id=716871242 instance=ExtResource("2_oxjr5")]
-offset_left = -8.0
-offset_top = -21.0
-offset_right = 7.0
-offset_bottom = -19.0
+visible = true
+offset_left = -9.0
+offset_top = -31.0
+offset_right = 6.0
+offset_bottom = -29.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=659011188]
 position = Vector2(-0.25, -8)
-scale = Vector2(1.0234375, 1.0234375)
+scale = Vector2(2, 2)
 texture = ExtResource("2_tlre5")
 hframes = 8
 vframes = 9
 frame = 64
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=2113694502]
-position = Vector2(-0.75, -8)
+position = Vector2(-1.5, -7.5)
 shape = SubResource("RectangleShape2D_20qjs")
 
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=1546996488]
@@ -800,7 +801,7 @@ collision_layer = 16
 collision_mask = 32
 
 [node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=293969665]
-position = Vector2(-0.25, 138)
+position = Vector2(-1.25, 138.5)
 shape = SubResource("RectangleShape2D_aglst")
 debug_color = Color(0.99612564, 0, 0.20121253, 0.41960785)
 

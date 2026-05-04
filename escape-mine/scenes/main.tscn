@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2f8ielcto5p5" path="res://scenes/door.tscn" id="3_choun"]
 [ext_resource type="PackedScene" uid="uid://754k33pvudct" path="res://telas/tela_pause.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dlxjwj3gjoym7" path="res://scenes/DinamiteItemSpawner.tscn" id="6_85g3d"]
+[ext_resource type="PackedScene" uid="uid://lt2g678h0ofm" path="res://scenes/armadilha_spawner.tscn" id="7_choun"]
 [ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://d3lxxw82qo3oy" path="res://scenes/enemy_spawner.tscn" id="7_tipki"]
 [ext_resource type="PackedScene" uid="uid://dtl4pntx6ekjs" path="res://telas/tela_config.tscn" id="9_choun"]
@@ -10468,16 +10469,18 @@ tile_set = SubResource("TileSet_choun")
 position = Vector2(2791, -64)
 scale = Vector2(2, 2)
 
-[node name="player" parent="." unique_id=2066799720 instance=ExtResource("1_0wfyh")]
-position = Vector2(88, 59)
-scale = Vector2(2, 2)
-
 [node name="EnemySpawner" parent="." unique_id=317786326 node_paths=PackedStringArray("spawn_points") instance=ExtResource("7_tipki")]
 position = Vector2(1510, 1333)
 spawn_points = [NodePath(".")]
 
 [node name="DinamiteItemSpawner" parent="." unique_id=289099363 instance=ExtResource("6_85g3d")]
-position = Vector2(82, 85)
+
+[node name="player" parent="." unique_id=2066799720 instance=ExtResource("1_0wfyh")]
+position = Vector2(88, 59)
+scale = Vector2(2, 2)
+
+[node name="ArmadilhaSpawner" parent="." unique_id=1069560770 instance=ExtResource("7_choun")]
+position = Vector2(30, 5)
 
 [node name="hud" parent="." unique_id=1794209725 instance=ExtResource("7_o6xl0")]
 

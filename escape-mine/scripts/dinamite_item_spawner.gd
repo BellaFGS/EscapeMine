@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var item_scene: PackedScene = preload("res://scenes/items/ItemDinamite.tscn")
+var item_scene: PackedScene = preload("res://scenes/items/ItemDinamite.tscn")
 @export var intervalo_spawn := 10.0
 @export var distancia_min := 100.0
 @export var distancia_max := 250.0
@@ -50,6 +50,7 @@ func spawn_dinamite():
 
 		# verifica se está dentro da Area2D
 		if esta_dentro_da_area(pos):
+			print("item_scene:", item_scene)
 			var item = item_scene.instantiate()
 			get_tree().current_scene.call_deferred("add_child", item)
 			item.global_position = pos

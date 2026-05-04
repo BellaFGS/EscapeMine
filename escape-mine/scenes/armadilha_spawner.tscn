@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://lt2g678h0ofm"]
 
 [ext_resource type="Script" uid="uid://87axuf1axm0n" path="res://scripts/armadilha_spawner.gd" id="1_qmunu"]
-[ext_resource type="PackedScene" uid="uid://b5kqmf8jw2jqw" path="res://scenes/items/ItemDinamite.tscn" id="2_vk11p"]
+[ext_resource type="PackedScene" uid="uid://5fjwyjvd56q6" path="res://scenes/items/armadilha.tscn" id="2_qmunu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmunu"]
+size = Vector2(2882, 2435)
 
 [node name="ArmadilhaSpawner" type="Node2D" unique_id=1069560770]
 script = ExtResource("1_qmunu")
-item_scene = ExtResource("2_vk11p")
+item_scene = ExtResource("2_qmunu")
+
+[node name="AreaLimite" type="Area2D" parent="." unique_id=1972351158]
+
+[node name="Collision" type="CollisionShape2D" parent="AreaLimite" unique_id=1410525338]
+position = Vector2(1431, 1207.5)
+shape = SubResource("RectangleShape2D_qmunu")
+debug_color = Color(0.8933587, 0.00022890985, 0.7860574, 0.41960785)

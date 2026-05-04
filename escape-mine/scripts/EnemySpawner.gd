@@ -39,7 +39,7 @@ func selecionar_enemy():
 	match dificuldade:
 		"Fácil":
 			return criar_slime(Color.YELLOW, 5, 10)
-			return esqueleto_scene.instantiate()
+			
 		"Médio":
 			if rand < 0.7:
 				return criar_slime(Color.BLUE, 6, 1)
