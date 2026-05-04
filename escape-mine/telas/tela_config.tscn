@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://naqi2mcj7twl" path="res://sounds/sons_gameplay/musica_de_fundo.mp3" id="5_p3w5a"]
 
 [node name="Tela_Config" type="CanvasLayer" unique_id=1788756212]
-process_mode = 1
+process_mode = 3
 script = ExtResource("1_lgoop")
 
 [node name="fundo_tela" type="ColorRect" parent="." unique_id=1125106746]
@@ -46,6 +46,7 @@ theme_override_font_sizes/font_size = 27
 text = "Volume do Jogo:"
 
 [node name="btn_voltar" type="Button" parent="Menu" unique_id=885510997]
+process_mode = 3
 layout_mode = 2
 theme = ExtResource("2_76fbb")
 text = "VOLTAR"

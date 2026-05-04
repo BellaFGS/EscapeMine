@@ -48,7 +48,7 @@ func spawn_dinamite():
 		
 		var pos = player.global_position + offset
 
-		# ✅ verifica se está dentro da Area2D
+		# verifica se está dentro da Area2D
 		if esta_dentro_da_area(pos):
 			var item = item_scene.instantiate()
 			get_tree().current_scene.call_deferred("add_child", item)

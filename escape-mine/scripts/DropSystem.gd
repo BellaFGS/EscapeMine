@@ -16,7 +16,7 @@ func gerar_drops(dificuldade: int) -> Array:
 	drops.append(xp)
 	
 	# 🔑 chance da chave
-	var chance_chave = 2 + (dificuldade * 3)
+	var chance_chave = clamp(1 + dificuldade * 2, 1, 25)
 	var roll = rng.randi_range(1, 100)
 	
 	if roll <= chance_chave:

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://kkpnlavv23uq" path="res://sprites/Bars/healthbarProgress.png" id="4_prpkp"]
 [ext_resource type="Texture2D" uid="uid://dabo2gmr6qfu" path="res://sprites/Bars/damagebarProgress.png" id="4_q0dk2"]
 [ext_resource type="Texture2D" uid="uid://dnl1kcg3c7b0e" path="res://sprites/Bars/whiteMeter01.png" id="8_g8g4g"]
-[ext_resource type="Script" uid="uid://f0k0gqhbby3d" path="res://telas/barra_xp_textura.gd" id="8_q0dk2"]
+[ext_resource type="Script" uid="uid://f0k0gqhbby3d" path="res://scripts/barra_xp_textura.gd" id="8_q0dk2"]
 [ext_resource type="Texture2D" uid="uid://sgqo8ct7qoxt" path="res://sprites/Bars/whiteMeter10.png" id="9_j0801"]
 [ext_resource type="PackedScene" uid="uid://lswm5cqifi5o" path="res://scenes/items/dinamite_ativa.tscn" id="11_j0801"]
 [ext_resource type="PackedScene" uid="uid://cixpcdgmomouj" path="res://scenes/items/item_chave.tscn" id="12_8h06o"]
@@ -132,10 +132,10 @@ horizontal_alignment = 1
 
 [node name="Nivel_Dificuldade" type="Label" parent="control" unique_id=2073264020]
 layout_mode = 0
-offset_left = 1148.0
-offset_top = 2.0
-offset_right = 1280.0
-offset_bottom = 25.0
+offset_left = 1110.0
+offset_top = 31.0
+offset_right = 1242.0
+offset_bottom = 54.0
 horizontal_alignment = 2
 
 [node name="dinamiteAtiva" parent="control" unique_id=892914883 instance=ExtResource("11_j0801")]
