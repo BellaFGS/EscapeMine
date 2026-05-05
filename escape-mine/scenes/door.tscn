@@ -166,7 +166,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_la1wf"]
-size = Vector2(32, 61)
+size = Vector2(32, 44)
 
 [node name="Door" type="Area2D" unique_id=456153555]
 collision_layer = 8
@@ -180,5 +180,5 @@ hframes = 4
 libraries/ = SubResource("AnimationLibrary_83dcw")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=465536681]
-position = Vector2(0, 14.5)
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_la1wf")

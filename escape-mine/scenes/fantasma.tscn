@@ -412,7 +412,7 @@ speed_scale = 0.8
 
 [node name="hurtBox" type="Area2D" parent="." unique_id=1809746303]
 collision_layer = 16
-collision_mask = 32
+collision_mask = 224
 
 [node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=118639856]
 position = Vector2(0, 1)

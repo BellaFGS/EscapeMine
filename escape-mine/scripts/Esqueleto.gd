@@ -11,9 +11,8 @@ func _physics_process(delta):
 	if esta_morto:
 		return
 	
-	if player:
-		var direcao = (player.global_position - global_position).normalized()
-		mover(direcao)
+	if ultimo_atacante and ultimo_atacante.is_in_group("player"):
+		ultimo_atacante.ganhar_xp(randi_range(1, 5))
 
 # 💀 MORTE
 func morrer():
@@ -42,4 +41,7 @@ func _morrer_safe():
 # 💥 RECEBER DANO
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if "forca" in area and "dono" in area:
-		receber_dano(area.forca, area.dono.global_position)
+		receber_dano(area.forca, area.dono.global_position, area.dono)
+	
+	elif area.is_in_group("trap"):
+		receber_dano(50, area.global_position, null)

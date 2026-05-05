@@ -14,4 +14,6 @@ esqueleto_scene = ExtResource("3_ih16b")
 fantasma_scene = ExtResource("4_31irv")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=459171718]
+visible = false
+scale = Vector2(4.5, 4.5)
 texture = SubResource("CanvasTexture_ih16b")

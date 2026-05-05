@@ -95,8 +95,8 @@ func adicionar_item(tipo: String):
 	emit_signal("dinamite_up", dinamite)
 	inventario.adicionar_item(tipo, 1)
 
-func usar_item(tipo: String):
-	return inventario.usar_item(tipo)
+#func usar_item(tipo: String): #Ideia futura
+	#return inventario.usar_item(tipo)
 
 func morrer():
 	GameManager.finalizar_jogo("LOSE")

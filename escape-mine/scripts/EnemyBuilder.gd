@@ -1,9 +1,13 @@
 extends Node
 
-var slime_scene
+var enemy_scene
 var vida 
 var forca 
 var cor
+
+func set_scene(scene):
+	enemy_scene = scene
+	return self
 
 func set_vida(v):
 	vida = v
@@ -18,12 +22,18 @@ func set_color(c):
 	return self
 
 func build():
-	var slime = slime_scene.instantiate()
+	var enemy = enemy_scene.instantiate()
 	
-	slime.vida_max = vida
-	slime.vida = vida
-	slime.forca = forca
+	# 🧠 atributos comuns
+	if vida != null:
+		enemy.vida_max = vida
+		enemy.vida = vida
 	
-	slime.call_deferred("set_cor", cor)
+	if forca != null:
+		enemy.forca = forca
 	
-	return slime
+	# 🎨 só aplica cor se existir método
+	if cor != null and enemy.has_method("set_cor"):
+		enemy.call_deferred("set_cor", cor)
+	
+	return enemy

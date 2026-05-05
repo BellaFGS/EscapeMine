@@ -24,13 +24,13 @@ func atualizar_dificuldade(nova):
 	
 	match dificuldade:
 		"Fácil":
-			intervalo_spawn = 2.5
+			intervalo_spawn = 3.0
 		"Médio":
 			intervalo_spawn = 2.0
 		"Difícil":
 			intervalo_spawn = 1.5
 		"Extremo":
-			intervalo_spawn = 1.0
+			intervalo_spawn = 0.8
 
 # 🎲 Escolha do inimigo
 func selecionar_enemy():
@@ -39,7 +39,6 @@ func selecionar_enemy():
 	match dificuldade:
 		"Fácil":
 			return criar_slime(Color.YELLOW, 5, 10)
-			return esqueleto_scene.instantiate()
 		"Médio":
 			if rand < 0.7:
 				return criar_slime(Color.BLUE, 6, 1)
@@ -50,29 +49,46 @@ func selecionar_enemy():
 			if rand < 0.5:
 				return criar_slime(Color.GREEN, 10, 2)
 			elif rand < 0.8:
-				return esqueleto_scene.instantiate()
+				return criar_esqueleto(12, 3)
 			else:
-				return criar_slime(Color.RED, 14, 3)
+				return criar_slime(Color.RED, 14, 5)
 		
 		"Extremo":
 			if rand < 0.4:
-				return criar_slime(Color.RED, 16, 4)
+				return criar_slime(Color.RED, 20, 15)
 			elif rand < 0.7:
-				return esqueleto_scene.instantiate()
+				return criar_esqueleto(12, 3)
 			else:
-				return fantasma_scene.instantiate()
+				return criar_fantasma(30, 20)
 
 # 🟢 Builder
 func criar_slime(cor, vida, forca):
 	var builder = preload("res://scripts/EnemyBuilder.gd").new()
-	builder.slime_scene = slime_scene
 	
 	return builder \
+		.set_scene(slime_scene) \
 		.set_color(cor) \
 		.set_vida(vida) \
 		.set_forca(forca) \
 		.build()
 
+func criar_esqueleto(vida, forca):
+	var builder = preload("res://scripts/EnemyBuilder.gd").new()
+	
+	return builder \
+		.set_scene(esqueleto_scene) \
+		.set_vida(vida) \
+		.set_forca(forca) \
+		.build()
+
+func criar_fantasma(vida, forca):
+	var builder = preload("res://scripts/EnemyBuilder.gd").new()
+	
+	return builder \
+		.set_scene(fantasma_scene) \
+		.set_vida(vida) \
+		.set_forca(forca) \
+		.build()
 # 📍 Spawn
 func spawn_enemy():
 	print("spawnando...")

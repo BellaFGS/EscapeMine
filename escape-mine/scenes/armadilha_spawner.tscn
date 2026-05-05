@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://lt2g678h0ofm"]
-
-[ext_resource type="Script" uid="uid://87axuf1axm0n" path="res://scripts/armadilha_spawner.gd" id="1_qmunu"]
-[ext_resource type="PackedScene" uid="uid://b5kqmf8jw2jqw" path="res://scenes/items/ItemDinamite.tscn" id="2_vk11p"]
-
-[node name="ArmadilhaSpawner" type="Node2D" unique_id=1069560770]
-script = ExtResource("1_qmunu")
-item_scene = ExtResource("2_vk11p")

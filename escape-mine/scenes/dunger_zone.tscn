@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://jpp8a12sc7fk"]
+[gd_scene format=3 uid="uid://c0xwusfiy3thv"]
 
 [ext_resource type="Script" uid="uid://bl7nsp0fi3mmj" path="res://scripts/dunger_zone.gd" id="1_8qr1e"]
 
-[node name="ItemSpawner" type="Node2D" unique_id=1069560770]
+[node name="DungerZone" type="Node2D" unique_id=1069560770]
 script = ExtResource("1_8qr1e")

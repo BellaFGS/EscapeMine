@@ -20,6 +20,7 @@ var knockback_velocity = Vector2.ZERO
 
 var tempo_sem_dano := 0.0
 var regen_timer := 0.0
+var ultimo_atacante = null
 
 func _ready():
 	vida = vida_max
@@ -76,13 +77,17 @@ func atacar():
 	
 	anim.play("attack_" + ultima_direcao)
 
-func receber_dano(valor, origem: Vector2):
+func receber_dano(valor, origem: Vector2, atacante = null):
 	tempo_sem_dano = 0.0
 	regen_timer = 0.0
 	
 	if esta_morto:
 		return
 		
+	# 🧠 guarda quem causou o dano
+	if atacante != null:
+		ultimo_atacante = atacante
+	
 	vida -= valor
 	emit_signal("vida_alterada", vida)
 	atualizar_barra_vida()
