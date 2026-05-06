@@ -1,16 +1,12 @@
 # 🎮 EscapeMine
 
 ## 📌 Introdução
-**EscapeMine** é um jogo 2D desenvolvido na Godot onde o jogador deve sobreviver em uma arena infestada de criaturas hostis enquanto busca uma forma de escapar. O foco do jogo está no combate, sobrevivência e progressão de dificuldade ao longo do tempo.
+**EscapeMine** é um jogo 2D desenvolvido na Godot na qual o jogador em como objetivo, conseguir pegar a chave e escapar da mina enquanto enfrenar inimigos hostis e bombas!
 
 ---
 
 ## 📖 História
-Lucas, um engenheiro industrial, foi contratado para realizar a manutenção de um sistema em uma empresa. Durante o trabalho, ele acaba sofrendo um acidente e cai em um buraco desconhecido.
-
-Ao recobrar a consciência, Lucas se encontra preso em uma mina abandonada, habitada por criaturas famintas. Sem saída aparente, ele descobre uma única porta trancada.
-
-A única forma de escapar é encontrar a chave que abre essa porta — e para isso, será necessário enfrentar e derrotar os monstros que habitam o local.
+Lucas, um engenheiro industrial certo dia acordou com seu despertador e foi trabalhar. Porém, um tanto distraído, acabou caindo dentro de um buraco e agora se encontra em uma mina abandonada cercado por criauras... E sua unica saída é uma porta que está trancada.
 
 ---
 
@@ -45,8 +41,9 @@ O jogo foi desenvolvido utilizando a engine **Godot 4.6.1**, com as seguintes ca
 ---
 
 ## 👥 Créditos
-Desenvolvedora **BellaFGS**
-Co-Desenvolvedor **Thomas-1610**
-Animadora **https://www.instagram.com/tn.a7ex/**
+Desenvolvedora e Gestora de projetos **BellaFGS**
+Desenvolvedor e Desing **Thomas-1610**
+Desenvolvedor **Oroboni (Matheus Cuero)**
+Artista de animação **https://www.instagram.com/tn.a7ex/**
 
 Projeto desenvolvido como prática em desenvolvimento de jogos utilizando Godot.
