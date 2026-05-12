@@ -69,6 +69,7 @@ func verificar_level_up():
 		limite = 10 + (nivel - 1) * 15
 		
 		emit_signal("nivel_up", nivel)
+		emit_signal("vida_up", 0)
 		
 		var level_up_tela = preload("res://telas/level_up.tscn").instantiate()
 		get_tree().current_scene.add_child(level_up_tela)
