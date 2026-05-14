@@ -9,9 +9,6 @@
 [node name="Tela_Inicial" type="CanvasLayer" unique_id=1788756212]
 script = ExtResource("1_6hiqg")
 
-[node name="Tela_Config" parent="." unique_id=1129727158 instance=ExtResource("2_lnd7q")]
-visible = false
-
 [node name="fundo_tela2" type="TextureRect" parent="." unique_id=608561164]
 offset_left = -179.0
 offset_right = 1460.5415
@@ -63,6 +60,9 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_5bdny")
 theme_override_font_sizes/font_size = 110
 text = "Escape Mine"
+
+[node name="Tela_Config" parent="." unique_id=1930430302 instance=ExtResource("2_lnd7q")]
+visible = false
 
 [connection signal="pressed" from="Menu/btn_comecar" to="." method="_on_btn_comecar_pressed"]
 [connection signal="pressed" from="Menu/btn_config" to="." method="_on_btn_config_pressed"]
