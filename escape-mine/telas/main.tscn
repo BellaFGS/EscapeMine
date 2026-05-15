@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://d3lxxw82qo3oy" path="res://scenes/enemy_spawner.tscn" id="7_tipki"]
 [ext_resource type="PackedScene" uid="uid://dtl4pntx6ekjs" path="res://telas/tela_config.tscn" id="9_choun"]
+[ext_resource type="PackedScene" uid="uid://cixpcdgmomouj" path="res://scenes/items/item_chave.tscn" id="11_2kp0m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85g3d"]
 texture = ExtResource("3_85g3d")
@@ -10488,3 +10489,6 @@ position = Vector2(118, 52)
 visible = false
 
 [node name="Tela_Pause" parent="." unique_id=1788756212 instance=ExtResource("3_sugp2")]
+
+[node name="ItemChave" parent="." unique_id=82965891 instance=ExtResource("11_2kp0m")]
+position = Vector2(2564, 74)

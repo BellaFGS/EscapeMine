@@ -1,7 +1,9 @@
 extends CanvasLayer
+
 @onready var ctr_geral: HSlider = $ctr_geral
 @onready var ctr_sfx: HSlider = $ctr_sfx
 @onready var ctr_musica: HSlider = $ctr_musica
+
 
 func _ready():
 	visible = false
