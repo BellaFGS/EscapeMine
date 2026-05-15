@@ -1,25 +1,129 @@
 extends Node
 
-var player_musica
-var player_sfx
+# =========================
+# PLAYERS
+# =========================
+
+var musica_player : AudioStreamPlayer
+var sfx_player : AudioStreamPlayer
+
+# =========================
+# VOLUMES
+# =========================
+
+var volume_master := 1.0
+var volume_musica := 1.0
+var volume_sfx := 1.0
+
+# =========================
+# BIBLIOTECA DE ÁUDIOS
+# =========================
+
+var musicas = {
+	"menu": preload("res://sounds/sons_gameplay/bgMusic.mp3"),
+	#"": preload(),
+	#"": preload(),
+	#"": preload(),
+	#"": preload(),
+	#"": preload(),
+	#"": preload(),
+	#"": preload(),
+	#"": preload()
+}
+
+var sfx = {
+	#"click": preload(),
+	#"": preload(),
+	#"": preload(),
+	#"": preload(),
+	#"": preload(),
+	#"": preload(),
+	#"": preload(),
+	#"": preload()
+}
+
+# =========================
+# READY
+# =========================
 
 func _ready():
 
-	player_musica = AudioStreamPlayer.new()
-	add_child(player_musica)
+	musica_player = AudioStreamPlayer.new()
+	add_child(musica_player)
 
-	player_sfx = AudioStreamPlayer.new()
-	add_child(player_sfx)
+	sfx_player = AudioStreamPlayer.new()
+	add_child(sfx_player)
 
-func tocar_musica(audio):
+	atualizar_volumes()
 
-	player_musica.stream = audio
-	player_musica.play()
+# =========================
+# MÚSICAS
+# =========================
+
+func tocar_musica(nome):
+
+	if !musicas.has(nome):
+		push_warning("Música não encontrada: " + nome)
+		return
+
+	musica_player.stream = musicas[nome]
+	musica_player.play()
+
+# =========================
+# EFEITOS
+# =========================
+
+func tocar_sfx(nome):
+
+	if !sfx.has(nome):
+		push_warning("SFX não encontrado: " + nome)
+		return
+
+	sfx_player.stream = sfx[nome]
+	sfx_player.play()
+
+# =========================
+# PARAR MÚSICA
+# =========================
 
 func parar_musica():
-	player_musica.stop()
 
-func tocar_sfx(audio):
+	musica_player.stop()
 
-	player_sfx.stream = audio
-	player_sfx.play()
+# =========================
+# VOLUMES
+# =========================
+
+func atualizar_volumes():
+	var musica_volume = max(
+		volume_master * volume_musica,
+		0.001
+	)
+
+	var sfx_volume = max(
+		volume_master * volume_sfx,
+		0.001
+	)
+
+	musica_player.volume_db = linear_to_db(
+		musica_volume
+	)
+
+	sfx_player.volume_db = linear_to_db(
+		sfx_volume
+	)
+
+func definir_volume_master(valor):
+
+	volume_master = valor
+	atualizar_volumes()
+
+func definir_volume_musica(valor):
+
+	volume_musica = valor
+	atualizar_volumes()
+
+func definir_volume_sfx(valor):
+
+	volume_sfx = valor
+	atualizar_volumes()

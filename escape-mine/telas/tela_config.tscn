@@ -5,7 +5,6 @@
 [ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_78uk1"]
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_8huyt"]
 [ext_resource type="Texture2D" uid="uid://dontxxp7wbqs4" path="res://sprites/artes/config3.png" id="4_78uk1"]
-[ext_resource type="AudioStream" uid="uid://naqi2mcj7twl" path="res://sounds/sons_gameplay/musica_de_fundo.mp3" id="5_p3w5a"]
 
 [node name="Tela_Config" type="CanvasLayer" unique_id=1788756212]
 process_mode = 3
@@ -30,20 +29,28 @@ offset_right = -1.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="Menu" unique_id=796166915]
+[node name="Label_geral" type="Label" parent="Menu" unique_id=796166915]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_78uk1")
 theme_override_font_sizes/font_size = 27
 text = "Volume Geral:"
 
-[node name="Label2" type="Label" parent="Menu" unique_id=405205841]
+[node name="Label_sfx" type="Label" parent="Menu" unique_id=405205841]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_78uk1")
 theme_override_font_sizes/font_size = 27
-text = "Volume do Jogo:"
+text = "Efeitos Sonoros:"
+
+[node name="Label_musica" type="Label" parent="Menu" unique_id=1454774027]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_78uk1")
+theme_override_font_sizes/font_size = 27
+text = "Músicas do jogo:"
 
 [node name="btn_voltar" type="Button" parent="Menu" unique_id=885510997]
 process_mode = 3
@@ -68,30 +75,38 @@ theme_override_font_sizes/font_size = 32
 text = "CONFIGURAÇÕES"
 
 [node name="ctr_geral" type="HSlider" parent="." unique_id=10014624]
-offset_left = 760.0
-offset_top = 304.0
-offset_right = 1071.0
-offset_bottom = 320.0
+offset_left = 763.0
+offset_top = 272.0
+offset_right = 1074.0
+offset_bottom = 288.0
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="ctr_sfx" type="HSlider" parent="." unique_id=579234341]
+offset_left = 768.0
+offset_top = 315.0
+offset_right = 1079.0
+offset_bottom = 331.0
 size_flags_horizontal = 4
 min_value = -80.0
 max_value = 20.0
 step = 0.01
 value = 1.0
 
-[node name="ctr_jogo" type="HSlider" parent="." unique_id=579234341]
-offset_left = 760.0
-offset_top = 341.0
-offset_right = 1071.0
-offset_bottom = 357.0
+[node name="ctr_musica" type="HSlider" parent="." unique_id=1414999855]
+offset_left = 766.0
+offset_top = 363.0
+offset_right = 1077.0
+offset_bottom = 379.0
 size_flags_horizontal = 4
 min_value = -80.0
 max_value = 20.0
 step = 0.01
 value = 1.0
-
-[node name="musica_fundo" type="AudioStreamPlayer2D" parent="." unique_id=1619913725]
-stream = ExtResource("5_p3w5a")
 
 [connection signal="pressed" from="Menu/btn_voltar" to="." method="_on_btn_voltar_pressed"]
 [connection signal="value_changed" from="ctr_geral" to="." method="_on_ctr_geral_value_changed"]
-[connection signal="value_changed" from="ctr_jogo" to="." method="_on_ctr_geral_value_changed"]
+[connection signal="value_changed" from="ctr_sfx" to="." method="_on_ctr_sfx_value_changed"]
+[connection signal="value_changed" from="ctr_musica" to="." method="_on_ctr_musica_value_changed"]

@@ -21,7 +21,6 @@ AudioManager="*uid://cinisra1ofdcp"
 DropSystem="*uid://qo7bqwyuq7rv"
 GameManager="*uid://b32pqodawoe60"
 GameFacade="*uid://ba6rrhq7yqsbx"
-MusicManager="*uid://bxq7lt38bewc8"
 SceneManager="*uid://b3rqs3f7oepev"
 UIManager="*uid://brluviy00aic5"
 

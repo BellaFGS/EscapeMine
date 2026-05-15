@@ -5,7 +5,7 @@ func _ready() -> void:
 	# Garantir que a tela inicial esteja visível ao iniciar o jogo
 	get_tree().paused = false
 	visible = true
-	MusicManager.play_music(preload("res://sounds/sons_gameplay/musica_de_fundo.mp3"))
+	AudioManager.tocar_musica("menu")
 	
 	UIManager.registrar_telas(
 	null,

@@ -1,22 +1,24 @@
 extends CanvasLayer
-
 @onready var ctr_geral: HSlider = $ctr_geral
+@onready var ctr_sfx: HSlider = $ctr_sfx
+@onready var ctr_musica: HSlider = $ctr_musica
 
 func _ready():
-
 	visible = false
-
 	layer = 100
 
-	ctr_geral.value = db_to_linear(
-		MusicManager.musica_fundo.volume_db
-	)
+	ctr_geral.value = AudioManager.volume_master
+	ctr_musica.value = AudioManager.volume_musica
+	ctr_sfx.value = AudioManager.volume_sfx
+
 func _on_btn_voltar_pressed():
 	UIManager.fechar_config()
 
 func _on_ctr_geral_value_changed(value):
+	AudioManager.definir_volume_master(value)
 
-	if value <= 0:
-		MusicManager.musica_fundo.volume_db = -40
-	else:
-		MusicManager.musica_fundo.volume_db = linear_to_db(value)
+func _on_ctr_musica_value_changed(value):
+	AudioManager.definir_volume_musica(value)
+
+func _on_ctr_sfx_value_changed(value):
+	AudioManager.definir_volume_sfx(value)
