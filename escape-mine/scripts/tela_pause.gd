@@ -5,6 +5,7 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -25,11 +26,8 @@ func _on_btn_sair_pressed() -> void:
 
 # botão config (no pause)
 func _on_btn_config_pressed():
-	var config = get_parent().get_node("Tela_Config")
-	config.origem = "pause"
-	config.visible = true
-	visible = false
-
+	UIManager.abrir_config("pause")
 
 func _on_btn_inicio_pressed() -> void:
-	get_tree().change_scene_to_file("res://telas/tela_inicial.tscn")
+	get_tree().paused = false
+	GameFacade.voltar_menu()

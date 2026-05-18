@@ -1,14 +1,20 @@
 extends CanvasLayer
 
 func _ready() -> void:
+	print($Tela_Config)
 	# Garantir que a tela inicial esteja visível ao iniciar o jogo
 	get_tree().paused = false
 	visible = true
-	MusicManager.play_music(preload("res://sounds/sons_gameplay/musica_de_fundo.mp3"))
+	AudioManager.tocar_musica("menu")
+	
+	UIManager.registrar_telas(
+	null,
+	get_node("Tela_Config")
+	)
 
 # Botão COMEÇAR
 func _on_btn_comecar_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	GameFacade.iniciar_jogo()
 
 # Botão SAIR
 func _on_btn_sair_pressed() -> void:
@@ -17,12 +23,7 @@ func _on_btn_sair_pressed() -> void:
 
 
 func _on_btn_config_pressed():
-	var config_scene = preload("res://telas/tela_config.tscn")
-	var config = config_scene.instantiate()
-	
-	config.origem = "menu"
-	
-	get_tree().current_scene.add_child(config)
-	
-	config.visible = true
-	visible = false
+
+	UIManager.abrir_config("menu")
+
+	print($Tela_Config.visible)

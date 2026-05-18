@@ -3,6 +3,7 @@ extends "res://scripts/Character.gd"
 #signal vida_alterada(valor)
 signal forca_alterado(valor)
 signal xp_alterado(valor)
+signal liberar_upgrade(valor)
 signal nivel_up(nivel)
 signal dinamite_up(dinamite)
 
@@ -69,6 +70,8 @@ func verificar_level_up():
 		limite = 10 + (nivel - 1) * 15
 		
 		emit_signal("nivel_up", nivel)
+		emit_signal("vida_up", 0)
+		emit_signal("liberar_upgrade", true)
 		
 		var level_up_tela = preload("res://telas/level_up.tscn").instantiate()
 		get_tree().current_scene.add_child(level_up_tela)

@@ -12,4 +12,4 @@ func _on_btn_sair_pressed() -> void:
 
 func _on_btn_voltar_pressed() -> void:
 	GameManager.resetar()
-	get_tree().change_scene_to_file("res://telas/tela_inicial.tscn")
+	GameFacade.voltar_menu()

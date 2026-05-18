@@ -10,8 +10,150 @@
 [ext_resource type="Texture2D" uid="uid://dnl1kcg3c7b0e" path="res://sprites/Bars/whiteMeter01.png" id="8_g8g4g"]
 [ext_resource type="Script" uid="uid://f0k0gqhbby3d" path="res://scripts/barra_xp_textura.gd" id="8_q0dk2"]
 [ext_resource type="Texture2D" uid="uid://sgqo8ct7qoxt" path="res://sprites/Bars/whiteMeter10.png" id="9_j0801"]
-[ext_resource type="PackedScene" uid="uid://lswm5cqifi5o" path="res://scenes/items/dinamite_ativa.tscn" id="11_j0801"]
-[ext_resource type="PackedScene" uid="uid://cixpcdgmomouj" path="res://scenes/items/item_chave.tscn" id="12_8h06o"]
+[ext_resource type="Texture2D" uid="uid://dc4a0cm3nopqe" path="res://sprites/objects/items/dynamite.png" id="11_8h06o"]
+[ext_resource type="Texture2D" uid="uid://laboslv4yj13" path="res://sprites/objects/items/chave.png" id="12_wrqd1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgi0u"]
+atlas = ExtResource("11_8h06o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h30ly"]
+atlas = ExtResource("11_8h06o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3687"]
+atlas = ExtResource("11_8h06o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jlhg"]
+atlas = ExtResource("11_8h06o")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dabu4"]
+atlas = ExtResource("11_8h06o")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5exw1"]
+atlas = ExtResource("11_8h06o")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no3b2"]
+atlas = ExtResource("11_8h06o")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbbsu"]
+atlas = ExtResource("11_8h06o")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe4n3"]
+atlas = ExtResource("11_8h06o")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t4ucv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgi0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h30ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3687")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jlhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dabu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5exw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no3b2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbbsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe4n3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpcn4"]
+atlas = ExtResource("12_wrqd1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxqvc"]
+atlas = ExtResource("12_wrqd1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj845"]
+atlas = ExtResource("12_wrqd1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s57ib"]
+atlas = ExtResource("12_wrqd1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwipf"]
+atlas = ExtResource("12_wrqd1")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqp2f"]
+atlas = ExtResource("12_wrqd1")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp3n1"]
+atlas = ExtResource("12_wrqd1")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpowv"]
+atlas = ExtResource("12_wrqd1")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eleih"]
+atlas = ExtResource("12_wrqd1")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ww7e8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpcn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxqvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj845")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s57ib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwipf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqp2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp3n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpowv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eleih")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="hud" type="CanvasLayer" unique_id=1794209725]
 
@@ -138,9 +280,21 @@ offset_right = 1242.0
 offset_bottom = 54.0
 horizontal_alignment = 2
 
-[node name="dinamiteAtiva" parent="control" unique_id=892914883 instance=ExtResource("11_j0801")]
-position = Vector2(28, 124)
-script = null
+[node name="ItemDinamite" type="AnimatedSprite2D" parent="control" unique_id=282409802]
+position = Vector2(28, 122)
+scale = Vector2(1.3125, 1.28125)
+sprite_frames = SubResource("SpriteFrames_t4ucv")
+autoplay = "default"
+frame_progress = 0.8356087
+
+[node name="ItemChave" type="AnimatedSprite2D" parent="control" unique_id=882526637]
+visible = false
+position = Vector2(28, 173.00002)
+rotation = 1.5742761
+scale = Vector2(1.4687499, 1.4337796)
+sprite_frames = SubResource("SpriteFrames_ww7e8")
+autoplay = "default"
+frame_progress = 0.020022104
 
 [node name="Dinamite" type="Label" parent="control" unique_id=651764234]
 layout_mode = 0
@@ -149,14 +303,11 @@ offset_top = 110.0
 offset_right = 95.0
 offset_bottom = 133.0
 
-[node name="ItemChave" parent="control" unique_id=82965891 instance=ExtResource("12_8h06o")]
-visible = false
-position = Vector2(27, 171)
-script = null
-
-[node name="Chave" type="Label" parent="control" unique_id=171171627]
+[node name="TextoUpgrade" type="Label" parent="control" unique_id=1873969042]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 161.0
-offset_right = 92.0
-offset_bottom = 184.0
+offset_left = 576.0
+offset_top = 24.0
+offset_right = 699.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 20
+text = "(E) UPGRADE"

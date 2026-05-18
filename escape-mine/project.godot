@@ -17,9 +17,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*uid://b32pqodawoe60"
+AudioManager="*uid://cinisra1ofdcp"
 DropSystem="*uid://qo7bqwyuq7rv"
-MusicManager="*uid://bxq7lt38bewc8"
+GameManager="*uid://b32pqodawoe60"
+GameFacade="*uid://ba6rrhq7yqsbx"
+SceneManager="*uid://b3rqs3f7oepev"
+UIManager="*uid://brluviy00aic5"
 
 [display]
 
@@ -31,6 +34,7 @@ window/size/viewport_height=720
 folder_colors={
 "res://scenes/": "blue",
 "res://scripts/": "yellow",
+"res://scripts/autoloads/": "pink",
 "res://sounds/": "green",
 "res://sprites/": "purple",
 "res://telas/": "red"

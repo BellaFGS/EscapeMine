@@ -9,20 +9,18 @@ extends Control
 @onready var texto_nivel = $Nivel
 @onready var texto_dificuldade = $Nivel_Dificuldade
 @onready var texto_dinamite = $Dinamite
-@onready var texto_chave = $Chave
 @onready var chave = $ItemChave
+@onready var texto_upgrade: Label = $TextoUpgrade
+
 #@onready var text_timer = $container/contador_container/text_contador
 var player
 
 func _process(delta):
 	if GameManager.player_tem_chave:
-		texto_chave.text = "1"
-		texto_chave.visible = true
 		chave.visible = true
 	else:
-		texto_chave.visible = false
 		chave.visible = false
-		texto_chave.text = "0"
+		
 		
 func _ready():
 	await get_tree().process_frame
@@ -31,7 +29,7 @@ func _ready():
 	if player == null:
 		print("Player não encontrado")
 		return
-	
+
 	player.vida_alterada.connect(atualizar_vida)
 	player.forca_alterado.connect(forca_alterado)
 	player.xp_alterado.connect(xp_alterado)
@@ -48,6 +46,7 @@ func _ready():
 	
 	
 func atualizar_vida(valor):
+	barra_vida.max_value = player.vida_max
 	barra_vida.value = valor
 	texto_vida.text = str(self.player.vida) + "/" + str(self.player.vida_max);
 
