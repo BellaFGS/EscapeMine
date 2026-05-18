@@ -44,6 +44,7 @@ func _ready():
 	
 	
 func atualizar_vida(valor):
+	barra_vida.max_value = player.vida_max
 	barra_vida.value = valor
 	texto_vida.text = str(self.player.vida) + "/" + str(self.player.vida_max);
 
