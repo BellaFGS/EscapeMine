@@ -10,6 +10,8 @@ extends Control
 @onready var texto_dificuldade = $Nivel_Dificuldade
 @onready var texto_dinamite = $Dinamite
 @onready var chave = $ItemChave
+@onready var texto_upgrade: Label = $TextoUpgrade
+
 #@onready var text_timer = $container/contador_container/text_contador
 var player
 
@@ -27,7 +29,7 @@ func _ready():
 	if player == null:
 		print("Player não encontrado")
 		return
-	
+
 	player.vida_alterada.connect(atualizar_vida)
 	player.forca_alterado.connect(forca_alterado)
 	player.xp_alterado.connect(xp_alterado)

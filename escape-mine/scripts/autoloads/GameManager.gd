@@ -55,10 +55,6 @@ func atualizar_sistemas():
 	if enemy_spawner:
 		enemy_spawner.atualizar_dificuldade(nome)
 
-	# Aqui você pode plugar outros sistemas depois:
-	# DropSystem
-	# DangerZone
-	# HUD
 
 # 🏁 Finalização
 func finalizar_jogo(resultado):

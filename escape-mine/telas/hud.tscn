@@ -302,3 +302,12 @@ offset_left = 55.0
 offset_top = 110.0
 offset_right = 95.0
 offset_bottom = 133.0
+
+[node name="TextoUpgrade" type="Label" parent="control" unique_id=1873969042]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 24.0
+offset_right = 699.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 20
+text = "(E) UPGRADE"
