@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://du2do3bckhynf" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://754k33pvudct" path="res://telas/tela_pause.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="7_o6xl0"]
-[ext_resource type="Script" uid="uid://djwv1ekebyrd6" path="res://scripts/autoloads/chunk_manager.gd" id="7_tf0w7"]
-[ext_resource type="PackedScene" uid="uid://dm7y8mqiodh0y" path="res://scenes/chunk.tscn" id="8_5s10p"]
+[ext_resource type="Script" path="res://scripts/autoloads/chunk_manager.gd" id="7_tf0w7"]
+[ext_resource type="PackedScene" path="res://scenes/chunk.tscn" id="8_5s10p"]
 [ext_resource type="PackedScene" uid="uid://dtl4pntx6ekjs" path="res://telas/tela_config.tscn" id="9_choun"]
 [ext_resource type="PackedScene" uid="uid://cixpcdgmomouj" path="res://scenes/items/item_chave.tscn" id="11_2kp0m"]
 
