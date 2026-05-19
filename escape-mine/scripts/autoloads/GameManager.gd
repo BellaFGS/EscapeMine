@@ -62,11 +62,9 @@ func finalizar_jogo(resultado):
 	print("Fim de jogo:", resultado)
 
 	if resultado == "WIN":
-		var tela_vitoria = preload("res://telas/tela_vitoria.tscn").instantiate()
-		get_tree().current_scene.add_child(tela_vitoria)
+		GameFacade.vitoria()
 	elif resultado == "LOSE":
-		var tela_morte = preload("res://telas/tela_morte.tscn").instantiate()
-		get_tree().current_scene.add_child(tela_morte)
+		GameFacade.game_over()
 
 # 🔄 Reset
 func resetar():
@@ -75,3 +73,4 @@ func resetar():
 	dificuldade = 1
 	player_tem_chave = false
 	atualizar_sistemas()
+	UpgradeSystem.resetar()

@@ -33,7 +33,7 @@ func _morrer_safe():
 	
 	# ⭐ XP
 	if ultimo_atacante and ultimo_atacante.is_in_group("player"):
-		ultimo_atacante.ganhar_xp(randi_range(1, 5))
+		UpgradeSystem.ganhar_xp(randi_range(1, 5))
 	
 	$hurtBox.set_deferred("monitoring", false)
 	queue_free()

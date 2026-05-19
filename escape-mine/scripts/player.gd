@@ -2,16 +2,10 @@ extends "res://scripts/Character.gd"
 
 #signal vida_alterada(valor)
 signal forca_alterado(valor)
-signal xp_alterado(valor)
-signal liberar_upgrade(valor)
-signal nivel_up(nivel)
 signal dinamite_up(dinamite)
 
-var xp: int = 0
-var nivel: int = 1
-var limite: int = 10
-var dinamite: int = 0
 
+var dinamite: int = 0
 var regen_intervalo := 0.5 # tempo pra ganhar +1 vida
 var delay_regen := 2.0 # espera 2s sem tomar dano
 
@@ -54,27 +48,8 @@ func _physics_process(delta):
 			atualizar_barra_vida()
 
 	mover(direcao)
-
-# ⭐ XP
 func ganhar_xp(valor: int):
-	xp += valor
-	emit_signal("xp_alterado", xp)
-	verificar_level_up()
-
-func verificar_level_up():
-	limite = 10 + (nivel - 1) * 15
-	
-	while xp >= limite:
-		xp -= limite
-		nivel += 1
-		limite = 10 + (nivel - 1) * 15
-		
-		emit_signal("nivel_up", nivel)
-		emit_signal("vida_up", 0)
-		emit_signal("liberar_upgrade", true)
-		
-		var level_up_tela = preload("res://telas/level_up.tscn").instantiate()
-		get_tree().current_scene.add_child(level_up_tela)
+	UpgradeSystem.ganhar_xp(valor)
 
 # 🔼 UPGRADE
 func aplicar_update(tipo: String):
@@ -105,8 +80,13 @@ func morrer():
 	GameManager.finalizar_jogo("LOSE")
 
 func _input(event):
-	if event.is_action_pressed("usar_item"): # tecla E
+
+	if event.is_action_pressed("usar_item"):
 		usar_dinamite()
+
+	if event.is_action_pressed("upgrade") and UpgradeSystem.upgrade_disponivel:
+		GameFacade.abrir_upgrade()
+
 
 func usar_dinamite():
 	if inventario.usar_item("dinamite"):

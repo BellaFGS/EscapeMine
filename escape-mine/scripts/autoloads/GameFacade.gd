@@ -5,7 +5,7 @@ extends Node
 # =========================
 
 func iniciar_jogo():
-	AudioManager.parar_musica()
+	AudioManager.tocar_musica("menu")
 	SceneManager.trocar_cena("main")
 
 
@@ -24,13 +24,14 @@ func reiniciar_jogo():
 func abrir_pause():
 	SceneManager.trocar_cena("pause")
 
-
 func abrir_config():
 	SceneManager.trocar_cena("config")
 
+func abrir_upgrade():
+	UIManager.abrir_upgrade()
 
-func abrir_level_up():
-	SceneManager.trocar_cena("level_up")
+func fechar_upgrade():
+	UIManager.fechar_upgrade()
 
 
 # =========================

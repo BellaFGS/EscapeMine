@@ -87,7 +87,6 @@ func tocar_sfx(nome):
 # =========================
 
 func parar_musica():
-
 	musica_player.stop()
 
 # =========================

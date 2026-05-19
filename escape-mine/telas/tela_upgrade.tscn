@@ -1,28 +1,29 @@
 [gd_scene format=3 uid="uid://bkt3ql4aanidh"]
 
-[ext_resource type="Script" uid="uid://b0qgo0eoro1vm" path="res://scripts/level_up.gd" id="1_hbmwm"]
 [ext_resource type="Texture2D" uid="uid://dmj06f67wookm" path="res://sprites/artes/força.png" id="2_fqdyc"]
 [ext_resource type="Texture2D" uid="uid://s37wluspsq4d" path="res://sprites/artes/vida.png" id="3_0xikf"]
-[ext_resource type="Script" uid="uid://b0xvpwm5sh7s6" path="res://scripts/dano_up.gd" id="4_tps54"]
-[ext_resource type="Script" uid="uid://b6p5pdpby56fj" path="res://scripts/vida_up.gd" id="5_fqdyc"]
+[ext_resource type="Script" uid="uid://b6p5pdpby56fj" path="res://scripts/tela_upgrade.gd" id="5_fqdyc"]
 
-[node name="Level_up" type="CanvasLayer" unique_id=1788756212]
+[node name="Tela_upgrade" type="CanvasLayer" unique_id=1788756212]
 process_mode = 3
-script = ExtResource("1_hbmwm")
-
-[node name="fundo_tela" type="ColorRect" parent="." unique_id=1125106746]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.14901961)
 
 [node name="Control" type="Control" parent="." unique_id=708851952]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("5_fqdyc")
+
+[node name="fundo_tela" type="ColorRect" parent="Control" unique_id=1125106746]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1237.0
+offset_bottom = 684.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.14901961)
 
 [node name="Força" type="Sprite2D" parent="Control" unique_id=31322749]
 position = Vector2(496, 380)
@@ -46,7 +47,6 @@ offset_left = 418.0
 offset_top = 296.0
 offset_right = 575.0
 offset_bottom = 435.0
-script = ExtResource("4_tps54")
 
 [node name="vida_up" type="Button" parent="Control" unique_id=1371348017]
 layout_mode = 0
@@ -54,7 +54,6 @@ offset_left = 733.0
 offset_top = 296.0
 offset_right = 890.0
 offset_bottom = 435.0
-script = ExtResource("5_fqdyc")
 
 [node name="texto_vida" type="Label" parent="Control" unique_id=1083185584]
 layout_mode = 0
@@ -63,3 +62,6 @@ offset_top = 316.0
 offset_right = 873.0
 offset_bottom = 339.0
 text = "Aumentar Vida"
+
+[connection signal="pressed" from="Control/forca_up" to="Control" method="_on_forca_up_pressed"]
+[connection signal="pressed" from="Control/vida_up" to="Control" method="_on_vida_up_pressed"]
