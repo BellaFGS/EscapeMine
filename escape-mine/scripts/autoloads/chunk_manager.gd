@@ -45,7 +45,6 @@ func _ready() -> void:
 	_scan_all_tiles()
 	print("ChunkManager: total chunks escaneados = ", _chunk_data.size())
 
-
 func _process(_delta: float) -> void:
 	if not _player:
 		# Tenta pelo NodePath configurado no Inspector

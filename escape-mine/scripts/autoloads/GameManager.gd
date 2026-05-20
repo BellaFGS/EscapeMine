@@ -27,8 +27,7 @@ func _process(delta):
 	if tempo_total >= intervalo_dificuldade:
 		tempo_total = 0
 		aumentar_dificuldade()
-
-# 🎯 Nome da dificuldade
+# 🎯 Nome da dificuldadewwww
 func get_dificuldade_nome():
 	match dificuldade:
 		1: return "Fácil"
@@ -54,7 +53,6 @@ func atualizar_sistemas():
 	# EnemySpawner
 	if enemy_spawner:
 		enemy_spawner.atualizar_dificuldade(nome)
-
 
 # 🏁 Finalização
 func finalizar_jogo(resultado):
