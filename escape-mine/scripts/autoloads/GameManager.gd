@@ -27,7 +27,7 @@ func _process(delta):
 	if tempo_total >= intervalo_dificuldade:
 		tempo_total = 0
 		aumentar_dificuldade()
-# 🎯 Nome da dificuldadewwww
+# 🎯 Nome da dificuldade
 func get_dificuldade_nome():
 	match dificuldade:
 		1: return "Fácil"
