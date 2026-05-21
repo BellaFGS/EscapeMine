@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://b8ieb75bfomhj"
-path="res://.godot/imported/clique2.wav-cc6629f9af3b4ac90d22f39535df45a0.sample"
+uid="uid://d0q0yxk72lmx4"
+path="res://.godot/imported/dieSong.wav-55e10cb1af5a98ec14eb420c4aac12d7.sample"
 
 [deps]
 
-source_file="res://sounds/sons_gameplay/clique2.wav"
-dest_files=["res://.godot/imported/clique2.wav-cc6629f9af3b4ac90d22f39535df45a0.sample"]
+source_file="res://sounds/musicas/dieSong.wav"
+dest_files=["res://.godot/imported/dieSong.wav-55e10cb1af5a98ec14eb420c4aac12d7.sample"]
 
 [params]
 
