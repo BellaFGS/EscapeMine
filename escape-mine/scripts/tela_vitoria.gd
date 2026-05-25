@@ -13,3 +13,7 @@ func _on_btn_sair_pressed() -> void:
 func _on_btn_voltar_pressed() -> void:
 	GameManager.resetar()
 	GameFacade.voltar_menu()
+
+
+func _on_btn_tutorial_2_pressed() -> void:
+	pass # Replace with function body.

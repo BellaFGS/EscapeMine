@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dqvca0hwdm6x0" path="res://sprites/characters/LucasTudoAtaque.png" id="7_5dmdl"]
 [ext_resource type="Texture2D" uid="uid://laboslv4yj13" path="res://sprites/objects/items/chave.png" id="8_yyfyq"]
 [ext_resource type="Texture2D" uid="uid://pajbrs33xxey" path="res://sprites/tilesets/door.png" id="9_ilnvs"]
+[ext_resource type="Texture2D" uid="uid://bxnoxkbps0jxn" path="res://sprites/artes/setaPequena.png" id="10_5dmdl"]
+[ext_resource type="Texture2D" uid="uid://drydqlgk13i6v" path="res://sprites/artes/seta.png" id="11_xe0n2"]
+[ext_resource type="Texture2D" uid="uid://g7eajtj83wxx" path="res://sprites/artes/bolinhaIndicativa.png" id="12_hmy0f"]
+[ext_resource type="Texture2D" uid="uid://5mnto6fs2v5p" path="res://sprites/artes/bolinhaIndicativacinza.png" id="13_dkmt3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xe0n2"]
 atlas = ExtResource("7_5dmdl")
@@ -175,7 +179,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Tela_Vitoria" type="CanvasLayer" unique_id=1788756212]
+[sub_resource type="Theme" id="Theme_5dmdl"]
+
+[node name="Tela_Tutorial" type="CanvasLayer" unique_id=1788756212]
 process_mode = 3
 script = ExtResource("1_bs170")
 
@@ -293,7 +299,7 @@ texture_repeat = 2
 position = Vector2(1077, 171)
 scale = Vector2(4.0156255, 4.0156255)
 sprite_frames = SubResource("SpriteFrames_cjneo")
-frame_progress = 0.41647
+frame_progress = 0.53646076
 
 [node name="Label5" type="Label" parent="." unique_id=1340681398]
 offset_left = 895.0
@@ -306,21 +312,21 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("3_uapxi")
 theme_override_font_sizes/font_size = 35
 text = "
-->"
+→"
 horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="." unique_id=1297006756]
-offset_left = 620.0
-offset_top = 320.0
-offset_right = 708.0
-offset_bottom = 395.0
+offset_left = 593.0
+offset_top = 315.0
+offset_right = 681.0
+offset_bottom = 401.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("3_uapxi")
 theme_override_font_sizes/font_size = 35
 text = "
-->"
+→"
 horizontal_alignment = 1
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1483740077]
@@ -328,7 +334,7 @@ texture_repeat = 2
 position = Vector2(818, 371)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_5dmdl")
-frame_progress = 0.5322536
+frame_progress = 0.9639023
 speed_scale = 0.8
 
 [node name="chave" type="AnimatedSprite2D" parent="." unique_id=458570406]
@@ -336,42 +342,42 @@ texture_repeat = 2
 position = Vector2(417, 555)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_agvsx")
-frame_progress = 0.5201812
+frame_progress = 0.19892287
 
 [node name="Label7" type="Label" parent="." unique_id=2024511563]
-offset_left = 495.0
-offset_top = 498.0
-offset_right = 583.0
-offset_bottom = 573.0
+offset_left = 478.0
+offset_top = 482.0
+offset_right = 566.0
+offset_bottom = 568.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("3_uapxi")
 theme_override_font_sizes/font_size = 35
 text = "
-->"
+→"
 horizontal_alignment = 1
 
 [node name="porta" type="AnimatedSprite2D" parent="." unique_id=310695260]
 texture_repeat = 2
-position = Vector2(665, 542)
+position = Vector2(663, 544)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_nf1xo")
-frame_progress = 0.8739685
+frame_progress = 0.04696221
 speed_scale = 0.5
 
 [node name="Label8" type="Label" parent="." unique_id=566915160]
-offset_left = 775.0
-offset_top = 500.0
-offset_right = 863.0
-offset_bottom = 575.0
+offset_left = 770.0
+offset_top = 478.0
+offset_right = 858.0
+offset_bottom = 564.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("3_uapxi")
 theme_override_font_sizes/font_size = 35
 text = "
-->"
+→ "
 horizontal_alignment = 1
 
 [node name="tutorial2" type="Label" parent="." unique_id=1511654763]
@@ -393,3 +399,68 @@ theme_override_font_sizes/font_size = 40
 text = "VOCÊ 
 VENCEU!"
 horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="." unique_id=412486242]
+offset_left = 322.0
+offset_top = 59.0
+offset_right = 605.0
+offset_bottom = 95.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("3_uapxi")
+theme_override_font_sizes/font_size = 35
+text = "COMANDOS BÁSICOS"
+horizontal_alignment = 1
+
+[node name="TextureRect5" type="TextureRect" parent="." unique_id=660575782]
+offset_left = 23.0
+offset_top = 31.0
+offset_right = 88.0
+offset_bottom = 96.0
+texture = ExtResource("10_5dmdl")
+flip_h = true
+
+[node name="btn_Tutorial2" type="Button" parent="." unique_id=310919340]
+offset_left = 1137.0
+offset_top = 574.0
+offset_right = 1224.0
+offset_bottom = 669.0
+theme = SubResource("Theme_5dmdl")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="TextureRect4" type="TextureRect" parent="btn_Tutorial2" unique_id=588767612]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -27.0
+offset_right = 110.0
+offset_bottom = 122.0
+texture = ExtResource("11_xe0n2")
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=1127545215]
+offset_left = 599.0
+offset_top = 654.0
+offset_right = 631.0
+offset_bottom = 688.0
+texture = ExtResource("12_hmy0f")
+flip_h = true
+
+[node name="TextureRect5" type="TextureRect" parent="TextureRect4" unique_id=1883938177]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 1.0
+offset_right = 98.0
+offset_bottom = 35.0
+texture = ExtResource("13_dkmt3")
+flip_h = true
+
+[node name="TextureRect6" type="TextureRect" parent="TextureRect4" unique_id=623664572]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 64.0
+offset_bottom = 34.0
+texture = ExtResource("13_dkmt3")
+flip_h = true
+
+[connection signal="pressed" from="btn_Tutorial2" to="." method="_on_btn_tutorial_2_pressed"]
