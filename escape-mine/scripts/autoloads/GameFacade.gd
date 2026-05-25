@@ -12,7 +12,6 @@ func iniciar_jogo():
 func voltar_menu():
 	SceneManager.trocar_cena("inicial")
 
-
 func reiniciar_jogo():
 	SceneManager.trocar_cena("main")
 
@@ -28,6 +27,8 @@ func abrir_pause():
 func abrir_config():
 	SceneManager.trocar_cena("config")
 
+func abrir_tutorial2():
+	SceneManager.abrir_tutorial2("tutorial2")
 
 func abrir_level_up():
 	SceneManager.trocar_cena("level_up")

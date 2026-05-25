@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cq0tclx42uxy2"]
 
-[ext_resource type="Script" uid="uid://up548yd0hqea" path="res://scripts/tela_vitoria.gd" id="1_rkfa4"]
+[ext_resource type="Script" uid="uid://cn2cfjjt6ispm" path="res://scripts/tela_tutorial_2.gd" id="1_c348g"]
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="2_1cuwg"]
 [ext_resource type="Texture2D" uid="uid://drydqlgk13i6v" path="res://sprites/artes/seta.png" id="3_6v0bl"]
 [ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="3_v7job"]
@@ -13,8 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://g7eajtj83wxx" path="res://sprites/artes/bolinhaIndicativa.png" id="11_c348g"]
 [ext_resource type="Texture2D" uid="uid://5mnto6fs2v5p" path="res://sprites/artes/bolinhaIndicativacinza.png" id="12_86elt"]
 [ext_resource type="Texture2D" uid="uid://bxnoxkbps0jxn" path="res://sprites/artes/setaPequena.png" id="13_c348g"]
-
-[sub_resource type="Theme" id="Theme_qar5e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6v0bl"]
 atlas = ExtResource("5_futx1")
@@ -471,9 +469,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Tela_Vitoria" type="CanvasLayer" unique_id=1788756212]
+[sub_resource type="Theme" id="Theme_qar5e"]
+
+[sub_resource type="Theme" id="Theme_c348g"]
+
+[node name="Tela_Tutorial2" type="CanvasLayer" unique_id=1788756212]
 process_mode = 3
-script = ExtResource("1_rkfa4")
+script = ExtResource("1_c348g")
 
 [node name="fundo_tela" type="ColorRect" parent="." unique_id=1125106746]
 anchors_preset = 15
@@ -501,33 +503,6 @@ theme_override_font_sizes/font_size = 35
 text = "
 →"
 horizontal_alignment = 1
-
-[node name="btn_Tutorial2" type="Button" parent="fundo_tela" unique_id=1649880446]
-layout_mode = 0
-offset_left = 1100.0
-offset_top = 574.0
-offset_right = 1187.0
-offset_bottom = 669.0
-theme = SubResource("Theme_qar5e")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-
-[node name="TextureRect4" type="TextureRect" parent="fundo_tela/btn_Tutorial2" unique_id=847517177]
-layout_mode = 0
-offset_left = -1146.0
-offset_top = -14.0
-offset_right = -1018.0
-offset_bottom = 135.0
-texture = ExtResource("3_6v0bl")
-flip_h = true
-
-[node name="TextureRect4" type="TextureRect" parent="fundo_tela/btn_Tutorial2/TextureRect4" unique_id=1851666502]
-layout_mode = 0
-offset_left = 1129.0
-offset_top = -2.0
-offset_right = 1257.0
-offset_bottom = 147.0
-texture = ExtResource("3_6v0bl")
 
 [node name="Label9" type="Label" parent="fundo_tela" unique_id=1813802582]
 layout_mode = 0
@@ -768,3 +743,38 @@ offset_right = 88.0
 offset_bottom = 96.0
 texture = ExtResource("13_c348g")
 flip_h = true
+
+[node name="btn_Tutorial" type="Button" parent="." unique_id=1649880446]
+offset_left = 29.0
+offset_top = 573.0
+offset_right = 178.0
+offset_bottom = 705.0
+theme = SubResource("Theme_qar5e")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="img voltar tela tutorial" type="TextureRect" parent="btn_Tutorial" unique_id=847517177]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -8.0
+offset_right = 116.0
+offset_bottom = 141.0
+texture = ExtResource("3_6v0bl")
+flip_h = true
+
+[node name="btn para tela 3" type="Button" parent="." unique_id=818960492]
+offset_left = 1133.0
+offset_top = 564.0
+offset_right = 1273.0
+offset_bottom = 715.0
+theme = SubResource("Theme_c348g")
+theme_type_variation = &"FlatButton"
+
+[node name="img seta tela 3" type="TextureRect" parent="btn para tela 3" unique_id=1851666502]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 149.0
+texture = ExtResource("3_6v0bl")
+
+[connection signal="pressed" from="btn_Tutorial" to="." method="_on_btn_tutorial_2_pressed"]
+[connection signal="pressed" from="btn para tela 3" to="." method="_on_btn_para_tela_3_pressed"]
