@@ -13,6 +13,8 @@ var usando_dinamite := false
 
 var cena_dinamite = preload("res://scenes/items/dinamite_ativa.tscn")
 @onready var inventario = $Inventario
+@onready var hurtBox = $hurtBox/Collision
+@onready var collision = $Collision
 
 func _ready():
 	add_to_group("player")
@@ -137,7 +139,16 @@ func _on_animator_animation_finished(anim_name: StringName) -> void:
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
+
 		receber_dano(body.forca, body.global_position)
+
+		hurtBox.set_deferred("disabled", true)
+		collision.set_deferred("disabled", true)
+
+		await get_tree().create_timer(0.5).timeout
+
+		hurtBox.set_deferred("disabled", false)
+		collision.set_deferred("disabled", false)
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	print("colidiu com:", area.name)
