@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://laboslv4yj13" path="res://sprites/objects/items/chave.png" id="8_yyfyq"]
 [ext_resource type="Texture2D" uid="uid://pajbrs33xxey" path="res://sprites/tilesets/door.png" id="9_ilnvs"]
 [ext_resource type="Texture2D" uid="uid://bxnoxkbps0jxn" path="res://sprites/artes/setaPequena.png" id="10_5dmdl"]
+[ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="10_dkmt3"]
 [ext_resource type="Script" uid="uid://dckoth1op3c3y" path="res://scripts/tela_tutorial.gd" id="11_dkmt3"]
 [ext_resource type="Texture2D" uid="uid://drydqlgk13i6v" path="res://sprites/artes/seta.png" id="11_xe0n2"]
 [ext_resource type="Texture2D" uid="uid://g7eajtj83wxx" path="res://sprites/artes/bolinhaIndicativa.png" id="12_hmy0f"]
@@ -423,6 +424,7 @@ offset_left = 20.0
 offset_top = 42.0
 offset_right = 92.0
 offset_bottom = 112.0
+theme = ExtResource("10_dkmt3")
 
 [node name="TextureRect5" type="TextureRect" parent="Button" unique_id=660575782]
 layout_mode = 0

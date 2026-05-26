@@ -516,7 +516,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("2_81pup")
 theme_override_font_sizes/font_size = 22
-text = "Clique na tecla (R) para usar.
+text = "Clique na tecla (E) para usar.
 Mas cuidado, você também pode
 se machucar com a explosão!"
 horizontal_alignment = 1

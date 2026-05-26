@@ -650,7 +650,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("2_1cuwg")
 theme_override_font_sizes/font_size = 40
-text = "Tecla (R)"
+text = "Tecla (E)"
 horizontal_alignment = 1
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=2078916507]
