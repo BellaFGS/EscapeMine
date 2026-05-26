@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cixpcdgmomouj" path="res://scenes/items/item_chave.tscn" id="11_2kp0m"]
 
 [node name="Main" type="Node2D" unique_id=224908309]
+position = Vector2(2, 0)
 script = ExtResource("1_jyhfs")
 
 [node name="player" parent="." unique_id=2066799720 instance=ExtResource("1_0wfyh")]
