@@ -8,6 +8,8 @@ signal dinamite_up(dinamite)
 var dinamite: int = 0
 var regen_intervalo := 0.5 # tempo pra ganhar +1 vida
 var delay_regen := 2.0 # espera 2s sem tomar dano
+var esta_morrendo := false
+var usando_dinamite := false
 
 var cena_dinamite = preload("res://scenes/items/dinamite_ativa.tscn")
 @onready var inventario = $Inventario
@@ -24,6 +26,10 @@ func _ready():
 		GameManager.upgrade_pendente = ""
 
 func _physics_process(delta):
+
+	if usando_dinamite or esta_morrendo:
+		return
+
 	var direcao = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -31,23 +37,27 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("attack") and not is_attack:
 		atacar()
-	
-	# ⏱️ tempo sem tomar dano
+
 	tempo_sem_dano += delta
 
-	# 💚 regeneração 
 	if tempo_sem_dano >= delay_regen and vida < vida_max:
+
 		regen_timer += delta
-		
+
 		if regen_timer >= regen_intervalo:
+
 			regen_timer = 0.0
+
 			vida += 1
+
 			vida = min(vida, vida_max)
-			
+
 			emit_signal("vida_alterada", vida)
+
 			atualizar_barra_vida()
 
 	mover(direcao)
+
 func ganhar_xp(valor: int):
 	UpgradeSystem.ganhar_xp(valor)
 
@@ -77,7 +87,12 @@ func adicionar_item(tipo: String):
 	#return inventario.usar_item(tipo)
 
 func morrer():
-	GameManager.finalizar_jogo("LOSE")
+	if esta_morrendo:
+		return
+
+	esta_morrendo = true
+	set_physics_process(false)
+	anim.play("lucas_death")
 
 func _input(event):
 
@@ -89,15 +104,33 @@ func _input(event):
 
 
 func usar_dinamite():
+	if usando_dinamite:
+		return
+
 	if inventario.usar_item("dinamite"):
+		usando_dinamite = true
+		anim.play("use_dinamite")
 		var d = cena_dinamite.instantiate()
 		get_parent().add_child(d)
-		d.global_position = global_position + Vector2(20, 0)
-
+		d.global_position = (
+			global_position + Vector2(20, 0)
+		)
 		dinamite -= 1
-		emit_signal("dinamite_up", dinamite)
+		emit_signal(
+			"dinamite_up",
+			dinamite
+		)
 
 func _on_animator_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "lucas_death":
+		GameManager.finalizar_jogo("LOSE")
+		return
+
+	if anim_name == "use_dinamite":
+		usando_dinamite = false
+		anim.play("idle_" + ultima_direcao)
+		return
+
 	if anim_name.begins_with("attack"):
 		is_attack = false
 		anim.play("idle_" + ultima_direcao)

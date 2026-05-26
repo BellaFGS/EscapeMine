@@ -7,7 +7,10 @@ var cenas = {
 	"level_up": "res://telas/level_up.tscn",
 	"config": "res://telas/tela_config.tscn",
 	"vitoria": "res://telas/tela_vitoria.tscn",
-	"morte": "res://telas/tela_morte.tscn"
+	"morte": "res://telas/tela_morte.tscn",
+	"tutorial_1": "res://telas/tela_tutorial.tscn",
+	"tutorial_2": "res://telas/tela_tutorial2.tscn",
+	"tutorial_3": "res://telas/tela_tutorial3.tscn"
 }
 
 func trocar_cena(nome):

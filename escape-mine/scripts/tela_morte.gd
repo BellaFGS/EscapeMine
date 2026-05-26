@@ -7,7 +7,8 @@ func _ready() -> void:
 
 # Botão SAIR
 func _on_btn_sair_pressed() -> void:
-	get_tree().quit()
+	GameManager.resetar()
+	GameFacade.voltar_menu()
 
 
 func _on_btn_voltar_pressed() -> void:

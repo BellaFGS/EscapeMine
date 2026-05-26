@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://3ry66hrpq0ip" path="res://sprites/objects/efects/explosion.png" id="8_v7job"]
 [ext_resource type="Texture2D" uid="uid://g7eajtj83wxx" path="res://sprites/artes/bolinhaIndicativa.png" id="11_c348g"]
 [ext_resource type="Texture2D" uid="uid://5mnto6fs2v5p" path="res://sprites/artes/bolinhaIndicativacinza.png" id="12_86elt"]
-[ext_resource type="Texture2D" uid="uid://bxnoxkbps0jxn" path="res://sprites/artes/setaPequena.png" id="13_c348g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6v0bl"]
 atlas = ExtResource("5_futx1")
@@ -64,10 +63,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rkfa4"]
-atlas = ExtResource("7_qar5e")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cuwg"]
 atlas = ExtResource("7_qar5e")
 region = Rect2(32, 0, 32, 32)
@@ -87,9 +82,6 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_7klfp"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rkfa4")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1cuwg")
 }, {
@@ -591,6 +583,7 @@ texture_repeat = 2
 position = Vector2(849, 189)
 scale = Vector2(4.0156255, 4.0156255)
 sprite_frames = SubResource("SpriteFrames_cjneo")
+autoplay = "default"
 frame_progress = 0.8887314
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D" unique_id=508103301]
@@ -598,6 +591,7 @@ texture_repeat = 3
 position = Vector2(35.610893, 89.400764)
 scale = Vector2(1.0544899, 1.0544899)
 sprite_frames = SubResource("SpriteFrames_7klfp")
+autoplay = "default"
 frame_progress = 0.65810764
 
 [node name="Label6" type="Label" parent="." unique_id=1297006756]
@@ -619,6 +613,7 @@ texture_repeat = 3
 position = Vector2(468, 382.99997)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_5dmdl")
+autoplay = "default"
 frame_progress = 0.15608269
 speed_scale = 0.8
 
@@ -627,6 +622,7 @@ texture_repeat = 2
 position = Vector2(417, 555)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_agvsx")
+autoplay = "default"
 frame_progress = 0.17725101
 
 [node name="porta" type="AnimatedSprite2D" parent="." unique_id=310695260]
@@ -634,6 +630,7 @@ texture_repeat = 2
 position = Vector2(680, 554)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_nf1xo")
+autoplay = "default"
 frame_progress = 0.32727197
 speed_scale = 1.5
 
@@ -644,22 +641,23 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -10.0
-offset_top = -10.0
+offset_top = 5.0
 offset_right = 178.0
-offset_bottom = 153.0
+offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("2_1cuwg")
 theme_override_font_sizes/font_size = 40
-text = "space"
+text = "Tecla (R)"
 horizontal_alignment = 1
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=2078916507]
 position = Vector2(1158, 364)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_vn0a2")
+autoplay = "default"
 frame_progress = 0.28826648
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="." unique_id=408003869]
@@ -667,6 +665,7 @@ texture_repeat = 3
 position = Vector2(1021, 365.99997)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_vfw5l")
+autoplay = "default"
 frame_progress = 0.5357221
 speed_scale = 1.3
 
@@ -736,14 +735,6 @@ offset_bottom = 34.0
 texture = ExtResource("12_86elt")
 flip_h = true
 
-[node name="TextureRect5" type="TextureRect" parent="." unique_id=272930489]
-offset_left = 23.0
-offset_top = 31.0
-offset_right = 88.0
-offset_bottom = 96.0
-texture = ExtResource("13_c348g")
-flip_h = true
-
 [node name="btn_Tutorial" type="Button" parent="." unique_id=1649880446]
 offset_left = 29.0
 offset_top = 573.0
@@ -776,5 +767,5 @@ offset_right = 128.0
 offset_bottom = 149.0
 texture = ExtResource("3_6v0bl")
 
-[connection signal="pressed" from="btn_Tutorial" to="." method="_on_btn_tutorial_2_pressed"]
+[connection signal="pressed" from="btn_Tutorial" to="." method="_on_btn_tutorial_pressed"]
 [connection signal="pressed" from="btn para tela 3" to="." method="_on_btn_para_tela_3_pressed"]

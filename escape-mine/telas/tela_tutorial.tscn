@@ -299,6 +299,7 @@ texture_repeat = 2
 position = Vector2(1077, 171)
 scale = Vector2(4.0156255, 4.0156255)
 sprite_frames = SubResource("SpriteFrames_cjneo")
+autoplay = "default"
 frame_progress = 0.37438428
 
 [node name="Label5" type="Label" parent="." unique_id=1340681398]
@@ -334,7 +335,9 @@ texture_repeat = 2
 position = Vector2(818, 371)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_5dmdl")
-frame_progress = 0.037780825
+autoplay = "default"
+frame = 1
+frame_progress = 0.022542166
 speed_scale = 0.8
 
 [node name="chave" type="AnimatedSprite2D" parent="." unique_id=458570406]
@@ -342,6 +345,7 @@ texture_repeat = 2
 position = Vector2(417, 555)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_agvsx")
+autoplay = "default"
 frame_progress = 0.03679331
 
 [node name="Label7" type="Label" parent="." unique_id=2024511563]
@@ -363,6 +367,7 @@ texture_repeat = 2
 position = Vector2(663, 544)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_nf1xo")
+autoplay = "default"
 frame_progress = 0.9648282
 speed_scale = 0.5
 
@@ -413,11 +418,18 @@ theme_override_font_sizes/font_size = 35
 text = "COMANDOS BÁSICOS"
 horizontal_alignment = 1
 
-[node name="TextureRect5" type="TextureRect" parent="." unique_id=660575782]
-offset_left = 23.0
-offset_top = 31.0
-offset_right = 88.0
-offset_bottom = 96.0
+[node name="Button" type="Button" parent="." unique_id=1427270191]
+offset_left = 20.0
+offset_top = 42.0
+offset_right = 92.0
+offset_bottom = 112.0
+
+[node name="TextureRect5" type="TextureRect" parent="Button" unique_id=660575782]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -35.0
+offset_right = 94.0
+offset_bottom = 73.0
 texture = ExtResource("10_5dmdl")
 flip_h = true
 
@@ -463,4 +475,5 @@ offset_right = 110.0
 offset_bottom = 122.0
 texture = ExtResource("11_xe0n2")
 
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="btn_Tutorial2" to="." method="_on_btn_tutorial_2_pressed"]

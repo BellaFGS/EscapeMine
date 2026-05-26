@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cwkwh6npbwvsd" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cjkoe6s4c1c26" path="res://scripts/Inventario.gd" id="2_dqkch"]
 [ext_resource type="Script" uid="uid://hy37j6jnwt5y" path="res://scripts/hit_box.gd" id="3_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://dqvca0hwdm6x0" path="res://sprites/characters/lucas.png" id="4_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://dqvca0hwdm6x0" path="res://sprites/characters/LucasTudoAtaque.png" id="4_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://d0q8or7g1ay7h" path="res://sprites/effects/lucas_effect_attack.png" id="4_tuyoq"]
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
@@ -1735,9 +1735,10 @@ scale = Vector2(0.453125, 0.453125)
 texture = ExtResource("4_qlg0r")
 hframes = 5
 vframes = 14
-frame = 10
+frame = 25
 
 [node name="effect_attack" type="Sprite2D" parent="." unique_id=708976830]
+visible = false
 position = Vector2(0, 2)
 rotation = 1.5707964
 scale = Vector2(0.71875, 0.71875)
@@ -1760,6 +1761,7 @@ script = ExtResource("3_qhqgy")
 position = Vector2(0, 5)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_ur7pv")
+disabled = true
 
 [node name="hurtBox" type="Area2D" parent="." unique_id=394209059]
 collision_layer = 49

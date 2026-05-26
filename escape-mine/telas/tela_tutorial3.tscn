@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dmj06f67wookm" path="res://sprites/artes/força.png" id="11_u57ip"]
 [ext_resource type="Texture2D" uid="uid://brgpwigy4mi8b" path="res://sprites/objects/items/BluePotion.png" id="12_67pf1"]
 [ext_resource type="Texture2D" uid="uid://5mnto6fs2v5p" path="res://sprites/artes/bolinhaIndicativacinza.png" id="12_fjmdy"]
-[ext_resource type="Texture2D" uid="uid://bxnoxkbps0jxn" path="res://sprites/artes/setaPequena.png" id="13_81pup"]
 
 [sub_resource type="Theme" id="Theme_qar5e"]
 
@@ -194,8 +193,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("2_81pup")
 theme_override_font_sizes/font_size = 22
-text = "pegue poções dropadas dos
- monstros para subir de nivel"
+text = "pegue poções de XP dropadas pelos
+ monstros para subir de nivel."
 horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="fundo_tela" unique_id=2007590903]
@@ -439,14 +438,6 @@ texture = ExtResource("11_kccnf")
 flip_h = true
 metadata/_edit_group_ = true
 
-[node name="TextureRect5" type="TextureRect" parent="." unique_id=307998937]
-offset_left = 23.0
-offset_top = 31.0
-offset_right = 88.0
-offset_bottom = 96.0
-texture = ExtResource("13_81pup")
-flip_h = true
-
 [node name="TextureRect6" type="TextureRect" parent="." unique_id=819525020]
 offset_left = 639.0
 offset_top = 653.0
@@ -525,8 +516,9 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("2_81pup")
 theme_override_font_sizes/font_size = 22
-text = "aperte espço para 
-usar nos inimigos"
+text = "Clique na tecla (R) para usar.
+Mas cuidado, você também pode
+se machucar com a explosão!"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="fundo_tela/btn_Tutorial2" to="." method="_on_btn_tutorial_2_pressed"]
