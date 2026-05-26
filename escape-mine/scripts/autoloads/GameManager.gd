@@ -27,7 +27,6 @@ func _process(delta):
 	if tempo_total >= intervalo_dificuldade:
 		tempo_total = 0
 		aumentar_dificuldade()
-
 # 🎯 Nome da dificuldade
 func get_dificuldade_nome():
 	match dificuldade:
@@ -55,18 +54,15 @@ func atualizar_sistemas():
 	if enemy_spawner:
 		enemy_spawner.atualizar_dificuldade(nome)
 
-
 # 🏁 Finalização
 func finalizar_jogo(resultado):
 	estado = resultado
 	print("Fim de jogo:", resultado)
 
 	if resultado == "WIN":
-		var tela_vitoria = preload("res://telas/tela_vitoria.tscn").instantiate()
-		get_tree().current_scene.add_child(tela_vitoria)
+		GameFacade.vitoria()
 	elif resultado == "LOSE":
-		var tela_morte = preload("res://telas/tela_morte.tscn").instantiate()
-		get_tree().current_scene.add_child(tela_morte)
+		GameFacade.game_over()
 
 # 🔄 Reset
 func resetar():
@@ -75,3 +71,4 @@ func resetar():
 	dificuldade = 1
 	player_tem_chave = false
 	atualizar_sistemas()
+	UpgradeSystem.resetar()

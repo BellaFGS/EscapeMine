@@ -8,6 +8,7 @@ extends CanvasLayer
 func _ready():
 	visible = false
 	layer = 100
+	AudioManager.tocar_musica("pause")
 
 	ctr_geral.value = AudioManager.volume_master
 	ctr_musica.value = AudioManager.volume_musica

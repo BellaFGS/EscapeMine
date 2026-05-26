@@ -34,7 +34,7 @@ text = "REINICIAR"
 [node name="btn_sair" type="Button" parent="Menu" unique_id=848326941]
 layout_mode = 2
 theme = ExtResource("2_hsgcq")
-text = "SAIR"
+text = "VOLTAR PARA O INICIO"
 
 [node name="Label" type="Label" parent="." unique_id=1189893356]
 anchors_preset = 5

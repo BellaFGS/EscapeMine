@@ -20,25 +20,21 @@ var volume_sfx := 1.0
 # =========================
 
 var musicas = {
-	"menu": preload("res://sounds/sons_gameplay/bgMusic.mp3"),
-	#"": preload(),
-	#"": preload(),
-	#"": preload(),
-	#"": preload(),
-	#"": preload(),
-	#"": preload(),
-	#"": preload(),
-	#"": preload()
+	"menu": preload("res://sounds/musicas/bgMenu.mp3"),
+	"main": preload("res://sounds/musicas/bgMain.mp3"),
+	"pause": preload("res://sounds/musicas/bgPause.mp3"),
+	"win": preload("res://sounds/musicas/bgWin.mp3"),
+	"gameOver": preload("res://sounds/musicas/dieSong.wav")
 }
 
 var sfx = {
-	#"click": preload(),
-	#"": preload(),
-	#"": preload(),
-	#"": preload(),
-	#"": preload(),
-	#"": preload(),
-	#"": preload(),
+	"click": preload("res://sounds/sfx/click.wav"),
+	"morte": preload("res://sounds/sfx/death.mp3"),
+	"doorOpen": preload("res://sounds/sfx/doorOpen.wav"),
+	"explosion": preload("res://sounds/sfx/explosion.mp3"),
+	"hit": preload("res://sounds/sfx/hit.mp3"),
+	"item": preload("res://sounds/sfx/item.mp3"),
+	"upgrade": preload("res://sounds/sfx/upgrade.mp3")
 	#"": preload()
 }
 
@@ -87,7 +83,6 @@ func tocar_sfx(nome):
 # =========================
 
 func parar_musica():
-
 	musica_player.stop()
 
 # =========================

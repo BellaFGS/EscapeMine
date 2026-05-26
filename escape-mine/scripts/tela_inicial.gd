@@ -27,3 +27,7 @@ func _on_btn_config_pressed():
 	UIManager.abrir_config("menu")
 
 	print($Tela_Config.visible)
+
+
+func _on_btn_tutorial_pressed() -> void:
+	GameFacade.abrir_tutorial_1()

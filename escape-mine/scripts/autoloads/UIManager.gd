@@ -3,8 +3,12 @@ extends Node
 var origem_config = ""
 var tela_pause = null
 var tela_config = null
+var tela_upgrade = null
 
-func registrar_telas(pause, config):
+func registrar_telas(pause, config, upgrade = null):
+	tela_pause = pause
+	tela_config = config
+	tela_upgrade = upgrade
 	tela_pause = pause
 	tela_config = config
 
@@ -28,3 +32,16 @@ func fechar_config():
 			SceneManager.trocar_cena("inicial")
 		_:
 			push_warning("Origem da config não definida")
+
+func abrir_upgrade():
+	if tela_upgrade:
+		tela_upgrade.visible = true
+	get_tree().paused = true
+
+func fechar_upgrade():
+
+	if tela_upgrade:
+
+		tela_upgrade.visible = false
+
+	get_tree().paused = false

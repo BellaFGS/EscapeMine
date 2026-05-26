@@ -7,8 +7,9 @@ func _ready() -> void:
 
 # Botão SAIR
 func _on_btn_sair_pressed() -> void:
-	get_tree().quit()
-
+	GameManager.resetar()
+	get_tree().paused = false
+	GameFacade.reiniciar_jogo()
 
 func _on_btn_voltar_pressed() -> void:
 	GameManager.resetar()

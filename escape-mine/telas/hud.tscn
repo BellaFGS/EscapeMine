@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dc4a0cm3nopqe" path="res://sprites/objects/items/dynamite.png" id="11_8h06o"]
 [ext_resource type="Texture2D" uid="uid://laboslv4yj13" path="res://sprites/objects/items/chave.png" id="12_wrqd1"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_8h06o"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgi0u"]
 atlas = ExtResource("11_8h06o")
 region = Rect2(0, 0, 32, 32)
@@ -264,12 +266,21 @@ offset_bottom = 709.0
 text = "100/200"
 horizontal_alignment = 1
 
+[node name="Bg_Nivel" type="Sprite2D" parent="control" unique_id=577712207]
+modulate = Color(0.6486253, 0.0003133312, 0.6486208, 1)
+clip_children = 2
+position = Vector2(24, 21)
+scale = Vector2(31.5, 29.5)
+skew = 0.40666172
+texture = SubResource("CanvasTexture_8h06o")
+
 [node name="Nivel" type="Label" parent="control" unique_id=503118720]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 9.0
 offset_right = 40.0
 offset_bottom = 32.0
+text = "0"
 horizontal_alignment = 1
 
 [node name="Nivel_Dificuldade" type="Label" parent="control" unique_id=2073264020]
@@ -310,4 +321,4 @@ offset_top = 24.0
 offset_right = 699.0
 offset_bottom = 53.0
 theme_override_font_sizes/font_size = 20
-text = "(E) UPGRADE"
+text = "(R) UPGRADE"

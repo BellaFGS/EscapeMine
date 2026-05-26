@@ -1,0 +1,524 @@
+[gd_scene format=3 uid="uid://c5s7yrrqsye7d"]
+
+[ext_resource type="Script" uid="uid://b33r6xe8vuat" path="res://scripts/tela_tutorial_3.gd" id="1_6ys22"]
+[ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="2_81pup"]
+[ext_resource type="Texture2D" uid="uid://drydqlgk13i6v" path="res://sprites/artes/seta.png" id="3_6ys22"]
+[ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_67pf1"]
+[ext_resource type="Texture2D" uid="uid://caragfwj1jahx" path="res://sprites/Bars/healthbarUnder.png" id="5_6ys22"]
+[ext_resource type="Texture2D" uid="uid://kkpnlavv23uq" path="res://sprites/Bars/healthbarProgress.png" id="6_67pf1"]
+[ext_resource type="Texture2D" uid="uid://dc4a0cm3nopqe" path="res://sprites/objects/items/dynamite.png" id="8_t08wt"]
+[ext_resource type="Texture2D" uid="uid://s37wluspsq4d" path="res://sprites/artes/vida.png" id="10_67pf1"]
+[ext_resource type="Texture2D" uid="uid://g7eajtj83wxx" path="res://sprites/artes/bolinhaIndicativa.png" id="11_kccnf"]
+[ext_resource type="Texture2D" uid="uid://dmj06f67wookm" path="res://sprites/artes/força.png" id="11_u57ip"]
+[ext_resource type="Texture2D" uid="uid://brgpwigy4mi8b" path="res://sprites/objects/items/BluePotion.png" id="12_67pf1"]
+[ext_resource type="Texture2D" uid="uid://5mnto6fs2v5p" path="res://sprites/artes/bolinhaIndicativacinza.png" id="12_fjmdy"]
+
+[sub_resource type="Theme" id="Theme_qar5e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve7sr"]
+atlas = ExtResource("8_t08wt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5abj"]
+atlas = ExtResource("8_t08wt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60sd1"]
+atlas = ExtResource("8_t08wt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ucwj"]
+atlas = ExtResource("8_t08wt")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ui76"]
+atlas = ExtResource("8_t08wt")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dk40"]
+atlas = ExtResource("8_t08wt")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fnoh"]
+atlas = ExtResource("8_t08wt")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olvu0"]
+atlas = ExtResource("8_t08wt")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmpr3"]
+atlas = ExtResource("8_t08wt")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5dmdl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve7sr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5abj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60sd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ucwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ui76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dk40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fnoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olvu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmpr3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr4bb"]
+atlas = ExtResource("10_67pf1")
+region = Rect2(0, 0, 59, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c8da4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr4bb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t08wt"]
+atlas = ExtResource("11_u57ip")
+region = Rect2(0, 0, 67, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xuvm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t08wt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u57ip"]
+atlas = ExtResource("12_67pf1")
+region = Rect2(0, 0, 72, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qr4bb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u57ip")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tela_Tutorial3" type="CanvasLayer" unique_id=1788756212]
+process_mode = 3
+script = ExtResource("1_6ys22")
+
+[node name="fundo_tela" type="ColorRect" parent="." unique_id=1125106746]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 59.0
+offset_top = -3.0
+offset_right = 59.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.30312887, 0.39699844, 0.39967707, 0)
+
+[node name="btn_Tutorial2" type="Button" parent="fundo_tela" unique_id=1649880446]
+layout_mode = 0
+offset_left = -46.0
+offset_top = 598.0
+offset_right = 101.0
+offset_bottom = 699.0
+theme = SubResource("Theme_qar5e")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="TextureRect4" type="TextureRect" parent="fundo_tela/btn_Tutorial2" unique_id=847517177]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -32.0
+offset_right = 120.0
+offset_bottom = 117.0
+texture = ExtResource("3_6ys22")
+flip_h = true
+
+[node name="Label9" type="Label" parent="fundo_tela" unique_id=1813802582]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 59.0
+offset_right = 466.0
+offset_bottom = 173.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 35
+text = "HUD
+ 
+"
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="fundo_tela" unique_id=616612925]
+layout_mode = 0
+offset_left = 647.0
+offset_top = 381.0
+offset_right = 1016.0
+offset_bottom = 430.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 22
+text = "pegue poções de XP dropadas pelos
+ monstros para subir de nivel."
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="fundo_tela" unique_id=2007590903]
+layout_mode = 0
+offset_left = 589.00006
+offset_top = 192.0
+offset_right = 677.00006
+offset_bottom = 278.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 35
+text = "-"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="fundo_tela" unique_id=900258078]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 189.0
+offset_right = 317.0
+offset_bottom = 225.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 35
+text = "status"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="fundo_tela" unique_id=731425129]
+layout_mode = 0
+offset_left = 685.0
+offset_top = 93.0
+offset_right = 968.0
+offset_bottom = 129.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 35
+text = "Dificuldades:"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="fundo_tela" unique_id=479246406]
+layout_mode = 0
+offset_left = 682.0
+offset_top = 176.0
+offset_right = 965.0
+offset_bottom = 212.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 35
+text = "médio"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="fundo_tela" unique_id=927241171]
+layout_mode = 0
+offset_left = 681.0
+offset_top = 213.0
+offset_right = 964.0
+offset_bottom = 249.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 35
+text = "difícil"
+horizontal_alignment = 1
+
+[node name="tutorial" type="Label" parent="." unique_id=956935653]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -557.0
+offset_top = -329.0
+offset_right = -302.0
+offset_bottom = -215.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("4_67pf1")
+theme_override_font_sizes/font_size = 67
+text = "tutorial"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=259556751]
+offset_left = 739.0
+offset_top = 135.0
+offset_right = 1022.0
+offset_bottom = 171.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 35
+text = "fácil"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1611501497]
+offset_left = 170.0
+offset_top = 337.0
+offset_right = 290.0
+offset_bottom = 373.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 35
+text = "itens"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=152736382]
+offset_left = 167.0
+offset_top = 494.0
+offset_right = 311.0
+offset_bottom = 569.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 35
+text = "subir de 
+nível"
+horizontal_alignment = 1
+
+[node name="barra vida" type="TextureRect" parent="." unique_id=1911021973]
+offset_left = 438.0
+offset_top = 176.0
+offset_right = 610.0
+offset_bottom = 359.0
+texture = ExtResource("5_6ys22")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="barra vida" unique_id=1441722933]
+layout_mode = 0
+offset_right = 172.0
+offset_bottom = 26.875
+texture = ExtResource("6_67pf1")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Label9" type="Label" parent="barra vida" unique_id=2110785199]
+layout_mode = 0
+offset_left = -83.0
+offset_top = 1.0
+offset_right = -26.0
+offset_bottom = 37.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 22
+text = "vida:"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="." unique_id=1297006756]
+offset_left = 647.00006
+offset_top = 308.00006
+offset_right = 735.00006
+offset_bottom = 383.00006
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 35
+text = "&"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1483740077]
+texture_repeat = 3
+position = Vector2(509.99994, 313.00003)
+scale = Vector2(3.258, 3.258)
+sprite_frames = SubResource("SpriteFrames_5dmdl")
+frame_progress = 0.15608269
+speed_scale = 0.8
+
+[node name="chave" type="AnimatedSprite2D" parent="." unique_id=458570406]
+texture_repeat = 2
+position = Vector2(498, 498)
+scale = Vector2(1.313085, 1.313085)
+sprite_frames = SubResource("SpriteFrames_c8da4")
+
+[node name="porta" type="AnimatedSprite2D" parent="." unique_id=310695260]
+texture_repeat = 2
+position = Vector2(886, 500)
+scale = Vector2(1.3310767, 1.3310767)
+sprite_frames = SubResource("SpriteFrames_7xuvm")
+speed_scale = 1.5
+
+[node name="tutorial3" type="Label" parent="." unique_id=1264108050]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -37.99994
+offset_right = -15.0
+offset_bottom = 125.00006
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("4_67pf1")
+theme_override_font_sizes/font_size = 40
+text = "2"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=2078916507]
+position = Vector2(882, 324)
+scale = Vector2(0.9117227, 0.91172296)
+sprite_frames = SubResource("SpriteFrames_qr4bb")
+
+[node name="Label7" type="Label" parent="." unique_id=2005578138]
+offset_left = 646.736
+offset_top = 491.26
+offset_right = 734.736
+offset_bottom = 577.26
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 35
+text = "ou
+"
+horizontal_alignment = 1
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=584238213]
+offset_left = 674.0
+offset_top = 653.0
+offset_right = 706.0
+offset_bottom = 687.0
+texture = ExtResource("11_kccnf")
+flip_h = true
+metadata/_edit_group_ = true
+
+[node name="TextureRect6" type="TextureRect" parent="." unique_id=819525020]
+offset_left = 639.0
+offset_top = 653.0
+offset_right = 671.0
+offset_bottom = 687.0
+texture = ExtResource("12_fjmdy")
+flip_h = true
+metadata/_edit_group_ = true
+
+[node name="TextureRect7" type="TextureRect" parent="." unique_id=1591936258]
+offset_left = 605.0
+offset_top = 653.0
+offset_right = 637.0
+offset_bottom = 687.0
+texture = ExtResource("12_fjmdy")
+flip_h = true
+metadata/_edit_group_ = true
+
+[node name="barra força" type="TextureRect" parent="." unique_id=1168634489]
+offset_left = 439.0
+offset_top = 210.0
+offset_right = 611.0
+offset_bottom = 255.0
+texture = ExtResource("5_6ys22")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Label9" type="Label" parent="barra força" unique_id=1022891119]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 1.0
+offset_right = 114.0
+offset_bottom = 37.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 22
+text = "1"
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="barra força" unique_id=181384411]
+layout_mode = 0
+offset_left = -79.0
+offset_right = -22.0
+offset_bottom = 36.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 22
+text = "força:"
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="." unique_id=2098910346]
+offset_left = 461.0
+offset_top = 567.0
+offset_right = 881.0
+offset_bottom = 616.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 22
+text = "ao atingir o nível máximo, escolha entre melhorar 
+a força de ataque ou a vida"
+horizontal_alignment = 1
+
+[node name="Label11" type="Label" parent="." unique_id=1536714616]
+offset_left = 429.0
+offset_top = 378.0
+offset_right = 591.0
+offset_bottom = 427.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 22
+text = "Clique na tecla (E) para usar.
+Mas cuidado, você também pode
+se machucar com a explosão!"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="fundo_tela/btn_Tutorial2" to="." method="_on_btn_tutorial_2_pressed"]
