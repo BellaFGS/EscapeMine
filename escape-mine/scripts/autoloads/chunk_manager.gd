@@ -1,5 +1,3 @@
-# chunk_manager.gd
-
 class_name ChunkManager
 extends Node
 
@@ -16,7 +14,7 @@ var _chunk_nodes: Dictionary = {}
 var _player: Node2D
 var _last_player_chunk: Vector2i = Vector2i(-9999, -9999)
 var _tile_size: Vector2i = Vector2i(16, 16)
-var _ready_to_stream: bool = false   # só começa a esconder após o player ser localizado
+var _ready_to_stream: bool = false 
 
 signal chunk_loaded(chunk_id: Vector2i)
 signal chunk_unloaded(chunk_id: Vector2i)
@@ -48,9 +46,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if not _player:
-		# Tenta pelo NodePath configurado no Inspector
 		_player = get_node_or_null(player_path) as Node2D
-		# Fallback: busca pelo grupo "player" na árvore inteira
 		if not _player:
 			_player = get_tree().get_first_node_in_group("player") as Node2D
 		if not _player:
@@ -63,18 +59,15 @@ func _process(_delta: float) -> void:
 		print("ChunkManager: chunks carregados após initial_load=", _loaded_chunks.keys())
 		_ready_to_stream = true
 		return
-
+		
 	if not _ready_to_stream:
 		return
-
+		
 	var current_chunk := world_to_chunk(_player.global_position)
 	if current_chunk != _last_player_chunk:
 		_last_player_chunk = current_chunk
 		_update_chunks(current_chunk)
-
-
-# ─── Carga inicial: carrega raio ao redor do spawn e esconde o resto ──────────
-
+		
 func _initial_load(center: Vector2i) -> void:
 	var desired: Dictionary = {}
 	for dx in range(-load_radius, load_radius + 1):
@@ -82,8 +75,7 @@ func _initial_load(center: Vector2i) -> void:
 			var id := Vector2i(center.x + dx, center.y + dy)
 			if _chunk_data.has(id):
 				desired[id] = true
-
-	# Marca os chunks do raio como carregados (já estão nos layers, não faz nada nos tiles)
+				
 	for id in desired:
 		_loaded_chunks[id] = true
 		if _chunk_nodes.has(id):
@@ -94,15 +86,12 @@ func _initial_load(center: Vector2i) -> void:
 				if node.has_method("set_physics_process"):
 					node.set_physics_process(true)
 		chunk_loaded.emit(id)
-
-	# Remove apenas os chunks FORA do raio
+		
+		
 	for id in _chunk_data:
 		if not desired.has(id):
 			_unload_chunk(id)
-
-
-# ─── Descoberta ───────────────────────────────────────────────────────────────
-
+			
 func _discover_layers(root: Node) -> void:
 	for child in root.get_children():
 		if child is TileMapLayer:
@@ -114,10 +103,7 @@ func _discover_layers(root: Node) -> void:
 				if grandchild is TileMapLayer:
 					grandchild.z_index = -1
 					_layers.append(grandchild)
-
-
-# ─── Escaneamento ─────────────────────────────────────────────────────────────
-
+					
 func _scan_all_tiles() -> void:
 	for layer in _layers:
 		for cell_pos in layer.get_used_cells():
@@ -136,10 +122,7 @@ func _scan_all_tiles() -> void:
 	var root := get_node_or_null(tilemap_root_path)
 	if root == null:
 		return
-	# Só gerencia nós que estejam explicitamente no grupo "chunk_node"
-	# No seu EnemySpawner, ItemSpawner, Door, DungerZone: adicione ao grupo "chunk_node"
-	# via Inspector (Node → Groups) ou via código: add_to_group("chunk_node")
-	for child in root.get_children(true):  # true = recursivo
+	for child in root.get_children(true):
 		if child.is_in_group("chunk_node"):
 			if not child is Node2D:
 				continue
@@ -148,10 +131,7 @@ func _scan_all_tiles() -> void:
 				_chunk_nodes[chunk_id] = []
 			_chunk_nodes[chunk_id].append(child)
 			print("ChunkManager: capturou '%s' → chunk %s" % [child.name, chunk_id])
-
-
-# ─── Update contínuo ──────────────────────────────────────────────────────────
-
+			
 func _update_chunks(center: Vector2i) -> void:
 	var desired: Dictionary = {}
 	for dx in range(-load_radius, load_radius + 1):
@@ -171,10 +151,7 @@ func _update_chunks(center: Vector2i) -> void:
 				to_unload.append(id)
 	for id in to_unload:
 		_unload_chunk(id)
-
-
-# ─── Load ─────────────────────────────────────────────────────────────────────
-
+		
 func _load_chunk(chunk_id: Vector2i) -> void:
 	if not _chunk_data.has(chunk_id):
 		return
@@ -196,10 +173,7 @@ func _load_chunk(chunk_id: Vector2i) -> void:
 
 	_loaded_chunks[chunk_id] = true
 	chunk_loaded.emit(chunk_id)
-
-
-# ─── Unload ───────────────────────────────────────────────────────────────────
-
+	
 func _unload_chunk(chunk_id: Vector2i) -> void:
 	if not _chunk_data.has(chunk_id):
 		return
@@ -221,10 +195,7 @@ func _unload_chunk(chunk_id: Vector2i) -> void:
 
 	_loaded_chunks.erase(chunk_id)
 	chunk_unloaded.emit(chunk_id)
-
-
-# ─── Utilitários ──────────────────────────────────────────────────────────────
-
+	
 func _tile_to_chunk(tile_pos: Vector2i) -> Vector2i:
 	return Vector2i(
 		floori(float(tile_pos.x) / chunk_size_tiles),

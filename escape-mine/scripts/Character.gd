@@ -17,7 +17,7 @@ var esta_morto = false
 var is_attack = false
 var tomando_dano = false
 var knockback_velocity = Vector2.ZERO
-
+var direcao_ataque = "down"
 var tempo_sem_dano := 0.0
 var regen_timer := 0.0
 var ultimo_atacante = null
@@ -69,13 +69,21 @@ func atualizar_animacao(direcao):
 func atacar():
 	if esta_morto or is_attack:
 		return
-	
+
 	is_attack = true
+
 	var hitbox = $hitBox
 	hitbox.forca = forca
 	hitbox.dono = self
-	
-	anim.play("attack_" + ultima_direcao)
+
+	var mouse_dir = (get_global_mouse_position() - global_position).normalized()
+
+	if abs(mouse_dir.x) > abs(mouse_dir.y):
+		direcao_ataque = "right" if mouse_dir.x > 0 else "left"
+	else:
+		direcao_ataque = "down" if mouse_dir.y > 0 else "up"
+
+	anim.play("attack_" + direcao_ataque)
 
 func receber_dano(valor, origem: Vector2, atacante = null):
 	tempo_sem_dano = 0.0
