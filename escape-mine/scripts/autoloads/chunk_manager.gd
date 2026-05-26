@@ -1,5 +1,3 @@
-# chunk_manager.gd
-
 class_name ChunkManager
 extends Node
 
@@ -16,7 +14,7 @@ var _chunk_nodes: Dictionary = {}
 var _player: Node2D
 var _last_player_chunk: Vector2i = Vector2i(-9999, -9999)
 var _tile_size: Vector2i = Vector2i(16, 16)
-var _ready_to_stream: bool = false   # só começa a esconder após o player ser localizado
+var _ready_to_stream: bool = false
 
 signal chunk_loaded(chunk_id: Vector2i)
 signal chunk_unloaded(chunk_id: Vector2i)
@@ -45,11 +43,10 @@ func _ready() -> void:
 	_scan_all_tiles()
 	print("ChunkManager: total chunks escaneados = ", _chunk_data.size())
 
+
 func _process(_delta: float) -> void:
 	if not _player:
-		# Tenta pelo NodePath configurado no Inspector
 		_player = get_node_or_null(player_path) as Node2D
-		# Fallback: busca pelo grupo "player" na árvore inteira
 		if not _player:
 			_player = get_tree().get_first_node_in_group("player") as Node2D
 		if not _player:
@@ -72,7 +69,7 @@ func _process(_delta: float) -> void:
 		_update_chunks(current_chunk)
 
 
-# ─── Carga inicial: carrega raio ao redor do spawn e esconde o resto ──────────
+# carregamento incial
 
 func _initial_load(center: Vector2i) -> void:
 	var desired: Dictionary = {}
@@ -81,8 +78,7 @@ func _initial_load(center: Vector2i) -> void:
 			var id := Vector2i(center.x + dx, center.y + dy)
 			if _chunk_data.has(id):
 				desired[id] = true
-
-	# Marca os chunks do raio como carregados (já estão nos layers, não faz nada nos tiles)
+				
 	for id in desired:
 		_loaded_chunks[id] = true
 		if _chunk_nodes.has(id):
@@ -93,14 +89,12 @@ func _initial_load(center: Vector2i) -> void:
 				if node.has_method("set_physics_process"):
 					node.set_physics_process(true)
 		chunk_loaded.emit(id)
-
-	# Remove apenas os chunks FORA do raio
+		
 	for id in _chunk_data:
 		if not desired.has(id):
 			_unload_chunk(id)
 
-
-# ─── Descoberta ───────────────────────────────────────────────────────────────
+# Descoberta
 
 func _discover_layers(root: Node) -> void:
 	for child in root.get_children():
@@ -115,7 +109,7 @@ func _discover_layers(root: Node) -> void:
 					_layers.append(grandchild)
 
 
-# ─── Escaneamento ─────────────────────────────────────────────────────────────
+# Escaneamento
 
 func _scan_all_tiles() -> void:
 	for layer in _layers:
@@ -135,10 +129,7 @@ func _scan_all_tiles() -> void:
 	var root := get_node_or_null(tilemap_root_path)
 	if root == null:
 		return
-	# Só gerencia nós que estejam explicitamente no grupo "chunk_node"
-	# No seu EnemySpawner, ItemSpawner, Door, DungerZone: adicione ao grupo "chunk_node"
-	# via Inspector (Node → Groups) ou via código: add_to_group("chunk_node")
-	for child in root.get_children(true):  # true = recursivo
+	for child in root.get_children(true): 
 		if child.is_in_group("chunk_node"):
 			if not child is Node2D:
 				continue
@@ -149,7 +140,7 @@ func _scan_all_tiles() -> void:
 			print("ChunkManager: capturou '%s' → chunk %s" % [child.name, chunk_id])
 
 
-# ─── Update contínuo ──────────────────────────────────────────────────────────
+# Update contínuo
 
 func _update_chunks(center: Vector2i) -> void:
 	var desired: Dictionary = {}
@@ -172,7 +163,7 @@ func _update_chunks(center: Vector2i) -> void:
 		_unload_chunk(id)
 
 
-# ─── Load ─────────────────────────────────────────────────────────────────────
+# carregamento
 
 func _load_chunk(chunk_id: Vector2i) -> void:
 	if not _chunk_data.has(chunk_id):
@@ -197,7 +188,7 @@ func _load_chunk(chunk_id: Vector2i) -> void:
 	chunk_loaded.emit(chunk_id)
 
 
-# ─── Unload ───────────────────────────────────────────────────────────────────
+# descarregamento
 
 func _unload_chunk(chunk_id: Vector2i) -> void:
 	if not _chunk_data.has(chunk_id):
@@ -222,7 +213,7 @@ func _unload_chunk(chunk_id: Vector2i) -> void:
 	chunk_unloaded.emit(chunk_id)
 
 
-# ─── Utilitários ──────────────────────────────────────────────────────────────
+# Utilitários
 
 func _tile_to_chunk(tile_pos: Vector2i) -> Vector2i:
 	return Vector2i(
