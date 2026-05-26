@@ -1,4 +1,4 @@
 extends Area2D
 
-var dano = 0
+var forca = 0
 var dono = null

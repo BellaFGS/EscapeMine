@@ -1,24 +1,63 @@
 extends CanvasLayer
 
+var musica_anterior := ""
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready():
+
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _input(event):
 
-func _unhandled_input(event) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		visible = true
-		get_tree().paused = true
 
-# voltar ao world one e adicionar uma corrente e adicionar a tela_pause
+		visible = !visible
+
+		get_tree().paused = visible
+
+		if visible:
+
+			# salva música atual
+			musica_anterior = AudioManager.musica_player.stream.resource_path
+
+			AudioManager.tocar_musica("pause")
+
+		else:
+
+			voltar_musica_jogo()
+
+func voltar_musica_jogo():
+
+	if musica_anterior.contains("bgMain"):
+		AudioManager.tocar_musica("main")
+
+	elif musica_anterior.contains("bgMenu"):
+		AudioManager.tocar_musica("menu")
+
+	elif musica_anterior.contains("bgWin"):
+		AudioManager.tocar_musica("win")
+
+	elif musica_anterior.contains("dieSong"):
+		AudioManager.tocar_musica("gameOver")
+
 func _on_btn_retomar_pressed() -> void:
+
 	get_tree().paused = false
 	visible = false
 
+	voltar_musica_jogo()
 
 func _on_btn_sair_pressed() -> void:
 	get_tree().quit()
+
+func _on_btn_config_pressed():
+	AudioManager.tocar_sfx("click")
+	UIManager.abrir_config("pause")
+
+func _on_btn_inicio_pressed() -> void:
+	AudioManager.tocar_sfx("click")
+	get_tree().paused = false
+
+	AudioManager.tocar_musica("menu")
+
+	GameFacade.voltar_menu()

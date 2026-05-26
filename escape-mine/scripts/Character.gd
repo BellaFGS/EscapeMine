@@ -1,19 +1,33 @@
 extends CharacterBody2D
 
+signal vida_alterada(valor)
+
 @onready var anim = get_node_or_null("Animator")
 @onready var texture = get_node_or_null("Texture")
+@onready var barra_vida = get_node_or_null("BarraVida")
+var cor_original: Color = Color(1, 1, 1)
 
 @export var speed = 100
+@export var vida_max = 5
 @export var vida = 5
-@export var dano = 1
+@export var forca = 1
 
 var ultima_direcao = "down"
 var esta_morto = false
 var is_attack = false
 var tomando_dano = false
 var knockback_velocity = Vector2.ZERO
+var direcao_ataque = "down"
+var tempo_sem_dano := 0.0
+var regen_timer := 0.0
+var ultimo_atacante = null
 
-func mover(direcao):
+func _ready():
+	vida = vida_max
+	atualizar_barra_vida()
+	
+
+func mover(direcao):	
 	if esta_morto:
 		return
 	
@@ -21,10 +35,8 @@ func mover(direcao):
 		velocity = knockback_velocity
 		move_and_slide()
 		
-		# desacelera knockback
 		knockback_velocity = knockback_velocity.lerp(Vector2.ZERO, 0.2)
 		
-		# para quando estiver fraco
 		if knockback_velocity.length() < 10:
 			tomando_dano = false
 		
@@ -35,80 +47,103 @@ func mover(direcao):
 
 	atualizar_animacao(direcao)
 
-# 🔥 CONTROLE DE ANIMAÇÃO
+func set_cor(cor):
+	cor_original = cor
+	if texture:
+		texture.modulate = cor
+
 func atualizar_animacao(direcao):
 	if anim == null or is_attack:
 		return
 	if direcao == Vector2.ZERO:
 		anim.play("idle_" + ultima_direcao)
 		return
-	# Define direção
+
 	if abs(direcao.x) > abs(direcao.y):
-		if direcao.x > 0:
-			ultima_direcao = "right"
-		else:
-			ultima_direcao = "left"
+		ultima_direcao = "right" if direcao.x > 0 else "left"
 	else:
-		if direcao.y > 0:
-			ultima_direcao = "down"
-		else:
-			ultima_direcao = "up"
+		ultima_direcao = "down" if direcao.y > 0 else "up"
 	
 	anim.play("walk_" + ultima_direcao)
 
-# ⚔️ ATAQUE 
 func atacar():
 	if esta_morto or is_attack:
 		return
-	
-	is_attack = true
-	var hitbox = $hitBox
-	hitbox.dano = dano
-	hitbox.dono = self
-	
-	anim.play("attack_" + ultima_direcao)
 
-# ❤️ DANO
-func receber_dano(valor, origem: Vector2):
+	is_attack = true
+
+	var hitbox = $hitBox
+	hitbox.forca = forca
+	hitbox.dono = self
+
+	var mouse_dir = (get_global_mouse_position() - global_position).normalized()
+
+	if abs(mouse_dir.x) > abs(mouse_dir.y):
+		direcao_ataque = "right" if mouse_dir.x > 0 else "left"
+	else:
+		direcao_ataque = "down" if mouse_dir.y > 0 else "up"
+
+	anim.play("attack_" + direcao_ataque)
+
+func receber_dano(valor, origem: Vector2, atacante = null):
+	tempo_sem_dano = 0.0
+	regen_timer = 0.0
+	
 	if esta_morto:
 		return
+		
+	# 🧠 guarda quem causou o dano
+	if atacante != null:
+		ultimo_atacante = atacante
 	
 	vida -= valor
-	#emit_signal("vida_alterada", vida)
-	
+	emit_signal("vida_alterada", vida)
+	atualizar_barra_vida()
 	tomando_dano = true
 	
-	# 💥 KNOCKBACK
 	var direcao = (global_position - origem).normalized()
-	var forca = 900
-	knockback_velocity = direcao * forca
+	knockback_velocity = direcao * 1200
 	
-	# ❤️ FLASH (separado)
 	flash_dano()
 	
 	if vida <= 0:
 		morrer()
-# 💀 MORTE
+
 func morrer():
+	if esta_morto:
+		return
 	esta_morto = true
-	velocity = Vector2.ZERO
-	
-	#anim.play("death")
-	
-	#await anim.animation_finished
+	call_deferred("_morrer_impl")
+
+func _morrer_impl():
 	queue_free()
 
 func flash_dano():
-	if texture:
-		texture.modulate = Color(1, 0, 0)
+	if not texture:
+		return
+	
+	var cor_hit = cor_original.lerp(Color(1, 0, 0), 0.7)
+	texture.modulate = cor_hit
 	
 	await get_tree().create_timer(0.2).timeout
 	
-	if texture:
-		texture.modulate = Color(1, 1, 1)
+	if is_instance_valid(self) and texture:
+		texture.modulate = cor_original
+
+func atualizar_barra_vida():
+	if barra_vida:
+		barra_vida.value = vida
+		barra_vida.max_value = vida_max
+		
+		if vida < vida_max:
+			barra_vida.visible = true
+		else:
+			barra_vida.visible = false
 
 func _on_Animator_animation_finished():
 	if anim.animation.begins_with("attack"):
 		is_attack = false
 		anim.play("idle_" + ultima_direcao)
 		
+func _on_hurt_box_area_entered(area):
+	print("COLIDIU COM:", area)
