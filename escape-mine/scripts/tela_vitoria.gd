@@ -9,7 +9,6 @@ func _ready() -> void:
 func _on_btn_sair_pressed() -> void:
 	get_tree().quit()
 
-
 func _on_btn_voltar_pressed() -> void:
 	GameManager.resetar()
 	GameFacade.voltar_menu()
