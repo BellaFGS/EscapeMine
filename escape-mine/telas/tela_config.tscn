@@ -18,46 +18,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Menu" type="VBoxContainer" parent="." unique_id=99307723]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = -65.0
-offset_right = -1.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 15
-
-[node name="Label_geral" type="Label" parent="Menu" unique_id=796166915]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_78uk1")
-theme_override_font_sizes/font_size = 27
-text = "Volume Geral:"
-
-[node name="Label_sfx" type="Label" parent="Menu" unique_id=405205841]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_78uk1")
-theme_override_font_sizes/font_size = 27
-text = "Efeitos Sonoros:"
-
-[node name="Label_musica" type="Label" parent="Menu" unique_id=1454774027]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_78uk1")
-theme_override_font_sizes/font_size = 27
-text = "Músicas do jogo:"
-
-[node name="btn_voltar" type="Button" parent="Menu" unique_id=885510997]
-process_mode = 3
-layout_mode = 2
-theme = ExtResource("2_76fbb")
-text = "VOLTAR"
-
 [node name="TextureRect" type="TextureRect" parent="." unique_id=201148708]
 offset_left = 51.0
 offset_top = 57.0
@@ -74,43 +34,83 @@ theme_override_fonts/font = ExtResource("4_8huyt")
 theme_override_font_sizes/font_size = 32
 text = "CONFIGURAÇÕES"
 
-[node name="ctr_geral" type="HSlider" parent="." unique_id=10014624]
-offset_left = 763.0
-offset_top = 272.0
-offset_right = 1074.0
-offset_bottom = 288.0
+[node name="Menu_Vertical" type="VBoxContainer" parent="." unique_id=1811246192]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.125
+offset_top = -98.25
+offset_right = 291.125
+offset_bottom = 98.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu_Horizontal" type="HBoxContainer" parent="Menu_Vertical" unique_id=447257374]
+layout_mode = 2
+
+[node name="Texto" type="VBoxContainer" parent="Menu_Vertical/Menu_Horizontal" unique_id=99307723]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label_geral" type="Label" parent="Menu_Vertical/Menu_Horizontal/Texto" unique_id=796166915]
+layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_78uk1")
+theme_override_font_sizes/font_size = 27
+text = "Volume Geral:"
+
+[node name="Label_sfx" type="Label" parent="Menu_Vertical/Menu_Horizontal/Texto" unique_id=405205841]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_78uk1")
+theme_override_font_sizes/font_size = 27
+text = "Efeitos Sonoros:"
+
+[node name="Label_musica" type="Label" parent="Menu_Vertical/Menu_Horizontal/Texto" unique_id=1454774027]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_78uk1")
+theme_override_font_sizes/font_size = 27
+text = "Músicas do jogo:"
+
+[node name="Barras" type="VBoxContainer" parent="Menu_Vertical/Menu_Horizontal" unique_id=1129094840]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ctr_geral" type="HSlider" parent="Menu_Vertical/Menu_Horizontal/Barras" unique_id=10014624]
+layout_mode = 2
+size_flags_vertical = 6
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="ctr_sfx" type="HSlider" parent="." unique_id=579234341]
-offset_left = 768.0
-offset_top = 315.0
-offset_right = 1079.0
-offset_bottom = 331.0
-size_flags_horizontal = 4
+[node name="ctr_sfx" type="HSlider" parent="Menu_Vertical/Menu_Horizontal/Barras" unique_id=579234341]
+layout_mode = 2
+size_flags_vertical = 6
 min_value = -80.0
 max_value = 20.0
 step = 0.01
 value = 1.0
 
-[node name="ctr_musica" type="HSlider" parent="." unique_id=1414999855]
-offset_left = 766.0
-offset_top = 363.0
-offset_right = 1077.0
-offset_bottom = 379.0
-size_flags_horizontal = 4
+[node name="ctr_musica" type="HSlider" parent="Menu_Vertical/Menu_Horizontal/Barras" unique_id=1414999855]
+layout_mode = 2
+size_flags_vertical = 6
 min_value = -80.0
 max_value = 20.0
 step = 0.01
 value = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1129094840]
-offset_right = 40.0
-offset_bottom = 56.0
+[node name="btn_voltar" type="Button" parent="Menu_Vertical" unique_id=885510997]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_76fbb")
+text = "VOLTAR"
 
-[connection signal="pressed" from="Menu/btn_voltar" to="." method="_on_btn_voltar_pressed"]
-[connection signal="value_changed" from="ctr_geral" to="." method="_on_ctr_geral_value_changed"]
-[connection signal="value_changed" from="ctr_sfx" to="." method="_on_ctr_sfx_value_changed"]
-[connection signal="value_changed" from="ctr_musica" to="." method="_on_ctr_musica_value_changed"]
+[connection signal="value_changed" from="Menu_Vertical/Menu_Horizontal/Barras/ctr_geral" to="." method="_on_ctr_geral_value_changed"]
+[connection signal="value_changed" from="Menu_Vertical/Menu_Horizontal/Barras/ctr_sfx" to="." method="_on_ctr_sfx_value_changed"]
+[connection signal="value_changed" from="Menu_Vertical/Menu_Horizontal/Barras/ctr_musica" to="." method="_on_ctr_musica_value_changed"]
+[connection signal="pressed" from="Menu_Vertical/btn_voltar" to="." method="_on_btn_voltar_pressed"]

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://c5s7yrrqsye7d"]
+[gd_scene format=3 uid="uid://b0c7pvoxen4wl"]
 
-[ext_resource type="Script" uid="uid://b33r6xe8vuat" path="res://scripts/tela_tutorial_3.gd" id="1_6ys22"]
+[ext_resource type="Script" path="res://scripts/tela_tutorial_3.gd" id="1_6ys22"]
 [ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="2_81pup"]
 [ext_resource type="Texture2D" uid="uid://drydqlgk13i6v" path="res://sprites/artes/seta.png" id="3_6ys22"]
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_67pf1"]
@@ -166,22 +166,6 @@ offset_bottom = 117.0
 texture = ExtResource("3_6ys22")
 flip_h = true
 
-[node name="Label9" type="Label" parent="fundo_tela" unique_id=1813802582]
-layout_mode = 0
-offset_left = 183.0
-offset_top = 59.0
-offset_right = 466.0
-offset_bottom = 173.0
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
-theme_override_fonts/font = ExtResource("2_81pup")
-theme_override_font_sizes/font_size = 35
-text = "HUD
- 
-"
-horizontal_alignment = 1
-
 [node name="Label10" type="Label" parent="fundo_tela" unique_id=616612925]
 layout_mode = 0
 offset_left = 647.0
@@ -265,25 +249,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("2_81pup")
 theme_override_font_sizes/font_size = 35
 text = "difícil"
-horizontal_alignment = 1
-
-[node name="tutorial" type="Label" parent="." unique_id=956935653]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -557.0
-offset_top = -329.0
-offset_right = -302.0
-offset_bottom = -215.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
-theme_override_fonts/font = ExtResource("4_67pf1")
-theme_override_font_sizes/font_size = 67
-text = "tutorial"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=259556751]
@@ -519,6 +484,37 @@ theme_override_font_sizes/font_size = 22
 text = "Clique na tecla (E) para usar.
 Mas cuidado, você também pode
 se machucar com a explosão!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1717599338]
+offset_left = 129.0
+offset_top = -28.0
+offset_right = 456.0
+offset_bottom = 172.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="tutorial" type="Label" parent="HBoxContainer" unique_id=956935653]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("4_67pf1")
+theme_override_font_sizes/font_size = 67
+text = "tutorial"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="HBoxContainer" unique_id=1813802582]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("2_81pup")
+theme_override_font_sizes/font_size = 35
+text = "HUD
+ 
+"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="fundo_tela/btn_Tutorial2" to="." method="_on_btn_tutorial_2_pressed"]

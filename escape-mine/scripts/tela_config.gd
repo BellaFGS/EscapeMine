@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var ctr_geral: HSlider = $ctr_geral
-@onready var ctr_sfx: HSlider = $ctr_sfx
-@onready var ctr_musica: HSlider = $ctr_musica
+@onready var ctr_geral: HSlider = $Menu_Vertical/Menu_Horizontal/Barras/ctr_geral
+@onready var ctr_sfx: HSlider = $Menu_Vertical/Menu_Horizontal/Barras/ctr_sfx
+@onready var ctr_musica: HSlider = $Menu_Vertical/Menu_Horizontal/Barras/ctr_musica
 
 
 func _ready():

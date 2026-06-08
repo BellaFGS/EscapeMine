@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c1bbfg6hilpvp"]
+[gd_scene format=3 uid="uid://dtxhttvtoyv11"]
 
 [ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="3_uapxi"]
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_tj6ue"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://pajbrs33xxey" path="res://sprites/tilesets/door.png" id="9_ilnvs"]
 [ext_resource type="Texture2D" uid="uid://bxnoxkbps0jxn" path="res://sprites/artes/setaPequena.png" id="10_5dmdl"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="10_dkmt3"]
-[ext_resource type="Script" uid="uid://dckoth1op3c3y" path="res://scripts/tela_tutorial.gd" id="11_dkmt3"]
+[ext_resource type="Script" path="res://scripts/tela_tutorial.gd" id="11_dkmt3"]
 [ext_resource type="Texture2D" uid="uid://drydqlgk13i6v" path="res://sprites/artes/seta.png" id="11_xe0n2"]
 [ext_resource type="Texture2D" uid="uid://g7eajtj83wxx" path="res://sprites/artes/bolinhaIndicativa.png" id="12_hmy0f"]
 [ext_resource type="Texture2D" uid="uid://5mnto6fs2v5p" path="res://sprites/artes/bolinhaIndicativacinza.png" id="13_dkmt3"]
@@ -197,25 +197,6 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.30312887, 0.39699844, 0.39967707, 0)
-
-[node name="tutorial" type="Label" parent="." unique_id=956935653]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -557.0
-offset_top = -329.0
-offset_right = -302.0
-offset_bottom = -215.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
-theme_override_fonts/font = ExtResource("4_tj6ue")
-theme_override_font_sizes/font_size = 67
-text = "tutorial"
-horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=259556751]
 offset_left = 107.0
@@ -406,19 +387,6 @@ text = "VOCÊ
 VENCEU!"
 horizontal_alignment = 1
 
-[node name="Label9" type="Label" parent="." unique_id=412486242]
-offset_left = 322.0
-offset_top = 59.0
-offset_right = 605.0
-offset_bottom = 95.0
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
-theme_override_fonts/font = ExtResource("3_uapxi")
-theme_override_font_sizes/font_size = 35
-text = "COMANDOS BÁSICOS"
-horizontal_alignment = 1
-
 [node name="Button" type="Button" parent="." unique_id=1427270191]
 offset_left = 20.0
 offset_top = 42.0
@@ -476,6 +444,32 @@ offset_top = -27.0
 offset_right = 110.0
 offset_bottom = 122.0
 texture = ExtResource("11_xe0n2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2025488206]
+offset_left = 102.0
+offset_top = 38.0
+offset_right = 586.0
+offset_bottom = 118.0
+
+[node name="tutorial" type="Label" parent="HBoxContainer" unique_id=956935653]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("4_tj6ue")
+theme_override_font_sizes/font_size = 67
+text = "tutorial"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="HBoxContainer" unique_id=412486242]
+layout_direction = 4
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("3_uapxi")
+theme_override_font_sizes/font_size = 35
+text = "COMANDOS BÁSICOS"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="btn_Tutorial2" to="." method="_on_btn_tutorial_2_pressed"]
