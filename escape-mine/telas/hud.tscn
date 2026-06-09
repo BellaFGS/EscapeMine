@@ -229,17 +229,6 @@ texture_under = ExtResource("3_tiyv1")
 texture_progress = ExtResource("4_prpkp")
 script = ExtResource("4_logno")
 
-[node name="BarraXpTextura" type="TextureProgressBar" parent="control" unique_id=307783242]
-layout_mode = 0
-offset_left = 477.0
-offset_top = 691.0
-offset_right = 541.0
-offset_bottom = 699.0
-scale = Vector2(4, 2)
-texture_under = ExtResource("8_g8g4g")
-texture_progress = ExtResource("9_j0801")
-script = ExtResource("8_q0dk2")
-
 [node name="TextoVida" type="Label" parent="control" unique_id=581827015]
 layout_mode = 0
 offset_left = 95.0
@@ -255,15 +244,6 @@ offset_top = 49.0
 offset_right = 135.0
 offset_bottom = 72.0
 text = "1"
-horizontal_alignment = 1
-
-[node name="TextoXp" type="Label" parent="control" unique_id=1101355491]
-layout_mode = 0
-offset_left = 574.0
-offset_top = 686.0
-offset_right = 641.0
-offset_bottom = 709.0
-text = "100/200"
 horizontal_alignment = 1
 
 [node name="Bg_Nivel" type="Sprite2D" parent="control" unique_id=577712207]
@@ -282,14 +262,6 @@ offset_right = 40.0
 offset_bottom = 32.0
 text = "0"
 horizontal_alignment = 1
-
-[node name="Nivel_Dificuldade" type="Label" parent="control" unique_id=2073264020]
-layout_mode = 0
-offset_left = 1110.0
-offset_top = 31.0
-offset_right = 1242.0
-offset_bottom = 54.0
-horizontal_alignment = 2
 
 [node name="ItemDinamite" type="AnimatedSprite2D" parent="control" unique_id=282409802]
 position = Vector2(28, 122)
@@ -314,11 +286,59 @@ offset_top = 110.0
 offset_right = 95.0
 offset_bottom = 133.0
 
-[node name="TextoUpgrade" type="Label" parent="control" unique_id=1873969042]
+[node name="BarraXp" type="Control" parent="control" unique_id=1458318929]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -40.0
+offset_right = 128.0
+
+[node name="BarraXpTextura" type="TextureProgressBar" parent="control/BarraXp" unique_id=307783242]
 layout_mode = 0
-offset_left = 576.0
-offset_top = 24.0
-offset_right = 699.0
-offset_bottom = 53.0
+offset_top = 16.0
+offset_right = 64.0
+offset_bottom = 27.0
+scale = Vector2(4, 2)
+texture_under = ExtResource("8_g8g4g")
+texture_progress = ExtResource("9_j0801")
+script = ExtResource("8_q0dk2")
+
+[node name="TextoXp" type="Label" parent="control/BarraXp" unique_id=1101355491]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 256.0
+offset_bottom = 35.0
+text = "100/200"
+horizontal_alignment = 1
+
+[node name="DificultContainer" type="MarginContainer" parent="control" unique_id=885087475]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Nivel_Dificuldade" type="Label" parent="control/DificultContainer" unique_id=2073264020]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="UpgradeContainer" type="MarginContainer" parent="control" unique_id=691053215]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.5
+offset_right = 62.5
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="TextoUpgrade" type="Label" parent="control/UpgradeContainer" unique_id=1873969042]
+layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "(R) UPGRADE"

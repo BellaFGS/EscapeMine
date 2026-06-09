@@ -9,9 +9,11 @@ process_mode = 3
 
 [node name="Control" type="Control" parent="." unique_id=708851952]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("5_fqdyc")
 
 [node name="fundo_tela" type="ColorRect" parent="Control" unique_id=1125106746]
@@ -19,49 +21,68 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1237.0
-offset_bottom = 684.0
+offset_left = -607.0
+offset_top = -331.0
+offset_right = 630.0
+offset_bottom = 353.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.14901961)
 
-[node name="Força" type="Sprite2D" parent="Control" unique_id=31322749]
-position = Vector2(496, 380)
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1392718832]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -89.5
+offset_right = 249.0
+offset_bottom = 89.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer" unique_id=307355178]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="forca_up" type="Button" parent="HBoxContainer/PanelContainer2" unique_id=651995155]
+layout_mode = 2
+
+[node name="Força" type="Sprite2D" parent="HBoxContainer/PanelContainer2" unique_id=878731217]
+position = Vector2(87, 98.5)
 texture = ExtResource("2_fqdyc")
 
-[node name="Vida" type="Sprite2D" parent="Control" unique_id=2048815463]
-position = Vector2(812, 371)
+[node name="texto_dano" type="Label" parent="HBoxContainer/PanelContainer2" unique_id=1828008095]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Aumentar força"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="HBoxContainer" unique_id=1608901511]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=2032338896]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="vida_up" type="Button" parent="HBoxContainer/PanelContainer" unique_id=1371348017]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Vida" type="Sprite2D" parent="HBoxContainer/PanelContainer" unique_id=2048815463]
+position = Vector2(86.5, 95.5)
 texture = ExtResource("3_0xikf")
 
-[node name="texto_dano" type="Label" parent="Control" unique_id=1239855934]
-layout_mode = 0
-offset_left = 439.0
-offset_top = 314.0
-offset_right = 561.0
-offset_bottom = 337.0
-text = "Aumentar força"
-
-[node name="forca_up" type="Button" parent="Control" unique_id=1840632858]
-layout_mode = 0
-offset_left = 418.0
-offset_top = 296.0
-offset_right = 575.0
-offset_bottom = 435.0
-
-[node name="vida_up" type="Button" parent="Control" unique_id=1371348017]
-layout_mode = 0
-offset_left = 733.0
-offset_top = 296.0
-offset_right = 890.0
-offset_bottom = 435.0
-
-[node name="texto_vida" type="Label" parent="Control" unique_id=1083185584]
-layout_mode = 0
-offset_left = 751.0
-offset_top = 316.0
-offset_right = 873.0
-offset_bottom = 339.0
+[node name="texto_vida" type="Label" parent="HBoxContainer/PanelContainer" unique_id=1083185584]
+layout_mode = 2
+size_flags_vertical = 0
 text = "Aumentar Vida"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="Control/forca_up" to="Control" method="_on_forca_up_pressed"]
-[connection signal="pressed" from="Control/vida_up" to="Control" method="_on_vida_up_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer2/forca_up" to="Control" method="_on_forca_up_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/vida_up" to="Control" method="_on_vida_up_pressed"]
