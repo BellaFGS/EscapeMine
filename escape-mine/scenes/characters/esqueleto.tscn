@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bmf7v555iqyes"]
 
-[ext_resource type="Script" uid="uid://dgbkn4utbimig" path="res://scripts/Esqueleto.gd" id="1_aglst"]
-[ext_resource type="PackedScene" uid="uid://cjdfuhvb1303f" path="res://scenes/barra_vida.tscn" id="2_oxjr5"]
-[ext_resource type="Texture2D" uid="uid://cnwdjffwqu38c" path="res://sprites/characters/esqueleto.png" id="2_tlre5"]
+[ext_resource type="Script" uid="uid://dgbkn4utbimig" path="res://scripts/Characters/Esqueleto.gd" id="1_pxpgk"]
+[ext_resource type="PackedScene" uid="uid://cjdfuhvb1303f" path="res://scenes/Elements/barra_vida.tscn" id="2_u48p3"]
+[ext_resource type="Texture2D" uid="uid://cnwdjffwqu38c" path="res://sprites/characters/esqueleto.png" id="3_3jrof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20qjs"]
 size = Vector2(11, 14)
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tlre5")]
+"values": [ExtResource("3_3jrof")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -95,7 +95,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tlre5")]
+"values": [ExtResource("3_3jrof")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -171,7 +171,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tlre5")]
+"values": [ExtResource("3_3jrof")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -247,7 +247,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tlre5")]
+"values": [ExtResource("3_3jrof")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -311,7 +311,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tlre5")]
+"values": [ExtResource("3_3jrof")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -375,7 +375,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tlre5")]
+"values": [ExtResource("3_3jrof")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -439,7 +439,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tlre5")]
+"values": [ExtResource("3_3jrof")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -503,7 +503,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tlre5")]
+"values": [ExtResource("3_3jrof")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -567,7 +567,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tlre5")]
+"values": [ExtResource("3_3jrof")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -631,7 +631,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tlre5")]
+"values": [ExtResource("3_3jrof")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -695,7 +695,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tlre5")]
+"values": [ExtResource("3_3jrof")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -767,12 +767,12 @@ size = Vector2(13, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlre5"]
 size = Vector2(13, 8)
 
-[node name="Esqueleto" type="CharacterBody2D" unique_id=1797031235 groups=["enemy"]]
+[node name="Esqueleto" type="CharacterBody2D" unique_id=1797031235 groups=["enemy", "veneno"]]
 collision_layer = 2
 collision_mask = 11
-script = ExtResource("1_aglst")
+script = ExtResource("1_pxpgk")
 
-[node name="BarraVida" parent="." unique_id=716871242 instance=ExtResource("2_oxjr5")]
+[node name="BarraVida" parent="." unique_id=716871242 instance=ExtResource("2_u48p3")]
 offset_left = -8.0
 offset_top = -28.0
 offset_right = 7.0
@@ -782,7 +782,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Texture" type="Sprite2D" parent="." unique_id=659011188]
 position = Vector2(-0.25, -8)
 scale = Vector2(2, 2)
-texture = ExtResource("2_tlre5")
+texture = ExtResource("3_3jrof")
 hframes = 8
 vframes = 9
 frame = 64

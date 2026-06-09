@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://754k33pvudct"]
 
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="1_2qjsy"]
-[ext_resource type="Script" uid="uid://rro8rvbrkfsu" path="res://scripts/tela_pause.gd" id="1_x51w4"]
+[ext_resource type="Script" uid="uid://rro8rvbrkfsu" path="res://scripts/Telas/tela_pause.gd" id="1_x51w4"]
 [ext_resource type="Texture2D" uid="uid://yaay6v72jgqh" path="res://sprites/artes/btn Pause.png" id="3_3df4y"]
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_0lp75"]
 

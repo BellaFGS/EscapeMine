@@ -5,6 +5,8 @@ var player
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 
+	print("Grupos do fantasma:", get_groups())
+
 func _physics_process(delta):
 	if esta_morto:
 		return

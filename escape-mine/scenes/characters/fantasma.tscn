@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://m4aukhpqlmv8"]
 
-[ext_resource type="Script" uid="uid://c4ta2e7aocuej" path="res://scripts/fantasma.gd" id="1_t212r"]
+[ext_resource type="Script" uid="uid://c4ta2e7aocuej" path="res://scripts/Characters/fantasma.gd" id="1_t212r"]
 [ext_resource type="Texture2D" uid="uid://dvnys41yw1gfb" path="res://sprites/characters/ghoust.png" id="2_2mxae"]
-[ext_resource type="PackedScene" uid="uid://cjdfuhvb1303f" path="res://scenes/barra_vida.tscn" id="2_n64ir"]
+[ext_resource type="PackedScene" uid="uid://cjdfuhvb1303f" path="res://scenes/Elements/barra_vida.tscn" id="2_n64ir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mxae"]
 size = Vector2(9.5, 12.5)
@@ -382,7 +382,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptde3"]
 size = Vector2(11, 14)
 
-[node name="Fantasma" type="CharacterBody2D" unique_id=1973135355 groups=["enemy"]]
+[node name="Fantasma" type="CharacterBody2D" unique_id=1973135355 groups=["cegueira", "enemy"]]
 scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 11

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bv5252sg3b7gi"]
 
-[ext_resource type="Script" uid="uid://cwkwh6npbwvsd" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://cwkwh6npbwvsd" path="res://scripts/Characters/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cjkoe6s4c1c26" path="res://scripts/Inventario.gd" id="2_dqkch"]
 [ext_resource type="Script" uid="uid://hy37j6jnwt5y" path="res://scripts/hit_box.gd" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dqvca0hwdm6x0" path="res://sprites/characters/LucasTudoAtaque.png" id="4_qlg0r"]

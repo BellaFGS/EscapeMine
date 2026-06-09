@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cixpcdgmomouj"]
 
-[ext_resource type="Script" uid="uid://1lswx0fjmkeq" path="res://scripts/Item_chave.gd" id="1_wqqx3"]
+[ext_resource type="Script" uid="uid://1lswx0fjmkeq" path="res://scripts/Items/Item_chave.gd" id="1_wqqx3"]
 [ext_resource type="Texture2D" uid="uid://laboslv4yj13" path="res://sprites/objects/items/chave.png" id="2_gk4im"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0dynu"]
