@@ -66,6 +66,25 @@ func atualizar_animacao(direcao):
 	
 	anim.play("walk_" + ultima_direcao)
 
+#func atacar():
+	#if esta_morto or is_attack:
+		#return
+#
+	#is_attack = true
+#
+	#var hitbox = $hitBox
+	#hitbox.forca = forca
+	#hitbox.dono = self
+#
+	#var mouse_dir = (get_global_mouse_position() - global_position).normalized()
+#
+	#if abs(mouse_dir.x) > abs(mouse_dir.y):
+		#direcao_ataque = "right" if mouse_dir.x > 0 else "left"
+	#else:
+		#direcao_ataque = "down" if mouse_dir.y > 0 else "up"
+#
+	#anim.play("attack_" + direcao_ataque)
+
 func atacar():
 	if esta_morto or is_attack:
 		return
@@ -76,39 +95,59 @@ func atacar():
 	hitbox.forca = forca
 	hitbox.dono = self
 
-	var mouse_dir = (get_global_mouse_position() - global_position).normalized()
-
-	if abs(mouse_dir.x) > abs(mouse_dir.y):
-		direcao_ataque = "right" if mouse_dir.x > 0 else "left"
-	else:
-		direcao_ataque = "down" if mouse_dir.y > 0 else "up"
+	direcao_ataque = ultima_direcao
 
 	anim.play("attack_" + direcao_ataque)
 
 func receber_dano(valor, origem: Vector2, atacante = null):
+
 	tempo_sem_dano = 0.0
 	regen_timer = 0.0
-	
+
 	if esta_morto:
 		return
-		
+
+	if EffectManager.bloquear_dano(self):
+		return
+
 	# 🧠 guarda quem causou o dano
 	if atacante != null:
 		ultimo_atacante = atacante
-	
+
 	vida -= valor
+
 	emit_signal("vida_alterada", vida)
+
 	atualizar_barra_vida()
+
 	tomando_dano = true
-	
-	var direcao = (global_position - origem).normalized()
+
+	var direcao = (
+		global_position - origem
+	).normalized()
+
 	knockback_velocity = direcao * 1200
-	
+
 	flash_dano()
-	
+
+
+	# EFEITOS DECORATOR
+	if is_in_group("player") and atacante:
+		if atacante.is_in_group("veneno"):
+			EffectManager.adicionar_efeito(
+				self,
+				VenenoDecorator.new()
+			)
+
+		if atacante.is_in_group("cegueira"):
+
+			EffectManager.adicionar_efeito(
+				self,
+				CegueiraDecorator.new()
+			)
+
 	if vida <= 0:
 		morrer()
-
 func morrer():
 	if esta_morto:
 		return

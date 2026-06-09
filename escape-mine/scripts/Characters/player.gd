@@ -10,6 +10,8 @@ var regen_intervalo := 0.5 # tempo pra ganhar +1 vida
 var delay_regen := 2.0 # espera 2s sem tomar dano
 var esta_morrendo := false
 var usando_dinamite := false
+var efeitos = []
+var tem_escudo := false
 
 var cena_dinamite = preload("res://scenes/items/dinamite_ativa.tscn")
 @onready var inventario = $Inventario
@@ -57,6 +59,9 @@ func _physics_process(delta):
 			emit_signal("vida_alterada", vida)
 
 			atualizar_barra_vida()
+
+	for efeito in efeitos:
+		efeito.atualizar(delta)
 
 	mover(direcao)
 
@@ -123,6 +128,14 @@ func usar_dinamite():
 			dinamite
 		)
 
+func adicionar_efeito(efeito):
+
+	efeitos.append(efeito)
+
+	add_child(efeito)
+
+	efeito.iniciar(self)
+
 func _on_animator_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "lucas_death":
 		GameManager.finalizar_jogo("LOSE")
@@ -140,7 +153,11 @@ func _on_animator_animation_finished(anim_name: StringName) -> void:
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 
-		receber_dano(body.forca, body.global_position)
+		receber_dano(
+			body.forca,
+			body.global_position,
+			body
+		)
 
 		hurtBox.set_deferred("disabled", true)
 		collision.set_deferred("disabled", true)
@@ -152,9 +169,18 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	print("colidiu com:", area.name)
-	
+
 	if area.is_in_group("enemy"):
-		receber_dano(area.get_parent().forca, area.global_position)
-	
+
+		receber_dano(
+			area.get_parent().forca,
+			area.global_position,
+			area.get_parent()
+		)
+
 	elif area.is_in_group("trap"):
-		receber_dano(50, area.global_position)
+
+		receber_dano(
+			50,
+			area.global_position
+		)

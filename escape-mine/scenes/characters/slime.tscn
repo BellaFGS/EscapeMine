@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c2nuq8dccxc0i"]
 
-[ext_resource type="Script" uid="uid://bh8bcw7piq4uw" path="res://scripts/Slime.gd" id="1_p2gj0"]
+[ext_resource type="Script" uid="uid://bh8bcw7piq4uw" path="res://scripts/Characters/Slime.gd" id="1_p2gj0"]
 [ext_resource type="Texture2D" uid="uid://b2w4dp58ocr5g" path="res://sprites/characters/slime.png" id="2_n6pvg"]
-[ext_resource type="PackedScene" uid="uid://cjdfuhvb1303f" path="res://scenes/barra_vida.tscn" id="3_n6pvg"]
+[ext_resource type="PackedScene" uid="uid://cjdfuhvb1303f" path="res://scenes/Elements/barra_vida.tscn" id="3_n6pvg"]
 
 [sub_resource type="Animation" id="Animation_xwavj"]
 length = 0.001

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://pajbrs33xxey" path="res://sprites/tilesets/door.png" id="9_ilnvs"]
 [ext_resource type="Texture2D" uid="uid://bxnoxkbps0jxn" path="res://sprites/artes/setaPequena.png" id="10_5dmdl"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="10_dkmt3"]
-[ext_resource type="Script" path="res://scripts/tela_tutorial.gd" id="11_dkmt3"]
+[ext_resource type="Script" uid="uid://dckoth1op3c3y" path="res://scripts/Telas/tela_tutorial.gd" id="11_dkmt3"]
 [ext_resource type="Texture2D" uid="uid://drydqlgk13i6v" path="res://sprites/artes/seta.png" id="11_xe0n2"]
 [ext_resource type="Texture2D" uid="uid://g7eajtj83wxx" path="res://sprites/artes/bolinhaIndicativa.png" id="12_hmy0f"]
 [ext_resource type="Texture2D" uid="uid://5mnto6fs2v5p" path="res://sprites/artes/bolinhaIndicativacinza.png" id="13_dkmt3"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bubj4dxb0mn7y"]
 
-[ext_resource type="Script" path="res://scripts/tela_tutorial_2.gd" id="1_c348g"]
+[ext_resource type="Script" uid="uid://cn2cfjjt6ispm" path="res://scripts/Telas/tela_tutorial_2.gd" id="1_c348g"]
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="2_1cuwg"]
 [ext_resource type="Texture2D" uid="uid://drydqlgk13i6v" path="res://sprites/artes/seta.png" id="3_6v0bl"]
 [ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="3_v7job"]
