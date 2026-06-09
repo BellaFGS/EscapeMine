@@ -1,4 +1,4 @@
-extends "res://scripts/Item.gd"
+extends "res://scripts/Items/Item.gd"
 class_name DinamiteItem
 
 func _ready():

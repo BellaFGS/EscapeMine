@@ -1,4 +1,4 @@
-extends "res://scripts/Item.gd"
+extends "res://scripts/Items/Item.gd"
 
 @export var valor: int = 1
 
