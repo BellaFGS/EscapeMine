@@ -8,9 +8,6 @@ var ja_explodiu = false
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 
-	# hitBox fica sempre ligada (o minion é um "kamikaze": ao encostar
-	# no player já causa dano), diferente do Boss/Player que só ligam
-	# a hitBox durante a janela de ataque.
 	var hitbox = get_node_or_null("hitBox")
 	if hitbox:
 		hitbox.forca = forca
