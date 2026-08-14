@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmrco6m2yx5tu"
-path="res://.godot/imported/demon_slime_FREE_v1.0_288x160_spritesheet.png-736287e421578141627eb697770a3a73.ctex"
+uid="uid://d8cgo2dyau74"
+path="res://.godot/imported/summonDeath.png-b5f31e29cb374feb70c0f453b617b08e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/characters/demon_slime_FREE_v1.0_288x160_spritesheet.png"
-dest_files=["res://.godot/imported/demon_slime_FREE_v1.0_288x160_spritesheet.png-736287e421578141627eb697770a3a73.ctex"]
+source_file="res://sprites/characters/Boss/summonDeath.png"
+dest_files=["res://.godot/imported/summonDeath.png-b5f31e29cb374feb70c0f453b617b08e.ctex"]
 
 [params]
 

@@ -22,6 +22,10 @@ var tempo_sem_dano := 0.0
 var regen_timer := 0.0
 var ultimo_atacante = null
 
+# --- Invencibilidade após tomar dano (i-frames) ---
+@export var tempo_invencibilidade: float = 0.5
+var invencivel = false
+
 func _ready():
 	vida = vida_max
 	atualizar_barra_vida()
@@ -99,12 +103,35 @@ func atacar():
 
 	anim.play("attack_" + direcao_ataque)
 
+	# A hitbox precisa ser ligada e desligada manualmente, senão o golpe
+	# nunca colide com nada (ela fica desabilitada por padrão na cena).
+	# Ajuste os dois tempos abaixo para casar com o frame de impacto
+	# e a duração da janela de dano da sua animação "attack_*".
+	await get_tree().create_timer(0.15).timeout   # tempo até o "impacto" da animação
+
+	if not is_instance_valid(self) or esta_morto:
+		return
+
+	hitbox.set_deferred("monitoring", true)
+	hitbox.get_node("Collision").set_deferred("disabled", false)
+
+	await get_tree().create_timer(0.15).timeout   # duração da janela de dano
+
+	if not is_instance_valid(self):
+		return
+
+	hitbox.set_deferred("monitoring", false)
+	hitbox.get_node("Collision").set_deferred("disabled", true)
+
 func receber_dano(valor, origem: Vector2, atacante = null):
 
 	tempo_sem_dano = 0.0
 	regen_timer = 0.0
 
 	if esta_morto:
+		return
+
+	if invencivel:
 		return
 
 	if EffectManager.bloquear_dano(self):
@@ -148,6 +175,19 @@ func receber_dano(valor, origem: Vector2, atacante = null):
 
 	if vida <= 0:
 		morrer()
+		return
+
+	_ativar_invencibilidade()
+
+
+func _ativar_invencibilidade():
+	invencivel = true
+	await get_tree().create_timer(tempo_invencibilidade).timeout
+
+	if is_instance_valid(self):
+		invencivel = false
+
+
 func morrer():
 	if esta_morto:
 		return

@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://d3lxxw82qo3oy" path="res://scenes/Elements/enemy_spawner.tscn" id="4_7we6h"]
 [ext_resource type="PackedScene" uid="uid://dlxjwj3gjoym7" path="res://scenes/items/ItemSpawner.tscn" id="5_uodxn"]
 [ext_resource type="PackedScene" uid="uid://c0xwusfiy3thv" path="res://scenes/Elements/dunger_zone.tscn" id="6_o1dn5"]
-[ext_resource type="PackedScene" uid="uid://bmf7v555iqyes" path="res://scenes/characters/esqueleto.tscn" id="7_kxdf2"]
-[ext_resource type="PackedScene" uid="uid://m4aukhpqlmv8" path="res://scenes/characters/fantasma.tscn" id="8_7we6h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wh4tm"]
 texture = ExtResource("2_slc7p")
@@ -10475,9 +10473,3 @@ spawn_points = [NodePath(".")]
 position = Vector2(118, 52)
 
 [node name="DungerZone" parent="." unique_id=1069560770 instance=ExtResource("6_o1dn5")]
-
-[node name="Fantasma" parent="." unique_id=1973135355 instance=ExtResource("8_7we6h")]
-position = Vector2(324, 458)
-
-[node name="Esqueleto" parent="." unique_id=1797031235 instance=ExtResource("7_kxdf2")]
-position = Vector2(677, 276)
