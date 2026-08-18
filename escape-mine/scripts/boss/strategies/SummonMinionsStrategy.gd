@@ -5,8 +5,8 @@ extends "res://scripts/boss/strategies/BossAttackStrategy.gd"
 ## ao redor dele. Funciona com qualquer PackedScene atribuída em
 ## boss.minion_scene (ex: Esqueleto.tscn).
 
-var quantidade_min: int = 2
-var quantidade_max: int = 3
+var quantidade_min: int = 5
+var quantidade_max: int = 6
 var raio_spawn: float = 120.0
 
 

@@ -12,7 +12,7 @@ var alcance_min: float = 0.0
 var alcance_max: float = 999999.0
 
 ## Tempo de recarga (segundos) antes da estratégia poder ser usada de novo
-var cooldown: float = 3.0
+var cooldown: float = 2.0
 
 var _tempo_desde_uso: float = 999999.0
 
