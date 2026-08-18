@@ -91,16 +91,14 @@ value = 1.0
 [node name="ctr_sfx" type="HSlider" parent="Menu_Vertical/Menu_Horizontal/Barras" unique_id=579234341]
 layout_mode = 2
 size_flags_vertical = 6
-min_value = -80.0
-max_value = 20.0
+max_value = 1.0
 step = 0.01
 value = 1.0
 
 [node name="ctr_musica" type="HSlider" parent="Menu_Vertical/Menu_Horizontal/Barras" unique_id=1414999855]
 layout_mode = 2
 size_flags_vertical = 6
-min_value = -80.0
-max_value = 20.0
+max_value = 1.0
 step = 0.01
 value = 1.0
 
