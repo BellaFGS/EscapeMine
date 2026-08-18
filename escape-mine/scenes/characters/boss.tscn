@@ -444,7 +444,7 @@ height = 39.0
 size = Vector2(21, 35.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlre5"]
-size = Vector2(27.25, 73)
+size = Vector2(48.625, 73)
 
 [node name="Boss" type="CharacterBody2D" unique_id=1797031235 groups=["enemy"]]
 collision_layer = 2
@@ -462,8 +462,9 @@ visible = true
 position = Vector2(14.5, -52.5)
 scale = Vector2(1.23, 1.35)
 sprite_frames = SubResource("SpriteFrames_cbe0c")
-animation = &"Summon"
+animation = &"Attack"
 autoplay = "default"
+frame = 2
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=2113694502]
 position = Vector2(7, -47)
@@ -481,11 +482,23 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_aglst")
 debug_color = Color(0.99612564, 0, 0.20121253, 0.41960785)
 
-[node name="hitBox" type="Area2D" parent="." unique_id=828764261]
+[node name="hitBox" type="Area2D" parent="." unique_id=828764261 groups=["enemy"]]
+collision_layer = 3
+collision_mask = 11
 script = ExtResource("6_j30ar")
 
 [node name="Collision" type="CollisionShape2D" parent="hitBox" unique_id=1464448990]
-position = Vector2(7.375, -47.5)
+position = Vector2(53.6875, -49)
+shape = SubResource("RectangleShape2D_tlre5")
+disabled = true
+
+[node name="hitBox2" type="Area2D" parent="." unique_id=344135591 groups=["enemy"]]
+collision_layer = 3
+collision_mask = 11
+script = ExtResource("6_j30ar")
+
+[node name="Collision" type="CollisionShape2D" parent="hitBox2" unique_id=786686211]
+position = Vector2(-37, -49)
 shape = SubResource("RectangleShape2D_tlre5")
 disabled = true
 

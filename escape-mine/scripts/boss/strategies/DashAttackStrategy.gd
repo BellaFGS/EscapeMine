@@ -8,12 +8,12 @@ extends "res://scripts/boss/strategies/BossAttackStrategy.gd"
 var velocidade_dash: float = 900.0
 var tempo_preparo: float = 0.25   # "telegraph" antes de sair correndo
 var duracao_dash: float = 0.35
-var tempo_recuperacao: float = 0.3
+var tempo_recuperacao: float = 0.1
 
 
 func _init() -> void:
 	nome = "Dash"
-	alcance_min = 150.0
+	alcance_min = 80.0
 	alcance_max = 500.0
 	cooldown = 4.0
 

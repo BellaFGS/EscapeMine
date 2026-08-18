@@ -168,18 +168,16 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 		collision.set_deferred("disabled", false)
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	print("colidiu com:", area.name)
+	print("Colidiu com: ", area.name)
 
 	if area.is_in_group("enemy"):
-
 		receber_dano(
-			area.get_parent().forca,
+			area.forca,
 			area.global_position,
-			area.get_parent()
+			area.dono
 		)
 
 	elif area.is_in_group("trap"):
-
 		receber_dano(
 			50,
 			area.global_position
