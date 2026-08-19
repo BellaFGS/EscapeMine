@@ -9,11 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://dabo2gmr6qfu" path="res://sprites/Bars/damagebarProgress.png" id="4_q0dk2"]
 [ext_resource type="Texture2D" uid="uid://dnl1kcg3c7b0e" path="res://sprites/Bars/whiteMeter01.png" id="8_g8g4g"]
 [ext_resource type="Script" uid="uid://f0k0gqhbby3d" path="res://scripts/barra_xp_textura.gd" id="8_q0dk2"]
+[ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="8_wrqd1"]
 [ext_resource type="Texture2D" uid="uid://sgqo8ct7qoxt" path="res://sprites/Bars/whiteMeter10.png" id="9_j0801"]
 [ext_resource type="Texture2D" uid="uid://dc4a0cm3nopqe" path="res://sprites/objects/items/dynamite.png" id="11_8h06o"]
 [ext_resource type="Texture2D" uid="uid://laboslv4yj13" path="res://sprites/objects/items/chave.png" id="12_wrqd1"]
 
+[sub_resource type="Theme" id="Theme_kgi0u"]
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_8h06o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wrqd1"]
+font = ExtResource("8_wrqd1")
+font_size = 22
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgi0u"]
 atlas = ExtResource("11_8h06o")
@@ -157,6 +164,8 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_h30ly"]
+
 [node name="hud" type="CanvasLayer" unique_id=1794209725]
 
 [node name="control" type="Control" parent="." unique_id=826050976]
@@ -231,18 +240,22 @@ script = ExtResource("4_logno")
 
 [node name="TextoVida" type="Label" parent="control" unique_id=581827015]
 layout_mode = 0
-offset_left = 95.0
-offset_top = 8.0
-offset_right = 157.0
-offset_bottom = 31.0
+offset_left = 105.0
+offset_top = 12.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme = SubResource("Theme_kgi0u")
+theme_override_fonts/font = ExtResource("8_wrqd1")
 text = "100/200"
 
 [node name="TextoForca" type="Label" parent="control" unique_id=1661892000]
 layout_mode = 0
-offset_left = 114.0
-offset_top = 49.0
-offset_right = 135.0
-offset_bottom = 72.0
+offset_left = 119.0
+offset_top = 53.0
+offset_right = 140.0
+offset_bottom = 76.0
+theme = SubResource("Theme_kgi0u")
+theme_override_fonts/font = ExtResource("8_wrqd1")
 text = "1"
 horizontal_alignment = 1
 
@@ -256,11 +269,12 @@ texture = SubResource("CanvasTexture_8h06o")
 
 [node name="Nivel" type="Label" parent="control" unique_id=503118720]
 layout_mode = 0
-offset_left = 9.0
+offset_left = 10.0
 offset_top = 9.0
-offset_right = 40.0
+offset_right = 41.0
 offset_bottom = 32.0
 text = "0"
+label_settings = SubResource("LabelSettings_wrqd1")
 horizontal_alignment = 1
 
 [node name="ItemDinamite" type="AnimatedSprite2D" parent="control" unique_id=282409802]
@@ -296,6 +310,8 @@ anchor_bottom = 1.0
 offset_left = -128.0
 offset_top = -40.0
 offset_right = 128.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="BarraXpTextura" type="TextureProgressBar" parent="control/BarraXp" unique_id=307783242]
 layout_mode = 0
@@ -309,9 +325,10 @@ script = ExtResource("8_q0dk2")
 
 [node name="TextoXp" type="Label" parent="control/BarraXp" unique_id=1101355491]
 layout_mode = 0
-offset_top = 12.0
+offset_top = 15.0
 offset_right = 256.0
-offset_bottom = 35.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("8_wrqd1")
 text = "100/200"
 horizontal_alignment = 1
 
@@ -340,5 +357,7 @@ grow_horizontal = 2
 
 [node name="TextoUpgrade" type="Label" parent="control/UpgradeContainer" unique_id=1873969042]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("8_wrqd1")
 theme_override_font_sizes/font_size = 20
 text = "(R) UPGRADE"
+label_settings = SubResource("LabelSettings_h30ly")
