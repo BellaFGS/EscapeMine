@@ -58,7 +58,10 @@ func selecionar_enemy():
 	match dificuldade:
 
 		"Fácil":
-			return criar_boss(200, 30)
+			if rand < 0.7:
+				return criar_slime(Color.BLUE, 6, 1)
+			else:
+				return criar_slime(Color.GREEN, 8, 2)
 
 		"Médio":
 			if rand < 0.7:
