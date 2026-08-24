@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b2po7y6i4agbt"]
+
+[ext_resource type="Script" uid="uid://du2do3bckhynf" path="res://scripts/main.gd" id="1_6w8k4"]
+[ext_resource type="PackedScene" uid="uid://bv5252sg3b7gi" path="res://scenes/characters/player.tscn" id="2_8hjvt"]
+[ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="3_u0ie8"]
+[ext_resource type="PackedScene" uid="uid://dtl4pntx6ekjs" path="res://telas/tela_config.tscn" id="4_y1qxk"]
+[ext_resource type="PackedScene" uid="uid://754k33pvudct" path="res://telas/tela_pause.tscn" id="5_ccxyu"]
+[ext_resource type="PackedScene" uid="uid://bkt3ql4aanidh" path="res://telas/tela_upgrade.tscn" id="6_hxek5"]
+[ext_resource type="PackedScene" uid="uid://cixpcdgmomouj" path="res://scenes/items/item_chave.tscn" id="7_1qe0x"]
+[ext_resource type="Script" uid="uid://djwv1ekebyrd6" path="res://scripts/autoloads/chunk_manager.gd" id="8_477k0"]
+[ext_resource type="PackedScene" uid="uid://dm7y8mqiodh0y" path="res://scenes/Elements/chunk.tscn" id="9_okf56"]
+
+[node name="Main" type="Node2D" unique_id=224908309]
+position = Vector2(2, 0)
+script = ExtResource("1_6w8k4")
+
+[node name="player" parent="." unique_id=2066799720 instance=ExtResource("2_8hjvt")]
+position = Vector2(88, 59)
+scale = Vector2(2.8, 2.8)
+
+[node name="hud" parent="." unique_id=1794209725 instance=ExtResource("3_u0ie8")]
+
+[node name="Tela_Config" parent="." unique_id=1751989248 instance=ExtResource("4_y1qxk")]
+visible = false
+
+[node name="Tela_Pause" parent="." unique_id=1788756212 instance=ExtResource("5_ccxyu")]
+
+[node name="Tela_upgrade" parent="." unique_id=174284624 instance=ExtResource("6_hxek5")]
+visible = false
+
+[node name="ItemChave" parent="." unique_id=82965891 instance=ExtResource("7_1qe0x")]
+position = Vector2(2564, 74)
+
+[node name="ChunkManager" type="Node2D" parent="." unique_id=1153596440]
+script = ExtResource("8_477k0")
+
+[node name="Chunk" parent="ChunkManager" unique_id=1039741122 instance=ExtResource("9_okf56")]

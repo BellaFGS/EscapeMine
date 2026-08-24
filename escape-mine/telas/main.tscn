@@ -33,5 +33,6 @@ position = Vector2(2564, 74)
 
 [node name="ChunkManager" type="Node2D" parent="." unique_id=1153596440]
 script = ExtResource("7_tf0w7")
+map_path = NodePath("Chunk")
 
 [node name="Chunk" parent="ChunkManager" unique_id=1039741122 instance=ExtResource("8_5s10p")]

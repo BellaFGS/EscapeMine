@@ -81,7 +81,9 @@ func _on_player_entered_zone(_body: Node2D) -> void:
 func _on_player_exited_zone(_body: Node2D) -> void:
 	save_state()
 
-
+func load_state(data: Dictionary) -> void:
+	_persistent_data = data.duplicate(true)
+	_restore_state()
 # ════════════════════════════════════════════════════════════════════════════════
 # GUIA DE INTEGRAÇÃO
 # ════════════════════════════════════════════════════════════════════════════════
