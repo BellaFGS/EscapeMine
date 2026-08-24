@@ -159,15 +159,29 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 			body
 		)
 
+		# Desabilita somente a área que recebe dano
 		hurtBox.set_deferred("disabled", true)
-		collision.set_deferred("disabled", true)
 
 		await get_tree().create_timer(0.5).timeout
 
 		hurtBox.set_deferred("disabled", false)
-		collision.set_deferred("disabled", false)
+
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
+	print("Colidiu com: ", area.name)
+
+	if area.is_in_group("enemy"):
+		receber_dano(
+			area.forca,
+			area.global_position,
+			area.dono
+		)
+
+	elif area.is_in_group("trap"):
+		receber_dano(
+			50,
+			area.global_position
+		)
 	print("Colidiu com: ", area.name)
 
 	if area.is_in_group("enemy"):
