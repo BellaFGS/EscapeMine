@@ -14,20 +14,23 @@ func _ready() -> void:
 
 # Botão COMEÇAR
 func _on_btn_comecar_pressed() -> void:
+	AudioManager.tocar_sfx("click")
 	GameFacade.iniciar_jogo()
 
 # Botão SAIR
 func _on_btn_sair_pressed() -> void:
+	AudioManager.tocar_sfx("click")
 	# Fecha o jogo
 	get_tree().quit()
 
 
 func _on_btn_config_pressed():
-
+	AudioManager.tocar_sfx("click")
 	UIManager.abrir_config("menu")
 
 	print($Tela_Config.visible)
 
 
 func _on_btn_tutorial_pressed() -> void:
+	AudioManager.tocar_sfx("click")
 	GameFacade.abrir_tutorial_1()

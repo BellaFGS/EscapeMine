@@ -101,6 +101,9 @@ func atacar():
 
 	direcao_ataque = ultima_direcao
 
+	if is_in_group("player"):
+		AudioManager.tocar_sfx("causa_dano")
+
 	anim.play("attack_" + direcao_ataque)
 
 	# A hitbox precisa ser ligada e desligada manualmente, senão o golpe
@@ -156,6 +159,9 @@ func receber_dano(valor, origem: Vector2, atacante = null):
 	knockback_velocity = direcao * 1200
 
 	flash_dano()
+
+	if is_in_group("player"):
+		AudioManager.tocar_sfx("hit")
 
 
 	# EFEITOS DECORATOR

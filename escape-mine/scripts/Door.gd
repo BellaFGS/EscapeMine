@@ -23,7 +23,7 @@ func _on_body_entered(body):
 	if GameManager.player_tem_chave:
 
 		entrando = true
-
+		AudioManager.tocar_sfx("doorOpen")
 		anim.play("abrir")
 		await anim.animation_finished
 

@@ -82,6 +82,7 @@ func aplicar_update(tipo: String):
 
 # 🎒 ITEM
 func pegar_item(item):
+	AudioManager.tocar_sfx("item")
 	item.aplicar(self)
 	item.queue_free()
 
@@ -99,6 +100,7 @@ func morrer():
 
 	esta_morrendo = true
 	set_physics_process(false)
+	AudioManager.tocar_sfx("morte")
 	anim.play("lucas_death")
 
 func _input(event):

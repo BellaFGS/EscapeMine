@@ -41,13 +41,14 @@ func voltar_musica_jogo():
 		AudioManager.tocar_musica("gameOver")
 
 func _on_btn_retomar_pressed() -> void:
-
+	AudioManager.tocar_sfx("click")
 	get_tree().paused = false
 	visible = false
 
 	voltar_musica_jogo()
 
 func _on_btn_sair_pressed() -> void:
+	AudioManager.tocar_sfx("click")
 	get_tree().quit()
 
 func _on_btn_config_pressed():
