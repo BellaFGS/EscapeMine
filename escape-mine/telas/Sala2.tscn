@@ -10501,7 +10501,7 @@ shape = SubResource("CircleShape2D_u0ie8")
 script = ExtResource("9_8hjvt")
 esqueleto_scene = ExtResource("10_u0ie8")
 fantasma_scene = ExtResource("11_y1qxk")
-spawn_points = [NodePath("SpawnPoint0"), NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+spawn_points = [NodePath("SpawnPoint0"), NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3")]
 
 [node name="SpawnPoint0" type="Marker2D" parent="ObserverSpawner" unique_id=343551171]
 position = Vector2(968, 373)
