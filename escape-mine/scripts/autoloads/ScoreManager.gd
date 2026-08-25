@@ -2,7 +2,7 @@ extends Node
 
 signal pontuacao_alterada(valor: int)
 
-const CAMINHO_BANCO := "user://escape_mine_ranking.json"
+const CAMINHO_BANCO := "res://Banco/escape_mine_ranking.json"
 const LIMITE_RANKING := 10
 
 var pontuacao_atual: int = 0
