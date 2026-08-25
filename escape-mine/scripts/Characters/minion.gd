@@ -60,17 +60,42 @@ func morrer():
 
 
 func _morrer_safe():
+
+	# 🎁 DROP DO MINIOM
+	var drops = DropSystem.gerar_drops_miniom()
+
+	for item in drops:
+
+		get_tree().current_scene.add_child(item)
+
+		item.global_position = global_position
+
+
+	# ⭐ XP
+	if ultimo_atacante and ultimo_atacante.is_in_group("player"):
+
+		UpgradeSystem.ganhar_xp(
+			randi_range(1, 5)
+		)
+
+
+	# Desativa as áreas de colisão
 	$hurtBox.set_deferred(
 		"monitoring",
 		false
 	)
 
 	var hitbox = get_node_or_null("hitBox")
+
 	if hitbox:
-		hitbox.set_deferred("monitoring", false)
+
+		hitbox.set_deferred(
+			"monitoring",
+			false
+		)
+
 
 	queue_free()
-
 
 # 💥 RECEBER DANO
 func _on_hurt_box_area_entered(area: Area2D) -> void:

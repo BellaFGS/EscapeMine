@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bxshgsx3lpexj"]
 
 [ext_resource type="Script" uid="uid://cg7mvalaq3yci" path="res://scripts/HudManager.gd" id="1_x568p"]
-[ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_ho806"]
 [ext_resource type="Script" uid="uid://b43y6glha8yvq" path="res://scripts/barra_dano_textura.gd" id="3_am62c"]
 [ext_resource type="Texture2D" uid="uid://caragfwj1jahx" path="res://sprites/Bars/healthbarUnder.png" id="3_tiyv1"]
 [ext_resource type="Script" uid="uid://d2kdrmtoefi07" path="res://scripts/barra_vida_textura.gd" id="4_logno"]
@@ -189,33 +188,6 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="contador_container" type="HBoxContainer" parent="control/container" unique_id=1790114569]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="text_timer" type="Label" parent="control/container/contador_container" unique_id=84640444]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("2_ho806")
-theme_override_font_sizes/font_size = 40
-text = "TIMER: "
-
-[node name="text_contador" type="Label" parent="control/container/contador_container" unique_id=1257480403]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("2_ho806")
-theme_override_font_sizes/font_size = 40
-text = "00"
-
 [node name="BarraDanoTextura" type="TextureProgressBar" parent="control" unique_id=1098307183]
 layout_mode = 0
 offset_left = 48.999996
@@ -331,19 +303,6 @@ offset_bottom = 38.0
 theme_override_fonts/font = ExtResource("8_wrqd1")
 text = "100/200"
 horizontal_alignment = 1
-
-[node name="DificultContainer" type="MarginContainer" parent="control" unique_id=885087475]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -118.0
-offset_bottom = 40.0
-grow_horizontal = 0
-
-[node name="Nivel_Dificuldade" type="Label" parent="control/DificultContainer" unique_id=2073264020]
-layout_mode = 2
-horizontal_alignment = 2
 
 [node name="UpgradeContainer" type="MarginContainer" parent="control" unique_id=691053215]
 layout_mode = 1

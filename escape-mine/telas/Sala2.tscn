@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dhnpq22uu1kvj" path="res://scripts/observer_spawner.gd" id="9_8hjvt"]
 [ext_resource type="PackedScene" uid="uid://bmf7v555iqyes" path="res://scenes/characters/esqueleto.tscn" id="10_u0ie8"]
 [ext_resource type="PackedScene" uid="uid://m4aukhpqlmv8" path="res://scenes/characters/fantasma.tscn" id="11_y1qxk"]
+[ext_resource type="PackedScene" uid="uid://c0xwusfiy3thv" path="res://scenes/Elements/dunger_zone.tscn" id="13_ccxyu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ig046"]
 texture = ExtResource("6_4w60o")
@@ -10487,6 +10488,7 @@ scale = Vector2(2.8, 2.8)
 [node name="Door" parent="." unique_id=456153555 instance=ExtResource("7_ig046")]
 position = Vector2(2791, -58)
 scale = Vector2(1.5, 1.5)
+destino = "sala_3"
 
 [node name="AreaObserver" type="Area2D" parent="." unique_id=35118879 node_paths=PackedStringArray("spawner")]
 collision_layer = 0
@@ -10514,6 +10516,9 @@ position = Vector2(681, 579)
 
 [node name="SpawnPoint3" type="Marker2D" parent="ObserverSpawner" unique_id=1911167695]
 position = Vector2(632, 41)
+
+[node name="DungerZone" parent="." unique_id=1069560770 instance=ExtResource("13_ccxyu")]
+position = Vector2(53, 15)
 
 [connection signal="body_entered" from="AreaObserver" to="AreaObserver" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaObserver" to="AreaObserver" method="_on_body_exited"]

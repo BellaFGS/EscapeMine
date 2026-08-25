@@ -25,21 +25,21 @@ func morrer():
 	call_deferred("_morrer_safe")
 
 func _morrer_safe():
-	
-	# 🎁 DROP
-	var drops = DropSystem.gerar_drops(GameManager.dificuldade)
+
+	# 🎁 DROP ALEATÓRIO
+	var drops = DropSystem.gerar_drops()
 
 	for item in drops:
 		get_tree().current_scene.add_child(item)
 		item.global_position = global_position
-	
+
 	# ⭐ XP
 	if ultimo_atacante and ultimo_atacante.is_in_group("player"):
 		UpgradeSystem.ganhar_xp(randi_range(1, 5))
-	
-	$hurtBox.set_deferred("monitoring", false)
-	queue_free()
 
+	$hurtBox.set_deferred("monitoring", false)
+
+	queue_free()
 # 💥 RECEBER DANO
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if "forca" in area and "dono" in area:
