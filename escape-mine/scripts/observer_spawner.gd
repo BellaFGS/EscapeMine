@@ -45,7 +45,7 @@ func ativar():
 	print("ObserverSpawner ativado.")
 
 	# Spawn imediato ao entrar na área
-	spawn_enemy()
+	call_deferred("spawn_enemy")
 
 
 func desativar():

@@ -154,19 +154,28 @@ func morrer() -> void:
 
 
 func _morrer_impl() -> void:
+	# Desativa as colisões imediatamente ao morrer
+	var hurt_box = get_node_or_null("hurtBox")
+	if hurt_box:
+		hurt_box.set_deferred("monitoring", false)
+		hurt_box.set_deferred("monitorable", false)
+
+	# Desativa a colisão física do Boss
+	var collision = get_node_or_null("Collision")
+	if collision:
+		collision.set_deferred("disabled", true)
+
+	# Inicia a animação de morte
 	if anim:
 		anim.play("Death")
 
-	var hurt_box = get_node_or_null("hurtBox")
-
-	if hurt_box:
-		hurt_box.set_deferred("monitoring", false)
-
+	# Espera a animação terminar
 	await get_tree().create_timer(1.2).timeout
 
+	# Boss morreu, jogador venceu
+	GameFacade.vitoria()
+
 	queue_free()
-
-
 # ============================================================
 # DANO
 # ============================================================

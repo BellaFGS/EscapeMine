@@ -19,14 +19,17 @@ var cena_dinamite = preload("res://scenes/items/dinamite_ativa.tscn")
 @onready var collision = $Collision
 
 func _ready():
+
 	add_to_group("player")
+
 	speed = 300
-	vida_max = 100
-	vida = vida_max
-	forca = 1
+
+	# Carrega os atributos persistentes da partida
+	GameManager.carregar_atributos_player(self)
 
 	if GameManager.upgrade_pendente != "":
 		aplicar_update(GameManager.upgrade_pendente)
+
 		GameManager.upgrade_pendente = ""
 
 func _physics_process(delta):

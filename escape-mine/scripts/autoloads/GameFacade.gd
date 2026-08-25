@@ -17,6 +17,19 @@ func voltar_menu():
 func reiniciar_jogo():
 	SceneManager.trocar_cena("main")
 
+func abrir_sala(destino: String):
+
+	match destino:
+
+		"sala_2":
+			SceneManager.trocar_cena("sala_2")
+
+		"sala_3":
+			SceneManager.trocar_cena("sala_3")
+
+		_:
+			push_error("GameFacade: destino inválido: " + destino)
+
 
 # =========================
 # TELAS

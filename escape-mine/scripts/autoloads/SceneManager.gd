@@ -3,6 +3,8 @@ extends Node
 var cenas = {
 	"pause": "res://telas/tela_pause.tscn",
 	"main": "res://telas/sala1.tscn",
+	"sala_2": "res://telas/sala2.tscn",
+	"sala_3": "res://telas/sala3.tscn",
 	"inicial": "res://telas/tela_inicial.tscn",
 	"level_up": "res://telas/level_up.tscn",
 	"config": "res://telas/tela_config.tscn",

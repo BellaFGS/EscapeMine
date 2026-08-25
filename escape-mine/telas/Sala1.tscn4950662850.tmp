@@ -8,8 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bkt3ql4aanidh" path="res://telas/tela_upgrade.tscn" id="6_spqvk"]
 [ext_resource type="Script" uid="uid://djwv1ekebyrd6" path="res://scripts/autoloads/chunk_manager.gd" id="7_cntpd"]
 [ext_resource type="PackedScene" uid="uid://dm7y8mqiodh0y" path="res://scenes/Elements/chunk.tscn" id="8_7ir04"]
-[ext_resource type="PackedScene" uid="uid://cixpcdgmomouj" path="res://scenes/items/item_chave.tscn" id="9_74eg1"]
-[ext_resource type="PackedScene" uid="uid://c0xwusfiy3thv" path="res://scenes/Elements/dunger_zone.tscn" id="10_u6gps"]
 
 [node name="Sala-01" type="Node2D" unique_id=224908309]
 position = Vector2(2, 0)
@@ -34,8 +32,3 @@ script = ExtResource("7_cntpd")
 map_path = NodePath("Chunk")
 
 [node name="Chunk" parent="ChunkManager" unique_id=1039741122 instance=ExtResource("8_7ir04")]
-
-[node name="ItemChave" parent="." unique_id=82965891 instance=ExtResource("9_74eg1")]
-position = Vector2(2994, -12)
-
-[node name="DungerZone" parent="." unique_id=1069560770 instance=ExtResource("10_u6gps")]
