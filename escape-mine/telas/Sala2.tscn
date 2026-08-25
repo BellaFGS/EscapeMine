@@ -10482,7 +10482,7 @@ tile_map_data = PackedByteArray("AACpAPv/AABBADoAAACpAPz/AABBADsAAACqAPv/AABCADo
 tile_set = SubResource("TileSet_ksgu2")
 
 [node name="player" parent="." unique_id=2066799720 instance=ExtResource("2_8hjvt")]
-position = Vector2(89, 59)
+position = Vector2(-1551, 59.000004)
 scale = Vector2(2.8, 2.8)
 
 [node name="Door" parent="." unique_id=456153555 instance=ExtResource("7_ig046")]

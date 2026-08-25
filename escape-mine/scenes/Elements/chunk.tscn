@@ -10462,7 +10462,7 @@ tile_map_data = PackedByteArray("AACpAPv/AABBADoAAACpAPz/AABBADsAAACqAPv/AABCADo
 tile_set = SubResource("TileSet_l2nb0")
 
 [node name="Door" parent="." unique_id=456153555 instance=ExtResource("3_kxdf2")]
-position = Vector2(2791, -64)
+position = Vector2(2795, -68)
 scale = Vector2(2, 2)
 destino = "sala_2"
 
