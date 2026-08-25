@@ -36,6 +36,6 @@ map_path = NodePath("Chunk")
 [node name="Chunk" parent="ChunkManager" unique_id=1039741122 instance=ExtResource("8_7ir04")]
 
 [node name="ItemChave" parent="." unique_id=82965891 instance=ExtResource("9_74eg1")]
-position = Vector2(2625, -4)
+position = Vector2(2994, -12)
 
 [node name="DungerZone" parent="." unique_id=1069560770 instance=ExtResource("10_u6gps")]
