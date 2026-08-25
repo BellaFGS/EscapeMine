@@ -11,6 +11,7 @@ var cor_original: Color = Color(1, 1, 1)
 @export var vida_max = 5
 @export var vida = 5
 @export var forca = 1
+@export var pontos_ao_morrer: int = 100
 
 var ultima_direcao = "down"
 var esta_morto = false
@@ -53,7 +54,7 @@ func mover(direcao):
 
 func set_cor(cor):
 	cor_original = cor
-	if texture:
+	if is_instance_valid(texture):
 		texture.modulate = cor
 
 func atualizar_animacao(direcao):
@@ -200,20 +201,27 @@ func morrer():
 	esta_morto = true
 	call_deferred("_morrer_impl")
 
+func conceder_pontos() -> void:
+	if ultimo_atacante and ultimo_atacante.is_in_group("player"):
+		ScoreManager.adicionar_pontos(pontos_ao_morrer)
+
 func _morrer_impl():
 	queue_free()
 
 func flash_dano():
-	if not texture:
+	if not is_instance_valid(texture):
 		return
-	
+
+	# Guarda uma referência local e valida novamente após o await, pois o
+	# personagem pode morrer e liberar o Sprite2D durante o flash.
+	var sprite: CanvasItem = texture
 	var cor_hit = cor_original.lerp(Color(1, 0, 0), 0.7)
-	texture.modulate = cor_hit
-	
+	sprite.modulate = cor_hit
+
 	await get_tree().create_timer(0.2).timeout
-	
-	if is_instance_valid(self) and texture:
-		texture.modulate = cor_original
+
+	if is_instance_valid(sprite):
+		sprite.modulate = cor_original
 
 func atualizar_barra_vida():
 	if barra_vida:

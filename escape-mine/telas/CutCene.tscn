@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcmbjfvvb1lp0"]
+
+[ext_resource type="VideoStream" uid="uid://cvkisydiy02xt" path="res://telas/video/escape-mine_cutscene_fake-victory.ogv" id="1_h7n73"]
+[ext_resource type="Script" path="res://scripts/Telas/cutscene.gd" id="2_script"]
+[ext_resource type="AudioStream" path="res://sounds/sfx/Bowser_Laugh.mp3" id="3_laugh"]
+
+[node name="CutCene" type="CanvasLayer" unique_id=416452752]
+layer = 100
+process_mode = 3
+script = ExtResource("2_script")
+
+[node name="Fundo" type="ColorRect" parent="." unique_id=1841731330]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+mouse_filter = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Fundo" unique_id=1877816423]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_h7n73")
+expand = true
+
+[node name="BowserLaugh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_laugh")

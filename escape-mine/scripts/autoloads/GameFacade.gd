@@ -7,6 +7,8 @@ extends Node
 # =========================
 
 func iniciar_jogo():
+	GameManager.resetar()
+	get_tree().paused = false
 	AudioManager.tocar_musica("menu")
 	SceneManager.trocar_cena("main")
 

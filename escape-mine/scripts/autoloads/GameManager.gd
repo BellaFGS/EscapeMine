@@ -78,6 +78,7 @@ func carregar_atributos_player(player):
 func finalizar_jogo(resultado: String):
 
 	estado = resultado
+	ScoreManager.finalizar_partida(resultado)
 
 	print("Fim de jogo: ", resultado)
 
@@ -103,6 +104,7 @@ func resetar():
 	player_vida_max = 100
 	player_forca = 1
 	player_dinamite = 0
+	ScoreManager.iniciar_partida()
 	UpgradeSystem.resetar()
 	print("Estado do jogo resetado.")
 

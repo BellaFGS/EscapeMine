@@ -12,6 +12,9 @@ extends "res://scripts/Character.gd"
 ## Distância confortável que o boss tenta manter
 @export var distancia_ideal: float = 130.0
 
+## Recompensa especial por derrotar o chefe.
+@export var bonus_pontos: int = 1000
+
 var player
 var estrategias: Array = []
 var estrategia_ativa = null
@@ -172,8 +175,9 @@ func _morrer_impl() -> void:
 	# Espera a animação terminar
 	await get_tree().create_timer(1.2).timeout
 
-	# Boss morreu, jogador venceu
-	GameFacade.vitoria()
+	# Boss morreu: concede o bonus e finaliza a partida.
+	ScoreManager.adicionar_bonus_boss(bonus_pontos)
+	GameManager.finalizar_jogo("WIN")
 
 	queue_free()
 # ============================================================

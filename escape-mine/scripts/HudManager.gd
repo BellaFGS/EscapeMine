@@ -9,6 +9,7 @@ extends Control
 @onready var texto_força = $TextoForca
 @onready var texto_xp = $BarraXp/TextoXp
 @onready var texto_nivel = $Nivel
+@onready var texto_pontos: Label = $Pontos
 
 @onready var texto_dinamite = $Dinamite
 @onready var chave = $ItemChave
@@ -26,6 +27,9 @@ func _process(_delta):
 
 
 func _ready():
+
+	ScoreManager.pontuacao_alterada.connect(atualizar_pontuacao)
+	atualizar_pontuacao(ScoreManager.pontuacao_atual)
 
 	player = get_tree().get_first_node_in_group("player")
 
@@ -136,3 +140,12 @@ func nivel_up(valor):
 func dinamite(valor):
 
 	texto_dinamite.text = str(valor)
+
+
+# ============================================================
+# PONTUAÇÃO
+# ============================================================
+
+func atualizar_pontuacao(valor: int) -> void:
+
+	texto_pontos.text = "SCORE  %07d" % valor

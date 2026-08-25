@@ -4,6 +4,7 @@ var player
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
+	pontos_ao_morrer = 250
 
 	print("Grupos do fantasma:", get_groups())
 
@@ -36,6 +37,7 @@ func _morrer_safe():
 	# ⭐ XP
 	if ultimo_atacante and ultimo_atacante.is_in_group("player"):
 		UpgradeSystem.ganhar_xp(randi_range(1, 5))
+		conceder_pontos()
 
 	$hurtBox.set_deferred("monitoring", false)
 

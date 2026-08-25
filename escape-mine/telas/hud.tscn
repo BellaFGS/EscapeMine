@@ -320,3 +320,18 @@ theme_override_fonts/font = ExtResource("8_wrqd1")
 theme_override_font_sizes/font_size = 20
 text = "(R) UPGRADE"
 label_settings = SubResource("LabelSettings_h30ly")
+
+[node name="Pontos" type="Label" parent="control"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 18.0
+offset_right = 1250.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(1, 0.82, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0.04, 0.01, 0.08, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("8_wrqd1")
+theme_override_font_sizes/font_size = 25
+text = "SCORE  0000000"
+horizontal_alignment = 2
