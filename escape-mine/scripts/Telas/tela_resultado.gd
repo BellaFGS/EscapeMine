@@ -20,7 +20,8 @@ func _ready() -> void:
 	pontos.text = "PONTUAÇÃO  %07d" % ScoreManager.pontuacao_atual
 	bonus.visible = venceu and ScoreManager.bonus_boss > 0
 	bonus.text = "+%d BÔNUS DO BOSS" % ScoreManager.bonus_boss
-	menu.visible = ScoreManager.pontuacao_registrada
+	#menu.visible = ScoreManager.pontuacao_registrada
+	menu.visible = true
 	registrar.disabled = ScoreManager.pontuacao_registrada
 	nome.editable = not ScoreManager.pontuacao_registrada
 
