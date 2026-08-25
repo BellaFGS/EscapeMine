@@ -34,7 +34,8 @@ var sfx = {
 	"explosion": preload("res://sounds/sfx/explosion.mp3"),
 	"hit": preload("res://sounds/sfx/hit.mp3"),
 	"item": preload("res://sounds/sfx/item.mp3"),
-	"upgrade": preload("res://sounds/sfx/upgrade.mp3")
+	"upgrade": preload("res://sounds/sfx/upgrade.mp3"),
+	"causa_dano": preload("res://sounds/sfx/causa_dano.wav")
 	#"": preload()
 }
 

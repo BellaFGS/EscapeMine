@@ -2,5 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bl7nsp0fi3mmj" path="res://scripts/dunger_zone.gd" id="1_8qr1e"]
 
-[node name="DungerZone" type="Node2D" unique_id=1069560770]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyirw"]
+size = Vector2(1200, 650)
+
+[node name="DungerZone" type="Node2D" unique_id=1069560770 node_paths=PackedStringArray("area_spawn")]
 script = ExtResource("1_8qr1e")
+area_spawn = NodePath("area")
+
+[node name="area" type="Area2D" parent="." unique_id=1901896327]
+
+[node name="collision" type="CollisionShape2D" parent="area" unique_id=1554414235]
+position = Vector2(590, 315)
+shape = SubResource("RectangleShape2D_lyirw")

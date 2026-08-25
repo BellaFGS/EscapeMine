@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_8huyt"]
 [ext_resource type="Texture2D" uid="uid://dontxxp7wbqs4" path="res://sprites/artes/config3.png" id="4_78uk1"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_p3w5a"]
+
 [node name="Tela_Config" type="CanvasLayer" unique_id=1788756212]
 process_mode = 3
 script = ExtResource("1_lgoop")
@@ -60,6 +62,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_78uk1")
 theme_override_font_sizes/font_size = 27
 text = "Volume Geral:"
+label_settings = SubResource("LabelSettings_p3w5a")
 
 [node name="Label_sfx" type="Label" parent="Menu_Vertical/Menu_Horizontal/Texto" unique_id=405205841]
 layout_mode = 2
@@ -67,6 +70,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_78uk1")
 theme_override_font_sizes/font_size = 27
 text = "Efeitos Sonoros:"
+label_settings = SubResource("LabelSettings_p3w5a")
 
 [node name="Label_musica" type="Label" parent="Menu_Vertical/Menu_Horizontal/Texto" unique_id=1454774027]
 layout_mode = 2
@@ -74,6 +78,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_78uk1")
 theme_override_font_sizes/font_size = 27
 text = "Músicas do jogo:"
+label_settings = SubResource("LabelSettings_p3w5a")
 
 [node name="Barras" type="VBoxContainer" parent="Menu_Vertical/Menu_Horizontal" unique_id=1129094840]
 layout_mode = 2
@@ -91,16 +96,14 @@ value = 1.0
 [node name="ctr_sfx" type="HSlider" parent="Menu_Vertical/Menu_Horizontal/Barras" unique_id=579234341]
 layout_mode = 2
 size_flags_vertical = 6
-min_value = -80.0
-max_value = 20.0
+max_value = 1.0
 step = 0.01
 value = 1.0
 
 [node name="ctr_musica" type="HSlider" parent="Menu_Vertical/Menu_Horizontal/Barras" unique_id=1414999855]
 layout_mode = 2
 size_flags_vertical = 6
-min_value = -80.0
-max_value = 20.0
+max_value = 1.0
 step = 0.01
 value = 1.0
 

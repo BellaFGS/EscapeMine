@@ -15,6 +15,7 @@ func _ready():
 	ctr_sfx.value = AudioManager.volume_sfx
 
 func _on_btn_voltar_pressed():
+	AudioManager.tocar_sfx("click")
 	UIManager.fechar_config()
 
 func _on_ctr_geral_value_changed(value):

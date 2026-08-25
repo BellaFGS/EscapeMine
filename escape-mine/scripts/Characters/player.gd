@@ -19,14 +19,17 @@ var cena_dinamite = preload("res://scenes/items/dinamite_ativa.tscn")
 @onready var collision = $Collision
 
 func _ready():
+
 	add_to_group("player")
+
 	speed = 300
-	vida_max = 100
-	vida = vida_max
-	forca = 1
+
+	# Carrega os atributos persistentes da partida
+	GameManager.carregar_atributos_player(self)
 
 	if GameManager.upgrade_pendente != "":
 		aplicar_update(GameManager.upgrade_pendente)
+
 		GameManager.upgrade_pendente = ""
 
 func _physics_process(delta):
@@ -82,6 +85,7 @@ func aplicar_update(tipo: String):
 
 # 🎒 ITEM
 func pegar_item(item):
+	AudioManager.tocar_sfx("item")
 	item.aplicar(self)
 	item.queue_free()
 
@@ -99,6 +103,7 @@ func morrer():
 
 	esta_morrendo = true
 	set_physics_process(false)
+	AudioManager.tocar_sfx("morte")
 	anim.play("lucas_death")
 
 func _input(event):
@@ -159,27 +164,39 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 			body
 		)
 
+		# Desabilita somente a área que recebe dano
 		hurtBox.set_deferred("disabled", true)
-		collision.set_deferred("disabled", true)
 
 		await get_tree().create_timer(0.5).timeout
 
 		hurtBox.set_deferred("disabled", false)
-		collision.set_deferred("disabled", false)
+
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	print("colidiu com:", area.name)
+	print("Colidiu com: ", area.name)
 
 	if area.is_in_group("enemy"):
-
 		receber_dano(
-			area.get_parent().forca,
+			area.forca,
 			area.global_position,
-			area.get_parent()
+			area.dono
 		)
 
 	elif area.is_in_group("trap"):
+		receber_dano(
+			50,
+			area.global_position
+		)
+	print("Colidiu com: ", area.name)
 
+	if area.is_in_group("enemy"):
+		receber_dano(
+			area.forca,
+			area.global_position,
+			area.dono
+		)
+
+	elif area.is_in_group("trap"):
 		receber_dano(
 			50,
 			area.global_position

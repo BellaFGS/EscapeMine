@@ -11,6 +11,7 @@ var cor_original: Color = Color(1, 1, 1)
 @export var vida_max = 5
 @export var vida = 5
 @export var forca = 1
+@export var pontos_ao_morrer: int = 100
 
 var ultima_direcao = "down"
 var esta_morto = false
@@ -21,6 +22,10 @@ var direcao_ataque = "down"
 var tempo_sem_dano := 0.0
 var regen_timer := 0.0
 var ultimo_atacante = null
+
+# --- Invencibilidade após tomar dano (i-frames) ---
+@export var tempo_invencibilidade: float = 0.5
+var invencivel = false
 
 func _ready():
 	vida = vida_max
@@ -49,7 +54,7 @@ func mover(direcao):
 
 func set_cor(cor):
 	cor_original = cor
-	if texture:
+	if is_instance_valid(texture):
 		texture.modulate = cor
 
 func atualizar_animacao(direcao):
@@ -97,7 +102,30 @@ func atacar():
 
 	direcao_ataque = ultima_direcao
 
+	if is_in_group("player"):
+		AudioManager.tocar_sfx("causa_dano")
+
 	anim.play("attack_" + direcao_ataque)
+
+	# A hitbox precisa ser ligada e desligada manualmente, senão o golpe
+	# nunca colide com nada (ela fica desabilitada por padrão na cena).
+	# Ajuste os dois tempos abaixo para casar com o frame de impacto
+	# e a duração da janela de dano da sua animação "attack_*".
+	await get_tree().create_timer(0.15).timeout   # tempo até o "impacto" da animação
+
+	if not is_instance_valid(self) or esta_morto:
+		return
+
+	hitbox.set_deferred("monitoring", true)
+	hitbox.get_node("Collision").set_deferred("disabled", false)
+
+	await get_tree().create_timer(0.15).timeout   # duração da janela de dano
+
+	if not is_instance_valid(self):
+		return
+
+	hitbox.set_deferred("monitoring", false)
+	hitbox.get_node("Collision").set_deferred("disabled", true)
 
 func receber_dano(valor, origem: Vector2, atacante = null):
 
@@ -105,6 +133,9 @@ func receber_dano(valor, origem: Vector2, atacante = null):
 	regen_timer = 0.0
 
 	if esta_morto:
+		return
+
+	if invencivel:
 		return
 
 	if EffectManager.bloquear_dano(self):
@@ -130,6 +161,9 @@ func receber_dano(valor, origem: Vector2, atacante = null):
 
 	flash_dano()
 
+	if is_in_group("player"):
+		AudioManager.tocar_sfx("hit")
+
 
 	# EFEITOS DECORATOR
 	if is_in_group("player") and atacante:
@@ -148,26 +182,46 @@ func receber_dano(valor, origem: Vector2, atacante = null):
 
 	if vida <= 0:
 		morrer()
+		return
+
+	_ativar_invencibilidade()
+
+
+func _ativar_invencibilidade():
+	invencivel = true
+	await get_tree().create_timer(tempo_invencibilidade).timeout
+
+	if is_instance_valid(self):
+		invencivel = false
+
+
 func morrer():
 	if esta_morto:
 		return
 	esta_morto = true
 	call_deferred("_morrer_impl")
 
+func conceder_pontos() -> void:
+	if ultimo_atacante and ultimo_atacante.is_in_group("player"):
+		ScoreManager.adicionar_pontos(pontos_ao_morrer)
+
 func _morrer_impl():
 	queue_free()
 
 func flash_dano():
-	if not texture:
+	if not is_instance_valid(texture):
 		return
-	
+
+	# Guarda uma referência local e valida novamente após o await, pois o
+	# personagem pode morrer e liberar o Sprite2D durante o flash.
+	var sprite: CanvasItem = texture
 	var cor_hit = cor_original.lerp(Color(1, 0, 0), 0.7)
-	texture.modulate = cor_hit
-	
+	sprite.modulate = cor_hit
+
 	await get_tree().create_timer(0.2).timeout
-	
-	if is_instance_valid(self) and texture:
-		texture.modulate = cor_original
+
+	if is_instance_valid(sprite):
+		sprite.modulate = cor_original
 
 func atualizar_barra_vida():
 	if barra_vida:

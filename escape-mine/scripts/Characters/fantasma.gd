@@ -4,6 +4,7 @@ var player
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
+	pontos_ao_morrer = 250
 
 	print("Grupos do fantasma:", get_groups())
 
@@ -25,21 +26,22 @@ func morrer():
 	call_deferred("_morrer_safe")
 
 func _morrer_safe():
-	
-	# 🎁 DROP
-	var drops = DropSystem.gerar_drops(GameManager.dificuldade)
+
+	# 🎁 DROP ALEATÓRIO
+	var drops = DropSystem.gerar_drops()
 
 	for item in drops:
 		get_tree().current_scene.add_child(item)
 		item.global_position = global_position
-	
+
 	# ⭐ XP
 	if ultimo_atacante and ultimo_atacante.is_in_group("player"):
 		UpgradeSystem.ganhar_xp(randi_range(1, 5))
-	
-	$hurtBox.set_deferred("monitoring", false)
-	queue_free()
+		conceder_pontos()
 
+	$hurtBox.set_deferred("monitoring", false)
+
+	queue_free()
 # 💥 RECEBER DANO
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if "forca" in area and "dono" in area:

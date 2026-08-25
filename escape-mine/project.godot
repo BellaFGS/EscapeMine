@@ -24,7 +24,9 @@ GameFacade="*uid://ba6rrhq7yqsbx"
 SceneManager="*uid://b3rqs3f7oepev"
 UIManager="*uid://brluviy00aic5"
 UpgradeSystem="*uid://cho4wt25sflff"
-EffectManager="*uid://dlryxb7s68qul"
+EffectManager="*res://scripts/autoloads/EffectManager.gd"
+ChunkManager="*uid://djwv1ekebyrd6"
+ScoreManager="*res://scripts/autoloads/ScoreManager.gd"
 
 [display]
 
