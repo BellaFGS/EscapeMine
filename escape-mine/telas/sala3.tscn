@@ -10485,8 +10485,8 @@ position = Vector2(644, -61)
 scale = Vector2(1.5, 1.5)
 
 [node name="Boss" parent="." unique_id=1797031235 instance=ExtResource("9_4hxoi")]
-position = Vector2(601, 373)
-scale = Vector2(1.8, 1.8)
+position = Vector2(608, 374)
+scale = Vector2(1.9, 1.9)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1493258074]
 position = Vector2(630, 313)
