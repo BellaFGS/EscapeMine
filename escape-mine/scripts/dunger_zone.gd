@@ -7,7 +7,7 @@ var intervalo_spawn: float = 1.5
 
 func _ready():
 	await get_tree().process_frame
-	spawn_loop()
+	#spawn_loop()
 
 func spawn_loop() -> void:
 	while is_inside_tree():

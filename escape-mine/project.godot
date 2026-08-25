@@ -24,6 +24,8 @@ GameFacade="*uid://ba6rrhq7yqsbx"
 SceneManager="*uid://b3rqs3f7oepev"
 UIManager="*uid://brluviy00aic5"
 UpgradeSystem="*uid://cho4wt25sflff"
+EffectManager="*res://scripts/autoloads/EffectManager.gd"
+ChunkManager="*uid://djwv1ekebyrd6"
 
 [display]
 
@@ -49,6 +51,8 @@ player=""
 enemy=""
 spawner=""
 trap=""
+cegueira=""
+veneno=""
 
 [input]
 

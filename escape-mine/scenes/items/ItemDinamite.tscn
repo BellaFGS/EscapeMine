@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b5kqmf8jw2jqw"]
 
 [ext_resource type="Texture2D" uid="uid://dc4a0cm3nopqe" path="res://sprites/objects/items/dynamite.png" id="1_1scbs"]
-[ext_resource type="Script" uid="uid://djkt0f3ctll5a" path="res://scripts/item_dinamite.gd" id="1_n0t6o"]
+[ext_resource type="Script" uid="uid://djkt0f3ctll5a" path="res://scripts/Items/item_dinamite.gd" id="1_n0t6o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n0t6o"]
 atlas = ExtResource("1_1scbs")

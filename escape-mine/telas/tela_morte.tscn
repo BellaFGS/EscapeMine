@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ew1ambsmusup"]
 
-[ext_resource type="Script" uid="uid://bckj1qecdis5a" path="res://scripts/tela_morte.gd" id="1_hsgcq"]
+[ext_resource type="Script" uid="uid://bckj1qecdis5a" path="res://scripts/Telas/tela_morte.gd" id="1_hsgcq"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="2_hsgcq"]
 [ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="3_hsgcq"]
 

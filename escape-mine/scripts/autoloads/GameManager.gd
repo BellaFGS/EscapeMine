@@ -50,9 +50,6 @@ func aumentar_dificuldade():
 func atualizar_sistemas():
 	var nome = get_dificuldade_nome()
 	
-	# EnemySpawner
-	if enemy_spawner:
-		enemy_spawner.atualizar_dificuldade(nome)
 
 # 🏁 Finalização
 func finalizar_jogo(resultado):
@@ -72,3 +69,6 @@ func resetar():
 	player_tem_chave = false
 	atualizar_sistemas()
 	UpgradeSystem.resetar()
+
+func resetarChave():
+	player_tem_chave = false

@@ -22,6 +22,10 @@ var tempo_sem_dano := 0.0
 var regen_timer := 0.0
 var ultimo_atacante = null
 
+# --- Invencibilidade após tomar dano (i-frames) ---
+@export var tempo_invencibilidade: float = 0.5
+var invencivel = false
+
 func _ready():
 	vida = vida_max
 	atualizar_barra_vida()
@@ -66,6 +70,25 @@ func atualizar_animacao(direcao):
 	
 	anim.play("walk_" + ultima_direcao)
 
+#func atacar():
+	#if esta_morto or is_attack:
+		#return
+#
+	#is_attack = true
+#
+	#var hitbox = $hitBox
+	#hitbox.forca = forca
+	#hitbox.dono = self
+#
+	#var mouse_dir = (get_global_mouse_position() - global_position).normalized()
+#
+	#if abs(mouse_dir.x) > abs(mouse_dir.y):
+		#direcao_ataque = "right" if mouse_dir.x > 0 else "left"
+	#else:
+		#direcao_ataque = "down" if mouse_dir.y > 0 else "up"
+#
+	#anim.play("attack_" + direcao_ataque)
+
 func atacar():
 	if esta_morto or is_attack:
 		return
@@ -76,38 +99,100 @@ func atacar():
 	hitbox.forca = forca
 	hitbox.dono = self
 
-	var mouse_dir = (get_global_mouse_position() - global_position).normalized()
+	direcao_ataque = ultima_direcao
 
-	if abs(mouse_dir.x) > abs(mouse_dir.y):
-		direcao_ataque = "right" if mouse_dir.x > 0 else "left"
-	else:
-		direcao_ataque = "down" if mouse_dir.y > 0 else "up"
+	if is_in_group("player"):
+		AudioManager.tocar_sfx("causa_dano")
 
 	anim.play("attack_" + direcao_ataque)
 
+	# A hitbox precisa ser ligada e desligada manualmente, senão o golpe
+	# nunca colide com nada (ela fica desabilitada por padrão na cena).
+	# Ajuste os dois tempos abaixo para casar com o frame de impacto
+	# e a duração da janela de dano da sua animação "attack_*".
+	await get_tree().create_timer(0.15).timeout   # tempo até o "impacto" da animação
+
+	if not is_instance_valid(self) or esta_morto:
+		return
+
+	hitbox.set_deferred("monitoring", true)
+	hitbox.get_node("Collision").set_deferred("disabled", false)
+
+	await get_tree().create_timer(0.15).timeout   # duração da janela de dano
+
+	if not is_instance_valid(self):
+		return
+
+	hitbox.set_deferred("monitoring", false)
+	hitbox.get_node("Collision").set_deferred("disabled", true)
+
 func receber_dano(valor, origem: Vector2, atacante = null):
+
 	tempo_sem_dano = 0.0
 	regen_timer = 0.0
-	
+
 	if esta_morto:
 		return
-		
+
+	if invencivel:
+		return
+
+	if EffectManager.bloquear_dano(self):
+		return
+
 	# 🧠 guarda quem causou o dano
 	if atacante != null:
 		ultimo_atacante = atacante
-	
+
 	vida -= valor
+
 	emit_signal("vida_alterada", vida)
+
 	atualizar_barra_vida()
+
 	tomando_dano = true
-	
-	var direcao = (global_position - origem).normalized()
+
+	var direcao = (
+		global_position - origem
+	).normalized()
+
 	knockback_velocity = direcao * 1200
-	
+
 	flash_dano()
-	
+
+	if is_in_group("player"):
+		AudioManager.tocar_sfx("hit")
+
+
+	# EFEITOS DECORATOR
+	if is_in_group("player") and atacante:
+		if atacante.is_in_group("veneno"):
+			EffectManager.adicionar_efeito(
+				self,
+				VenenoDecorator.new()
+			)
+
+		if atacante.is_in_group("cegueira"):
+
+			EffectManager.adicionar_efeito(
+				self,
+				CegueiraDecorator.new()
+			)
+
 	if vida <= 0:
 		morrer()
+		return
+
+	_ativar_invencibilidade()
+
+
+func _ativar_invencibilidade():
+	invencivel = true
+	await get_tree().create_timer(tempo_invencibilidade).timeout
+
+	if is_instance_valid(self):
+		invencivel = false
+
 
 func morrer():
 	if esta_morto:

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dqmtqk8rhl5d3"]
+
+[ext_resource type="Script" uid="uid://du2do3bckhynf" path="res://scripts/sala1.gd" id="1_0kikc"]
+[ext_resource type="PackedScene" uid="uid://bv5252sg3b7gi" path="res://scenes/characters/player.tscn" id="2_74eg1"]
+[ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="3_0ksxy"]
+[ext_resource type="PackedScene" uid="uid://dtl4pntx6ekjs" path="res://telas/tela_config.tscn" id="4_u6gps"]
+[ext_resource type="PackedScene" uid="uid://754k33pvudct" path="res://telas/tela_pause.tscn" id="5_r0e7t"]
+[ext_resource type="PackedScene" uid="uid://bkt3ql4aanidh" path="res://telas/tela_upgrade.tscn" id="6_spqvk"]
+[ext_resource type="Script" uid="uid://djwv1ekebyrd6" path="res://scripts/autoloads/chunk_manager.gd" id="7_cntpd"]
+[ext_resource type="PackedScene" uid="uid://dm7y8mqiodh0y" path="res://scenes/Elements/chunk.tscn" id="8_7ir04"]
+
+[node name="Sala-01" type="Node2D" unique_id=224908309]
+position = Vector2(2, 0)
+script = ExtResource("1_0kikc")
+
+[node name="player" parent="." unique_id=2066799720 instance=ExtResource("2_74eg1")]
+position = Vector2(88, 59)
+scale = Vector2(2.8, 2.8)
+
+[node name="hud" parent="." unique_id=1794209725 instance=ExtResource("3_0ksxy")]
+
+[node name="Tela_Config" parent="." unique_id=1751989248 instance=ExtResource("4_u6gps")]
+visible = false
+
+[node name="Tela_Pause" parent="." unique_id=1788756212 instance=ExtResource("5_r0e7t")]
+
+[node name="Tela_upgrade" parent="." unique_id=174284624 instance=ExtResource("6_spqvk")]
+visible = false
+
+[node name="ChunkManager" type="Node2D" parent="." unique_id=1153596440]
+script = ExtResource("7_cntpd")
+map_path = NodePath("Chunk")
+
+[node name="Chunk" parent="ChunkManager" unique_id=1039741122 instance=ExtResource("8_7ir04")]

@@ -2,15 +2,15 @@ extends Control
 
 @onready var barra_vida = $BarraVidaTextura
 @onready var barra_dano = $BarraDanoTextura
-@onready var barra_xp = $BarraXpTextura
+@onready var barra_xp = $BarraXp/BarraXpTextura
 @onready var texto_vida = $TextoVida
 @onready var texto_força = $TextoForca
-@onready var texto_xp = $TextoXp
+@onready var texto_xp = $BarraXp/TextoXp
 @onready var texto_nivel = $Nivel
-@onready var texto_dificuldade = $Nivel_Dificuldade
+@onready var texto_dificuldade = $DificultContainer/Nivel_Dificuldade
 @onready var texto_dinamite = $Dinamite
 @onready var chave = $ItemChave
-@onready var texto_upgrade: Label = $TextoUpgrade
+@onready var texto_upgrade: Label = $UpgradeContainer/TextoUpgrade
 
 #@onready var text_timer = $container/contador_container/text_contador
 var player
