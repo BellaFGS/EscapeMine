@@ -1,21 +1,21 @@
 extends "res://scripts/Character.gd"
 
 var player
-
+var state_machine: EnemyStateMachine
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	pontos_ao_morrer = 250
-
-	print("Grupos do fantasma:", get_groups())
+	state_machine = EnemyStateMachine.new()
+	state_machine.inicializar(self)
 
 func _physics_process(delta):
+
 	if esta_morto:
 		return
-	
-	if player:
-		var direcao = (player.global_position - global_position).normalized()
-		mover(direcao)
 
+	if state_machine:
+		state_machine.atualizar(delta)
+		state_machine.fisica(delta)
 
 # 💀 MORTE
 func morrer():
