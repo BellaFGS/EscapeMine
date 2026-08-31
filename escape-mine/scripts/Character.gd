@@ -8,12 +8,17 @@ signal vida_alterada(valor)
 
 var cor_original: Color = Color(1, 1, 1)
 
+# StateMachine existe apenas para inimigos.
+# O Player não inicializa nem utiliza esta variável.
+var state_machine: StateMachine
 
 @export var speed = 100
 @export var vida_max = 5
 @export var vida = 5
 @export var forca = 1
 @export var pontos_ao_morrer: int = 100
+@export var alcance_ataque: float = 50.0
+@export var intervalo_ataque: float = 1.0
 
 var ultima_direcao = "down"
 var esta_morto = false
@@ -24,11 +29,8 @@ var direcao_ataque = "down"
 var tempo_sem_dano := 0.0
 var regen_timer := 0.0
 var ultimo_atacante = null
-var state_machine: StateMachine
 
 @export var tempo_invencibilidade: float = 0.5
-@export var alcance_ataque: float = 42.0
-@export var intervalo_ataque: float = 0.8
 var invencivel = false
 
 
@@ -37,11 +39,17 @@ func _ready():
 	atualizar_barra_vida()
 
 
+# ============================================================
+# MOVIMENTO
+# ============================================================
+
 func mover(direcao):
+
 	if esta_morto:
 		return
 
 	if tomando_dano:
+
 		velocity = knockback_velocity
 		move_and_slide()
 
@@ -61,7 +69,12 @@ func mover(direcao):
 	atualizar_animacao(direcao)
 
 
+# ============================================================
+# VISUAL
+# ============================================================
+
 func set_cor(cor):
+
 	cor_original = cor
 
 	if is_instance_valid(texture):
@@ -69,28 +82,52 @@ func set_cor(cor):
 
 
 func atualizar_animacao(direcao):
+
 	if anim == null or is_attack:
 		return
 
 	if direcao == Vector2.ZERO:
-		anim.play("idle_" + ultima_direcao)
+
+		anim.play(
+			"idle_" + ultima_direcao
+		)
+
 		return
 
 	if abs(direcao.x) > abs(direcao.y):
-		ultima_direcao = "right" if direcao.x > 0 else "left"
+
+		ultima_direcao = (
+			"right"
+			if direcao.x > 0
+			else "left"
+		)
+
 	else:
-		ultima_direcao = "down" if direcao.y > 0 else "up"
 
-	anim.play("walk_" + ultima_direcao)
+		ultima_direcao = (
+			"down"
+			if direcao.y > 0
+			else "up"
+		)
 
+	anim.play(
+		"walk_" + ultima_direcao
+	)
+
+
+# ============================================================
+# ATAQUE
+# ============================================================
 
 func atacar():
+
 	if esta_morto or is_attack:
 		return
 
 	is_attack = true
 
 	var hitbox = $hitBox
+
 	hitbox.forca = forca
 	hitbox.dono = self
 
@@ -99,14 +136,20 @@ func atacar():
 	if is_in_group("player"):
 		AudioManager.tocar_sfx("causa_dano")
 
-	anim.play("attack_" + direcao_ataque)
+	anim.play(
+		"attack_" + direcao_ataque
+	)
 
 	await get_tree().create_timer(0.15).timeout
 
 	if not is_instance_valid(self) or esta_morto:
 		return
 
-	hitbox.set_deferred("monitoring", true)
+	hitbox.set_deferred(
+		"monitoring",
+		true
+	)
+
 	hitbox.get_node("Collision").set_deferred(
 		"disabled",
 		false
@@ -117,14 +160,26 @@ func atacar():
 	if not is_instance_valid(self):
 		return
 
-	hitbox.set_deferred("monitoring", false)
+	hitbox.set_deferred(
+		"monitoring",
+		false
+	)
+
 	hitbox.get_node("Collision").set_deferred(
 		"disabled",
 		true
 	)
 
 
-func receber_dano(valor, origem: Vector2, atacante = null):
+# ============================================================
+# DANO
+# ============================================================
+
+func receber_dano(
+	valor,
+	origem: Vector2,
+	atacante = null
+):
 
 	tempo_sem_dano = 0.0
 	regen_timer = 0.0
@@ -143,7 +198,11 @@ func receber_dano(valor, origem: Vector2, atacante = null):
 
 	vida -= valor
 
-	emit_signal("vida_alterada", vida)
+	emit_signal(
+		"vida_alterada",
+		vida
+	)
+
 	atualizar_barra_vida()
 
 	tomando_dano = true
@@ -159,32 +218,37 @@ func receber_dano(valor, origem: Vector2, atacante = null):
 	if is_in_group("player"):
 		AudioManager.tocar_sfx("hit")
 
-	# Efeitos
+	# ========================================================
+	# EFEITOS
+	# ========================================================
+
 	if is_in_group("player") and atacante:
 
 		if atacante.is_in_group("veneno"):
+
 			EffectManager.adicionar_efeito(
 				self,
 				VenenoDecorator.new()
 			)
 
 		if atacante.is_in_group("cegueira"):
+
 			EffectManager.adicionar_efeito(
 				self,
 				CegueiraDecorator.new()
 			)
 
 	if vida <= 0:
-		morrer()
-		return
 
-	if state_machine is EnemyStateMachine:
-		state_machine.mudar_estado(&"ferido")
+		morrer()
+
+		return
 
 	_ativar_invencibilidade()
 
 
 func _ativar_invencibilidade():
+
 	invencivel = true
 
 	await get_tree().create_timer(
@@ -195,34 +259,45 @@ func _ativar_invencibilidade():
 		invencivel = false
 
 
+# ============================================================
+# MORTE
+# ============================================================
+
 func morrer():
+
 	if esta_morto:
 		return
 
-	if state_machine is EnemyStateMachine:
-		state_machine.mudar_estado(&"morto")
-		return
-
-	if state_machine is PlayerStateMachine:
-		state_machine.mudar_estado(&"morto")
-		return
-
 	esta_morto = true
-	call_deferred("_morrer_impl")
+
+	call_deferred(
+		"_morrer_impl"
+	)
+
+
+func _morrer_impl():
+
+	queue_free()
 
 
 func conceder_pontos() -> void:
-	if ultimo_atacante and ultimo_atacante.is_in_group("player"):
+
+	if (
+		ultimo_atacante
+		and ultimo_atacante.is_in_group("player")
+	):
+
 		ScoreManager.adicionar_pontos(
 			pontos_ao_morrer
 		)
 
 
-func _morrer_impl():
-	queue_free()
-
+# ============================================================
+# FLASH DE DANO
+# ============================================================
 
 func flash_dano():
+
 	if not is_instance_valid(texture):
 		return
 
@@ -235,25 +310,48 @@ func flash_dano():
 
 	sprite.modulate = cor_hit
 
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(
+		0.2
+	).timeout
 
 	if is_instance_valid(sprite):
 		sprite.modulate = cor_original
 
 
+# ============================================================
+# BARRA DE VIDA
+# ============================================================
+
 func atualizar_barra_vida():
+
 	if barra_vida:
+
 		barra_vida.value = vida
 		barra_vida.max_value = vida_max
 
-		barra_vida.visible = vida < vida_max
+		barra_vida.visible = (
+			vida < vida_max
+		)
 
+
+# ============================================================
+# ANIMAÇÃO TERMINADA
+# ============================================================
 
 func _on_Animator_animation_finished():
+
 	if anim.animation.begins_with("attack"):
+
 		is_attack = false
-		anim.play("idle_" + ultima_direcao)
+
+		anim.play(
+			"idle_" + ultima_direcao
+		)
 
 
 func _on_hurt_box_area_entered(area):
-	print("COLIDIU COM:", area)
+
+	print(
+		"COLIDIU COM:",
+		area
+	)

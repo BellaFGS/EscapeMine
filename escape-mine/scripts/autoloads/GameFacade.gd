@@ -28,6 +28,9 @@ func abrir_sala(destino: String):
 
 		"sala_3":
 			SceneManager.trocar_cena("sala_3")
+			
+		"score":
+			SceneManager.trocar_cena("score")
 
 		_:
 			push_error("GameFacade: destino inválido: " + destino)

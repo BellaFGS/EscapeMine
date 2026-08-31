@@ -17,12 +17,8 @@ script = ExtResource("1_0kikc")
 [node name="player" parent="." unique_id=2066799720 instance=ExtResource("2_74eg1")]
 position = Vector2(88, 59)
 scale = Vector2(2.8, 2.8)
-speed = 100
-vida_max = 5
-vida = 5
-forca = 1
-pontos_ao_morrer = 100
-tempo_invencibilidade = 0.5
+alcance_ataque = null
+intervalo_ataque = null
 
 [node name="hud" parent="." unique_id=1794209725 instance=ExtResource("3_0ksxy")]
 

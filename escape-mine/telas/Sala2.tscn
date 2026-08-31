@@ -10452,8 +10452,9 @@ physics_layer_0/collision_layer = 8
 physics_layer_0/collision_mask = 3
 sources/2 = SubResource("TileSetAtlasSource_ksgu2")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_u0ie8"]
-radius = 288.62607
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ccxyu"]
+radius = 314.00003
+height = 1108.0
 
 [node name="Sala-02" type="Node2D" unique_id=1237220199]
 script = ExtResource("1_y1qxk")
@@ -10484,6 +10485,7 @@ tile_set = SubResource("TileSet_ksgu2")
 [node name="player" parent="." unique_id=2066799720 instance=ExtResource("2_8hjvt")]
 position = Vector2(-1551, 59.000004)
 scale = Vector2(2.8, 2.8)
+collision_layer = 1
 
 [node name="Door" parent="." unique_id=456153555 instance=ExtResource("7_ig046")]
 position = Vector2(2791, -58)
@@ -10496,14 +10498,16 @@ script = ExtResource("8_6w8k4")
 spawner = NodePath("../ObserverSpawner")
 
 [node name="Collision" type="CollisionShape2D" parent="AreaObserver" unique_id=342469679]
-position = Vector2(643, 327)
-shape = SubResource("CircleShape2D_u0ie8")
+position = Vector2(635, 321)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ccxyu")
 
 [node name="ObserverSpawner" type="Node2D" parent="." unique_id=587812849 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("9_8hjvt")
 esqueleto_scene = ExtResource("10_u0ie8")
 fantasma_scene = ExtResource("11_y1qxk")
 spawn_points = [NodePath("SpawnPoint0"), NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3")]
+intervalo_spawn = 5.0
 
 [node name="SpawnPoint0" type="Marker2D" parent="ObserverSpawner" unique_id=343551171]
 position = Vector2(968, 373)

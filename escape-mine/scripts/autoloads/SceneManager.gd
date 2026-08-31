@@ -5,6 +5,7 @@ var cenas = {
 	"main": "res://telas/sala1.tscn",
 	"sala_2": "res://telas/sala2.tscn",
 	"sala_3": "res://telas/sala3.tscn",
+	"score": "res://telas/tela_resultado.tscn",
 	"inicial": "res://telas/tela_inicial.tscn",
 	"level_up": "res://telas/level_up.tscn",
 	"config": "res://telas/tela_config.tscn",
