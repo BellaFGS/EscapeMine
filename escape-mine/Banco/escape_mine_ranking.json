@@ -1,8 +1,20 @@
 [
 	{
+		"data": "2026-08-29 21:34:27",
+		"nome": "FYVEPALE",
+		"pontos": 17450,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-08-29 10:12:20",
+		"nome": "BELLA",
+		"pontos": 11975.0,
+		"resultado": "LOSE"
+	},
+	{
 		"data": "2026-08-25 16:03:30",
 		"nome": "A",
-		"pontos": 375,
+		"pontos": 375.0,
 		"resultado": "LOSE"
 	}
 ]
