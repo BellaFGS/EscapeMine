@@ -1725,6 +1725,12 @@ size = Vector2(10, 15)
 collision_layer = 3
 collision_mask = 78
 script = ExtResource("1_3vyb7")
+speed = null
+vida_max = null
+vida = null
+forca = null
+pontos_ao_morrer = null
+tempo_invencibilidade = null
 
 [node name="Inventario" type="Node2D" parent="." unique_id=413010151]
 script = ExtResource("2_dqkch")
