@@ -97,7 +97,7 @@ func morrer():
 		return
 	esta_morrendo = true
 	if state_machine:
-		state_machine.mudar_estado("morto")
+		state_machine.mudar_estado(&"morto")
 
 func _input(event):
 
@@ -128,6 +128,10 @@ func _on_animator_animation_finished(anim_name: StringName) -> void:
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
+		# Inimigos com State causam dano pelo EnemyAttackState.
+		# Boss e Minion continuam usando suas colisões especializadas.
+		if body.get("state_machine") is EnemyStateMachine:
+			return
 
 		receber_dano(
 			body.forca,

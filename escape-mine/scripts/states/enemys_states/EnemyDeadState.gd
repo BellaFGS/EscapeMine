@@ -8,6 +8,8 @@ func entrar():
 		return
 
 	inimigo.esta_morto = true
+	inimigo.velocity = Vector2.ZERO
+	inimigo.set_physics_process(false)
 
 	inimigo.call_deferred("_morrer_safe")
 

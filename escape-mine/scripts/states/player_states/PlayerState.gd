@@ -1,5 +1,5 @@
 class_name PlayerState
-extends RefCounted
+extends CharacterState
 
 
 var player
@@ -13,9 +13,9 @@ func sair():
 	pass
 
 
-func atualizar(_delta):
+func atualizar(_delta: float):
 	pass
 
 
-func fisica(_delta):
+func fisica(_delta: float):
 	pass

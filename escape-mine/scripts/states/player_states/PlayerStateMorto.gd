@@ -4,6 +4,8 @@ extends PlayerState
 func entrar():
 
 	player.esta_morrendo = true
+	player.esta_morto = true
+	player.velocity = Vector2.ZERO
 
 	player.set_physics_process(false)
 

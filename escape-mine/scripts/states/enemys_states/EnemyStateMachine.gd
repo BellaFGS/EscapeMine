@@ -2,35 +2,28 @@ class_name EnemyStateMachine
 extends StateMachine
 
 var inimigo
+var estados: Dictionary = {}
 
 
-func inicializar(alvo):
+func inicializar(alvo) -> void:
 	inimigo = alvo
 	personagem = alvo
+	estados.clear()
 
-	var estado = EnemyChaseState.new()
-	estado.inimigo = inimigo
+	estados[&"perseguir"] = EnemyChaseState.new()
+	estados[&"atacar"] = EnemyAttackState.new()
+	estados[&"ferido"] = EnemyHurtState.new()
+	estados[&"morto"] = EnemyDeadState.new()
 
-	estado_atual = estado
-	estado_atual.entrar()
+	for estado in estados.values():
+		estado.inimigo = inimigo
+		estado.personagem = inimigo
 
+	mudar_estado(&"perseguir")
 
-func mudar_estado(novo_estado):
-	if estado_atual:
-		estado_atual.sair()
+func mudar_estado(nome: StringName) -> void:
+	if not estados.has(nome):
+		push_warning("EnemyStateMachine: estado desconhecido: " + String(nome))
+		return
 
-	estado_atual = novo_estado
-
-	if estado_atual:
-		estado_atual.inimigo = inimigo
-		estado_atual.entrar()
-
-
-func atualizar(delta):
-	if estado_atual:
-		estado_atual.atualizar(delta)
-
-
-func fisica(delta):
-	if estado_atual:
-		estado_atual.fisica(delta)
+	definir_estado(estados[nome])

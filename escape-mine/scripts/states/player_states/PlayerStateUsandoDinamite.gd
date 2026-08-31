@@ -22,7 +22,7 @@ func entrar():
 		player.dinamite
 	)
 
-func atualizar(_delta):
+func atualizar(_delta: float) -> void:
 
 	if not player.usando_dinamite:
-		player.state_machine.mudar_estado("normal")
+		player.state_machine.mudar_estado(&"normal")

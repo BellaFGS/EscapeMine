@@ -5,38 +5,26 @@ var player
 var estados: Dictionary = {}
 
 
-func inicializar(p):
+func inicializar(p) -> void:
 	player = p
 	personagem = p
+	estados.clear()
 
-	estados["normal"] = PlayerStateNormal.new()
-	estados["atacando"] = PlayerStateAtacando.new()
-	estados["usando_dinamite"] = PlayerStateUsandoDinamite.new()
-	estados["morto"] = PlayerStateMorto.new()
+	estados[&"normal"] = PlayerStateNormal.new()
+	estados[&"atacando"] = PlayerStateAtacando.new()
+	estados[&"usando_dinamite"] = PlayerStateUsandoDinamite.new()
+	estados[&"morto"] = PlayerStateMorto.new()
 
 	for estado in estados.values():
 		estado.player = player
+		estado.personagem = player
 
-	mudar_estado("normal")
+	mudar_estado(&"normal")
 
 
-func mudar_estado(nome: String):
+func mudar_estado(nome: StringName) -> void:
 	if not estados.has(nome):
+		push_warning("PlayerStateMachine: estado desconhecido: " + String(nome))
 		return
 
-	if estado_atual:
-		estado_atual.sair()
-
-	estado_atual = estados[nome]
-
-	estado_atual.entrar()
-
-
-func atualizar(delta):
-	if estado_atual:
-		estado_atual.atualizar(delta)
-
-
-func fisica(delta):
-	if estado_atual:
-		estado_atual.fisica(delta)
+	definir_estado(estados[nome])

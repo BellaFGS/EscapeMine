@@ -1,7 +1,7 @@
 class_name CharacterState
 extends RefCounted
 
-var personagem
+var personagem: CharacterBody2D
 
 
 func entrar():
@@ -12,9 +12,9 @@ func sair():
 	pass
 
 
-func atualizar(_delta):
+func atualizar(_delta: float):
 	pass
 
 
-func fisica(_delta):
+func fisica(_delta: float):
 	pass

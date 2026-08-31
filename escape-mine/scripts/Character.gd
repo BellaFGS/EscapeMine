@@ -24,8 +24,11 @@ var direcao_ataque = "down"
 var tempo_sem_dano := 0.0
 var regen_timer := 0.0
 var ultimo_atacante = null
+var state_machine: StateMachine
 
 @export var tempo_invencibilidade: float = 0.5
+@export var alcance_ataque: float = 42.0
+@export var intervalo_ataque: float = 0.8
 var invencivel = false
 
 
@@ -175,6 +178,9 @@ func receber_dano(valor, origem: Vector2, atacante = null):
 		morrer()
 		return
 
+	if state_machine is EnemyStateMachine:
+		state_machine.mudar_estado(&"ferido")
+
 	_ativar_invencibilidade()
 
 
@@ -193,10 +199,16 @@ func morrer():
 	if esta_morto:
 		return
 
-	esta_morto = true
+	if state_machine is EnemyStateMachine:
+		state_machine.mudar_estado(&"morto")
+		return
 
-	if state_machine:
-		state_machine.mudar_estado("morto")
+	if state_machine is PlayerStateMachine:
+		state_machine.mudar_estado(&"morto")
+		return
+
+	esta_morto = true
+	call_deferred("_morrer_impl")
 
 
 func conceder_pontos() -> void:

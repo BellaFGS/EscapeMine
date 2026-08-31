@@ -8,7 +8,7 @@ func entrar():
 
 	player.atacar()
 
-func atualizar(_delta):
+func atualizar(_delta: float) -> void:
 
 	if not player.is_attack:
-		player.state_machine.mudar_estado("normal")
+		player.state_machine.mudar_estado(&"normal")

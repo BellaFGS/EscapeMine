@@ -1,8 +1,9 @@
 extends "res://scripts/Character.gd"
 
 var player
-var state_machine: EnemyStateMachine
+
 func _ready():
+	super._ready()
 	player = get_tree().get_first_node_in_group("player")
 	pontos_ao_morrer = 250
 	state_machine = EnemyStateMachine.new()
@@ -21,9 +22,12 @@ func _physics_process(delta):
 func morrer():
 	if esta_morto:
 		return
-	
-	esta_morto = true
-	call_deferred("_morrer_safe")
+
+	if state_machine:
+		state_machine.mudar_estado(&"morto")
+	else:
+		esta_morto = true
+		call_deferred("_morrer_safe")
 
 func _morrer_safe():
 
