@@ -27,3 +27,7 @@ func _process(_delta):
 
 func _on_video_stream_player_finished() -> void:
 	GameFacade.voltar_menu()
+
+
+func _on_btn_skip_pressed() -> void:
+	GameFacade.voltar_menu()

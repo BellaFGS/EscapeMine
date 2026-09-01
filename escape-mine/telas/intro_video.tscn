@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3v5uia4tqhir" path="res://scripts/intro_video.gd" id="1_dm6qt"]
 [ext_resource type="VideoStream" uid="uid://bbnlbgyplmals" path="res://telas/video/escapeMineIntro.ogv" id="2_hpd4y"]
+[ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="3_hpd4y"]
 
 [node name="IntroVideo" type="Node2D" unique_id=1821177310]
 script = ExtResource("1_dm6qt")
@@ -36,4 +37,19 @@ stream = ExtResource("2_hpd4y")
 autoplay = true
 expand = true
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=2036264215]
+layout_mode = 0
+offset_top = 677.0
+offset_right = 1281.0
+offset_bottom = 717.0
+alignment = 2
+
+[node name="btn_skip" type="Button" parent="Control/HBoxContainer" unique_id=1698019672]
+layout_mode = 2
+theme = ExtResource("3_hpd4y")
+theme_override_constants/outline_size = 4
+theme_override_constants/h_separation = 4
+text = "PULAR INTRO"
+
 [connection signal="finished" from="Control/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="Control/HBoxContainer/btn_skip" to="." method="_on_btn_skip_pressed"]

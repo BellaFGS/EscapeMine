@@ -13,7 +13,8 @@ var cenas = {
 	"morte": "res://telas/tela_resultado.tscn",
 	"tutorial_1": "res://telas/tela_tutorial.tscn",
 	"tutorial_2": "res://telas/tela_tutorial2.tscn",
-	"tutorial_3": "res://telas/tela_tutorial3.tscn"
+	"tutorial_3": "res://telas/tela_tutorial3.tscn",
+	"intro": "res://telas/intro_video.tscn"
 }
 
 func trocar_cena(nome):

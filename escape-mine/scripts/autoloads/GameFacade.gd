@@ -12,7 +12,9 @@ func iniciar_jogo():
 	AudioManager.tocar_musica("menu")
 	SceneManager.trocar_cena("main")
 
-
+func abrir_intro():
+	SceneManager.trocar_cena("intro")
+	
 func voltar_menu():
 	SceneManager.trocar_cena("inicial")
 
