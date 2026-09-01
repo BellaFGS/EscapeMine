@@ -22,11 +22,10 @@ func gerar_drops() -> Array:
 	xp.valor = rng.randi_range(1, 5)
 	drops.append(xp)
 
-	# 🔑 CHAVE
+	# 🔑 CHAVE - chance normal
 	var chance_chave = 5
 
 	if rng.randi_range(1, 100) <= chance_chave:
-
 		var chave = CHAVE_SCENE.instantiate()
 		drops.append(chave)
 
@@ -34,7 +33,6 @@ func gerar_drops() -> Array:
 	var chance_escudo = 10
 
 	if rng.randi_range(1, 100) <= chance_escudo:
-
 		var escudo = ESCUDO_SCENE.instantiate()
 		drops.append(escudo)
 
@@ -42,7 +40,7 @@ func gerar_drops() -> Array:
 
 
 # ============================================================
-# DROP DO MINIOM
+# DROP DO MINION
 # ============================================================
 
 func gerar_drops_miniom() -> Array:
@@ -60,8 +58,24 @@ func gerar_drops_miniom() -> Array:
 	var chance_escudo = 10
 
 	if rng.randi_range(1, 100) <= chance_escudo:
-
 		var escudo = ESCUDO_SCENE.instantiate()
 		drops.append(escudo)
+
+	return drops
+
+
+# ============================================================
+# DROP DO BOSS
+# ============================================================
+
+func gerar_drop_boss() -> Array:
+
+	rng.randomize()
+
+	var drops = []
+
+	# 🔑 CHAVE - SEMPRE DROPA
+	var chave = CHAVE_SCENE.instantiate()
+	drops.append(chave)
 
 	return drops

@@ -20,55 +20,107 @@ extends Control
 var player
 
 
-func _process(_delta):
-
-	# Mostra ou esconde a chave
-	chave.visible = GameManager.player_tem_chave
-
-
 func _ready():
 
-	ScoreManager.pontuacao_alterada.connect(atualizar_pontuacao)
-	atualizar_pontuacao(ScoreManager.pontuacao_atual)
+	# ============================================================
+	# SCORE
+	# ============================================================
 
-	player = get_tree().get_first_node_in_group("player")
+	ScoreManager.pontuacao_alterada.connect(
+		atualizar_pontuacao
+	)
 
-	await get_tree().process_frame
+	atualizar_pontuacao(
+		ScoreManager.pontuacao_atual
+	)
 
-	if player == null:
-		print("Player não encontrado")
-		return
 
 	# ============================================================
 	# PLAYER
 	# ============================================================
 
-	player.vida_alterada.connect(atualizar_vida)
-	player.forca_alterado.connect(forca_alterado)
-	player.dinamite_up.connect(dinamite)
+	await get_tree().process_frame
+
+	player = get_tree().get_first_node_in_group("player")
+
+	if player == null:
+		print("Player não encontrado")
+		return
+
+
+	player.vida_alterada.connect(
+		atualizar_vida
+	)
+
+	player.forca_alterado.connect(
+		forca_alterado
+	)
+
+	player.dinamite_up.connect(
+		dinamite
+	)
 
 
 	# ============================================================
 	# UPGRADE SYSTEM
 	# ============================================================
 
-	UpgradeSystem.xp_alterado.connect(xp_alterado)
-	UpgradeSystem.nivel_up.connect(nivel_up)
-	UpgradeSystem.liberar_upgrade.connect(mostrar_upgrade)
+	UpgradeSystem.xp_alterado.connect(
+		xp_alterado
+	)
+
+	UpgradeSystem.nivel_up.connect(
+		nivel_up
+	)
+
+	UpgradeSystem.liberar_upgrade.connect(
+		mostrar_upgrade
+	)
 
 
 	# ============================================================
 	# VALORES INICIAIS
 	# ============================================================
 
-	atualizar_vida(player.vida)
-	forca_alterado(player.forca)
-	dinamite(player.dinamite)
+	atualizar_vida(
+		player.vida
+	)
 
-	xp_alterado(UpgradeSystem.xp)
-	nivel_up(UpgradeSystem.nivel)
+	forca_alterado(
+		player.forca
+	)
+
+	# Agora a dinamite vem do GameManager
+	dinamite(
+		GameManager.player_dinamite
+	)
+
+	xp_alterado(
+		UpgradeSystem.xp
+	)
+
+	nivel_up(
+		UpgradeSystem.nivel
+	)
+
 
 	texto_upgrade.visible = false
+
+
+# ============================================================
+# PROCESSO
+# ============================================================
+
+func _process(_delta):
+
+	# A chave é persistente no GameManager
+	chave.visible = GameManager.player_tem_chave
+
+	# Mantém a dinamite sincronizada
+	# mesmo que o Player seja recriado
+	dinamite(
+		GameManager.player_dinamite
+	)
 
 
 # ============================================================
@@ -86,7 +138,11 @@ func mostrar_upgrade(valor):
 
 func atualizar_vida(valor):
 
+	if player == null:
+		return
+
 	barra_vida.max_value = player.vida_max
+
 	barra_vida.value = valor
 
 	texto_vida.text = (
@@ -104,7 +160,11 @@ func forca_alterado(valor):
 
 	barra_dano.value = valor
 
-	texto_força.text = str(player.forca)
+	if player:
+
+		texto_força.text = str(
+			player.forca
+		)
 
 
 # ============================================================
@@ -146,6 +206,6 @@ func dinamite(valor):
 # PONTUAÇÃO
 # ============================================================
 
-func atualizar_pontuacao(valor: int) -> void:
+func atualizar_pontuacao(valor: int):
 
 	texto_pontos.text = "SCORE  %07d" % valor
