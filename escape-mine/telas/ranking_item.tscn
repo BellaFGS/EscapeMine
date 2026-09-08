@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://j1njxkcahcrk"]
+
+[ext_resource type="Script" uid="uid://xu1hk5tsx7hk" path="res://scripts/ranking/ranking_item.gd" id="1_k1m4u"]
+
+[node name="ranking_item" type="HBoxContainer" unique_id=1552926097]
+custom_minimum_size = Vector2(80, 0)
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.032
+offset_left = 133.0
+offset_top = 3.0
+offset_right = 134.0
+offset_bottom = 2.959999
+size_flags_horizontal = 4
+script = ExtResource("1_k1m4u")
+
+[node name="Data" type="Label" parent="." unique_id=809734806]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
+text = "DATA"
+
+[node name="Nome" type="Label" parent="." unique_id=979307641]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "NOME"
+
+[node name="Pontuacao" type="Label" parent="." unique_id=1324292752]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "PONTUAÇÃO"
+
+[node name="Resultado" type="Label" parent="." unique_id=1845767456]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "RESULTADO"
