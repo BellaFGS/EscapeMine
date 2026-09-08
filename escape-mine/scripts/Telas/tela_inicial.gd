@@ -34,3 +34,13 @@ func _on_btn_config_pressed():
 func _on_btn_tutorial_pressed() -> void:
 	AudioManager.tocar_sfx("click")
 	GameFacade.abrir_tutorial_1()
+
+
+func _on_btn_intro_pressed() -> void:
+	AudioManager.tocar_sfx("click")
+	GameFacade.abrir_intro()
+
+
+func _on_btn_ranking_pressed() -> void:
+	AudioManager.tocar_sfx("click")
+	GameFacade.abrir_ranking()

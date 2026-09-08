@@ -13,6 +13,7 @@ config_version=5
 config/name="EscapeMine"
 run/main_scene="uid://25f6msodd5sj"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
@@ -38,12 +39,13 @@ window/stretch/aspect="expand"
 [file_customization]
 
 folder_colors={
-"res://scenes/": "blue",
+"res://creditos/": "red",
+"res://scenes/": "yellow",
 "res://scripts/": "yellow",
 "res://scripts/autoloads/": "pink",
-"res://sounds/": "green",
-"res://sprites/": "purple",
-"res://telas/": "red"
+"res://sounds/": "yellow",
+"res://sprites/": "yellow",
+"res://telas/": "yellow"
 }
 
 [global_group]

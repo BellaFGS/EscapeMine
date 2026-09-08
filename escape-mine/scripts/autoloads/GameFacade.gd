@@ -12,7 +12,12 @@ func iniciar_jogo():
 	AudioManager.tocar_musica("menu")
 	SceneManager.trocar_cena("main")
 
+func abrir_intro():
+	SceneManager.trocar_cena("intro")
 
+func abrir_ranking():
+	SceneManager.trocar_cena("ranking")
+	
 func voltar_menu():
 	SceneManager.trocar_cena("inicial")
 
@@ -28,6 +33,9 @@ func abrir_sala(destino: String):
 
 		"sala_3":
 			SceneManager.trocar_cena("sala_3")
+			
+		"score":
+			SceneManager.trocar_cena("score")
 
 		_:
 			push_error("GameFacade: destino inválido: " + destino)

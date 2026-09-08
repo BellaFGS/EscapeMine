@@ -2,26 +2,38 @@ extends "res://scripts/Character.gd"
 
 var player
 
+
 func _ready():
+	super._ready()
 	player = get_tree().get_first_node_in_group("player")
+
 	pontos_ao_morrer = 100
 
+	state_machine = EnemyStateMachine.new()
+	state_machine.inicializar(self)
+
+
 func _physics_process(delta):
-	
+
 	if esta_morto:
 		return
-	
-	if player:
-		var direcao = (player.global_position - global_position).normalized()
-		mover(direcao)
+
+	if state_machine:
+		state_machine.atualizar(delta)
+		state_machine.fisica(delta)
+
 
 # 💀 MORTE
 func morrer():
 	if esta_morto:
 		return
-	
-	esta_morto = true
-	call_deferred("_morrer_safe")
+
+	if state_machine:
+		state_machine.mudar_estado(&"morto")
+	else:
+		esta_morto = true
+		call_deferred("_morrer_safe")
+
 
 func _morrer_safe():
 
@@ -41,10 +53,22 @@ func _morrer_safe():
 
 	queue_free()
 
+
 # 💥 RECEBER DANO
-func _on_hurt_box_area_entered(area: Area2D) -> void:
+func _on_hurt_box_area_entered(area: Area2D):
+
 	if "forca" in area and "dono" in area:
-		receber_dano(area.forca, area.dono.global_position, area.dono)
-	
+
+		receber_dano(
+			area.forca,
+			area.dono.global_position,
+			area.dono
+		)
+
 	elif area.is_in_group("trap"):
-		receber_dano(50, area.global_position, null)
+
+		receber_dano(
+			50,
+			area.global_position,
+			null
+		)

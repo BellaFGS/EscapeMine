@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene format=3 uid="uid://c8n2aww1cubd5"]
 
-[ext_resource type="Script" path="res://scripts/Telas/tela_resultado.gd" id="1_result"]
-[ext_resource type="FontFile" path="res://telas/Temas/CutePixel.ttf" id="2_font"]
-[ext_resource type="FontFile" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="3_pixel"]
+[ext_resource type="Script" uid="uid://bieii5w4jdcfm" path="res://scripts/Telas/tela_resultado.gd" id="1_result"]
+[ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="2_font"]
+[ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="3_pixel"]
 
 [sub_resource type="StyleBoxFlat" id="StylePanel"]
+content_margin_left = 42.0
+content_margin_top = 28.0
+content_margin_right = 42.0
+content_margin_bottom = 28.0
 bg_color = Color(0.025, 0.035, 0.075, 0.97)
 border_width_left = 4
 border_width_top = 4
@@ -17,12 +21,10 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 shadow_color = Color(0.05, 0.95, 0.82, 0.25)
 shadow_size = 14
-content_margin_left = 42.0
-content_margin_top = 28.0
-content_margin_right = 42.0
-content_margin_bottom = 28.0
 
 [sub_resource type="StyleBoxFlat" id="StyleInput"]
+content_margin_left = 14.0
+content_margin_right = 14.0
 bg_color = Color(0.01, 0.015, 0.035, 1)
 border_width_left = 2
 border_width_top = 2
@@ -33,8 +35,6 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-content_margin_left = 14.0
-content_margin_right = 14.0
 
 [sub_resource type="StyleBoxFlat" id="StyleButton"]
 bg_color = Color(0.88, 0.2, 0.42, 1)
@@ -48,11 +48,11 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="TelaResultado" type="CanvasLayer"]
+[node name="TelaResultado" type="CanvasLayer" unique_id=1721622601]
 process_mode = 3
 script = ExtResource("1_result")
 
-[node name="Fundo" type="ColorRect" parent="."]
+[node name="Fundo" type="ColorRect" parent="." unique_id=1676718711]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -60,13 +60,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.015, 0.01, 0.055, 1)
 
-[node name="Topo" type="ColorRect" parent="Fundo"]
+[node name="Topo" type="ColorRect" parent="Fundo" unique_id=195288388]
 layout_mode = 0
 anchor_right = 1.0
 offset_bottom = 8.0
 color = Color(0.94, 0.18, 0.45, 1)
 
-[node name="Rodape" type="ColorRect" parent="Fundo"]
+[node name="Rodape" type="ColorRect" parent="Fundo" unique_id=1518331590]
 layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -74,7 +74,7 @@ anchor_bottom = 1.0
 offset_top = -8.0
 color = Color(0.05, 0.95, 0.82, 1)
 
-[node name="Center" type="CenterContainer" parent="Fundo"]
+[node name="Center" type="CenterContainer" parent="Fundo" unique_id=716295123]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,16 +82,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Painel" type="PanelContainer" parent="Fundo/Center"]
+[node name="Painel" type="PanelContainer" parent="Fundo/Center" unique_id=1555141904]
 custom_minimum_size = Vector2(760, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StylePanel")
 
-[node name="Conteudo" type="VBoxContainer" parent="Fundo/Center/Painel"]
+[node name="Conteudo" type="VBoxContainer" parent="Fundo/Center/Painel" unique_id=1078960292]
 layout_mode = 2
 theme_override_constants/separation = 9
 
-[node name="Titulo" type="Label" parent="Fundo/Center/Painel/Conteudo"]
+[node name="Titulo" type="Label" parent="Fundo/Center/Painel/Conteudo" unique_id=921105966]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.82, 0.2, 1)
 theme_override_colors/font_shadow_color = Color(0.94, 0.18, 0.45, 1)
@@ -102,7 +102,7 @@ theme_override_font_sizes/font_size = 50
 text = "FIM DE JOGO"
 horizontal_alignment = 1
 
-[node name="Subtitulo" type="Label" parent="Fundo/Center/Painel/Conteudo"]
+[node name="Subtitulo" type="Label" parent="Fundo/Center/Painel/Conteudo" unique_id=528290920]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.05, 0.95, 0.82, 1)
 theme_override_fonts/font = ExtResource("2_font")
@@ -110,7 +110,7 @@ theme_override_font_sizes/font_size = 24
 text = "A MINA VENCEU DESTA VEZ"
 horizontal_alignment = 1
 
-[node name="Pontos" type="Label" parent="Fundo/Center/Painel/Conteudo"]
+[node name="Pontos" type="Label" parent="Fundo/Center/Painel/Conteudo" unique_id=495170625]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_pixel")
@@ -118,7 +118,7 @@ theme_override_font_sizes/font_size = 36
 text = "PONTUAÇÃO  0000000"
 horizontal_alignment = 1
 
-[node name="Bonus" type="Label" parent="Fundo/Center/Painel/Conteudo"]
+[node name="Bonus" type="Label" parent="Fundo/Center/Painel/Conteudo" unique_id=1099124094]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.82, 0.2, 1)
 theme_override_fonts/font = ExtResource("2_font")
@@ -126,7 +126,7 @@ theme_override_font_sizes/font_size = 21
 text = "+1000 BÔNUS DO BOSS"
 horizontal_alignment = 1
 
-[node name="Instrucao" type="Label" parent="Fundo/Center/Painel/Conteudo"]
+[node name="Instrucao" type="Label" parent="Fundo/Center/Painel/Conteudo" unique_id=403068636]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.78, 0.8, 0.9, 1)
 theme_override_fonts/font = ExtResource("2_font")
@@ -134,12 +134,12 @@ theme_override_font_sizes/font_size = 20
 text = "REGISTRE SUAS INICIAIS"
 horizontal_alignment = 1
 
-[node name="Registro" type="HBoxContainer" parent="Fundo/Center/Painel/Conteudo"]
+[node name="Registro" type="HBoxContainer" parent="Fundo/Center/Painel/Conteudo" unique_id=1059310349]
 layout_mode = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Nome" type="LineEdit" parent="Fundo/Center/Painel/Conteudo/Registro"]
+[node name="Nome" type="LineEdit" parent="Fundo/Center/Painel/Conteudo/Registro" unique_id=1143357199]
 custom_minimum_size = Vector2(360, 50)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.82, 0.2, 1)
@@ -148,10 +148,10 @@ theme_override_fonts/font = ExtResource("3_pixel")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleInput")
 placeholder_text = "SEU NOME"
-max_length = 12
 alignment = 1
+max_length = 12
 
-[node name="Registrar" type="Button" parent="Fundo/Center/Painel/Conteudo/Registro"]
+[node name="Registrar" type="Button" parent="Fundo/Center/Painel/Conteudo/Registro" unique_id=419919155]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_font")
@@ -159,7 +159,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleButton")
 text = "REGISTRAR"
 
-[node name="Aviso" type="Label" parent="Fundo/Center/Painel/Conteudo"]
+[node name="Aviso" type="Label" parent="Fundo/Center/Painel/Conteudo" unique_id=2009347815]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.94, 0.35, 0.55, 1)
@@ -167,10 +167,10 @@ theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 17
 horizontal_alignment = 1
 
-[node name="Separador" type="HSeparator" parent="Fundo/Center/Painel/Conteudo"]
+[node name="Separador" type="HSeparator" parent="Fundo/Center/Painel/Conteudo" unique_id=1213623732]
 layout_mode = 2
 
-[node name="Ranking" type="Label" parent="Fundo/Center/Painel/Conteudo"]
+[node name="Ranking" type="Label" parent="Fundo/Center/Painel/Conteudo" unique_id=1263250226]
 custom_minimum_size = Vector2(0, 145)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.88, 0.9, 1, 1)
@@ -179,20 +179,19 @@ theme_override_font_sizes/font_size = 20
 text = "TOP 5 — MELHORES DA MINA"
 horizontal_alignment = 1
 
-[node name="Menu" type="HBoxContainer" parent="Fundo/Center/Painel/Conteudo"]
-visible = false
+[node name="Menu" type="HBoxContainer" parent="Fundo/Center/Painel/Conteudo" unique_id=1774728589]
 layout_mode = 2
 theme_override_constants/separation = 18
 alignment = 1
 
-[node name="Reiniciar" type="Button" parent="Fundo/Center/Painel/Conteudo/Menu"]
+[node name="Reiniciar" type="Button" parent="Fundo/Center/Painel/Conteudo/Menu" unique_id=81342334]
 custom_minimum_size = Vector2(245, 46)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 18
 text = "JOGAR NOVAMENTE"
 
-[node name="MenuPrincipal" type="Button" parent="Fundo/Center/Painel/Conteudo/Menu"]
+[node name="MenuPrincipal" type="Button" parent="Fundo/Center/Painel/Conteudo/Menu" unique_id=1774895020]
 custom_minimum_size = Vector2(245, 46)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_font")
