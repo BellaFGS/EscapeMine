@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://25f6msodd5sj"]
 
 [ext_resource type="Script" uid="uid://c3v5uia4tqhir" path="res://scripts/intro_video.gd" id="1_dm6qt"]
-[ext_resource type="VideoStream" uid="uid://bbnlbgyplmals" path="res://telas/video/escapeMineIntro.ogv" id="2_hpd4y"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="3_hpd4y"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_5ysfj"]
+file = "res://telas/video/escapeMineIntro.ogv"
 
 [node name="IntroVideo" type="Node2D" unique_id=1821177310]
 script = ExtResource("1_dm6qt")
@@ -33,7 +35,7 @@ offset_right = 1280.0
 offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("2_hpd4y")
+stream = SubResource("VideoStreamTheora_5ysfj")
 autoplay = true
 expand = true
 

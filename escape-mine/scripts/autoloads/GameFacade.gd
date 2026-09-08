@@ -14,6 +14,9 @@ func iniciar_jogo():
 
 func abrir_intro():
 	SceneManager.trocar_cena("intro")
+
+func abrir_ranking():
+	SceneManager.trocar_cena("ranking")
 	
 func voltar_menu():
 	SceneManager.trocar_cena("inicial")

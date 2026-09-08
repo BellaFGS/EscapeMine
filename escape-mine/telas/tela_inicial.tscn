@@ -54,6 +54,12 @@ theme = ExtResource("1_xs8lk")
 text = "VISUALIZAR INTRO
 "
 
+[node name="btn_ranking" type="Button" parent="Menu" unique_id=1300095565]
+layout_mode = 2
+theme = ExtResource("1_xs8lk")
+text = "VISUALIZAR RANKING
+"
+
 [node name="btn_sair" type="Button" parent="Menu" unique_id=848326941]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
@@ -79,4 +85,5 @@ visible = false
 [connection signal="pressed" from="Menu/btn_tutorial" to="." method="_on_btn_tutorial_pressed"]
 [connection signal="pressed" from="Menu/btn_config" to="." method="_on_btn_config_pressed"]
 [connection signal="pressed" from="Menu/btn_intro" to="." method="_on_btn_intro_pressed"]
+[connection signal="pressed" from="Menu/btn_ranking" to="." method="_on_btn_ranking_pressed"]
 [connection signal="pressed" from="Menu/btn_sair" to="." method="_on_btn_sair_pressed"]

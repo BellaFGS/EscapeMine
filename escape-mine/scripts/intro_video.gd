@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	AudioManager.parar_musica()
 	await get_tree().process_frame
 
 	var video = $Control/VideoStreamPlayer
@@ -24,10 +25,12 @@ func _process(_delta):
 		(tela.x - video.size.x) / 2,
 		(tela.y - video.size.y) / 2
 	)
+	
 
 func _on_video_stream_player_finished() -> void:
 	GameFacade.voltar_menu()
 
 
 func _on_btn_skip_pressed() -> void:
+	AudioManager.tocar_sfx("click")
 	GameFacade.voltar_menu()
