@@ -1,7 +1,7 @@
 extends Control
 
-@onready var lista_ranking: VBoxContainer = $PainelRanking/ScrollContainer/ListaRanking
-@onready var botao_voltar: Button = $PainelRanking/btn_voltar
+@onready var lista_ranking: VBoxContainer = $BoxContainer/PainelRanking/BoxContainer2/VSplitContainer/ScrollContainer/ListaRanking
+@onready var botao_voltar: Button = $BoxContainer/PainelRanking/BoxContainer2/VSplitContainer/MarginContainer/btn_voltar
 
 @onready var model = $RankingModel
 @onready var controller = $RankingController
@@ -23,9 +23,6 @@ func exibir_ranking(registros: Array) -> void:
 		lista_ranking.add_child(item)
 
 		item.configurar(registro)
-
-
-
 
 func _on_btn_voltar_pressed() -> void:
 	AudioManager.tocar_sfx("click")
