@@ -403,6 +403,7 @@ vframes = 3
 frame = 10
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1129512150]
+visible = false
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_2mxae")
 
@@ -415,6 +416,7 @@ collision_layer = 16
 collision_mask = 224
 
 [node name="Collision" type="CollisionShape2D" parent="hurtBox" unique_id=118639856]
+visible = false
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ptde3")
 debug_color = Color(0.9848905, 0, 0.343713, 0.41960785)

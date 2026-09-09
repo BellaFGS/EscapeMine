@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bntm8ya58vuqp" path="res://scripts/ranking/RankingView.gd" id="1_1wjpj"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="1_xuc00"]
+[ext_resource type="Texture2D" uid="uid://bpsqlvs2pgegg" path="res://sprites/artes/fundo_ranking.png" id="2_3e650"]
 [ext_resource type="Script" uid="uid://b731xw75uhypu" path="res://scripts/ranking/RankingController.gd" id="2_86aud"]
 [ext_resource type="Script" uid="uid://bfuxlq3kxxwhf" path="res://scripts/ranking/RankingModel.gd" id="3_3e650"]
 
@@ -10,11 +11,148 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 7.0
-offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_1wjpj")
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=1322617662]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PainelRanking" type="Panel" parent="BoxContainer" unique_id=1328316350]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="BoxContainer/PainelRanking" unique_id=693350763]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.539
+anchor_top = 0.68
+anchor_right = 0.539
+anchor_bottom = 0.686
+offset_left = -724.0
+offset_top = -543.0
+offset_right = 724.0
+offset_bottom = 543.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3e650")
+
+[node name="ColorRect" type="ColorRect" parent="BoxContainer/PainelRanking" unique_id=136712793]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 0.70980394)
+
+[node name="VSplitContainer" type="VSplitContainer" parent="BoxContainer/PainelRanking" unique_id=536776441]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -535.0
+offset_right = 535.0
+offset_bottom = 90.0
+grow_horizontal = 2
+split_offsets = PackedInt32Array(55)
+split_offset = 55
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer/PainelRanking/VSplitContainer" unique_id=2021156957]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer" unique_id=1818883764]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Titulo" type="Label" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer/MarginContainer" unique_id=763194985]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "TABELA DE RANKING DE TODOS OS JOGADORES"
+
+[node name="BoxContainer2" type="BoxContainer" parent="BoxContainer/PainelRanking/VSplitContainer" unique_id=1080262077]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Cabecalho" type="HBoxContainer" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer2" unique_id=1255599021]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer2/Cabecalho" unique_id=1457291397]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer2/Cabecalho/BoxContainer" unique_id=182090755]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer2/Cabecalho/BoxContainer/MarginContainer" unique_id=794370471]
+layout_mode = 2
+theme_override_constants/separation = 90
+split_offsets = PackedInt32Array(0, 0, 0)
+
+[node name="Data" type="Label" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer2/Cabecalho/BoxContainer/MarginContainer/HSplitContainer" unique_id=498049373]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "DATA"
+
+[node name="Nome" type="Label" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer2/Cabecalho/BoxContainer/MarginContainer/HSplitContainer" unique_id=1987731129]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "NOME"
+
+[node name="Pontuacao" type="Label" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer2/Cabecalho/BoxContainer/MarginContainer/HSplitContainer" unique_id=2003209208]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "PONTUAÇÃO"
+
+[node name="Resultado" type="Label" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer2/Cabecalho/BoxContainer/MarginContainer/HSplitContainer" unique_id=872472745]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "RESULTADO"
+
+[node name="BoxContainer2" type="BoxContainer" parent="BoxContainer/PainelRanking" unique_id=1322804897]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="BoxContainer/PainelRanking/BoxContainer2" unique_id=2062939889]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer/PainelRanking/BoxContainer2/VSplitContainer" unique_id=1783246304]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ListaRanking" type="VBoxContainer" parent="BoxContainer/PainelRanking/BoxContainer2/VSplitContainer/ScrollContainer" unique_id=4897134]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer/PainelRanking/BoxContainer2/VSplitContainer" unique_id=603534189]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="btn_voltar" type="Button" parent="BoxContainer/PainelRanking/BoxContainer2/VSplitContainer/MarginContainer" unique_id=1985084504]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("1_xuc00")
+text = "VOLTAR PARA A TELA INÍCIAL"
 
 [node name="RankingController" type="Node" parent="." unique_id=547329503]
 script = ExtResource("2_86aud")
@@ -22,96 +160,4 @@ script = ExtResource("2_86aud")
 [node name="RankingModel" type="Node" parent="." unique_id=317360395]
 script = ExtResource("3_3e650")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=136712793]
-layout_mode = 0
-offset_left = -241.0
-offset_top = -272.0
-offset_right = 1657.0
-offset_bottom = 1019.0
-color = Color(0, 0, 0, 1)
-
-[node name="PainelRanking" type="Panel" parent="." unique_id=1328316350]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Titulo" type="Label" parent="PainelRanking" unique_id=763194985]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -44.0
-offset_top = 20.0
-offset_right = 44.0
-offset_bottom = 55.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 25
-text = "TITULO"
-
-[node name="Cabecalho" type="HBoxContainer" parent="PainelRanking" unique_id=1255599021]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -406.0
-offset_top = 96.0
-offset_right = 406.0
-offset_bottom = 119.0
-grow_horizontal = 2
-
-[node name="Data" type="Label" parent="PainelRanking/Cabecalho" unique_id=498049373]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-text = "DATA"
-
-[node name="Nome" type="Label" parent="PainelRanking/Cabecalho" unique_id=1987731129]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-text = "NOME"
-
-[node name="Pontuacao" type="Label" parent="PainelRanking/Cabecalho" unique_id=2003209208]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-text = "PONTUAÇÃO"
-
-[node name="Resultado" type="Label" parent="PainelRanking/Cabecalho" unique_id=872472745]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-text = "RESULTADO"
-
-[node name="ScrollContainer" type="ScrollContainer" parent="PainelRanking" unique_id=1783246304]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 233.0
-offset_top = 142.0
-offset_right = -238.0
-offset_bottom = -68.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ListaRanking" type="VBoxContainer" parent="PainelRanking/ScrollContainer" unique_id=4897134]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="btn_voltar" type="Button" parent="PainelRanking" unique_id=1985084504]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -174.5
-offset_top = -59.0
-offset_right = 174.5
-offset_bottom = -26.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("1_xuc00")
-text = "VOLTAR PARA A TELA INÍCIAL"
-
-[connection signal="pressed" from="PainelRanking/btn_voltar" to="." method="_on_btn_voltar_pressed"]
+[connection signal="pressed" from="BoxContainer/PainelRanking/BoxContainer2/VSplitContainer/MarginContainer/btn_voltar" to="." method="_on_btn_voltar_pressed"]
