@@ -5,6 +5,7 @@ signal tempo_alterado(valor)
 
 
 var tempo_total: float = 0.0
+var modo_mobile := false
 
 
 # ============================================================

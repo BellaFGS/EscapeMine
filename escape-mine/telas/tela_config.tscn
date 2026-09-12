@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtl4pntx6ekjs"]
 
-[ext_resource type="Script" uid="uid://brev50rvm7hfi" path="res://scripts/Telas/tela_config.gd" id="1_lgoop"]
+[ext_resource type="Script" uid="uid://brev50rvm7hfi" path="res://scripts/telas/tela_config.gd" id="1_lgoop"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="2_76fbb"]
 [ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_78uk1"]
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_8huyt"]
@@ -80,6 +80,14 @@ theme_override_font_sizes/font_size = 27
 text = "Músicas do jogo:"
 label_settings = SubResource("LabelSettings_p3w5a")
 
+[node name="Label_mode" type="Label" parent="Menu_Vertical/Menu_Horizontal/Texto" unique_id=355547967]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_78uk1")
+theme_override_font_sizes/font_size = 27
+text = "Modo de jogabilidade: "
+label_settings = SubResource("LabelSettings_p3w5a")
+
 [node name="Barras" type="VBoxContainer" parent="Menu_Vertical/Menu_Horizontal" unique_id=1129094840]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -107,6 +115,16 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
+[node name="SeletorControle" type="OptionButton" parent="Menu_Vertical/Menu_Horizontal/Barras" unique_id=1292357969]
+layout_mode = 2
+size_flags_horizontal = 0
+selected = 0
+item_count = 2
+popup/item_0/text = "PC"
+popup/item_0/id = 0
+popup/item_1/text = "MOBILE"
+popup/item_1/id = 1
+
 [node name="btn_voltar" type="Button" parent="Menu_Vertical" unique_id=885510997]
 process_mode = 3
 layout_mode = 2
@@ -116,4 +134,5 @@ text = "VOLTAR"
 [connection signal="value_changed" from="Menu_Vertical/Menu_Horizontal/Barras/ctr_geral" to="." method="_on_ctr_geral_value_changed"]
 [connection signal="value_changed" from="Menu_Vertical/Menu_Horizontal/Barras/ctr_sfx" to="." method="_on_ctr_sfx_value_changed"]
 [connection signal="value_changed" from="Menu_Vertical/Menu_Horizontal/Barras/ctr_musica" to="." method="_on_ctr_musica_value_changed"]
+[connection signal="item_selected" from="Menu_Vertical/Menu_Horizontal/Barras/SeletorControle" to="." method="_on_seletor_controle_item_selected"]
 [connection signal="pressed" from="Menu_Vertical/btn_voltar" to="." method="_on_btn_voltar_pressed"]

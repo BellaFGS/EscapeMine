@@ -321,7 +321,7 @@ theme_override_font_sizes/font_size = 20
 text = "(R) UPGRADE"
 label_settings = SubResource("LabelSettings_h30ly")
 
-[node name="Pontos" type="Label" parent="control"]
+[node name="Pontos" type="Label" parent="control" unique_id=1954576204]
 layout_mode = 0
 offset_left = 1000.0
 offset_top = 18.0

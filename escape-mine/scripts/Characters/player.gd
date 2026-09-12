@@ -4,7 +4,7 @@ extends "res://scripts/Character.gd"
 signal forca_alterado(valor)
 signal dinamite_up(dinamite)
 
-
+var input_manager: PlayerInputManager
 var regen_intervalo := 0.5
 var delay_regen := 2.0
 
@@ -31,6 +31,8 @@ func _ready():
 
 	speed = 300
 
+	input_manager = PlayerInputManager.new(self)
+
 	# Carrega atributos persistentes.
 	GameManager.carregar_atributos_player(self)
 
@@ -48,7 +50,6 @@ func _ready():
 		inventario.quantidade_item("dinamite")
 	)
 
-
 # ============================================================
 # FÍSICA
 # ============================================================
@@ -58,16 +59,20 @@ func _physics_process(delta):
 	if usando_dinamite or esta_morrendo:
 		return
 
-	var direcao = Vector2(
-		Input.get_action_strength("right")
-		- Input.get_action_strength("left"),
 
-		Input.get_action_strength("down")
-		- Input.get_action_strength("up")
-	).normalized()
+	# ========================================================
+	# COMMANDS
+	# ========================================================
+
+	var comandos := input_manager.obter_comandos()
+
+	for comando in comandos:
+		comando.executar()
 
 
+	# ========================================================
 	# ATAQUE
+	# ========================================================
 
 	if (
 		Input.is_action_just_pressed("attack")
@@ -77,7 +82,9 @@ func _physics_process(delta):
 		atacar()
 
 
+	# ========================================================
 	# REGENERAÇÃO
+	# ========================================================
 
 	tempo_sem_dano += delta
 
@@ -107,14 +114,13 @@ func _physics_process(delta):
 			atualizar_barra_vida()
 
 
+	# ========================================================
 	# EFEITOS
+	# ========================================================
 
 	for efeito in efeitos:
 
 		efeito.atualizar(delta)
-
-
-	mover(direcao)
 
 
 # ============================================================

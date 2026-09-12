@@ -98,8 +98,14 @@ layout_mode = 2
 
 [node name="HSplitContainer" type="HSplitContainer" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer2/Cabecalho/BoxContainer/MarginContainer" unique_id=794370471]
 layout_mode = 2
-theme_override_constants/separation = 90
-split_offsets = PackedInt32Array(0, 0, 0)
+theme_override_constants/separation = 30
+split_offsets = PackedInt32Array(150, 390, 730, 1070)
+split_offset = 150
+
+[node name="Posicao" type="Label" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer2/Cabecalho/BoxContainer/MarginContainer/HSplitContainer" unique_id=1604724077]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "POSIÇÃO"
 
 [node name="Data" type="Label" parent="BoxContainer/PainelRanking/VSplitContainer/BoxContainer2/Cabecalho/BoxContainer/MarginContainer/HSplitContainer" unique_id=498049373]
 custom_minimum_size = Vector2(150, 0)
