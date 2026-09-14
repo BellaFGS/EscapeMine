@@ -186,7 +186,7 @@ horizontal_alignment = 1
 [node name="HSplitContainer" type="HSplitContainer" parent="control/Container/containerMargin" unique_id=24608289]
 layout_mode = 2
 size_flags_vertical = 0
-split_offsets = PackedInt32Array(50, -159)
+split_offsets = PackedInt32Array(50, 98)
 split_offset = 50
 
 [node name="BoxContainerNivel" type="BoxContainer" parent="control/Container/containerMargin/HSplitContainer" unique_id=1362424056]
