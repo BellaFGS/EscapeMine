@@ -6,164 +6,61 @@
 [ext_resource type="Script" uid="uid://d2kdrmtoefi07" path="res://scripts/barra_vida_textura.gd" id="4_logno"]
 [ext_resource type="Texture2D" uid="uid://kkpnlavv23uq" path="res://sprites/Bars/healthbarProgress.png" id="4_prpkp"]
 [ext_resource type="Texture2D" uid="uid://dabo2gmr6qfu" path="res://sprites/Bars/damagebarProgress.png" id="4_q0dk2"]
+[ext_resource type="Texture2D" uid="uid://s37wluspsq4d" path="res://sprites/artes/vida.png" id="7_h30ly"]
+[ext_resource type="Texture2D" uid="uid://b7tci6e4dxnfj" path="res://sprites/objects/items/chave_image.png" id="8_8h06o"]
 [ext_resource type="Texture2D" uid="uid://dnl1kcg3c7b0e" path="res://sprites/Bars/whiteMeter01.png" id="8_g8g4g"]
 [ext_resource type="Script" uid="uid://f0k0gqhbby3d" path="res://scripts/barra_xp_textura.gd" id="8_q0dk2"]
 [ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="8_wrqd1"]
 [ext_resource type="Texture2D" uid="uid://sgqo8ct7qoxt" path="res://sprites/Bars/whiteMeter10.png" id="9_j0801"]
-[ext_resource type="Texture2D" uid="uid://dc4a0cm3nopqe" path="res://sprites/objects/items/dynamite.png" id="11_8h06o"]
-[ext_resource type="Texture2D" uid="uid://laboslv4yj13" path="res://sprites/objects/items/chave.png" id="12_wrqd1"]
+[ext_resource type="Texture2D" uid="uid://87ugma5vt5o0" path="res://sprites/objects/items/dynamite_image.png" id="9_wrqd1"]
 
-[sub_resource type="Theme" id="Theme_kgi0u"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h30ly"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.8627451, 0.5019608, 0.29803923, 0.7058824)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_8h06o"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgi0u"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.8627451, 0.5019608, 0.29803923, 0.7058824)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_h30ly"]
+font_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrqd1"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.92156863, 0.5882353, 0.40784314, 0.7058824)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+corner_detail = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_wrqd1"]
 font = ExtResource("8_wrqd1")
-font_size = 22
+font_size = 25
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kgi0u"]
-atlas = ExtResource("11_8h06o")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wrqd1"]
+load_path = "res://.godot/imported/força.png-6f8765de488ba37385b088703259a136.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h30ly"]
-atlas = ExtResource("11_8h06o")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a3687"]
-atlas = ExtResource("11_8h06o")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5jlhg"]
-atlas = ExtResource("11_8h06o")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dabu4"]
-atlas = ExtResource("11_8h06o")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5exw1"]
-atlas = ExtResource("11_8h06o")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_no3b2"]
-atlas = ExtResource("11_8h06o")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jbbsu"]
-atlas = ExtResource("11_8h06o")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xe4n3"]
-atlas = ExtResource("11_8h06o")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_t4ucv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kgi0u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h30ly")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a3687")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5jlhg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dabu4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5exw1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_no3b2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jbbsu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xe4n3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jpcn4"]
-atlas = ExtResource("12_wrqd1")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dxqvc"]
-atlas = ExtResource("12_wrqd1")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xj845"]
-atlas = ExtResource("12_wrqd1")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s57ib"]
-atlas = ExtResource("12_wrqd1")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mwipf"]
-atlas = ExtResource("12_wrqd1")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qqp2f"]
-atlas = ExtResource("12_wrqd1")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sp3n1"]
-atlas = ExtResource("12_wrqd1")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bpowv"]
-atlas = ExtResource("12_wrqd1")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eleih"]
-atlas = ExtResource("12_wrqd1")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ww7e8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jpcn4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dxqvc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xj845")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s57ib")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mwipf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qqp2f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sp3n1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bpowv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eleih")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}]
-
-[sub_resource type="LabelSettings" id="LabelSettings_h30ly"]
+[sub_resource type="Theme" id="Theme_kgi0u"]
 
 [node name="hud" type="CanvasLayer" unique_id=1794209725]
 
@@ -174,159 +71,256 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_x568p")
 
-[node name="container" type="MarginContainer" parent="control" unique_id=116192819]
+[node name="Container" type="BoxContainer" parent="control" unique_id=1444961157]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 
-[node name="BarraDanoTextura" type="TextureProgressBar" parent="control" unique_id=1098307183]
-layout_mode = 0
-offset_left = 48.999996
-offset_top = 48.999996
-offset_right = 113.0
-offset_bottom = 58.999996
-scale = Vector2(2.5, 2.5)
+[node name="containerMargin" type="MarginContainer" parent="control/Container" unique_id=116192819]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="control/Container/containerMargin" unique_id=2062189107]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="BoxContainerAtributos" type="BoxContainer" parent="control/Container/containerMargin/MarginContainer" unique_id=908581611]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VSplitContainerAtributos" type="VSplitContainer" parent="control/Container/containerMargin/MarginContainer/BoxContainerAtributos" unique_id=886960534]
+layout_mode = 2
+size_flags_horizontal = 2
+split_offsets = PackedInt32Array(50)
+split_offset = 50
+
+[node name="BoxContainerItemDinamite" type="BoxContainer" parent="control/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos" unique_id=2076609407]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PanelItemDinamite" type="Panel" parent="control/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemDinamite" unique_id=998774410]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_h30ly")
+
+[node name="MarginContainer" type="MarginContainer" parent="control/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemDinamite/PanelItemDinamite" unique_id=2098779823]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+
+[node name="HSplitContainer" type="HSplitContainer" parent="control/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemDinamite/PanelItemDinamite/MarginContainer" unique_id=848530949]
+layout_mode = 2
+split_offsets = PackedInt32Array(-15)
+split_offset = -15
+
+[node name="TextureRect" type="TextureRect" parent="control/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemDinamite/PanelItemDinamite/MarginContainer/HSplitContainer" unique_id=1191735463]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("9_wrqd1")
+
+[node name="Dinamite" type="Label" parent="control/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemDinamite/PanelItemDinamite/MarginContainer/HSplitContainer" unique_id=651764234]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "0"
+
+[node name="BoxContainerItemChave" type="BoxContainer" parent="control/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos" unique_id=242980920]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="PanelItemChave" type="Panel" parent="control/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemChave" unique_id=256452514]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_kgi0u")
+
+[node name="TextureRect" type="TextureRect" parent="control/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemChave/PanelItemChave" unique_id=1996447900]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_8h06o")
+
+[node name="BoxContainerUpgrade" type="BoxContainer" parent="control/Container/containerMargin" unique_id=1549077095]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="TextoUpgrade" type="Label" parent="control/Container/containerMargin/BoxContainerUpgrade" unique_id=1873969042]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("8_wrqd1")
+theme_override_font_sizes/font_size = 50
+text = "(R) UPGRADE"
+label_settings = SubResource("LabelSettings_h30ly")
+horizontal_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="control/Container/containerMargin" unique_id=24608289]
+layout_mode = 2
+size_flags_vertical = 0
+split_offsets = PackedInt32Array(50, -159)
+split_offset = 50
+
+[node name="BoxContainerNivel" type="BoxContainer" parent="control/Container/containerMargin/HSplitContainer" unique_id=1362424056]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PanelNivel" type="Panel" parent="control/Container/containerMargin/HSplitContainer/BoxContainerNivel" unique_id=91949582]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_wrqd1")
+
+[node name="Nivel" type="Label" parent="control/Container/containerMargin/HSplitContainer/BoxContainerNivel/PanelNivel" unique_id=1582620058]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
+label_settings = SubResource("LabelSettings_wrqd1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BoxContainerStatus" type="BoxContainer" parent="control/Container/containerMargin/HSplitContainer" unique_id=730550406]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="control/Container/containerMargin/HSplitContainer/BoxContainerStatus" unique_id=864188197]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="BoxContainerDano" type="BoxContainer" parent="control/Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer" unique_id=1124227527]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="HSplitContainer" type="HSplitContainer" parent="control/Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano" unique_id=2102969418]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="control/Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer" unique_id=971585650]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_wrqd1")
+expand_mode = 1
+
+[node name="BarraDanoTextura" type="TextureProgressBar" parent="control/Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer" unique_id=1098307183]
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
 texture_under = ExtResource("3_tiyv1")
 texture_progress = ExtResource("4_q0dk2")
 script = ExtResource("3_am62c")
 
-[node name="BarraVidaTextura" type="TextureProgressBar" parent="control" unique_id=30270309]
-layout_mode = 0
-offset_left = 48.999996
-offset_top = 8.000003
-offset_right = 113.0
-offset_bottom = 18.000004
-scale = Vector2(2.5, 2.5)
-texture_under = ExtResource("3_tiyv1")
-texture_progress = ExtResource("4_prpkp")
-script = ExtResource("4_logno")
-
-[node name="TextoVida" type="Label" parent="control" unique_id=581827015]
-layout_mode = 0
-offset_left = 105.0
-offset_top = 12.0
-offset_right = 167.0
-offset_bottom = 35.0
-theme = SubResource("Theme_kgi0u")
-theme_override_fonts/font = ExtResource("8_wrqd1")
-text = "100/200"
-
-[node name="TextoForca" type="Label" parent="control" unique_id=1661892000]
-layout_mode = 0
-offset_left = 119.0
-offset_top = 53.0
-offset_right = 140.0
-offset_bottom = 76.0
+[node name="TextoForca" type="Label" parent="control/Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer/BarraDanoTextura" unique_id=1661892000]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_kgi0u")
 theme_override_fonts/font = ExtResource("8_wrqd1")
 text = "1"
 horizontal_alignment = 1
 
-[node name="Bg_Nivel" type="Sprite2D" parent="control" unique_id=577712207]
-modulate = Color(0.6486253, 0.0003133312, 0.6486208, 1)
-clip_children = 2
-position = Vector2(24, 21)
-scale = Vector2(31.5, 29.5)
-skew = 0.40666172
-texture = SubResource("CanvasTexture_8h06o")
+[node name="BoxContainerVida" type="BoxContainer" parent="control/Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer" unique_id=1166053400]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
 
-[node name="Nivel" type="Label" parent="control" unique_id=503118720]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 9.0
-offset_right = 41.0
-offset_bottom = 32.0
-text = "0"
-label_settings = SubResource("LabelSettings_wrqd1")
-horizontal_alignment = 1
+[node name="HSplitContainer" type="HSplitContainer" parent="control/Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida" unique_id=131989788]
+layout_mode = 2
+theme_override_constants/separation = 12
+split_offsets = PackedInt32Array(-105)
+split_offset = -105
 
-[node name="ItemDinamite" type="AnimatedSprite2D" parent="control" unique_id=282409802]
-position = Vector2(28, 122)
-scale = Vector2(1.3125, 1.28125)
-sprite_frames = SubResource("SpriteFrames_t4ucv")
-autoplay = "default"
-frame_progress = 0.8356087
+[node name="TextureRect" type="TextureRect" parent="control/Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer" unique_id=1343523756]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("7_h30ly")
+expand_mode = 1
 
-[node name="ItemChave" type="AnimatedSprite2D" parent="control" unique_id=882526637]
-visible = false
-position = Vector2(28, 173.00002)
-rotation = 1.5742761
-scale = Vector2(1.4687499, 1.4337796)
-sprite_frames = SubResource("SpriteFrames_ww7e8")
-autoplay = "default"
-frame_progress = 0.020022104
+[node name="BarraVidaTextura" type="TextureProgressBar" parent="control/Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer" unique_id=30270309]
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = ExtResource("3_tiyv1")
+texture_progress = ExtResource("4_prpkp")
+script = ExtResource("4_logno")
 
-[node name="Dinamite" type="Label" parent="control" unique_id=651764234]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 110.0
-offset_right = 95.0
-offset_bottom = 133.0
-
-[node name="BarraXp" type="Control" parent="control" unique_id=1458318929]
+[node name="TextoVida" type="Label" parent="control/Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer/BarraVidaTextura" unique_id=581827015]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -40.0
-offset_right = 128.0
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -8.0
+offset_right = 23.0
+offset_bottom = 8.0
 grow_horizontal = 2
-grow_vertical = 0
-
-[node name="BarraXpTextura" type="TextureProgressBar" parent="control/BarraXp" unique_id=307783242]
-layout_mode = 0
-offset_top = 16.0
-offset_right = 64.0
-offset_bottom = 27.0
-scale = Vector2(4, 2)
-texture_under = ExtResource("8_g8g4g")
-texture_progress = ExtResource("9_j0801")
-script = ExtResource("8_q0dk2")
-
-[node name="TextoXp" type="Label" parent="control/BarraXp" unique_id=1101355491]
-layout_mode = 0
-offset_top = 15.0
-offset_right = 256.0
-offset_bottom = 38.0
+grow_vertical = 2
+theme = SubResource("Theme_kgi0u")
 theme_override_fonts/font = ExtResource("8_wrqd1")
 text = "100/200"
-horizontal_alignment = 1
 
-[node name="UpgradeContainer" type="MarginContainer" parent="control" unique_id=691053215]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -62.5
-offset_right = 62.5
-offset_bottom = 40.0
-grow_horizontal = 2
-
-[node name="TextoUpgrade" type="Label" parent="control/UpgradeContainer" unique_id=1873969042]
+[node name="BoxContainerPontos" type="BoxContainer" parent="control/Container/containerMargin/HSplitContainer" unique_id=710020244]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("8_wrqd1")
-theme_override_font_sizes/font_size = 20
-text = "(R) UPGRADE"
-label_settings = SubResource("LabelSettings_h30ly")
+size_flags_horizontal = 10
+size_flags_vertical = 0
 
-[node name="Pontos" type="Label" parent="control" unique_id=1954576204]
-layout_mode = 0
-offset_left = 1000.0
-offset_top = 18.0
-offset_right = 1250.0
-offset_bottom = 52.0
+[node name="Pontos" type="Label" parent="control/Container/containerMargin/HSplitContainer/BoxContainerPontos" unique_id=1954576204]
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.82, 0.2, 1)
 theme_override_colors/font_shadow_color = Color(0.04, 0.01, 0.08, 1)
 theme_override_constants/shadow_offset_x = 2
@@ -335,3 +329,49 @@ theme_override_fonts/font = ExtResource("8_wrqd1")
 theme_override_font_sizes/font_size = 25
 text = "SCORE  0000000"
 horizontal_alignment = 2
+
+[node name="BoxContainerBarraXp" type="BoxContainer" parent="control/Container/containerMargin" unique_id=974165695]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+
+[node name="BarraXp" type="Control" parent="control/Container/containerMargin/BoxContainerBarraXp" unique_id=1458318929]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="BarraXpTextura" type="TextureProgressBar" parent="control/Container/containerMargin/BoxContainerBarraXp/BarraXp" unique_id=307783242]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -19.0
+offset_right = -96.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4, 2)
+nine_patch_stretch = true
+texture_under = ExtResource("8_g8g4g")
+texture_progress = ExtResource("9_j0801")
+script = ExtResource("8_q0dk2")
+
+[node name="TextoXp" type="Label" parent="control/Container/containerMargin/BoxContainerBarraXp/BarraXp" unique_id=1101355491]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -19.0
+offset_right = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("8_wrqd1")
+theme_override_font_sizes/font_size = 18
+text = "100/200"
+horizontal_alignment = 1
