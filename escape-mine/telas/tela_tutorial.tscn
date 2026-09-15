@@ -780,7 +780,7 @@ offset_top = 2.0
 offset_right = 1282.0
 offset_bottom = 716.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dmh6u")
-current_tab = 2
+current_tab = 1
 tabs_visible = false
 
 [node name="Pagina1" type="Control" parent="Carrossel" unique_id=710999691]
@@ -991,7 +991,6 @@ VENCEU!"
 horizontal_alignment = 1
 
 [node name="Pagina2" type="Control" parent="Carrossel" unique_id=1030140298]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -1195,6 +1194,7 @@ text = "
 horizontal_alignment = 1
 
 [node name="Pagina3" type="Control" parent="Carrossel" unique_id=795448921]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
