@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dv67ywayweo35" path="res://scripts/sala_3.gd" id="1_t7fxh"]
 [ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="2_fiapn"]
 [ext_resource type="PackedScene" uid="uid://dtl4pntx6ekjs" path="res://telas/tela_config.tscn" id="3_fpd8b"]
+[ext_resource type="PackedScene" uid="uid://bu0jsqiq0wurx" path="res://telas/hud_mobile.tscn" id="3_hggu5"]
 [ext_resource type="PackedScene" uid="uid://754k33pvudct" path="res://telas/tela_pause.tscn" id="4_hggu5"]
 [ext_resource type="PackedScene" uid="uid://bkt3ql4aanidh" path="res://telas/tela_upgrade.tscn" id="5_krevu"]
 [ext_resource type="Texture2D" uid="uid://ca0wfsf7mwjjj" path="res://sprites/tilesets/tileset.png" id="6_n7jyu"]
@@ -10522,6 +10523,8 @@ sources/2 = SubResource("TileSetAtlasSource_jai67")
 script = ExtResource("1_t7fxh")
 
 [node name="hud" parent="." unique_id=1794209725 instance=ExtResource("2_fiapn")]
+
+[node name="hud_mobile" parent="." unique_id=542393176 instance=ExtResource("3_hggu5")]
 
 [node name="Tela_Config" parent="." unique_id=1788756212 instance=ExtResource("3_fpd8b")]
 visible = false

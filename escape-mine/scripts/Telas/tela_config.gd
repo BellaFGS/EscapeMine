@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-@onready var ctr_geral: HSlider = $Menu_Vertical/Menu_Horizontal/Barras/ctr_geral
-@onready var ctr_sfx: HSlider = $Menu_Vertical/Menu_Horizontal/Barras/ctr_sfx
-@onready var ctr_musica: HSlider = $Menu_Vertical/Menu_Horizontal/Barras/ctr_musica
-@onready var seletor_controle: OptionButton = $Menu_Vertical/Menu_Horizontal/Barras/SeletorControle
+@onready var ctr_geral: HSlider = $BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2/ctr_geral
+@onready var ctr_sfx: HSlider = $BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2/ctr_sfx
+@onready var ctr_musica: HSlider = $BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2/ctr_musica
+@onready var seletor_controle: OptionButton = $BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2/SeletorControle
 
 
 func _ready():
@@ -42,7 +42,9 @@ func _on_ctr_sfx_value_changed(value):
 func _on_seletor_controle_item_selected(index: int) -> void:
 
 	if index == 0:
-		GameManager.modo_mobile = false
+
+		GameManager.definir_modo_mobile(false)
 
 	elif index == 1:
-		GameManager.modo_mobile = true
+
+		GameManager.definir_modo_mobile(true)

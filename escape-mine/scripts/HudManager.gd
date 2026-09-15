@@ -109,6 +109,8 @@ func _ready():
 
 	texto_upgrade.visible = false
 
+	GameManager.modo_controle_alterado.connect(atualizar_modo_controle)
+	atualizar_modo_controle(GameManager.modo_mobile)
 
 # ============================================================
 # PROCESSO
@@ -217,3 +219,7 @@ func dinamite(valor):
 func atualizar_pontuacao(valor: int):
 
 	texto_pontos.text = "SCORE  %07d" % valor
+
+func atualizar_modo_controle(mobile: bool) -> void:
+
+	visible = not mobile

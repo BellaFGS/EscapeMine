@@ -111,6 +111,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 script = ExtResource("1_wa824")
 
 [node name="Container" type="BoxContainer" parent="hud_mobile" unique_id=987920677]
@@ -497,14 +498,17 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="hud_mobile/Container/containerMargin/BoxContainerJoystick" unique_id=2009973065]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 200
+mouse_filter = 2
+theme_override_constants/margin_left = 150
 theme_override_constants/margin_bottom = 80
 
 [node name="Virtual Joystick" parent="hud_mobile/Container/containerMargin/BoxContainerJoystick/MarginContainer" unique_id=2084266493 instance=ExtResource("13_1cu5s")]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4

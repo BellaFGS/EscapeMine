@@ -22,9 +22,11 @@ var tem_escudo := false
 func _ready():
 	add_to_group("player")
 	speed = 300
-
 	input_manager = PlayerInputManager.new(self)
 	item_controller = ItemUseController.new(self)
+	GameManager.partida_resetada.connect(input_manager.resetar)
+	GameManager.carregar_atributos_player(self)
+
 
 	# CONEXÃO GARANTIDA DO SINAL DO ANIMATOR
 	if anim:

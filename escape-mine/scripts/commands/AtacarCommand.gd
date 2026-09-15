@@ -13,5 +13,4 @@ func executar() -> void:
 
 	if jogador == null:
 		return
-
 	jogador.atacar()

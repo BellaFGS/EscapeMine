@@ -10,7 +10,7 @@ extends Control
 @onready var btn_menu: Button = $Container/containerMargin/BoxContainerMenu/Button
 
 # ============================================================
-# REFERÊNCIAS DE UI (IGUAL AO HUD NORMAL)
+# REFERÊNCIAS DE UI
 # ============================================================
 @onready var barra_dano = $Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer/BarraDanoTextura
 @onready var barra_vida = $Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer/BarraVidaTextura
@@ -43,33 +43,45 @@ func _ready() -> void:
 		return
 
 	input_manager = player.input_manager
-	
+
 	# ========================================================
-	# AJUSTE DEFINITIVO DO BOTÃO DE MENU
+	# 1. DESATIVA O BLOQUEIO DE MOUSE EM TODOS OS CONTAINERS PAIS
+	# ========================================================
+	var containers_para_ignorar = [
+		$Container,
+		$Container/containerMargin,
+		$Container/containerMargin/MarginContainer,
+		$Container/containerMargin/MarginContainer2,
+		$Container/containerMargin/BoxContainerBarraXp,
+		$Container/containerMargin/BoxContainerJoystick,
+		$Container/containerMargin/BoxContainerJoystick/MarginContainer
+	]
+
+	for c in containers_para_ignorar:
+		if c:
+			c.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	# ========================================================
+	# 2. TRAZ O JOYSTICK PARA A FRENTE E ATIVA A RECEPÇÃO
+	# ========================================================
+	if joystick_movimento:
+		joystick_movimento.move_to_front()
+		joystick_movimento.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	# ========================================================
+	# 3. CONFIGURAÇÃO DO BOTÃO DE MENU E DEMAIS BOTÕES
 	# ========================================================
 	if btn_menu:
 		btn_menu.focus_mode = Control.FOCUS_NONE
 		btn_menu.mouse_filter = Control.MOUSE_FILTER_STOP
 
-		# Move o container do menu para o topo da árvore de exibição (sem desformatar)
 		var container_menu = $Container/containerMargin/BoxContainerMenu
 		if container_menu:
 			container_menu.move_to_front()
 
-		# Desativa o bloqueio de mouse em todos os containers até a raiz
-		var pai = btn_menu.get_parent()
-		while pai and pai is Control:
-			pai.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			if pai == self:
-				break
-			pai = pai.get_parent()
-
 		if not btn_menu.pressed.is_connected(_on_button_pressed):
 			btn_menu.pressed.connect(_on_button_pressed)
 
-	# ========================================================
-	# IMPEDE OS BOTÕES DE ROUBAREM O FOCO (FIX DO TRAVAMENTO)
-	# ========================================================
 	if btn_upgrade:
 		btn_upgrade.focus_mode = Control.FOCUS_NONE
 	
@@ -77,23 +89,18 @@ func _ready() -> void:
 		btn_item.focus_mode = Control.FOCUS_NONE
 
 	# ========================================================
-	# SINAIS DO PLAYER
+	# SINAIS DO PLAYER E SISTEMAS
 	# ========================================================
 	player.vida_alterada.connect(atualizar_vida)
 	player.forca_alterado.connect(atualizar_forca)
 	player.dinamite_up.connect(atualizar_dinamite)
 
-	# ========================================================
-	# SINAIS DO XP E SCORE
-	# ========================================================
 	UpgradeSystem.xp_alterado.connect(atualizar_xp)
 	UpgradeSystem.nivel_up.connect(atualizar_nivel)
 	UpgradeSystem.liberar_upgrade.connect(mostrar_upgrade)
 	ScoreManager.pontuacao_alterada.connect(atualizar_pontuacao)
 
-	# ========================================================
-	# ATUALIZAÇÃO INICIAL
-	# ========================================================
+	# Atualização inicial
 	atualizar_vida(player.vida)
 	atualizar_forca(player.forca)
 	atualizar_dinamite(GameManager.player_dinamite)
@@ -103,6 +110,8 @@ func _ready() -> void:
 
 	ocultar_upgrade()
 
+	GameManager.modo_controle_alterado.connect(atualizar_modo_controle)
+	atualizar_modo_controle(GameManager.modo_mobile)
 
 func _process(_delta: float) -> void:
 
@@ -113,8 +122,13 @@ func _process(_delta: float) -> void:
 	if player.item_controller and player.item_controller.usando_item:
 		input_manager.limpar_direcao_mobile()
 	else:
-		if joystick_movimento:
+		if joystick_movimento and joystick_movimento.output != Vector2.ZERO:
+			# Movimentação via Joystick Touch
 			input_manager.definir_direcao_mobile(joystick_movimento.output)
+		else:
+			# Fallback para WASD / Setas durante testes no PC
+			var direcao_teclado = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+			input_manager.definir_direcao_mobile(direcao_teclado)
 
 	atualizar_chave(GameManager.player_tem_chave)
 	atualizar_dinamite(GameManager.player_dinamite)
@@ -191,6 +205,9 @@ func ocultar_upgrade() -> void:
 	if btn_upgrade:
 		btn_upgrade.visible = false
 
+func atualizar_modo_controle(mobile: bool) -> void:
+
+	visible = mobile
 
 # ============================================================
 # BOTÕES

@@ -65,18 +65,16 @@ var _touch_index : int = -1
 # FUNCTIONS
 
 func _ready() -> void:
-	if ProjectSettings.get_setting("input_devices/pointing/emulate_mouse_from_touch"):
-		printerr("The Project Setting 'emulate_mouse_from_touch' should be set to False")
-	if not ProjectSettings.get_setting("input_devices/pointing/emulate_touch_from_mouse"):
-		printerr("The Project Setting 'emulate_touch_from_mouse' should be set to True")
-	
-	if not DisplayServer.is_touchscreen_available() and visibility_mode == Visibility_mode.TOUCHSCREEN_ONLY :
+	if not DisplayServer.is_touchscreen_available() and visibility_mode == Visibility_mode.TOUCHSCREEN_ONLY:
 		hide()
 	
 	if visibility_mode == Visibility_mode.WHEN_TOUCHED:
 		hide()
 
 func _input(event: InputEvent) -> void:
+	# ============================================================
+	# SUPORTE A TOUCHSCREEN (TELA TÁTIL / CELULAR)
+	# ============================================================
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			if _is_point_inside_joystick_area(event.position) and _touch_index == -1:
@@ -94,10 +92,36 @@ func _input(event: InputEvent) -> void:
 			if visibility_mode == Visibility_mode.WHEN_TOUCHED:
 				hide()
 			get_viewport().set_input_as_handled()
+
 	elif event is InputEventScreenDrag:
 		if event.index == _touch_index:
 			_update_joystick(event.position)
 			get_viewport().set_input_as_handled()
+
+	# ============================================================
+	# NOVO: SUPORTE A MOUSE (TESTES NO COMPUTADOR)
+	# ============================================================
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			if _is_point_inside_joystick_area(event.position) and _touch_index == -1:
+				if joystick_mode == Joystick_mode.DYNAMIC or joystick_mode == Joystick_mode.FOLLOWING or (joystick_mode == Joystick_mode.FIXED and _is_point_inside_base(event.position)):
+					if joystick_mode == Joystick_mode.DYNAMIC or joystick_mode == Joystick_mode.FOLLOWING:
+						_move_base(event.position)
+					if visibility_mode == Visibility_mode.WHEN_TOUCHED:
+						show()
+					_touch_index = 999 # Índice reservado para o mouse
+					_tip.modulate = pressed_color
+					_update_joystick(event.position)
+					get_viewport().set_input_as_handled()
+		elif _touch_index == 999:
+			_reset()
+			if visibility_mode == Visibility_mode.WHEN_TOUCHED:
+				hide()
+			get_viewport().set_input_as_handled()
+
+	elif event is InputEventMouseMotion and _touch_index == 999:
+		_update_joystick(event.position)
+		get_viewport().set_input_as_handled()
 
 func _move_base(new_position: Vector2) -> void:
 	_base.global_position = new_position - _base.pivot_offset * get_global_transform_with_canvas().get_scale()
