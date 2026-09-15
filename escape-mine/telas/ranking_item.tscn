@@ -4,12 +4,15 @@
 
 [node name="ranking_item" type="HBoxContainer" unique_id=1552926097]
 custom_minimum_size = Vector2(80, 0)
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
-offset_bottom = 23.0
+anchor_bottom = 0.032
+offset_left = -1.0
+offset_top = -2.0
+offset_bottom = -2.040001
 grow_horizontal = 2
 size_flags_horizontal = 3
-size_flags_vertical = 6
+size_flags_vertical = 3
 script = ExtResource("1_k1m4u")
 
 [node name="BoxContainer" type="BoxContainer" parent="." unique_id=1067378864]
@@ -20,13 +23,19 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme_override_constants/margin_top = 0
 
 [node name="HSplitContainer" type="HSplitContainer" parent="BoxContainer/MarginContainer" unique_id=225007616]
 layout_mode = 2
-theme_override_constants/separation = 90
-split_offsets = PackedInt32Array(150, 490, 830)
+theme_override_constants/separation = 30
+split_offsets = PackedInt32Array(150, 390, 730, 1070)
 split_offset = 150
+
+[node name="Posicao" type="Label" parent="BoxContainer/MarginContainer/HSplitContainer" unique_id=834701131]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
+text = "POSIÇÃO"
 
 [node name="Data" type="Label" parent="BoxContainer/MarginContainer/HSplitContainer" unique_id=809734806]
 custom_minimum_size = Vector2(150, 0)

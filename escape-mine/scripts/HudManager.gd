@@ -1,26 +1,29 @@
 extends Control
 
 
-@onready var barra_vida = $BarraVidaTextura
-@onready var barra_dano = $BarraDanoTextura
-@onready var barra_xp = $BarraXp/BarraXpTextura
+@onready var barra_vida = $Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer/BarraVidaTextura
+@onready var barra_dano = $Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer/BarraDanoTextura
+@onready var barra_xp = $Container/containerMargin/BoxContainerBarraXp/BarraXp/BarraXpTextura
 
-@onready var texto_vida = $TextoVida
-@onready var texto_força = $TextoForca
-@onready var texto_xp = $BarraXp/TextoXp
-@onready var texto_nivel = $Nivel
-@onready var texto_pontos: Label = $Pontos
 
-@onready var texto_dinamite = $Dinamite
-@onready var chave = $ItemChave
+@onready var texto_vida = $Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer/BarraVidaTextura/TextoVida
+@onready var texto_força = $Container/containerMargin/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer/BarraDanoTextura/TextoForca
+@onready var texto_xp = $Container/containerMargin/BoxContainerBarraXp/BarraXp/TextoXp
+@onready var texto_nivel = $Container/containerMargin/HSplitContainer/BoxContainerNivel/PanelNivel/Nivel
+@onready var texto_pontos: Label = $Container/containerMargin/HSplitContainer/BoxContainerPontos/Pontos
 
-@onready var texto_upgrade: Label = $UpgradeContainer/TextoUpgrade
+@onready var texto_dinamite = $Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemDinamite/PanelItemDinamite/MarginContainer/HSplitContainer/Dinamite
+@onready var chave = $Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemChave
+
+@onready var texto_upgrade: Label = $Container/containerMargin/BoxContainerUpgrade/TextoUpgrade
 
 
 var player
 
 
 func _ready():
+	
+	
 
 	# ============================================================
 	# SCORE
@@ -130,7 +133,12 @@ func _process(_delta):
 func mostrar_upgrade(valor):
 
 	texto_upgrade.visible = valor
-
+	if valor:
+		# Se TextoUpgrade for filho direto da HUD, basta dar move_to_front nele
+		texto_upgrade.move_to_front()
+		
+		# Se ele estiver dentro de um BoxContainerUpgrade, mova o container pai para frente:
+		# $Container/containerMargin/BoxContainerUpgrade.move_to_front()
 
 # ============================================================
 # VIDA

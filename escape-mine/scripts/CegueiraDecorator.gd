@@ -11,7 +11,7 @@ func aplicar(novo_alvo):
 
 	# CanvasLayer
 	canvas_layer = CanvasLayer.new()
-	canvas_layer.layer = 999
+	canvas_layer.layer = 5
 
 	# Tela preta
 	overlay = ColorRect.new()

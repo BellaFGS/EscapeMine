@@ -1,0 +1,516 @@
+[gd_scene format=3 uid="uid://bu0jsqiq0wurx"]
+
+[ext_resource type="Texture2D" uid="uid://87ugma5vt5o0" path="res://sprites/objects/items/dynamite_image.png" id="1_eg35x"]
+[ext_resource type="Script" uid="uid://dda3aj18an4ip" path="res://scripts/hud_mobile.gd" id="1_wa824"]
+[ext_resource type="Texture2D" uid="uid://b7tci6e4dxnfj" path="res://sprites/objects/items/chave_image.png" id="2_1cu5s"]
+[ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="3_e05di"]
+[ext_resource type="Texture2D" uid="uid://cbm5edo0xmqch" path="res://sprites/artes/menu_icone.png" id="4_e05di"]
+[ext_resource type="Texture2D" uid="uid://caragfwj1jahx" path="res://sprites/Bars/healthbarUnder.png" id="4_wa824"]
+[ext_resource type="Texture2D" uid="uid://dabo2gmr6qfu" path="res://sprites/Bars/damagebarProgress.png" id="5_65uya"]
+[ext_resource type="Script" uid="uid://b43y6glha8yvq" path="res://scripts/barra_dano_textura.gd" id="6_m2mts"]
+[ext_resource type="Texture2D" uid="uid://s37wluspsq4d" path="res://sprites/artes/vida.png" id="7_agknn"]
+[ext_resource type="Texture2D" uid="uid://kkpnlavv23uq" path="res://sprites/Bars/healthbarProgress.png" id="8_17pay"]
+[ext_resource type="Script" uid="uid://d2kdrmtoefi07" path="res://scripts/barra_vida_textura.gd" id="9_8bgss"]
+[ext_resource type="Texture2D" uid="uid://dnl1kcg3c7b0e" path="res://sprites/Bars/whiteMeter01.png" id="10_he700"]
+[ext_resource type="Texture2D" uid="uid://sgqo8ct7qoxt" path="res://sprites/Bars/whiteMeter10.png" id="11_quyq6"]
+[ext_resource type="Script" uid="uid://f0k0gqhbby3d" path="res://scripts/barra_xp_textura.gd" id="12_a85sq"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="13_1cu5s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wa824"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.92156863, 0.5882353, 0.40784314, 0.7058824)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_65uya"]
+font = ExtResource("3_e05di")
+font_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2mts"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.8627451, 0.5019608, 0.29803923, 0.7058824)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agknn"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.8627451, 0.5019608, 0.29803923, 0.7058824)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_17pay"]
+font_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bgss"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.98039216, 0.98039216, 0.98039216, 0.6901961)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_he700"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.8117647)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65uya"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.22352941, 0.22352941, 0.22352941, 0.8235294)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_quyq6"]
+load_path = "res://.godot/imported/força.png-6f8765de488ba37385b088703259a136.ctex"
+
+[sub_resource type="Theme" id="Theme_a85sq"]
+
+[node name="hud_mobile" type="CanvasLayer" unique_id=542393176]
+
+[node name="hud_mobile" type="Control" parent="." unique_id=967921721]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_wa824")
+
+[node name="Container" type="BoxContainer" parent="hud_mobile" unique_id=987920677]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="containerMargin" type="MarginContainer" parent="hud_mobile/Container" unique_id=1512808479]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="hud_mobile/Container/containerMargin" unique_id=616827754]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="BoxContainerAtributos" type="BoxContainer" parent="hud_mobile/Container/containerMargin/MarginContainer" unique_id=1332973682]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VSplitContainerAtributos" type="VSplitContainer" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos" unique_id=912174375]
+layout_mode = 2
+size_flags_horizontal = 2
+split_offsets = PackedInt32Array(50)
+split_offset = 50
+
+[node name="BoxContainerNivel" type="BoxContainer" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos" unique_id=2144082403]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PanelNivel" type="Panel" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerNivel" unique_id=1609785397]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_wa824")
+
+[node name="Nivel" type="Label" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerNivel/PanelNivel" unique_id=1168503511]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
+label_settings = SubResource("LabelSettings_65uya")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BoxContainerItemDinamite" type="BoxContainer" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos" unique_id=433228926]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PanelItemDinamite" type="Panel" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemDinamite" unique_id=515658783]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_m2mts")
+
+[node name="MarginContainer" type="MarginContainer" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemDinamite/PanelItemDinamite" unique_id=1286922915]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+
+[node name="HSplitContainer" type="HSplitContainer" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemDinamite/PanelItemDinamite/MarginContainer" unique_id=635279013]
+layout_mode = 2
+split_offsets = PackedInt32Array(-15)
+split_offset = -15
+
+[node name="TextureRect" type="TextureRect" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemDinamite/PanelItemDinamite/MarginContainer/HSplitContainer" unique_id=767057174]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("1_eg35x")
+
+[node name="Dinamite" type="Label" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemDinamite/PanelItemDinamite/MarginContainer/HSplitContainer" unique_id=562145503]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "0"
+
+[node name="BoxContainerItemChave" type="BoxContainer" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos" unique_id=294905350]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="PanelItemChave" type="Panel" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemChave" unique_id=1400327425]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_agknn")
+
+[node name="TextureRect" type="TextureRect" parent="hud_mobile/Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemChave/PanelItemChave" unique_id=376811362]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1cu5s")
+
+[node name="BoxContainerUpgrade" type="BoxContainer" parent="hud_mobile/Container/containerMargin" unique_id=977929917]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="TextoUpgrade" type="Label" parent="hud_mobile/Container/containerMargin/BoxContainerUpgrade" unique_id=1557355920]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("3_e05di")
+theme_override_font_sizes/font_size = 50
+text = "<<UPGRADE>>"
+label_settings = SubResource("LabelSettings_17pay")
+horizontal_alignment = 1
+
+[node name="BoxContainerMenu" type="BoxContainer" parent="hud_mobile/Container/containerMargin" unique_id=513059365]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="hud_mobile/Container/containerMargin/BoxContainerMenu" unique_id=1072376337]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_8bgss")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_he700")
+theme_override_styles/hover = SubResource("StyleBoxFlat_65uya")
+icon = ExtResource("4_e05di")
+expand_icon = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="hud_mobile/Container/containerMargin" unique_id=1576322893]
+layout_mode = 2
+theme_override_constants/margin_left = 70
+
+[node name="HSplitContainer" type="HSplitContainer" parent="hud_mobile/Container/containerMargin/MarginContainer2" unique_id=129325212]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 12
+split_offsets = PackedInt32Array(67)
+split_offset = 67
+
+[node name="BoxContainerStatus" type="BoxContainer" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer" unique_id=20761336]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus" unique_id=795737993]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="BoxContainerDano" type="BoxContainer" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer" unique_id=560912411]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="HSplitContainer" type="HSplitContainer" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano" unique_id=1824355506]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer" unique_id=1250730426]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_quyq6")
+expand_mode = 1
+
+[node name="BarraDanoTextura" type="TextureProgressBar" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer" unique_id=285950068]
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = ExtResource("4_wa824")
+texture_progress = ExtResource("5_65uya")
+script = ExtResource("6_m2mts")
+
+[node name="TextoForca" type="Label" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer/BarraDanoTextura" unique_id=1742316641]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_a85sq")
+theme_override_fonts/font = ExtResource("3_e05di")
+text = "1"
+horizontal_alignment = 1
+
+[node name="BoxContainerVida" type="BoxContainer" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer" unique_id=674365340]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="HSplitContainer" type="HSplitContainer" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida" unique_id=1729862216]
+layout_mode = 2
+theme_override_constants/separation = 12
+split_offsets = PackedInt32Array(-105)
+split_offset = -105
+
+[node name="TextureRect" type="TextureRect" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer" unique_id=529689608]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("7_agknn")
+expand_mode = 1
+
+[node name="BarraVidaTextura" type="TextureProgressBar" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer" unique_id=1816202491]
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = ExtResource("4_wa824")
+texture_progress = ExtResource("8_17pay")
+script = ExtResource("9_8bgss")
+
+[node name="TextoVida" type="Label" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer/BarraVidaTextura" unique_id=1745504777]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -8.0
+offset_right = 23.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_a85sq")
+theme_override_fonts/font = ExtResource("3_e05di")
+text = "100/200"
+
+[node name="BoxContainerPontos" type="BoxContainer" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer" unique_id=1500447856]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="Pontos" type="Label" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerPontos" unique_id=35503230]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0.04, 0.01, 0.08, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_e05di")
+theme_override_font_sizes/font_size = 25
+text = "SCORE  0000000"
+horizontal_alignment = 2
+
+[node name="BoxContainerBarraXp" type="BoxContainer" parent="hud_mobile/Container/containerMargin" unique_id=70509450]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+
+[node name="BarraXp" type="Control" parent="hud_mobile/Container/containerMargin/BoxContainerBarraXp" unique_id=2046351859]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="BarraXpTextura" type="TextureProgressBar" parent="hud_mobile/Container/containerMargin/BoxContainerBarraXp/BarraXp" unique_id=526486415]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -19.0
+offset_right = -96.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4, 2)
+nine_patch_stretch = true
+texture_under = ExtResource("10_he700")
+texture_progress = ExtResource("11_quyq6")
+script = ExtResource("12_a85sq")
+
+[node name="TextoXp" type="Label" parent="hud_mobile/Container/containerMargin/BoxContainerBarraXp/BarraXp" unique_id=2080630712]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -19.0
+offset_right = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_e05di")
+theme_override_font_sizes/font_size = 18
+text = "100/200"
+horizontal_alignment = 1
+
+[node name="BoxContainerButtons" type="BoxContainer" parent="hud_mobile/Container/containerMargin" unique_id=650555124]
+custom_minimum_size = Vector2(400, 350)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="hud_mobile/Container/containerMargin/BoxContainerButtons" unique_id=700473201]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 45
+
+[node name="VSplitContainer" type="VSplitContainer" parent="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer" unique_id=243522815]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="BoxContainerUpgrade" type="BoxContainer" parent="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer" unique_id=1304964979]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+
+[node name="BtnUpgrade" type="Button" parent="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainerUpgrade" unique_id=793323387]
+visible = false
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+focus_mode = 0
+
+[node name="BoxContainer" type="BoxContainer" parent="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer" unique_id=1377800817]
+layout_mode = 2
+
+[node name="BoxContainerItem" type="BoxContainer" parent="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainer" unique_id=1699850037]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="BtnItem" type="Button" parent="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainer/BoxContainerItem" unique_id=1147744865]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+focus_mode = 0
+
+[node name="BoxContainerAtaque" type="BoxContainer" parent="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainer" unique_id=749083536]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+
+[node name="BtnAtaque" type="Button" parent="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainer/BoxContainerAtaque" unique_id=1578697248]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_mode = 0
+
+[node name="BoxContainerJoystick" type="BoxContainer" parent="hud_mobile/Container/containerMargin" unique_id=758830240]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="hud_mobile/Container/containerMargin/BoxContainerJoystick" unique_id=2009973065]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_bottom = 80
+
+[node name="Virtual Joystick" parent="hud_mobile/Container/containerMargin/BoxContainerJoystick/MarginContainer" unique_id=2084266493 instance=ExtResource("13_1cu5s")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+pressed_color = Color(0.74509805, 0.74509805, 0.74509805, 0.827451)
+
+[connection signal="pressed" from="hud_mobile/Container/containerMargin/BoxContainerMenu/Button" to="hud_mobile" method="_on_button_pressed"]
+[connection signal="pressed" from="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainerUpgrade/BtnUpgrade" to="hud_mobile" method="_on_btn_upgrade_pressed"]
+[connection signal="pressed" from="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainer/BoxContainerItem/BtnItem" to="hud_mobile" method="_on_btn_item_pressed"]
+[connection signal="pressed" from="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainer/BoxContainerAtaque/BtnAtaque" to="hud_mobile" method="_on_btn_ataque_pressed"]

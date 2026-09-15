@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8n2aww1cubd5"]
 
-[ext_resource type="Script" uid="uid://bieii5w4jdcfm" path="res://scripts/Telas/tela_resultado.gd" id="1_result"]
+[ext_resource type="Script" uid="uid://bieii5w4jdcfm" path="res://scripts/telas/tela_resultado.gd" id="1_result"]
 [ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="2_font"]
 [ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="3_pixel"]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://du2do3bckhynf" path="res://scripts/sala1.gd" id="1_0kikc"]
 [ext_resource type="PackedScene" uid="uid://bv5252sg3b7gi" path="res://scenes/characters/player.tscn" id="2_74eg1"]
-[ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="3_0ksxy"]
+[ext_resource type="PackedScene" uid="uid://bu0jsqiq0wurx" path="res://telas/hud_mobile.tscn" id="3_u6gps"]
 [ext_resource type="PackedScene" uid="uid://dtl4pntx6ekjs" path="res://telas/tela_config.tscn" id="4_u6gps"]
 [ext_resource type="PackedScene" uid="uid://754k33pvudct" path="res://telas/tela_pause.tscn" id="5_r0e7t"]
 [ext_resource type="PackedScene" uid="uid://bkt3ql4aanidh" path="res://telas/tela_upgrade.tscn" id="6_spqvk"]
@@ -17,14 +17,8 @@ script = ExtResource("1_0kikc")
 [node name="player" parent="." unique_id=2066799720 instance=ExtResource("2_74eg1")]
 position = Vector2(88, 59)
 scale = Vector2(2.8, 2.8)
-speed = 100
-vida_max = 5
-vida = 5
-forca = 1
-pontos_ao_morrer = 100
-tempo_invencibilidade = 0.5
 
-[node name="hud" parent="." unique_id=1794209725 instance=ExtResource("3_0ksxy")]
+[node name="hud_mobile" parent="." unique_id=542393176 instance=ExtResource("3_u6gps")]
 
 [node name="Tela_Config" parent="." unique_id=1751989248 instance=ExtResource("4_u6gps")]
 visible = false
