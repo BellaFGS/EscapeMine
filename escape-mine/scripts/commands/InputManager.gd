@@ -10,50 +10,32 @@ func _init(_jogador) -> void:
 	jogador = _jogador
 
 
-# ============================================================
-# CONTROLE MOBILE
-# ============================================================
-
 func definir_direcao_mobile(direcao: Vector2) -> void:
-	direcao_mobile = direcao.normalized()
+	direcao_mobile = direcao
 
 
 func limpar_direcao_mobile() -> void:
 	direcao_mobile = Vector2.ZERO
 
 
-# ============================================================
-# DIREÇÃO
-# ============================================================
+func resetar() -> void:
+	direcao_mobile = Vector2.ZERO
+
 
 func obter_direcao() -> Vector2:
-
-	# Se houver comando do controle mobile,
-	# utiliza ele.
-	if direcao_mobile != Vector2.ZERO:
+	if direcao_mobile.length() > 0.01:
 		return direcao_mobile
 
-
-	# Caso contrário, utiliza o teclado.
 	var direcao := Vector2(
-		Input.get_action_strength("right")
-		- Input.get_action_strength("left"),
-
-		Input.get_action_strength("down")
-		- Input.get_action_strength("up")
+		Input.get_action_strength("right") - Input.get_action_strength("left"),
+		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
 
 	return direcao.normalized()
 
 
-# ============================================================
-# COMMANDS
-# ============================================================
-
 func obter_comandos() -> Array[Command]:
-
 	var comandos: Array[Command] = []
-
 	var direcao := obter_direcao()
 
 	comandos.append(
