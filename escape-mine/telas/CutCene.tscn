@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcmbjfvvb1lp0"]
+[gd_scene format=3 uid="uid://dcmbjfvvb1lp0"]
 
 [ext_resource type="VideoStream" uid="uid://cvkisydiy02xt" path="res://telas/video/escape-mine_cutscene_fake-victory.ogv" id="1_h7n73"]
-[ext_resource type="Script" path="res://scripts/Telas/cutscene.gd" id="2_script"]
-[ext_resource type="AudioStream" path="res://sounds/sfx/Bowser_Laugh.mp3" id="3_laugh"]
+[ext_resource type="Script" uid="uid://df2w48k5bj1mu" path="res://scripts/telas/cutscene.gd" id="2_script"]
+[ext_resource type="AudioStream" uid="uid://6a0ge2ufv5kc" path="res://sounds/sfx/Bowser_Laugh.mp3" id="3_laugh"]
 
 [node name="CutCene" type="CanvasLayer" unique_id=416452752]
 layer = 100

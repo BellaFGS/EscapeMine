@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtl4pntx6ekjs"]
 
-[ext_resource type="Script" uid="uid://brev50rvm7hfi" path="res://scripts/Telas/tela_config.gd" id="1_lgoop"]
+[ext_resource type="Script" uid="uid://brev50rvm7hfi" path="res://scripts/telas/tela_config.gd" id="1_lgoop"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="2_76fbb"]
 [ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_78uk1"]
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_8huyt"]
@@ -12,108 +12,168 @@
 process_mode = 3
 script = ExtResource("1_lgoop")
 
-[node name="fundo_tela" type="ColorRect" parent="." unique_id=1125106746]
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=574845410]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="fundo_tela" type="ColorRect" parent="BoxContainer" unique_id=1125106746]
+layout_mode = 2
+size_flags_horizontal = 3
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=201148708]
-offset_left = 51.0
-offset_top = 57.0
-offset_right = 129.0
-offset_bottom = 135.0
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer/fundo_tela" unique_id=2130440637]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer/fundo_tela/MarginContainer" unique_id=873364330]
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer" unique_id=528070978]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer2" type="BoxContainer" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer" unique_id=92305233]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer2" unique_id=201148708]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
 texture = ExtResource("4_78uk1")
 
-[node name="Label" type="Label" parent="." unique_id=1565058819]
-offset_left = 151.0
-offset_top = 79.0
-offset_right = 221.0
-offset_bottom = 117.0
+[node name="Label" type="Label" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer2" unique_id=1565058819]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("4_8huyt")
 theme_override_font_sizes/font_size = 32
 text = "CONFIGURAÇÕES"
 
-[node name="Menu_Vertical" type="VBoxContainer" parent="." unique_id=1811246192]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -291.125
-offset_top = -98.25
-offset_right = 291.125
-offset_bottom = 98.25
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Menu_Horizontal" type="HBoxContainer" parent="Menu_Vertical" unique_id=447257374]
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer" unique_id=386837845]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 
-[node name="Texto" type="VBoxContainer" parent="Menu_Vertical/Menu_Horizontal" unique_id=99307723]
+[node name="HSplitContainer" type="HSplitContainer" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer" unique_id=348423962]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
-theme_override_constants/separation = 15
+size_flags_horizontal = 6
+size_flags_vertical = 4
+split_offsets = PackedInt32Array(130)
+split_offset = 130
 
-[node name="Label_geral" type="Label" parent="Menu_Vertical/Menu_Horizontal/Texto" unique_id=796166915]
+[node name="VSplitContainer" type="VSplitContainer" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer" unique_id=727759411]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
+size_flags_vertical = 4
+split_offsets = PackedInt32Array(0, 0, 0)
+
+[node name="Label_geral" type="Label" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer" unique_id=796166915]
+layout_mode = 2
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_78uk1")
 theme_override_font_sizes/font_size = 27
 text = "Volume Geral:"
 label_settings = SubResource("LabelSettings_p3w5a")
+horizontal_alignment = 1
 
-[node name="Label_sfx" type="Label" parent="Menu_Vertical/Menu_Horizontal/Texto" unique_id=405205841]
+[node name="Label_sfx" type="Label" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer" unique_id=405205841]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_78uk1")
 theme_override_font_sizes/font_size = 27
 text = "Efeitos Sonoros:"
 label_settings = SubResource("LabelSettings_p3w5a")
+horizontal_alignment = 1
 
-[node name="Label_musica" type="Label" parent="Menu_Vertical/Menu_Horizontal/Texto" unique_id=1454774027]
+[node name="Label_musica" type="Label" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer" unique_id=1454774027]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_78uk1")
 theme_override_font_sizes/font_size = 27
 text = "Músicas do jogo:"
 label_settings = SubResource("LabelSettings_p3w5a")
+horizontal_alignment = 1
 
-[node name="Barras" type="VBoxContainer" parent="Menu_Vertical/Menu_Horizontal" unique_id=1129094840]
+[node name="Label_mode" type="Label" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer" unique_id=355547967]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_78uk1")
+theme_override_font_sizes/font_size = 27
+text = "Modo de jogabilidade: "
+label_settings = SubResource("LabelSettings_p3w5a")
+horizontal_alignment = 1
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer" unique_id=1907425961]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
+size_flags_vertical = 4
+split_offsets = PackedInt32Array(0, 0, 0)
 
-[node name="ctr_geral" type="HSlider" parent="Menu_Vertical/Menu_Horizontal/Barras" unique_id=10014624]
+[node name="ctr_geral" type="HSlider" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2" unique_id=10014624]
 layout_mode = 2
 size_flags_vertical = 6
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="ctr_sfx" type="HSlider" parent="Menu_Vertical/Menu_Horizontal/Barras" unique_id=579234341]
+[node name="ctr_sfx" type="HSlider" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2" unique_id=579234341]
 layout_mode = 2
 size_flags_vertical = 6
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="ctr_musica" type="HSlider" parent="Menu_Vertical/Menu_Horizontal/Barras" unique_id=1414999855]
+[node name="ctr_musica" type="HSlider" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2" unique_id=1414999855]
 layout_mode = 2
 size_flags_vertical = 6
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="btn_voltar" type="Button" parent="Menu_Vertical" unique_id=885510997]
+[node name="SeletorControle" type="OptionButton" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2" unique_id=1292357969]
+layout_mode = 2
+size_flags_horizontal = 0
+selected = 0
+item_count = 2
+popup/item_0/text = "PC"
+popup/item_0/id = 0
+popup/item_1/text = "MOBILE"
+popup/item_1/id = 1
+
+[node name="BoxContainer2" type="BoxContainer" parent="BoxContainer/fundo_tela/MarginContainer" unique_id=656405432]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer2" unique_id=567832028]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_bottom = 100
+
+[node name="btn_voltar" type="Button" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer2/MarginContainer" unique_id=885510997]
 process_mode = 3
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 theme = ExtResource("2_76fbb")
 text = "VOLTAR"
 
-[connection signal="value_changed" from="Menu_Vertical/Menu_Horizontal/Barras/ctr_geral" to="." method="_on_ctr_geral_value_changed"]
-[connection signal="value_changed" from="Menu_Vertical/Menu_Horizontal/Barras/ctr_sfx" to="." method="_on_ctr_sfx_value_changed"]
-[connection signal="value_changed" from="Menu_Vertical/Menu_Horizontal/Barras/ctr_musica" to="." method="_on_ctr_musica_value_changed"]
-[connection signal="pressed" from="Menu_Vertical/btn_voltar" to="." method="_on_btn_voltar_pressed"]
+[connection signal="value_changed" from="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2/ctr_geral" to="." method="_on_ctr_geral_value_changed"]
+[connection signal="value_changed" from="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2/ctr_sfx" to="." method="_on_ctr_sfx_value_changed"]
+[connection signal="value_changed" from="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2/ctr_musica" to="." method="_on_ctr_musica_value_changed"]
+[connection signal="item_selected" from="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2/SeletorControle" to="." method="_on_seletor_controle_item_selected"]
+[connection signal="pressed" from="BoxContainer/fundo_tela/MarginContainer/BoxContainer2/MarginContainer/btn_voltar" to="." method="_on_btn_voltar_pressed"]

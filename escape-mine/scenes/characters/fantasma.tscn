@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://m4aukhpqlmv8"]
 
-[ext_resource type="Script" uid="uid://c4ta2e7aocuej" path="res://scripts/Characters/fantasma.gd" id="1_t212r"]
+[ext_resource type="Script" uid="uid://c4ta2e7aocuej" path="res://scripts/characters/fantasma.gd" id="1_t212r"]
 [ext_resource type="Texture2D" uid="uid://dvnys41yw1gfb" path="res://sprites/characters/ghoust.png" id="2_2mxae"]
 [ext_resource type="PackedScene" uid="uid://cjdfuhvb1303f" path="res://scenes/Elements/barra_vida.tscn" id="2_n64ir"]
 
