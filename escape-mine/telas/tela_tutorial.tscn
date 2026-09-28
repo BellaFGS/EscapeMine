@@ -13,15 +13,20 @@
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="10_dkmt3"]
 [ext_resource type="Script" uid="uid://dckoth1op3c3y" path="res://scripts/Telas/tela_tutorial.gd" id="11_dkmt3"]
 [ext_resource type="Texture2D" uid="uid://drydqlgk13i6v" path="res://sprites/artes/seta.png" id="11_xe0n2"]
+[ext_resource type="Texture2D" uid="uid://cnwdjffwqu38c" path="res://sprites/characters/esqueleto.png" id="12_ox30o"]
 [ext_resource type="Texture2D" uid="uid://b2w4dp58ocr5g" path="res://sprites/characters/slime.png" id="14_pag2"]
 [ext_resource type="Texture2D" uid="uid://dc4a0cm3nopqe" path="res://sprites/objects/items/dynamite.png" id="15_pag2"]
+[ext_resource type="Texture2D" uid="uid://dvnys41yw1gfb" path="res://sprites/characters/ghoust.png" id="16_agvsx"]
 [ext_resource type="Texture2D" uid="uid://cb0xdc64gohsr" path="res://sprites/objects/items/mina_terrestre.png" id="16_pag2"]
+[ext_resource type="Texture2D" uid="uid://dewl0ue5l2343" path="res://sprites/objects/items/visao.png" id="17_agvsx"]
 [ext_resource type="Texture2D" uid="uid://3ry66hrpq0ip" path="res://sprites/objects/efects/explosion.png" id="17_pag2"]
+[ext_resource type="Texture2D" uid="uid://dlj7g1oiogh3w" path="res://sprites/objects/items/veneno.png" id="18_2atlo"]
 [ext_resource type="Texture2D" uid="uid://caragfwj1jahx" path="res://sprites/Bars/healthbarUnder.png" id="18_pag3"]
 [ext_resource type="Texture2D" uid="uid://kkpnlavv23uq" path="res://sprites/Bars/healthbarProgress.png" id="19_pag3"]
 [ext_resource type="Texture2D" uid="uid://s37wluspsq4d" path="res://sprites/artes/vida.png" id="20_pag3"]
 [ext_resource type="Texture2D" uid="uid://dmj06f67wookm" path="res://sprites/artes/força.png" id="21_pag3"]
 [ext_resource type="Texture2D" uid="uid://brgpwigy4mi8b" path="res://sprites/objects/items/BluePotion.png" id="22_pag3"]
+[ext_resource type="Texture2D" uid="uid://dnnb37rua3l66" path="res://sprites/characters/Boss/idle.png" id="27_nf1xo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmh6u"]
 bg_color = Color(1, 1, 1, 0)
@@ -191,50 +196,43 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6v0bl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf1xo"]
 atlas = ExtResource("14_pag2")
-region = Rect2(0, 32, 32, 32)
+region = Rect2(0, 128, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c348g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp2ep"]
 atlas = ExtResource("14_pag2")
-region = Rect2(32, 32, 32, 32)
+region = Rect2(32, 128, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_86elt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7722"]
 atlas = ExtResource("14_pag2")
-region = Rect2(64, 32, 32, 32)
+region = Rect2(64, 128, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qar5e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rn3d"]
 atlas = ExtResource("14_pag2")
-region = Rect2(96, 32, 32, 32)
+region = Rect2(96, 128, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pdemu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hjj6"]
 atlas = ExtResource("14_pag2")
-region = Rect2(128, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_374m3"]
-atlas = ExtResource("14_pag2")
-region = Rect2(160, 32, 32, 32)
+region = Rect2(128, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dmh6u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6v0bl")
+"texture": SubResource("AtlasTexture_nf1xo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c348g")
+"texture": SubResource("AtlasTexture_xp2ep")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_86elt")
+"texture": SubResource("AtlasTexture_y7722")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qar5e")
+"texture": SubResource("AtlasTexture_7rn3d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pdemu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_374m3")
+"texture": SubResource("AtlasTexture_2hjj6")
 }],
 "loop": true,
 "name": &"default",
@@ -568,6 +566,149 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvq0n"]
+atlas = ExtResource("12_ox30o")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik2ea"]
+atlas = ExtResource("12_ox30o")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33acg"]
+atlas = ExtResource("12_ox30o")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnntg"]
+atlas = ExtResource("12_ox30o")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqvpf"]
+atlas = ExtResource("12_ox30o")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy6xp"]
+atlas = ExtResource("12_ox30o")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr3m0"]
+atlas = ExtResource("12_ox30o")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipvnd"]
+atlas = ExtResource("12_ox30o")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hjj6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvq0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik2ea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33acg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnntg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqvpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy6xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr3m0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipvnd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm8dv"]
+atlas = ExtResource("16_agvsx")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l42j"]
+atlas = ExtResource("16_agvsx")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71qka"]
+atlas = ExtResource("16_agvsx")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilsmh"]
+atlas = ExtResource("16_agvsx")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btmli"]
+atlas = ExtResource("16_agvsx")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a52ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm8dv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l42j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71qka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilsmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btmli")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlm7t"]
+atlas = ExtResource("27_nf1xo")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rvul"]
+atlas = ExtResource("27_nf1xo")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixk5n"]
+atlas = ExtResource("27_nf1xo")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w2c7"]
+atlas = ExtResource("27_nf1xo")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pvq0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlm7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rvul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixk5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w2c7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_iaqhx"]
 atlas = ExtResource("15_pag2")
 region = Rect2(0, 0, 32, 32)
@@ -716,11 +857,10 @@ offset_top = 2.0
 offset_right = 1282.0
 offset_bottom = 716.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dmh6u")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="Pagina1" type="Control" parent="Carrossel" unique_id=710999691]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -856,7 +996,7 @@ horizontal_alignment = 1
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Carrossel/Pagina1" unique_id=1769449595]
 texture_repeat = 2
-position = Vector2(766.99994, 312)
+position = Vector2(738, 312)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_5dmdl")
 autoplay = "default"
@@ -935,17 +1075,41 @@ text = "PASSAR DE
 FASE"
 horizontal_alignment = 1
 
+[node name="Label9" type="Label" parent="Carrossel/Pagina1" unique_id=1161898694]
+modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
+layout_mode = 0
+offset_left = 845.0
+offset_top = 256.0
+offset_right = 933.0
+offset_bottom = 342.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6039216)
+theme_override_fonts/font = ExtResource("3_uapxi")
+theme_override_font_sizes/font_size = 35
+text = "
+→ "
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Carrossel/Pagina1" unique_id=624366990]
+texture_repeat = 2
+position = Vector2(1021, 320)
+scale = Vector2(4.0156255, 4.0156255)
+sprite_frames = SubResource("SpriteFrames_dmh6u")
+autoplay = "default"
+
 [node name="Pagina2" type="Control" parent="Carrossel" unique_id=1030140298]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="Label5" type="Label" parent="Carrossel/Pagina2" unique_id=1950529181]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
-offset_left = 725.0
-offset_top = 263.0
-offset_right = 813.0
-offset_bottom = 349.0
+offset_left = 698.0
+offset_top = 262.0
+offset_right = 786.0
+offset_bottom = 348.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -982,7 +1146,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("3_uapxi")
 theme_override_font_sizes/font_size = 35
-text = "dinamites"
+text = "Ataques"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Carrossel/Pagina2" unique_id=348877258]
@@ -1001,30 +1165,13 @@ text = "minas
 terrestres"
 horizontal_alignment = 1
 
-[node name="TextureRect3" type="TextureRect" parent="Carrossel/Pagina2" unique_id=1264161133]
-layout_mode = 0
-offset_left = 316.0
-offset_top = 117.0
-offset_right = 457.0
-offset_bottom = 292.07144
-texture = ExtResource("6_05que")
-expand_mode = 5
-stretch_mode = 4
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=1780836411]
-texture_repeat = 2
-position = Vector2(617, 198)
-scale = Vector2(4.0156255, 4.0156255)
-sprite_frames = SubResource("SpriteFrames_dmh6u")
-autoplay = "default"
-
 [node name="Label6" type="Label" parent="Carrossel/Pagina2" unique_id=835721410]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
-offset_left = 444.0
-offset_top = 273.0
-offset_right = 532.0
-offset_bottom = 348.0
+offset_left = 459.0
+offset_top = 267.0
+offset_right = 547.0
+offset_bottom = 342.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1036,7 +1183,7 @@ horizontal_alignment = 1
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=769018160]
 texture_repeat = 3
-position = Vector2(394.00003, 324)
+position = Vector2(376.31396, 313.50214)
 scale = Vector2(2.5196242, 2.4528823)
 sprite_frames = SubResource("SpriteFrames_u7xlm")
 autoplay = "default"
@@ -1044,7 +1191,7 @@ speed_scale = 0.8
 
 [node name="porta" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=1887239258]
 texture_repeat = 2
-position = Vector2(392, 453.00003)
+position = Vector2(380.00003, 453)
 scale = Vector2(2.7892497, 2.7892497)
 sprite_frames = SubResource("SpriteFrames_vlm7t")
 autoplay = "default"
@@ -1058,48 +1205,33 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = -56.0
-offset_right = 83.0
-offset_bottom = -4.0
+offset_left = -72.0
+offset_top = -85.0
+offset_right = 38.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("4_tj6ue")
 theme_override_font_sizes/font_size = 40
-text = "Tecla (E)"
+text = "Tecla 
+(E)"
 horizontal_alignment = 1
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=520152609]
-position = Vector2(924, 347)
+position = Vector2(893.99994, 342)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_1rvul")
 autoplay = "default"
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=1387260974]
 texture_repeat = 3
-position = Vector2(864, 309.99997)
+position = Vector2(831, 307)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_ixk5n")
 autoplay = "default"
 speed_scale = 1.3
-
-[node name="Label7" type="Label" parent="Carrossel/Pagina2" unique_id=1717740705]
-modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
-layout_mode = 0
-offset_left = 451.0
-offset_top = 135.0
-offset_right = 539.0
-offset_bottom = 221.0
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
-theme_override_fonts/font = ExtResource("3_uapxi")
-theme_override_font_sizes/font_size = 35
-text = "
-→"
-horizontal_alignment = 1
 
 [node name="Label8" type="Label" parent="Carrossel/Pagina2" unique_id=615173289]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
@@ -1140,11 +1272,90 @@ scale = Vector2(3.2734687, 3.2734687)
 sprite_frames = SubResource("SpriteFrames_ox30o")
 autoplay = "default"
 
-[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=36823848]
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=2142354555]
 texture_repeat = 2
-position = Vector2(782, 179)
-scale = Vector2(5.937625, 5.937625)
-sprite_frames = SubResource("SpriteFrames_dmh6u")
+position = Vector2(579.99994, 195.99998)
+scale = Vector2(4.1875, 4.1875)
+sprite_frames = SubResource("SpriteFrames_2hjj6")
+autoplay = "default"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=1413037637]
+position = Vector2(363.99994, 209)
+scale = Vector2(3.375, 3.375)
+sprite_frames = SubResource("SpriteFrames_a52ag")
+autoplay = "default"
+
+[node name="TextureRect" type="TextureRect" parent="Carrossel/Pagina2" unique_id=837268079]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 173.0
+offset_right = 478.0
+offset_bottom = 236.0
+texture = ExtResource("17_agvsx")
+expand_mode = 1
+
+[node name="Label11" type="Label" parent="Carrossel/Pagina2" unique_id=2134289094]
+modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
+layout_mode = 0
+offset_left = 480.00006
+offset_top = 141.0
+offset_right = 568.00006
+offset_bottom = 227.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("3_uapxi")
+theme_override_font_sizes/font_size = 35
+text = "
+|"
+horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Carrossel/Pagina2" unique_id=1548989672]
+layout_mode = 0
+offset_left = 619.0
+offset_top = 175.0
+offset_right = 687.06805
+offset_bottom = 229.0
+texture = ExtResource("18_2atlo")
+expand_mode = 1
+
+[node name="Label13" type="Label" parent="Carrossel/Pagina2" unique_id=281793722]
+modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
+layout_mode = 0
+offset_left = 379.31372
+offset_top = 283.5022
+offset_right = 467.31372
+offset_bottom = 358.5022
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("3_uapxi")
+theme_override_font_sizes/font_size = 35
+text = "
+2X"
+horizontal_alignment = 1
+
+[node name="Label12" type="Label" parent="Carrossel/Pagina2" unique_id=921261309]
+modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
+layout_mode = 0
+offset_left = 692.0
+offset_top = 140.0
+offset_right = 780.0
+offset_bottom = 226.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
+theme_override_fonts/font = ExtResource("3_uapxi")
+theme_override_font_sizes/font_size = 35
+text = "
+|"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=876443423]
+texture_repeat = 2
+position = Vector2(830, 193.99998)
+scale = Vector2(1.6100007, 1.7350001)
+sprite_frames = SubResource("SpriteFrames_pvq0n")
 autoplay = "default"
 
 [node name="Pagina3" type="Control" parent="Carrossel" unique_id=795448921]
