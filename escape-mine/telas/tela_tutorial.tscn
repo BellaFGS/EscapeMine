@@ -1135,14 +1135,14 @@ horizontal_alignment = 1
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=48326262]
 texture_repeat = 3
-position = Vector2(696, 440)
-scale = Vector2(4.2344365, 4.2344365)
+position = Vector2(621, 440)
+scale = Vector2(3.2734687, 3.2734687)
 sprite_frames = SubResource("SpriteFrames_ox30o")
 autoplay = "default"
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=36823848]
 texture_repeat = 2
-position = Vector2(778.00006, 179)
+position = Vector2(782, 179)
 scale = Vector2(5.937625, 5.937625)
 sprite_frames = SubResource("SpriteFrames_dmh6u")
 autoplay = "default"
