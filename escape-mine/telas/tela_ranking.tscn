@@ -43,6 +43,7 @@ offset_bottom = 543.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_3e650")
+stretch_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="BoxContainer/PainelRanking" unique_id=136712793]
 layout_mode = 1

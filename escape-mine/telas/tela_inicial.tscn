@@ -24,8 +24,8 @@ size_flags_vertical = 3
 
 [node name="fundo_tela2" type="TextureRect" parent="BoxContainer2" unique_id=608561164]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource("3_lnd7q")
 
 [node name="fundo_tela" type="ColorRect" parent="." unique_id=1125106746]

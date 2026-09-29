@@ -2,7 +2,7 @@
 	{
 		"data": "2026-09-12 09:07:54",
 		"nome": "BELLA",
-		"pontos": 33625,
+		"pontos": 33625.0,
 		"resultado": "WIN"
 	},
 	{
@@ -27,6 +27,12 @@
 		"data": "2026-09-09 16:01:50",
 		"nome": "BELLA",
 		"pontos": 22800.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-22 14:55:05",
+		"nome": "BISCOITO",
+		"pontos": 14000,
 		"resultado": "WIN"
 	},
 	{

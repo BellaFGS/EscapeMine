@@ -12,18 +12,12 @@ func _init(_player) -> void:
 
 
 func usar_dinamite() -> void:
-	print("[TESTE ITEM] Chamando usar_dinamite sem disparar animação...")
-
 	if player == null:
-		print("[ERRO ITEM] Player é nulo!")
 		return
 
 	if not player.inventario.usar_item("dinamite"):
-		print("[AVISO ITEM] Sem dinamites no inventário.")
+		
 		return
-
-	# NÃO alteramos 'usando_item' para true
-	# NÃO chamamos 'player.anim.play("use_dinamite")'
 
 	# Instancia e coloca a dinamite na cena
 	var dinamite = cena_dinamite.instantiate()
@@ -33,5 +27,3 @@ func usar_dinamite() -> void:
 	player.dinamite_up.emit(
 		player.inventario.quantidade_item("dinamite")
 	)
-
-	print("[TESTE ITEM] Dinamite instanciada com sucesso, sem bloquear player!")

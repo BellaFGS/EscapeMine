@@ -18,9 +18,9 @@ func executar() -> void:
 
 func _on_botao_dinamite_pressed() -> void:
 
-	if player == null:
+	if jogador == null:
 		return
 
-	var comando := UsarDinamiteCommand.new(player)
+	var comando := UsarDinamiteCommand.new(jogador)
 
 	comando.executar()
