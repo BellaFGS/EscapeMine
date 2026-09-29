@@ -1,5 +1,11 @@
 [
 	{
+		"data": "2026-09-12 09:07:54",
+		"nome": "BELLA",
+		"pontos": 33625.0,
+		"resultado": "WIN"
+	},
+	{
 		"data": "2026-08-25 16:19:00",
 		"nome": "BELLA",
 		"pontos": 31675.0,
@@ -12,9 +18,21 @@
 		"resultado": "WIN"
 	},
 	{
+		"data": "2026-09-29 12:02:46",
+		"nome": "MATHEUS",
+		"pontos": 26275,
+		"resultado": "WIN"
+	},
+	{
 		"data": "2026-08-25 17:57:14",
 		"nome": "FELIPE",
 		"pontos": 26100.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-09 16:01:50",
+		"nome": "BELLA",
+		"pontos": 22800.0,
 		"resultado": "WIN"
 	},
 	{
@@ -32,7 +50,7 @@
 	{
 		"data": "2026-09-06 18:11:43",
 		"nome": "BIANCA:(",
-		"pontos": 5200,
+		"pontos": 5200.0,
 		"resultado": "LOSE"
 	},
 	{
@@ -44,115 +62,151 @@
 	{
 		"data": "2026-09-06 18:06:13",
 		"nome": "BELLA",
-		"pontos": 2200,
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
+		"resultado": "WIN"
+	},
+	{
+		"data": "2026-09-06 18:06:13",
+		"nome": "BELLA",
+		"pontos": 2200.0,
 		"resultado": "WIN"
 	},
 	{
 		"data": "2026-09-01 17:38:29",
 		"nome": "MIKE",
 		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-09-01 17:38:29",
-		"nome": "MIKE",
-		"pontos": 500.0,
-		"resultado": "LOSE"
-	},
-	{
-		"data": "2026-08-25 16:03:30",
-		"nome": "A",
-		"pontos": 375.0,
 		"resultado": "LOSE"
 	}
 ]

@@ -1,19 +1,32 @@
 [gd_scene format=3 uid="uid://dksbfkgy1rgxf"]
 
-[ext_resource type="Script" uid="uid://d2wfv4xd1rnd3" path="res://scripts/Telas/tela_inicial.gd" id="1_6hiqg"]
+[ext_resource type="Script" uid="uid://d2wfv4xd1rnd3" path="res://scripts/telas/tela_inicial.gd" id="1_6hiqg"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="1_xs8lk"]
-[ext_resource type="Texture2D" uid="uid://deaqmoxihdbuo" path="res://sprites/artes/FundoJogo.png" id="2_5sd8u"]
 [ext_resource type="PackedScene" uid="uid://dtl4pntx6ekjs" path="res://telas/tela_config.tscn" id="2_lnd7q"]
+[ext_resource type="Texture2D" uid="uid://xsky25pxw4oo" path="res://sprites/artes/fundo_inicial.png" id="3_lnd7q"]
 [ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="4_5bdny"]
 
 [node name="Tela_Inicial" type="CanvasLayer" unique_id=1788756212]
 script = ExtResource("1_6hiqg")
 
-[node name="fundo_tela2" type="TextureRect" parent="." unique_id=608561164]
-offset_left = -179.0
-offset_right = 1460.5415
-offset_bottom = 722.0
-texture = ExtResource("2_5sd8u")
+[node name="BoxContainer2" type="BoxContainer" parent="." unique_id=969371433]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1448.0
+offset_top = -1086.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="fundo_tela2" type="TextureRect" parent="BoxContainer2" unique_id=608561164]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource("3_lnd7q")
 
 [node name="fundo_tela" type="ColorRect" parent="." unique_id=1125106746]
 anchors_preset = 15
@@ -21,69 +34,73 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.18039216)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0.34509805)
 
-[node name="Menu" type="VBoxContainer" parent="." unique_id=99307723]
-anchors_preset = 14
-anchor_top = 0.5
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=2109116469]
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -33.0
-offset_bottom = 33.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
-[node name="btn_comecar" type="Button" parent="Menu" unique_id=1757579034]
+[node name="VSplitContainer" type="VSplitContainer" parent="BoxContainer" unique_id=571101882]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="BoxContainer/VSplitContainer" unique_id=1923486494]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5bdny")
+theme_override_font_sizes/font_size = 110
+text = "Escape Mine"
+
+[node name="Menu" type="VBoxContainer" parent="BoxContainer/VSplitContainer" unique_id=99307723]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="btn_comecar" type="Button" parent="BoxContainer/VSplitContainer/Menu" unique_id=1757579034]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
 text = "COMEÇAR"
 
-[node name="btn_tutorial" type="Button" parent="Menu" unique_id=937279880]
+[node name="btn_tutorial" type="Button" parent="BoxContainer/VSplitContainer/Menu" unique_id=937279880]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
 text = "COMO JOGAR"
 
-[node name="btn_config" type="Button" parent="Menu" unique_id=1811723080]
+[node name="btn_config" type="Button" parent="BoxContainer/VSplitContainer/Menu" unique_id=1811723080]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
 text = "CONFIGURAÇÕES"
 
-[node name="btn_intro" type="Button" parent="Menu" unique_id=1879366239]
+[node name="btn_intro" type="Button" parent="BoxContainer/VSplitContainer/Menu" unique_id=1879366239]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
 text = "VISUALIZAR INTRO
 "
 
-[node name="btn_ranking" type="Button" parent="Menu" unique_id=1300095565]
+[node name="btn_ranking" type="Button" parent="BoxContainer/VSplitContainer/Menu" unique_id=1300095565]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
 text = "VISUALIZAR RANKING
 "
 
-[node name="btn_sair" type="Button" parent="Menu" unique_id=848326941]
+[node name="btn_sair" type="Button" parent="BoxContainer/VSplitContainer/Menu" unique_id=848326941]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
 text = "SAIR DO JOGO"
 
-[node name="Label" type="Label" parent="." unique_id=1923486494]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -244.0
-offset_top = 110.0
-offset_right = 244.0
-offset_bottom = 221.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("4_5bdny")
-theme_override_font_sizes/font_size = 110
-text = "Escape Mine"
-
 [node name="Tela_Config" parent="." unique_id=1930430302 instance=ExtResource("2_lnd7q")]
 visible = false
 
-[connection signal="pressed" from="Menu/btn_comecar" to="." method="_on_btn_comecar_pressed"]
-[connection signal="pressed" from="Menu/btn_tutorial" to="." method="_on_btn_tutorial_pressed"]
-[connection signal="pressed" from="Menu/btn_config" to="." method="_on_btn_config_pressed"]
-[connection signal="pressed" from="Menu/btn_intro" to="." method="_on_btn_intro_pressed"]
-[connection signal="pressed" from="Menu/btn_ranking" to="." method="_on_btn_ranking_pressed"]
-[connection signal="pressed" from="Menu/btn_sair" to="." method="_on_btn_sair_pressed"]
+[connection signal="pressed" from="BoxContainer/VSplitContainer/Menu/btn_comecar" to="." method="_on_btn_comecar_pressed"]
+[connection signal="pressed" from="BoxContainer/VSplitContainer/Menu/btn_tutorial" to="." method="_on_btn_tutorial_pressed"]
+[connection signal="pressed" from="BoxContainer/VSplitContainer/Menu/btn_config" to="." method="_on_btn_config_pressed"]
+[connection signal="pressed" from="BoxContainer/VSplitContainer/Menu/btn_intro" to="." method="_on_btn_intro_pressed"]
+[connection signal="pressed" from="BoxContainer/VSplitContainer/Menu/btn_ranking" to="." method="_on_btn_ranking_pressed"]
+[connection signal="pressed" from="BoxContainer/VSplitContainer/Menu/btn_sair" to="." method="_on_btn_sair_pressed"]

@@ -6,52 +6,55 @@
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_5ysfj"]
 file = "res://telas/video/escapeMineIntro.ogv"
 
-[node name="IntroVideo" type="Node2D" unique_id=1821177310]
-script = ExtResource("1_dm6qt")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=981765644]
-offset_left = -192.0
-offset_top = -94.0
-offset_right = 1537.0
-offset_bottom = 875.0
-color = Color(0, 0, 0, 1)
-
-[node name="Control" type="Control" parent="." unique_id=900865623]
+[node name="IntroVideo" type="Control" unique_id=127150225]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dm6qt")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=1188256996]
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=427596084]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_right = 1280.0
-offset_bottom = 720.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer" unique_id=308032930]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="BoxContainer/MarginContainer" unique_id=981765644]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="BoxContainer/MarginContainer" unique_id=1188256996]
+layout_mode = 2
 stream = SubResource("VideoStreamTheora_5ysfj")
 autoplay = true
 expand = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=2036264215]
-layout_mode = 0
-offset_top = 677.0
-offset_right = 1281.0
-offset_bottom = 717.0
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer/MarginContainer" unique_id=820985478]
+layout_mode = 2
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/MarginContainer/MarginContainer" unique_id=2036264215]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 alignment = 2
 
-[node name="btn_skip" type="Button" parent="Control/HBoxContainer" unique_id=1698019672]
+[node name="btn_skip" type="Button" parent="BoxContainer/MarginContainer/MarginContainer/HBoxContainer" unique_id=1698019672]
 layout_mode = 2
 theme = ExtResource("3_hpd4y")
 theme_override_constants/outline_size = 4
 theme_override_constants/h_separation = 4
 text = "PULAR INTRO"
 
-[connection signal="finished" from="Control/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
-[connection signal="pressed" from="Control/HBoxContainer/btn_skip" to="." method="_on_btn_skip_pressed"]
+[connection signal="finished" from="BoxContainer/MarginContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="BoxContainer/MarginContainer/MarginContainer/HBoxContainer/btn_skip" to="." method="_on_btn_skip_pressed"]

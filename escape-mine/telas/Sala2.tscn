@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ct7apoma4hmyo" path="res://scripts/sala_2.gd" id="1_y1qxk"]
 [ext_resource type="PackedScene" uid="uid://bv5252sg3b7gi" path="res://scenes/characters/player.tscn" id="2_8hjvt"]
+[ext_resource type="PackedScene" uid="uid://bu0jsqiq0wurx" path="res://telas/hud_mobile.tscn" id="3_hxek5"]
 [ext_resource type="PackedScene" uid="uid://bxshgsx3lpexj" path="res://telas/hud.tscn" id="3_u0ie8"]
 [ext_resource type="PackedScene" uid="uid://dtl4pntx6ekjs" path="res://telas/tela_config.tscn" id="4_y1qxk"]
 [ext_resource type="PackedScene" uid="uid://754k33pvudct" path="res://telas/tela_pause.tscn" id="5_ccxyu"]
@@ -10461,8 +10462,9 @@ script = ExtResource("1_y1qxk")
 
 [node name="hud" parent="." unique_id=1794209725 instance=ExtResource("3_u0ie8")]
 
+[node name="hud_mobile" parent="." unique_id=542393176 instance=ExtResource("3_hxek5")]
+
 [node name="Tela_Config" parent="." unique_id=1788756212 instance=ExtResource("4_y1qxk")]
-visible = false
 
 [node name="Tela_Pause" parent="." unique_id=791103982 instance=ExtResource("5_ccxyu")]
 
