@@ -831,40 +831,58 @@ animations = [{
 process_mode = 3
 script = ExtResource("11_dkmt3")
 
-[node name="fundo_tela" type="ColorRect" parent="." unique_id=1125106746]
+[node name="UI_Container" type="Control" parent="." unique_id=879077844]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 50.0
-offset_top = 6.0
-offset_right = 50.0
-offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.30312887, 0.39699844, 0.39967707, 0)
 
-[node name="papiro" type="TextureRect" parent="." unique_id=330613740]
-offset_left = 43.0
-offset_top = -84.0
-offset_right = 1237.0
-offset_bottom = 792.0
+[node name="fundo_tela" type="ColorRect" parent="UI_Container" unique_id=1125106746]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 6.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="papiro" type="TextureRect" parent="UI_Container" unique_id=330613740]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1445.0
+offset_top = -112.0
+offset_right = 1366.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_qb06t")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="Carrossel" type="TabContainer" parent="." unique_id=1054766895]
-offset_left = -2.0
-offset_top = 2.0
-offset_right = 1282.0
-offset_bottom = 716.0
+[node name="Carrossel" type="TabContainer" parent="UI_Container/papiro" unique_id=1054766895]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 172.0
+offset_right = 1912.0
+offset_bottom = 886.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dmh6u")
-current_tab = 0
+current_tab = 2
 tabs_visible = false
 
-[node name="Pagina1" type="Control" parent="Carrossel" unique_id=710999691]
+[node name="Pagina1" type="Control" parent="UI_Container/papiro/Carrossel" unique_id=710999691]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="movimentação" type="Label" parent="Carrossel/Pagina1" unique_id=1495516244]
+[node name="movimentação" type="Label" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=1495516244]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 29.0
@@ -880,7 +898,7 @@ text = "movimen
 tação"
 horizontal_alignment = 1
 
-[node name="ataque" type="Label" parent="Carrossel/Pagina1" unique_id=1624737750]
+[node name="ataque" type="Label" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=1624737750]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 129.0
@@ -895,7 +913,7 @@ theme_override_font_sizes/font_size = 35
 text = "ataque"
 horizontal_alignment = 1
 
-[node name="objetivo" type="Label" parent="Carrossel/Pagina1" unique_id=1314230791]
+[node name="objetivo" type="Label" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=1314230791]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 125.0
@@ -910,7 +928,7 @@ theme_override_font_sizes/font_size = 35
 text = "objetivo"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Carrossel/Pagina1" unique_id=460435721]
+[node name="TextureRect" type="TextureRect" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=460435721]
 layout_mode = 0
 offset_left = 688.0
 offset_top = 132.0
@@ -919,7 +937,7 @@ offset_bottom = 271.0
 texture = ExtResource("4_yyfyq")
 stretch_mode = 4
 
-[node name="TextureRect2" type="TextureRect" parent="Carrossel/Pagina1" unique_id=373081366]
+[node name="TextureRect2" type="TextureRect" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=373081366]
 layout_mode = 0
 offset_left = 312.0
 offset_top = 132.0
@@ -928,7 +946,7 @@ offset_bottom = 273.0
 texture = ExtResource("5_ilnvs")
 stretch_mode = 4
 
-[node name="TextureRect3" type="TextureRect" parent="Carrossel/Pagina1" unique_id=792415409]
+[node name="TextureRect3" type="TextureRect" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=792415409]
 layout_mode = 0
 offset_left = 336.0
 offset_top = 232.0
@@ -938,7 +956,7 @@ texture = ExtResource("6_05que")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="Label4" type="Label" parent="Carrossel/Pagina1" unique_id=624880907]
+[node name="Label4" type="Label" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=624880907]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 556.0
@@ -954,15 +972,15 @@ text = "ou
 "
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Carrossel/Pagina1" unique_id=1441416598]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=1441416598]
 texture_repeat = 2
-position = Vector2(1027, 186)
+position = Vector2(988, 185.99998)
 scale = Vector2(4.0156255, 4.0156255)
 sprite_frames = SubResource("SpriteFrames_cjneo")
 autoplay = "default"
 frame_progress = 0.37438428
 
-[node name="Label5" type="Label" parent="Carrossel/Pagina1" unique_id=879618953]
+[node name="Label5" type="Label" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=879618953]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 852.0
@@ -978,7 +996,7 @@ text = "
 →"
 horizontal_alignment = 1
 
-[node name="Label6" type="Label" parent="Carrossel/Pagina1" unique_id=1109864078]
+[node name="Label6" type="Label" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=1109864078]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 539.0
@@ -994,7 +1012,7 @@ text = "
 →"
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Carrossel/Pagina1" unique_id=1769449595]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=1769449595]
 texture_repeat = 2
 position = Vector2(738, 312)
 scale = Vector2(4.016, 4.016)
@@ -1004,7 +1022,7 @@ frame = 1
 frame_progress = 0.022542166
 speed_scale = 0.8
 
-[node name="chave" type="AnimatedSprite2D" parent="Carrossel/Pagina1" unique_id=1910398245]
+[node name="chave" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=1910398245]
 texture_repeat = 2
 position = Vector2(405, 467)
 scale = Vector2(4.016, 4.016)
@@ -1012,7 +1030,7 @@ sprite_frames = SubResource("SpriteFrames_agvsx")
 autoplay = "default"
 frame_progress = 0.03679331
 
-[node name="Label7" type="Label" parent="Carrossel/Pagina1" unique_id=1300013809]
+[node name="Label7" type="Label" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=1300013809]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 533.0
@@ -1028,7 +1046,7 @@ text = "
 →"
 horizontal_alignment = 1
 
-[node name="porta" type="AnimatedSprite2D" parent="Carrossel/Pagina1" unique_id=2115502368]
+[node name="porta" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=2115502368]
 texture_repeat = 2
 position = Vector2(753, 454)
 scale = Vector2(4.016, 4.016)
@@ -1037,7 +1055,7 @@ autoplay = "default"
 frame_progress = 0.9648282
 speed_scale = 0.5
 
-[node name="Label8" type="Label" parent="Carrossel/Pagina1" unique_id=543489121]
+[node name="Label8" type="Label" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=543489121]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 849.0
@@ -1053,7 +1071,7 @@ text = "
 → "
 horizontal_alignment = 1
 
-[node name="tutorial2" type="Label" parent="Carrossel/Pagina1" unique_id=467789324]
+[node name="tutorial2" type="Label" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=467789324]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -1061,10 +1079,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 280.0
-offset_top = 26.0
-offset_right = 468.0
-offset_bottom = 189.0
+offset_left = 291.0
+offset_top = 40.0
+offset_right = 479.0
+offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -1075,7 +1093,7 @@ text = "PASSAR DE
 FASE"
 horizontal_alignment = 1
 
-[node name="Label9" type="Label" parent="Carrossel/Pagina1" unique_id=1161898694]
+[node name="Label9" type="Label" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=1161898694]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 845.0
@@ -1091,19 +1109,19 @@ text = "
 → "
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Carrossel/Pagina1" unique_id=624366990]
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina1" unique_id=624366990]
 texture_repeat = 2
-position = Vector2(1021, 320)
+position = Vector2(973, 320)
 scale = Vector2(4.0156255, 4.0156255)
 sprite_frames = SubResource("SpriteFrames_dmh6u")
 autoplay = "default"
 
-[node name="Pagina2" type="Control" parent="Carrossel" unique_id=1030140298]
+[node name="Pagina2" type="Control" parent="UI_Container/papiro/Carrossel" unique_id=1030140298]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Label5" type="Label" parent="Carrossel/Pagina2" unique_id=1950529181]
+[node name="Label5" type="Label" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=1950529181]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 698.0
@@ -1119,13 +1137,13 @@ text = "
 →"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Carrossel/Pagina2" unique_id=381123797]
+[node name="Label" type="Label" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=381123797]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 29.0
-offset_top = 191.0
+offset_top = 187.0
 offset_right = 312.0
-offset_bottom = 227.0
+offset_bottom = 223.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1134,13 +1152,13 @@ theme_override_font_sizes/font_size = 35
 text = "inimigos"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Carrossel/Pagina2" unique_id=1353868565]
+[node name="Label2" type="Label" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=1353868565]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
-offset_left = 114.0
-offset_top = 322.0
-offset_right = 234.0
-offset_bottom = 358.0
+offset_left = 116.0
+offset_top = 317.0
+offset_right = 236.0
+offset_bottom = 353.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1149,13 +1167,13 @@ theme_override_font_sizes/font_size = 35
 text = "Ataques"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="Carrossel/Pagina2" unique_id=348877258]
+[node name="Label3" type="Label" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=348877258]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
-offset_left = 98.0
-offset_top = 436.0
-offset_right = 242.0
-offset_bottom = 511.0
+offset_left = 104.0
+offset_top = 424.0
+offset_right = 248.0
+offset_bottom = 499.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1165,7 +1183,7 @@ text = "minas
 terrestres"
 horizontal_alignment = 1
 
-[node name="Label6" type="Label" parent="Carrossel/Pagina2" unique_id=835721410]
+[node name="Label6" type="Label" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=835721410]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 459.0
@@ -1181,7 +1199,7 @@ text = "
 +"
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=769018160]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=769018160]
 texture_repeat = 3
 position = Vector2(376.31396, 313.50214)
 scale = Vector2(2.5196242, 2.4528823)
@@ -1189,7 +1207,7 @@ sprite_frames = SubResource("SpriteFrames_u7xlm")
 autoplay = "default"
 speed_scale = 0.8
 
-[node name="porta" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=1887239258]
+[node name="porta" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=1887239258]
 texture_repeat = 2
 position = Vector2(380.00003, 453)
 scale = Vector2(2.7892497, 2.7892497)
@@ -1197,7 +1215,7 @@ sprite_frames = SubResource("SpriteFrames_vlm7t")
 autoplay = "default"
 speed_scale = 1.5
 
-[node name="tutorial3" type="Label" parent="Carrossel/Pagina2" unique_id=696809464]
+[node name="tutorial3" type="Label" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=696809464]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -1219,13 +1237,13 @@ text = "Tecla
 (E)"
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=520152609]
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=520152609]
 position = Vector2(893.99994, 342)
 scale = Vector2(4.016, 4.016)
 sprite_frames = SubResource("SpriteFrames_1rvul")
 autoplay = "default"
 
-[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=1387260974]
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=1387260974]
 texture_repeat = 3
 position = Vector2(831, 307)
 scale = Vector2(4.016, 4.016)
@@ -1233,7 +1251,7 @@ sprite_frames = SubResource("SpriteFrames_ixk5n")
 autoplay = "default"
 speed_scale = 1.3
 
-[node name="Label8" type="Label" parent="Carrossel/Pagina2" unique_id=615173289]
+[node name="Label8" type="Label" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=615173289]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 460.0
@@ -1249,7 +1267,7 @@ text = "
 →"
 horizontal_alignment = 1
 
-[node name="Label9" type="Label" parent="Carrossel/Pagina2" unique_id=654517765]
+[node name="Label9" type="Label" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=654517765]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 782.0
@@ -1265,27 +1283,27 @@ text = "
 →"
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=48326262]
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=48326262]
 texture_repeat = 3
 position = Vector2(621, 440)
 scale = Vector2(3.2734687, 3.2734687)
 sprite_frames = SubResource("SpriteFrames_ox30o")
 autoplay = "default"
 
-[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=2142354555]
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=2142354555]
 texture_repeat = 2
 position = Vector2(579.99994, 195.99998)
 scale = Vector2(4.1875, 4.1875)
 sprite_frames = SubResource("SpriteFrames_2hjj6")
 autoplay = "default"
 
-[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=1413037637]
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=1413037637]
 position = Vector2(363.99994, 209)
 scale = Vector2(3.375, 3.375)
 sprite_frames = SubResource("SpriteFrames_a52ag")
 autoplay = "default"
 
-[node name="TextureRect" type="TextureRect" parent="Carrossel/Pagina2" unique_id=837268079]
+[node name="TextureRect" type="TextureRect" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=837268079]
 layout_mode = 0
 offset_left = 415.0
 offset_top = 173.0
@@ -1294,7 +1312,7 @@ offset_bottom = 236.0
 texture = ExtResource("17_agvsx")
 expand_mode = 1
 
-[node name="Label11" type="Label" parent="Carrossel/Pagina2" unique_id=2134289094]
+[node name="Label11" type="Label" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=2134289094]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 480.00006
@@ -1310,7 +1328,7 @@ text = "
 |"
 horizontal_alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="Carrossel/Pagina2" unique_id=1548989672]
+[node name="TextureRect2" type="TextureRect" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=1548989672]
 layout_mode = 0
 offset_left = 619.0
 offset_top = 175.0
@@ -1319,7 +1337,7 @@ offset_bottom = 229.0
 texture = ExtResource("18_2atlo")
 expand_mode = 1
 
-[node name="Label13" type="Label" parent="Carrossel/Pagina2" unique_id=281793722]
+[node name="Label13" type="Label" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=281793722]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 379.31372
@@ -1335,7 +1353,7 @@ text = "
 2X"
 horizontal_alignment = 1
 
-[node name="Label12" type="Label" parent="Carrossel/Pagina2" unique_id=921261309]
+[node name="Label12" type="Label" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=921261309]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 692.0
@@ -1351,45 +1369,44 @@ text = "
 |"
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Carrossel/Pagina2" unique_id=876443423]
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina2" unique_id=876443423]
 texture_repeat = 2
 position = Vector2(830, 193.99998)
 scale = Vector2(1.6100007, 1.7350001)
 sprite_frames = SubResource("SpriteFrames_pvq0n")
 autoplay = "default"
 
-[node name="Pagina3" type="Control" parent="Carrossel" unique_id=795448921]
-visible = false
+[node name="Pagina3" type="Control" parent="UI_Container/papiro/Carrossel" unique_id=795448921]
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="barra vida" type="TextureRect" parent="Carrossel/Pagina3" unique_id=1762763858]
+[node name="barra vida" type="TextureRect" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=1762763858]
 layout_mode = 0
 offset_left = 438.0
-offset_top = 191.0
+offset_top = 178.0
 offset_right = 610.0
-offset_bottom = 222.0
+offset_bottom = 209.0
 texture = ExtResource("18_pag3")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="TextureRect3" type="TextureRect" parent="Carrossel/Pagina3" unique_id=1436272941]
+[node name="TextureRect3" type="TextureRect" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=1436272941]
 layout_mode = 0
 offset_left = 439.0
-offset_top = 191.0
+offset_top = 177.0
 offset_right = 611.0
-offset_bottom = 217.875
+offset_bottom = 203.875
 texture = ExtResource("19_pag3")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="Label12" type="Label" parent="Carrossel/Pagina3" unique_id=422211546]
+[node name="Label12" type="Label" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=422211546]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
-offset_left = 605.0
-offset_top = 421.0
-offset_right = 1260.0
-offset_bottom = 470.0
+offset_left = 571.0
+offset_top = 416.0
+offset_right = 995.0
+offset_bottom = 465.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1399,13 +1416,13 @@ text = "aperte a tecla (R) para upar força ou a vida
 caso tenha atingido o nível de XP"
 horizontal_alignment = 1
 
-[node name="Label10" type="Label" parent="Carrossel/Pagina3" unique_id=1531580534]
+[node name="Label10" type="Label" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=1531580534]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
-offset_left = 868.0
-offset_top = 282.0
-offset_right = 1193.0
-offset_bottom = 357.0
+offset_left = 748.0
+offset_top = 267.0
+offset_right = 1073.0
+offset_bottom = 342.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1416,13 +1433,13 @@ pelos monstros para
  aumentar nível de XP"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Carrossel/Pagina3" unique_id=57788476]
+[node name="Label" type="Label" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=57788476]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 34.0
-offset_top = 189.0
+offset_top = 175.0
 offset_right = 317.0
-offset_bottom = 225.0
+offset_bottom = 211.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1431,13 +1448,13 @@ theme_override_font_sizes/font_size = 35
 text = "status"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Carrossel/Pagina3" unique_id=1611919462]
+[node name="Label2" type="Label" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=1611919462]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 111.0
-offset_top = 351.0
+offset_top = 307.0
 offset_right = 231.0
-offset_bottom = 387.0
+offset_bottom = 343.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1446,29 +1463,30 @@ theme_override_font_sizes/font_size = 35
 text = "itens"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="Carrossel/Pagina3" unique_id=1572346824]
+[node name="Label3" type="Label" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=1572346824]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
-offset_left = 50.0
-offset_top = 459.0
-offset_right = 301.0
-offset_bottom = 534.0
+offset_left = 56.0
+offset_top = 414.0
+offset_right = 307.0
+offset_bottom = 489.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
 theme_override_fonts/font = ExtResource("3_uapxi")
 theme_override_font_sizes/font_size = 35
-text = "upar força 
+text = "upar 
+força 
 ou vida"
 horizontal_alignment = 1
 
-[node name="Label9" type="Label" parent="Carrossel/Pagina3" unique_id=1992378026]
+[node name="Label9" type="Label" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=1992378026]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = 355.0
-offset_top = 192.0
+offset_top = 178.0
 offset_right = 412.0
-offset_bottom = 228.0
+offset_bottom = 214.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1477,13 +1495,13 @@ theme_override_font_sizes/font_size = 22
 text = "vida:"
 horizontal_alignment = 1
 
-[node name="Label7" type="Label" parent="Carrossel/Pagina3" unique_id=511637083]
+[node name="Label7" type="Label" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=511637083]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
-offset_left = 719.0
-offset_top = 301.0
-offset_right = 807.0
-offset_bottom = 376.0
+offset_left = 644.0
+offset_top = 293.0
+offset_right = 732.0
+offset_bottom = 368.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1492,27 +1510,27 @@ theme_override_font_sizes/font_size = 35
 text = "&"
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Carrossel/Pagina3" unique_id=272665861]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=272665861]
 texture_repeat = 3
-position = Vector2(400, 323)
+position = Vector2(314.00003, 293)
 scale = Vector2(2.2227519, 2.2227519)
 sprite_frames = SubResource("SpriteFrames_8w2c7")
 speed_scale = 0.8
 
-[node name="chave" type="AnimatedSprite2D" parent="Carrossel/Pagina3" unique_id=684838108]
+[node name="chave" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=684838108]
 texture_repeat = 2
-position = Vector2(407, 450)
+position = Vector2(342, 436)
 scale = Vector2(0.9277292, 0.9277292)
 sprite_frames = SubResource("SpriteFrames_xp2ep")
 
-[node name="porta" type="AnimatedSprite2D" parent="Carrossel/Pagina3" unique_id=375804428]
+[node name="porta" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=375804428]
 texture_repeat = 2
-position = Vector2(616.0001, 450.00003)
+position = Vector2(517, 440)
 scale = Vector2(0.9886153, 0.98861533)
 sprite_frames = SubResource("SpriteFrames_y7722")
 speed_scale = 1.5
 
-[node name="tutorial3" type="Label" parent="Carrossel/Pagina3" unique_id=1803256805]
+[node name="tutorial3" type="Label" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=1803256805]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -1521,9 +1539,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -290.0
-offset_top = -45.0
+offset_top = -59.0
 offset_right = -142.0
-offset_bottom = 20.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -1533,18 +1551,18 @@ theme_override_font_sizes/font_size = 40
 text = "2"
 horizontal_alignment = 1
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Carrossel/Pagina3" unique_id=1828438630]
-position = Vector2(839, 321.00003)
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=1828438630]
+position = Vector2(757, 306)
 scale = Vector2(0.6780836, 0.6780838)
 sprite_frames = SubResource("SpriteFrames_7rn3d")
 
-[node name="Label8" type="Label" parent="Carrossel/Pagina3" unique_id=55766331]
+[node name="Label8" type="Label" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=55766331]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
-offset_left = 466.99997
-offset_top = 427.99997
-offset_right = 555.0
-offset_bottom = 502.99997
+offset_left = 391.0
+offset_top = 417.0
+offset_right = 479.00003
+offset_bottom = 492.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1554,17 +1572,17 @@ text = "ou
 "
 horizontal_alignment = 1
 
-[node name="barra força" type="TextureRect" parent="Carrossel/Pagina3" unique_id=1486549269]
+[node name="barra força" type="TextureRect" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=1486549269]
 layout_mode = 0
 offset_left = 749.0
-offset_top = 189.0
+offset_top = 175.0
 offset_right = 921.0
-offset_bottom = 234.0
+offset_bottom = 220.0
 texture = ExtResource("18_pag3")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="Label9" type="Label" parent="Carrossel/Pagina3/barra força" unique_id=998315313]
+[node name="Label9" type="Label" parent="UI_Container/papiro/Carrossel/Pagina3/barra força" unique_id=998315313]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 1.0
@@ -1578,7 +1596,7 @@ theme_override_font_sizes/font_size = 22
 text = "1"
 horizontal_alignment = 1
 
-[node name="Label10" type="Label" parent="Carrossel/Pagina3/barra força" unique_id=2052583534]
+[node name="Label10" type="Label" parent="UI_Container/papiro/Carrossel/Pagina3/barra força" unique_id=2052583534]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
 offset_left = -79.0
@@ -1592,13 +1610,13 @@ theme_override_font_sizes/font_size = 22
 text = "força:"
 horizontal_alignment = 1
 
-[node name="Label11" type="Label" parent="Carrossel/Pagina3" unique_id=1409299207]
+[node name="Label11" type="Label" parent="UI_Container/papiro/Carrossel/Pagina3" unique_id=1409299207]
 modulate = Color(0.63529414, 0.54901963, 0.44313726, 1)
 layout_mode = 0
-offset_left = 466.0
-offset_top = 284.0
-offset_right = 725.0
-offset_bottom = 359.0
+offset_left = 388.0
+offset_top = 269.0
+offset_right = 647.0
+offset_bottom = 344.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.85882354)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1609,49 +1627,52 @@ Mas cuidado, você também pode
 se machucar com a explosão!"
 horizontal_alignment = 1
 
-[node name="sair" type="Button" parent="." unique_id=1427270191]
-offset_left = 20.0
-offset_top = 42.0
-offset_right = 92.0
-offset_bottom = 112.0
+[node name="sair" type="Button" parent="UI_Container/papiro" unique_id=1427270191]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 151.0
+offset_right = 904.0
+offset_bottom = 221.0
 theme = ExtResource("10_dkmt3")
 
-[node name="TextureRect5" type="TextureRect" parent="sair" unique_id=660575782]
+[node name="TextureRect5" type="TextureRect" parent="UI_Container/papiro/sair" unique_id=660575782]
 layout_mode = 0
 offset_left = -24.0
-offset_top = -35.0
+offset_top = -61.0
 offset_right = 94.0
-offset_bottom = 73.0
+offset_bottom = 47.0
 texture = ExtResource("10_5dmdl")
 flip_h = true
 
-[node name="avançar" type="Button" parent="." unique_id=310919340]
-offset_left = 1137.0
-offset_top = 623.0
-offset_right = 1224.0
-offset_bottom = 718.0
+[node name="avançar" type="Button" parent="UI_Container/papiro" unique_id=310919340]
+layout_mode = 0
+offset_left = 1958.0
+offset_top = 718.0
+offset_right = 2045.0
+offset_bottom = 813.0
 theme = SubResource("Theme_5dmdl")
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 
-[node name="proxtutorial" type="TextureRect" parent="avançar" unique_id=588767612]
+[node name="proxtutorial" type="TextureRect" parent="UI_Container/papiro/avançar" unique_id=588767612]
 layout_mode = 0
 offset_left = -18.0
-offset_top = -27.0
+offset_top = -28.0
 offset_right = 110.0
-offset_bottom = 122.0
+offset_bottom = 121.0
 texture = ExtResource("11_xe0n2")
 
-[node name="retroceder" type="Button" parent="." unique_id=217288214]
-offset_left = 78.0
-offset_top = 620.0
-offset_right = 165.0
-offset_bottom = 715.0
+[node name="retroceder" type="Button" parent="UI_Container/papiro" unique_id=217288214]
+layout_mode = 0
+offset_left = 828.0
+offset_top = 729.0
+offset_right = 915.0
+offset_bottom = 824.0
 theme = SubResource("Theme_5dmdl")
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 
-[node name="proxtutorial" type="TextureRect" parent="retroceder" unique_id=1143670491]
+[node name="proxtutorial" type="TextureRect" parent="UI_Container/papiro/retroceder" unique_id=1143670491]
 y_sort_enabled = true
 layout_mode = 0
 offset_left = -24.0
@@ -1661,13 +1682,14 @@ offset_bottom = 117.0
 texture = ExtResource("11_xe0n2")
 flip_h = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2025488206]
-offset_left = 102.0
-offset_top = 9.0
-offset_right = 586.0
-offset_bottom = 89.0
+[node name="HBoxContainer" type="HBoxContainer" parent="UI_Container/papiro" unique_id=2025488206]
+layout_mode = 0
+offset_left = 914.0
+offset_top = 118.0
+offset_right = 1398.0
+offset_bottom = 198.0
 
-[node name="tutorial" type="Label" parent="HBoxContainer" unique_id=956935653]
+[node name="tutorial" type="Label" parent="UI_Container/papiro/HBoxContainer" unique_id=956935653]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5176471)
@@ -1676,7 +1698,7 @@ theme_override_font_sizes/font_size = 67
 text = "tutorial"
 horizontal_alignment = 1
 
-[node name="Nome da tela" type="Label" parent="HBoxContainer" unique_id=412486242]
+[node name="Nome da tela" type="Label" parent="UI_Container/papiro/HBoxContainer" unique_id=412486242]
 layout_direction = 4
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1687,6 +1709,6 @@ theme_override_font_sizes/font_size = 35
 text = "COMANDOS BÁSICOS"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]
-[connection signal="pressed" from="avançar" to="." method="_on_avançar_pressed"]
-[connection signal="pressed" from="retroceder" to="." method="_on_retroceder_pressed"]
+[connection signal="pressed" from="UI_Container/papiro/sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="UI_Container/papiro/avançar" to="." method="_on_avançar_pressed"]
+[connection signal="pressed" from="UI_Container/papiro/retroceder" to="." method="_on_retroceder_pressed"]

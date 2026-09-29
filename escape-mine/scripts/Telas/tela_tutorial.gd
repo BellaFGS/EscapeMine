@@ -8,8 +8,9 @@ var titulos := [
 	"HUD"
 ]
 
-@onready var titulo: Label = $"HBoxContainer/Nome da tela"
-@onready var carrossel: TabContainer = $Carrossel
+# Caminhos atualizados apontando para dentro do papiro
+@onready var titulo: Label = $"UI_Container/papiro/HBoxContainer/Nome da tela"
+@onready var carrossel: TabContainer = $UI_Container/papiro/Carrossel
 
 
 func _ready() -> void:
