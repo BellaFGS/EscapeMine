@@ -108,7 +108,7 @@ func _ready() -> void:
 	atualizar_nivel(UpgradeSystem.nivel)
 	atualizar_pontuacao(ScoreManager.pontuacao_atual)
 
-	ocultar_upgrade()
+	mostrar_upgrade(UpgradeSystem.upgrade_disponivel)
 
 	GameManager.modo_controle_alterado.connect(atualizar_modo_controle)
 	atualizar_modo_controle(GameManager.modo_mobile)

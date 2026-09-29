@@ -107,7 +107,7 @@ func _ready():
 	)
 
 
-	texto_upgrade.visible = false
+	mostrar_upgrade(UpgradeSystem.upgrade_disponivel)
 
 	GameManager.modo_controle_alterado.connect(atualizar_modo_controle)
 	atualizar_modo_controle(GameManager.modo_mobile)
@@ -183,9 +183,8 @@ func forca_alterado(valor):
 
 func xp_alterado(valor):
 
-	barra_xp.value = valor
-
 	barra_xp.max_value = UpgradeSystem.limite
+	barra_xp.value = valor
 
 	texto_xp.text = (
 		str(UpgradeSystem.xp)

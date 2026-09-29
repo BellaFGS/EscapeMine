@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b6p5pdpby56fj" path="res://scripts/telas/tela_upgrade.gd" id="5_fqdyc"]
 
 [node name="Tela_upgrade" type="CanvasLayer" unique_id=1788756212]
+layer = 6
 process_mode = 3
 
 [node name="Control" type="Control" parent="." unique_id=708851952]
