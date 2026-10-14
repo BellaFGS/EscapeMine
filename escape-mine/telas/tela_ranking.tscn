@@ -31,20 +31,14 @@ size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="BoxContainer/PainelRanking" unique_id=693350763]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.539
-anchor_top = 0.68
-anchor_right = 0.539
-anchor_bottom = 0.686
-offset_left = -724.0
-offset_top = -543.0
-offset_right = 724.0
-offset_bottom = 543.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_3e650")
 
-[node name="ColorRect" type="ColorRect" parent="BoxContainer/PainelRanking" unique_id=136712793]
+[node name="ColorRect" type="ColorRect" parent="BoxContainer/PainelRanking/TextureRect" unique_id=136712793]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,7 +55,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -535.0
 offset_right = 535.0
-offset_bottom = 90.0
+offset_bottom = 110.0
 grow_horizontal = 2
 split_offsets = PackedInt32Array(55)
 split_offset = 55
@@ -132,7 +126,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 148.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -140,14 +133,20 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer/PainelRanking/BoxContainer2/VSplitContainer" unique_id=1783246304]
+[node name="MarginContainer2" type="MarginContainer" parent="BoxContainer/PainelRanking/BoxContainer2/VSplitContainer" unique_id=2083483256]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 150
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer/PainelRanking/BoxContainer2/VSplitContainer/MarginContainer2" unique_id=1783246304]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ListaRanking" type="VBoxContainer" parent="BoxContainer/PainelRanking/BoxContainer2/VSplitContainer/ScrollContainer" unique_id=4897134]
+[node name="ListaRanking" type="VBoxContainer" parent="BoxContainer/PainelRanking/BoxContainer2/VSplitContainer/MarginContainer2/ScrollContainer" unique_id=4897134]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="BoxContainer/PainelRanking/BoxContainer2/VSplitContainer" unique_id=603534189]
 layout_mode = 2
