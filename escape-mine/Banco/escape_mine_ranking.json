@@ -1,5 +1,12 @@
 [
 	{
+		"data": "2026-10-14 14:20:46",
+		"multiplicador": 3,
+		"nome": "MATHEUS",
+		"pontos": 43650,
+		"resultado": "LOSE"
+	},
+	{
 		"data": "2026-09-12 09:07:54",
 		"nome": "BELLA",
 		"pontos": 33625.0,
@@ -20,7 +27,7 @@
 	{
 		"data": "2026-09-29 12:02:46",
 		"nome": "MATHEUS",
-		"pontos": 26275,
+		"pontos": 26275.0,
 		"resultado": "WIN"
 	},
 	{
