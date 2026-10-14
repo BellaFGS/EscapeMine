@@ -40,8 +40,8 @@ expand = true
 
 [node name="MarginContainer" type="MarginContainer" parent="BoxContainer/MarginContainer" unique_id=820985478]
 layout_mode = 2
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/MarginContainer/MarginContainer" unique_id=2036264215]
 layout_mode = 2
@@ -50,10 +50,12 @@ size_flags_vertical = 8
 alignment = 2
 
 [node name="btn_skip" type="Button" parent="BoxContainer/MarginContainer/MarginContainer/HBoxContainer" unique_id=1698019672]
+modulate = Color(1, 1, 1, 0.8666667)
 layout_mode = 2
 theme = ExtResource("3_hpd4y")
 theme_override_constants/outline_size = 4
 theme_override_constants/h_separation = 4
+theme_override_font_sizes/font_size = 50
 text = "PULAR INTRO"
 
 [connection signal="finished" from="BoxContainer/MarginContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

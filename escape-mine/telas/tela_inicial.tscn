@@ -61,38 +61,44 @@ text = "Escape Mine"
 [node name="Menu" type="VBoxContainer" parent="Container/fundo_imagem/VSplitContainer" unique_id=99307723]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 10
+theme_override_constants/separation = 20
 
 [node name="btn_comecar" type="Button" parent="Container/fundo_imagem/VSplitContainer/Menu" unique_id=1757579034]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
+theme_override_font_sizes/font_size = 35
 text = "COMEÇAR"
 
 [node name="btn_tutorial" type="Button" parent="Container/fundo_imagem/VSplitContainer/Menu" unique_id=937279880]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
+theme_override_font_sizes/font_size = 35
 text = "COMO JOGAR"
 
 [node name="btn_config" type="Button" parent="Container/fundo_imagem/VSplitContainer/Menu" unique_id=1811723080]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
+theme_override_font_sizes/font_size = 35
 text = "CONFIGURAÇÕES"
 
 [node name="btn_intro" type="Button" parent="Container/fundo_imagem/VSplitContainer/Menu" unique_id=1879366239]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
+theme_override_font_sizes/font_size = 35
 text = "VISUALIZAR INTRO
 "
 
 [node name="btn_ranking" type="Button" parent="Container/fundo_imagem/VSplitContainer/Menu" unique_id=1300095565]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
+theme_override_font_sizes/font_size = 35
 text = "VISUALIZAR RANKING
 "
 
 [node name="btn_sair" type="Button" parent="Container/fundo_imagem/VSplitContainer/Menu" unique_id=848326941]
 layout_mode = 2
 theme = ExtResource("1_xs8lk")
+theme_override_font_sizes/font_size = 35
 text = "SAIR DO JOGO"
 
 [node name="Tela_Config" parent="." unique_id=1930430302 instance=ExtResource("2_lnd7q")]

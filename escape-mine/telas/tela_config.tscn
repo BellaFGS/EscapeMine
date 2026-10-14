@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://dtl4pntx6ekjs"]
 
-[ext_resource type="Script" uid="uid://brev50rvm7hfi" path="res://scripts/telas/tela_config.gd" id="1_lgoop"]
+[ext_resource type="Script" uid="uid://brev50rvm7hfi" path="res://scripts/Telas/tela_config.gd" id="1_lgoop"]
 [ext_resource type="Theme" uid="uid://b31pt65ykruq8" path="res://telas/Temas/new_theme.tres" id="2_76fbb"]
 [ext_resource type="FontFile" uid="uid://cbi0bu6cyx80o" path="res://telas/Temas/PixelifySans-VariableFont_wght.ttf" id="2_78uk1"]
 [ext_resource type="FontFile" uid="uid://bthhehoyceric" path="res://telas/Temas/Sonic Advanced 2.ttf" id="4_8huyt"]
 [ext_resource type="Texture2D" uid="uid://dontxxp7wbqs4" path="res://sprites/artes/config3.png" id="4_78uk1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p3w5a"]
+font_size = 35
 
 [node name="Tela_Config" type="CanvasLayer" unique_id=1788756212]
 process_mode = 3
@@ -63,6 +64,7 @@ theme_override_font_sizes/font_size = 32
 text = "CONFIGURAÇÕES"
 
 [node name="BoxContainer" type="BoxContainer" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer" unique_id=386837845]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -76,6 +78,7 @@ split_offsets = PackedInt32Array(130)
 split_offset = 130
 
 [node name="VSplitContainer" type="VSplitContainer" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer" unique_id=727759411]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -84,8 +87,9 @@ split_offsets = PackedInt32Array(0, 0, 0)
 [node name="Label_geral" type="Label" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer" unique_id=796166915]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("2_78uk1")
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 50
 text = "Volume Geral:"
 label_settings = SubResource("LabelSettings_p3w5a")
 horizontal_alignment = 1
@@ -93,8 +97,9 @@ horizontal_alignment = 1
 [node name="Label_sfx" type="Label" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer" unique_id=405205841]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("2_78uk1")
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 50
 text = "Efeitos Sonoros:"
 label_settings = SubResource("LabelSettings_p3w5a")
 horizontal_alignment = 1
@@ -102,8 +107,9 @@ horizontal_alignment = 1
 [node name="Label_musica" type="Label" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer" unique_id=1454774027]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("2_78uk1")
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 50
 text = "Músicas do jogo:"
 label_settings = SubResource("LabelSettings_p3w5a")
 horizontal_alignment = 1
@@ -111,14 +117,15 @@ horizontal_alignment = 1
 [node name="Label_mode" type="Label" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer" unique_id=355547967]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("2_78uk1")
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 50
 text = "Modo de jogabilidade: "
 label_settings = SubResource("LabelSettings_p3w5a")
 horizontal_alignment = 1
 
 [node name="VSplitContainer2" type="VSplitContainer" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer" unique_id=1907425961]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -129,7 +136,6 @@ layout_mode = 2
 size_flags_vertical = 6
 max_value = 1.0
 step = 0.01
-value = 1.0
 
 [node name="ctr_sfx" type="HSlider" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2" unique_id=579234341]
 layout_mode = 2
@@ -147,7 +153,7 @@ value = 1.0
 
 [node name="SeletorControle" type="OptionButton" parent="BoxContainer/fundo_tela/MarginContainer/BoxContainer/VSplitContainer/BoxContainer/HSplitContainer/VSplitContainer2" unique_id=1292357969]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_vertical = 6
 selected = 0
 item_count = 2
 popup/item_0/text = "PC"

@@ -6,11 +6,23 @@ extends Node
 # JOGO
 # =========================
 
-func iniciar_jogo():
+
+func iniciar_jogo() -> void:
+	print("[GameFacade] Iniciando jogo...")
+
 	GameManager.resetar()
+	print("[GameFacade] GameManager resetado.")
+
 	get_tree().paused = false
+	print("[GameFacade] Jogo despausado.")
+
 	AudioManager.tocar_musica("menu")
+	print("[GameFacade] Música solicitada.")
+
+	print("[GameFacade] Solicitando troca para main.")
 	SceneManager.trocar_cena("main")
+	print("[GameFacade] Solicitação de troca executada.")
+
 
 func abrir_intro():
 	SceneManager.trocar_cena("intro")
