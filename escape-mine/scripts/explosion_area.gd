@@ -8,8 +8,19 @@ func _ready() -> void:
 
 	await get_tree().physics_frame
 
-	# pega quem já estava dentro
-	for area in get_overlapping_areas():
+	# Aplica nos inimigos presentes na área por meio da coleção/iterator.
+	# Os outros alvos (como o player) seguem usando as áreas sobrepostas.
+	var areas_sobrepostas := get_overlapping_areas()
+	var iterator := EnemyCollection.new(get_tree()).criar_iterator()
+	while iterator.has_next():
+		var inimigo := iterator.next()
+		for area in areas_sobrepostas:
+			if area.get_parent() == inimigo:
+				_aplicar_dano(area)
+				areas_sobrepostas.erase(area)
+				break
+
+	for area in areas_sobrepostas:
 		_aplicar_dano(area)
 
 

@@ -11,11 +11,12 @@ func aplicar(novo_alvo):
 
 	# CanvasLayer
 	canvas_layer = CanvasLayer.new()
-	canvas_layer.layer = 999
+	canvas_layer.layer = 5
 
 	# Tela preta
 	overlay = ColorRect.new()
 	overlay.color = Color(0, 0, 0, 0.8)
+	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	overlay.set_anchors_preset(
 		Control.PRESET_FULL_RECT

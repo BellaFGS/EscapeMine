@@ -29,21 +29,25 @@ offset_right = -1.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 50
 
 [node name="btn_retomar" type="Button" parent="Menu" unique_id=1757579034]
 process_mode = 3
 layout_mode = 2
 theme = ExtResource("1_2qjsy")
+theme_override_font_sizes/font_size = 55
 text = "RETOMAR"
 
 [node name="btn_config" type="Button" parent="Menu" unique_id=1010696268]
 layout_mode = 2
 theme = ExtResource("1_2qjsy")
+theme_override_font_sizes/font_size = 55
 text = "CONFIGURAÇÕES"
 
 [node name="btn_inicio" type="Button" parent="Menu" unique_id=336733315]
 layout_mode = 2
 theme = ExtResource("1_2qjsy")
+theme_override_font_sizes/font_size = 55
 text = "VOLTAR PARA O INÍCIO"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=201148708]

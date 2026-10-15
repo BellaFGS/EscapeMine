@@ -3,13 +3,13 @@ extends Node
 signal pontuacao_alterada(valor: int)
 
 const CAMINHO_BANCO := "res://Banco/escape_mine_ranking.json"
-const LIMITE_RANKING := 10
 
 var pontuacao_atual: int = 0
 var bonus_boss: int = 0
 var bonus_boss_aplicado: bool = false
 var resultado_atual: String = ""
 var pontuacao_registrada: bool = false
+var multiplicador_tempo: int = 1
 var _registros: Array = []
 
 
@@ -23,6 +23,7 @@ func iniciar_partida() -> void:
 	bonus_boss_aplicado = false
 	resultado_atual = ""
 	pontuacao_registrada = false
+	multiplicador_tempo = 1
 
 	pontuacao_alterada.emit(pontuacao_atual)
 
@@ -51,6 +52,20 @@ func adicionar_bonus_boss(valor: int) -> void:
 
 func finalizar_partida(resultado: String) -> void:
 	resultado_atual = resultado
+	if resultado_atual != "WIN":
+		multiplicador_tempo = 1
+	multiplicador_tempo = calcular_multiplicador_tempo(GameManager.tempo_total)
+
+func calcular_multiplicador_tempo(tempo_segundos: float) -> int:
+	if tempo_segundos <= 5.0 * 60.0:
+		return 3
+	if tempo_segundos <= 10.0 * 60.0:
+		return 2
+	return 1
+
+
+func obter_pontuacao_final() -> int:
+	return pontuacao_atual * multiplicador_tempo
 
 
 func registrar_pontuacao(nome_jogador: String) -> bool:
@@ -66,12 +81,13 @@ func registrar_pontuacao(nome_jogador: String) -> bool:
 
 	_registros.append({
 		"nome": nome_limpo,
-		"pontos": pontuacao_atual,
+		"pontos": obter_pontuacao_final(),
+		"multiplicador": multiplicador_tempo,
 		"resultado": resultado_atual,
 		"data": Time.get_datetime_string_from_system(false, true),
 	})
 
-	_ordenar_e_limitar()
+	_ordenar_registros()
 	_salvar_banco()
 
 	pontuacao_registrada = true
@@ -79,11 +95,18 @@ func registrar_pontuacao(nome_jogador: String) -> bool:
 	return true
 
 
+# Retorna os melhores jogadores.
+# Por padrão, retorna os 5 melhores.
 func obter_ranking(limite: int = 5) -> Array:
 	return _registros.slice(
 		0,
 		mini(limite, _registros.size())
 	).duplicate(true)
+
+
+# Retorna TODOS os registros.
+func obter_todos_registros() -> Array:
+	return _registros.duplicate(true)
 
 
 func _carregar_banco() -> void:
@@ -108,7 +131,7 @@ func _carregar_banco() -> void:
 
 	if dados is Array:
 		_registros = dados
-		_ordenar_e_limitar()
+		_ordenar_registros()
 	else:
 		_registros = []
 
@@ -134,11 +157,8 @@ func _salvar_banco() -> void:
 	)
 
 
-func _ordenar_e_limitar() -> void:
+func _ordenar_registros() -> void:
 	_registros.sort_custom(
 		func(a, b):
 			return int(a.get("pontos", 0)) > int(b.get("pontos", 0))
-	)
-
-	if _registros.size() > LIMITE_RANKING:
-		_registros.resize(LIMITE_RANKING)
+	)	

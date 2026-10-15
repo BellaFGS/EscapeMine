@@ -17,13 +17,10 @@ var upgrade_disponivel := false
 
 func ganhar_xp(valor: int):
 
-	if upgrade_disponivel:
+	if valor <= 0:
 		return
 
 	xp += valor
-
-	if xp > limite:
-		xp = limite
 
 	emit_signal("xp_alterado", xp)
 
@@ -38,13 +35,9 @@ func verificar_level_up():
 
 	calcular_limite()
 
-	if xp >= limite:
-
-		xp = limite
-
+	if xp >= limite and not upgrade_disponivel:
 		upgrade_disponivel = true
 
-		emit_signal("xp_alterado", xp)
 		emit_signal("liberar_upgrade", true)
 
 
@@ -53,6 +46,10 @@ func verificar_level_up():
 # ============================================================
 
 func aplicar_upgrade(player, tipo: String):
+	if not upgrade_disponivel:
+		return
+
+	var custo_do_nivel := limite
 
 	match tipo:
 
@@ -96,16 +93,14 @@ func aplicar_upgrade(player, tipo: String):
 
 
 	# ========================================================
-	# RESET DO XP
+	# CONSOME SOMENTE O XP NECESSÁRIO PARA ESTE NÍVEL
 	# ========================================================
 
-	xp = 0
+	xp -= custo_do_nivel
+	upgrade_disponivel = xp >= limite
 
 	emit_signal("xp_alterado", xp)
-
-	upgrade_disponivel = false
-
-	emit_signal("liberar_upgrade", false)
+	emit_signal("liberar_upgrade", upgrade_disponivel)
 
 
 # ============================================================

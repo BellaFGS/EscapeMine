@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cf5wktys53gfc"]
 
-[ext_resource type="Script" path="res://scripts/Characters/minion.gd" id="1_36akh"]
+[ext_resource type="Script" uid="uid://cteihp63rw71l" path="res://scripts/characters/minion.gd" id="1_36akh"]
 [ext_resource type="Texture2D" uid="uid://js0sr3opnpep" path="res://sprites/characters/Boss/summonAppear.png" id="3_2ur71"]
 [ext_resource type="Texture2D" uid="uid://d8cgo2dyau74" path="res://sprites/characters/Boss/summonDeath.png" id="4_iofrx"]
 [ext_resource type="Script" uid="uid://hy37j6jnwt5y" path="res://scripts/hit_box.gd" id="5_36akh"]
