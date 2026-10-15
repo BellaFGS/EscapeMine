@@ -29,28 +29,16 @@ var player_dinamite: int = 0
 
 
 # ============================================================
-# INICIALIZAÇÃO E DETECÇÃO DO DISPOSITIVO
+# INICIALIZAÇÃO (PADRÃO DESKTOP MANUAL)
 # ============================================================
 
 func _ready() -> void:
-	atualizar_modo_controle()
-
-
-func detectar_modo_mobile() -> bool:
-	# Android sempre utiliza o HUD mobile.
-	if OS.has_feature("android"):
-		return true
-
-	# iOS também utiliza o HUD mobile.
-	if OS.has_feature("ios"):
-		return true
-
-	# Outras plataformas utilizam o HUD de PC por padrão.
-	return false
+	# Define o padrão como Desktop (false) sem detecção automática[cite: 1]
+	definir_modo_mobile(false)
 
 
 func atualizar_modo_controle() -> void:
-	definir_modo_mobile(detectar_modo_mobile())
+	definir_modo_mobile(modo_mobile)
 
 
 func definir_modo_mobile(valor: bool) -> void:

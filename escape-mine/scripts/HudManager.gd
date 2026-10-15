@@ -42,15 +42,13 @@ var player = null
 # ============================================================
 
 func _ready() -> void:
-	# O HUD acompanha o modo definido pelo GameManager.
-	if not GameManager.modo_controle_alterado.is_connected(
-		atualizar_modo_controle
-	):
-		GameManager.modo_controle_alterado.connect(
-			atualizar_modo_controle
-		)
+	# O HUD acompanha o modo definido pelo GameManager de forma segura.
+	if GameManager and GameManager.has_signal("modo_controle_alterado"):
+		if not GameManager.modo_controle_alterado.is_connected(atualizar_modo_controle):
+			GameManager.modo_controle_alterado.connect(atualizar_modo_controle)
 
-	atualizar_modo_controle(GameManager.modo_mobile)
+	if GameManager:
+		atualizar_modo_controle(GameManager.modo_mobile)
 
 	# ========================================================
 	# PONTUAÇÃO
