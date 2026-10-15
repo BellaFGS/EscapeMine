@@ -1,53 +1,85 @@
 extends Control
 
+# ============================================================
+# REFERÊNCIAS MOBILE
+# ============================================================
 
-# ============================================================
-# REFERÊNCIAS MOBILE (JOYSTICK E BOTÕES)
-# ============================================================
 @onready var joystick_movimento: VirtualJoystick = $"Container/containerMargin/BoxContainerJoystick/MarginContainer/Virtual Joystick"
+
 @onready var btn_upgrade: Button = $Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainerUpgrade/BtnUpgrade
+
 @onready var btn_item: Button = $Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainer/BoxContainerItem/BtnItem
+
 @onready var btn_menu: Button = $Container/containerMargin/BoxContainerMenu/Button
+
 
 # ============================================================
 # REFERÊNCIAS DE UI
 # ============================================================
+
 @onready var barra_dano = $Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer/BarraDanoTextura
+
 @onready var barra_vida = $Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer/BarraVidaTextura
 
 @onready var barra_xp = $Container/containerMargin/BoxContainerBarraXp/BarraXp/BarraXpTextura
 
 @onready var texto_vida = $Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer/BarraVidaTextura/TextoVida
+
 @onready var texto_forca = $Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer/BarraDanoTextura/TextoForca
+
 @onready var texto_xp = $Container/containerMargin/BoxContainerBarraXp/BarraXp/TextoXp
+
 @onready var texto_nivel = $Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerNivel/PanelNivel/Nivel
+
 @onready var texto_pontos = $Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerPontos/Pontos
 
 @onready var texto_dinamite = $Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemDinamite/PanelItemDinamite/MarginContainer/HSplitContainer/Dinamite
+
 @onready var chave = $Container/containerMargin/MarginContainer/BoxContainerAtributos/VSplitContainerAtributos/BoxContainerItemChave
+
 @onready var texto_upgrade: Label = $Container/containerMargin/BoxContainerUpgrade/TextoUpgrade
 
 
-var player
-var input_manager
+# ============================================================
+# VARIÁVEIS
+# ============================================================
 
+var player = null
+var input_manager = null
+
+# Guarda o botão associado a cada dedo.
+var _toques_botoes: Dictionary = {}
+
+
+# ============================================================
+# INICIALIZAÇÃO
+# ============================================================
 
 func _ready() -> void:
+	if not GameManager.modo_controle_alterado.is_connected(
+		atualizar_modo_controle
+	):
+		GameManager.modo_controle_alterado.connect(
+			atualizar_modo_controle
+		)
+
+	atualizar_modo_controle(GameManager.modo_mobile)
 
 	await get_tree().process_frame
 
 	player = get_tree().get_first_node_in_group("player")
 
 	if player == null:
-		print("Player não encontrado no HUD Mobile")
+		push_warning("Player não encontrado no HUD Mobile.")
 		return
 
 	input_manager = player.input_manager
 
 	# ========================================================
-	# 1. DESATIVA O BLOQUEIO DE MOUSE EM TODOS OS CONTAINERS PAIS
+	# FILTRO DOS CONTAINERS
 	# ========================================================
-	var containers_para_ignorar = [
+
+	var containers_para_ignorar: Array[Control] = [
 		$Container,
 		$Container/containerMargin,
 		$Container/containerMargin/MarginContainer,
@@ -57,50 +89,69 @@ func _ready() -> void:
 		$Container/containerMargin/BoxContainerJoystick/MarginContainer
 	]
 
-	for c in containers_para_ignorar:
-		if c:
-			c.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for container_ui in containers_para_ignorar:
+		if is_instance_valid(container_ui):
+			container_ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	# ========================================================
-	# 2. TRAZ O JOYSTICK PARA A FRENTE E ATIVA A RECEPÇÃO
+	# JOYSTICK
 	# ========================================================
-	if joystick_movimento:
-		joystick_movimento.move_to_front()
+
+	if is_instance_valid(joystick_movimento):
 		joystick_movimento.mouse_filter = Control.MOUSE_FILTER_STOP
 
 	# ========================================================
-	# 3. CONFIGURAÇÃO DO BOTÃO DE MENU E DEMAIS BOTÕES
+	# BOTÕES
 	# ========================================================
-	if btn_menu:
-		btn_menu.focus_mode = Control.FOCUS_NONE
-		btn_menu.mouse_filter = Control.MOUSE_FILTER_STOP
 
-		var container_menu = $Container/containerMargin/BoxContainerMenu
-		if container_menu:
-			container_menu.move_to_front()
+	var botoes: Array[Button] = [
+		btn_upgrade,
+		btn_item,
+		btn_menu
+	]
 
+	for botao in botoes:
+		if is_instance_valid(botao):
+			botao.focus_mode = Control.FOCUS_NONE
+			botao.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	if is_instance_valid(btn_menu):
 		if not btn_menu.pressed.is_connected(_on_button_pressed):
 			btn_menu.pressed.connect(_on_button_pressed)
 
-	if btn_upgrade:
-		btn_upgrade.focus_mode = Control.FOCUS_NONE
-	
-	if btn_item:
-		btn_item.focus_mode = Control.FOCUS_NONE
+	# ========================================================
+	# SINAIS DO PLAYER
+	# ========================================================
+
+	if not player.vida_alterada.is_connected(atualizar_vida):
+		player.vida_alterada.connect(atualizar_vida)
+
+	if not player.forca_alterado.is_connected(atualizar_forca):
+		player.forca_alterado.connect(atualizar_forca)
+
+	if not player.dinamite_up.is_connected(atualizar_dinamite):
+		player.dinamite_up.connect(atualizar_dinamite)
 
 	# ========================================================
-	# SINAIS DO PLAYER E SISTEMAS
+	# SINAIS DOS SISTEMAS
 	# ========================================================
-	player.vida_alterada.connect(atualizar_vida)
-	player.forca_alterado.connect(atualizar_forca)
-	player.dinamite_up.connect(atualizar_dinamite)
 
-	UpgradeSystem.xp_alterado.connect(atualizar_xp)
-	UpgradeSystem.nivel_up.connect(atualizar_nivel)
-	UpgradeSystem.liberar_upgrade.connect(mostrar_upgrade)
-	ScoreManager.pontuacao_alterada.connect(atualizar_pontuacao)
+	if not UpgradeSystem.xp_alterado.is_connected(atualizar_xp):
+		UpgradeSystem.xp_alterado.connect(atualizar_xp)
 
-	# Atualização inicial
+	if not UpgradeSystem.nivel_up.is_connected(atualizar_nivel):
+		UpgradeSystem.nivel_up.connect(atualizar_nivel)
+
+	if not UpgradeSystem.liberar_upgrade.is_connected(mostrar_upgrade):
+		UpgradeSystem.liberar_upgrade.connect(mostrar_upgrade)
+
+	if not ScoreManager.pontuacao_alterada.is_connected(atualizar_pontuacao):
+		ScoreManager.pontuacao_alterada.connect(atualizar_pontuacao)
+
+	# ========================================================
+	# VALORES INICIAIS
+	# ========================================================
+
 	atualizar_vida(player.vida)
 	atualizar_forca(player.forca)
 	atualizar_dinamite(GameManager.player_dinamite)
@@ -110,28 +161,127 @@ func _ready() -> void:
 
 	mostrar_upgrade(UpgradeSystem.upgrade_disponivel)
 
-	GameManager.modo_controle_alterado.connect(atualizar_modo_controle)
-	atualizar_modo_controle(GameManager.modo_mobile)
+
+# ============================================================
+# PROCESSAMENTO
+# ============================================================
 
 func _process(_delta: float) -> void:
-
 	if player == null or input_manager == null:
 		return
 
-	# Não envia direções se o player estiver no meio da animação do item
+	if not GameManager.modo_mobile:
+		return
+
 	if player.item_controller and player.item_controller.usando_item:
 		input_manager.limpar_direcao_mobile()
 	else:
-		if joystick_movimento and joystick_movimento.output != Vector2.ZERO:
-			# Movimentação via Joystick Touch
-			input_manager.definir_direcao_mobile(joystick_movimento.output)
+		if joystick_movimento and joystick_movimento.output.length() > 0.01:
+			input_manager.definir_direcao_mobile(
+				joystick_movimento.output
+			)
 		else:
-			# Fallback para WASD / Setas durante testes no PC
-			var direcao_teclado = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-			input_manager.definir_direcao_mobile(direcao_teclado)
+			input_manager.definir_direcao_mobile(Vector2.ZERO)
 
 	atualizar_chave(GameManager.player_tem_chave)
 	atualizar_dinamite(GameManager.player_dinamite)
+
+
+# ============================================================
+# MULTITOUCH
+# ============================================================
+
+func _input(event: InputEvent) -> void:
+	if not GameManager.modo_mobile:
+		return
+
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			# Cada dedo pode controlar seu próprio botão.
+			var botao := _encontrar_botao(event.position)
+
+			if botao != null:
+				_toques_botoes[event.index] = botao
+		else:
+			# A soltura de um dedo não afeta os outros.
+			if not _toques_botoes.has(event.index):
+				return
+
+			var botao: Button = _toques_botoes[event.index]
+			_toques_botoes.erase(event.index)
+
+			if not is_instance_valid(botao):
+				return
+
+			if not botao.is_visible_in_tree() or botao.disabled:
+				return
+
+			# Só ativa se o dedo terminar dentro do botão.
+			if _ponto_dentro_do_botao(botao, event.position):
+				_acionar_botao(botao)
+
+
+func _encontrar_botao(posicao_tela: Vector2) -> Button:
+	var botoes := find_children("*", "Button", true, false)
+
+	for i in range(botoes.size() - 1, -1, -1):
+		var botao := botoes[i] as Button
+
+		if botao == null:
+			continue
+
+		if not botao.is_visible_in_tree():
+			continue
+
+		if botao.disabled:
+			continue
+
+		if _ponto_dentro_do_botao(botao, posicao_tela):
+			return botao
+
+	return null
+
+
+func _ponto_dentro_do_botao(
+	botao: Button,
+	posicao_tela: Vector2
+) -> bool:
+	var transformacao := botao.get_global_transform_with_canvas()
+	var posicao_local := transformacao.affine_inverse() * posicao_tela
+
+	return Rect2(
+		Vector2.ZERO,
+		botao.size
+	).has_point(posicao_local)
+
+
+func _acionar_botao(botao: Button) -> void:
+	if botao == btn_upgrade:
+		_on_btn_upgrade_pressed()
+
+	elif botao == btn_item:
+		_on_btn_item_pressed()
+
+	elif botao == btn_menu:
+		_on_button_pressed()
+
+	# O botão de ataque não foi associado diretamente
+	# porque o caminho dele não foi informado neste script.
+
+
+# ============================================================
+# MODO DE CONTROLE
+# ============================================================
+
+func atualizar_modo_controle(mobile: bool) -> void:
+	visible = mobile
+	set_process(mobile)
+
+	if not mobile and input_manager != null:
+		input_manager.limpar_direcao_mobile()
+
+	if not mobile:
+		_toques_botoes.clear()
 
 
 # ============================================================
@@ -141,9 +291,11 @@ func _process(_delta: float) -> void:
 func atualizar_vida(valor: int) -> void:
 	if player == null:
 		return
+
 	if barra_vida:
 		barra_vida.max_value = player.vida_max
 		barra_vida.value = valor
+
 	if texto_vida:
 		texto_vida.text = str(valor) + "/" + str(player.vida_max)
 
@@ -151,6 +303,7 @@ func atualizar_vida(valor: int) -> void:
 func atualizar_forca(valor: int) -> void:
 	if barra_dano:
 		barra_dano.value = valor
+
 	if texto_forca:
 		texto_forca.text = str(valor)
 
@@ -159,6 +312,7 @@ func atualizar_xp(valor: int) -> void:
 	if barra_xp:
 		barra_xp.max_value = UpgradeSystem.limite
 		barra_xp.value = valor
+
 	if texto_xp:
 		texto_xp.text = str(valor) + "/" + str(UpgradeSystem.limite)
 
@@ -190,24 +344,18 @@ func atualizar_pontuacao(valor: int) -> void:
 func mostrar_upgrade(valor: bool) -> void:
 	if texto_upgrade:
 		texto_upgrade.visible = valor
-		if valor:
-			texto_upgrade.move_to_front()
 
 	if btn_upgrade:
 		btn_upgrade.visible = valor
-		if valor:
-			btn_upgrade.move_to_front()
 
 
 func ocultar_upgrade() -> void:
 	if texto_upgrade:
 		texto_upgrade.visible = false
+
 	if btn_upgrade:
 		btn_upgrade.visible = false
 
-func atualizar_modo_controle(mobile: bool) -> void:
-
-	visible = mobile
 
 # ============================================================
 # BOTÕES
@@ -216,6 +364,7 @@ func atualizar_modo_controle(mobile: bool) -> void:
 func _on_btn_upgrade_pressed() -> void:
 	if not UpgradeSystem.upgrade_disponivel:
 		return
+
 	GameFacade.abrir_upgrade()
 
 
@@ -223,17 +372,13 @@ func _on_btn_item_pressed() -> void:
 	if player == null or player.item_controller == null:
 		return
 
-	if get_viewport().gui_get_focus_owner():
-		get_viewport().gui_get_focus_owner().release_focus()
-
 	player.item_controller.usar_dinamite()
 
 
 func _on_btn_ataque_pressed() -> void:
-	if player == null:
+	if player == null or player.is_attack:
 		return
-	if player.is_attack:
-		return
+
 	player.atacar()
 
 

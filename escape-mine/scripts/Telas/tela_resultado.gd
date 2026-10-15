@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var titulo: Label = $Fundo/Center/Painel/Conteudo/Titulo
 @onready var subtitulo: Label = $Fundo/Center/Painel/Conteudo/Subtitulo
 @onready var pontos: Label = $Fundo/Center/Painel/Conteudo/Pontos
+@onready var multiplicador: Label = $Fundo/Center/Painel/Conteudo/Multiplicador
 @onready var bonus: Label = $Fundo/Center/Painel/Conteudo/Bonus
 @onready var nome: LineEdit = $Fundo/Center/Painel/Conteudo/Registro/Nome
 @onready var registrar: Button = $Fundo/Center/Painel/Conteudo/Registro/Registrar
@@ -17,7 +18,8 @@ func _ready() -> void:
 
 	titulo.text = "MISSÃO CUMPRIDA!" if venceu else "FIM DE JOGO"
 	subtitulo.text = "VOCÊ ESCAPOU DA MINA" if venceu else "A MINA VENCEU DESTA VEZ"
-	pontos.text = "PONTUAÇÃO  %07d" % ScoreManager.pontuacao_atual
+	pontos.text = "PONTUAÇÃO FINAL  %07d" % ScoreManager.obter_pontuacao_final()
+	multiplicador.text = "MULTIPLICADOR DE TEMPO  x%d" % ScoreManager.multiplicador_tempo
 	bonus.visible = venceu and ScoreManager.bonus_boss > 0
 	bonus.text = "+%d BÔNUS DO BOSS" % ScoreManager.bonus_boss
 	#menu.visible = ScoreManager.pontuacao_registrada
@@ -59,10 +61,11 @@ func _atualizar_ranking() -> void:
 	else:
 		for i in registros.size():
 			var registro: Dictionary = registros[i]
-			linhas.append("%02d  %-12s  %07d" % [
+			linhas.append("%02d  %-12s  %07d  x%d" % [
 				i + 1,
 				str(registro.get("nome", "---")),
 				int(registro.get("pontos", 0)),
+				int(registro.get("multiplicador", 1)),
 			])
 
 	ranking.text = "\n".join(linhas)

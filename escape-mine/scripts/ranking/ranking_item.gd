@@ -28,5 +28,8 @@ func configurar(dados: Dictionary, num_posicao: int) -> void:
 	else:
 		data.text = ""
 
-	pontuacao.text = str(dados.get("pontos", 0))
+	pontuacao.text = "%d (x%d)" % [
+		int(dados.get("pontos", 0)),
+		int(dados.get("multiplicador", 1)),
+	]
 	resultado.text = str(dados.get("resultado", ""))

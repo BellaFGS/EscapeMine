@@ -53,8 +53,11 @@ func _physics_process(delta):
 	for comando in comandos:
 		comando.executar()
 
-	if Input.is_action_just_pressed("attack") and not is_attack:
-		atacar()
+	# Ataque por Input Map somente no modo desktop.
+	# No mobile, o ataque será acionado pelo botão do HUD.
+	if not GameManager.modo_mobile:
+		if Input.is_action_just_pressed("attack") and not is_attack:
+			atacar()
 
 	tempo_sem_dano += delta
 	if tempo_sem_dano >= delay_regen and vida < vida_max:
