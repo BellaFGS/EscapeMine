@@ -1,40 +1,29 @@
 class_name VirtualJoystick
-
 extends Control
 
-## A simple virtual joystick for touchscreens, with useful options.
-## Github: https://github.com/MarcoFazioRandom/Virtual-Joystick-Godot
+# ============================================================
+# CONFIGURAÇÕES
+# ============================================================
 
-# EXPORTED VARIABLE
-
-## The color of the button when the joystick is pressed.
 @export var pressed_color := Color.GRAY
-
-## If the input is inside this range, the output is zero.
-@export_range(0, 200, 1) var deadzone_size : float = 10
-
-## The max distance the tip can reach.
-@export_range(0, 500, 1) var clampzone_size : float = 75
+@export_range(0, 200, 1) var deadzone_size: float = 10
+@export_range(1, 500, 1) var clampzone_size: float = 75
 
 enum Joystick_mode {
-	FIXED, ## The joystick doesn't move.
-	DYNAMIC, ## Every time the joystick area is pressed, the joystick position is set on the touched position.
-	FOLLOWING ## When the finger moves outside the joystick area, the joystick will follow it.
+	FIXED,
+	DYNAMIC,
+	FOLLOWING
 }
 
-## If the joystick stays in the same position or appears on the touched position when touch is started
 @export var joystick_mode := Joystick_mode.FIXED
 
 enum Visibility_mode {
-	ALWAYS, ## Always visible
-	TOUCHSCREEN_ONLY, ## Visible on touch screens only
-	WHEN_TOUCHED ## Visible only when touched
+	ALWAYS,
+	TOUCHSCREEN_ONLY,
+	WHEN_TOUCHED
 }
 
-## If the joystick is always visible, or is shown only if there is a touchscreen
 @export var visibility_mode := Visibility_mode.ALWAYS
-
-## If true, the joystick uses Input Actions (Project -> Project Settings -> Input Map)
 @export var use_input_actions := true
 
 @export var action_left := "ui_left"
@@ -42,157 +31,305 @@ enum Visibility_mode {
 @export var action_up := "ui_up"
 @export var action_down := "ui_down"
 
-# PUBLIC VARIABLES
 
-## If the joystick is receiving inputs.
+# ============================================================
+# ESTADO
+# ============================================================
+
 var is_pressed := false
-
-# The joystick output.
 var output := Vector2.ZERO
 
-# PRIVATE VARIABLES
+# O joystick controla apenas o dedo que iniciou a movimentação.
+var _touch_index: int = -1
 
-var _touch_index : int = -1
+# Identificador reservado para o mouse no PC.
+const MOUSE_TOUCH_INDEX := 999
 
-@onready var _base := $Base
-@onready var _tip := $Base/Tip
+var _actions_ativas: Dictionary = {
+	"ui_left": false,
+	"ui_right": false,
+	"ui_up": false,
+	"ui_down": false
+}
 
-@onready var _base_default_position : Vector2 = _base.position
-@onready var _tip_default_position : Vector2 = _tip.position
 
-@onready var _default_color : Color = _tip.modulate
+# ============================================================
+# REFERÊNCIAS
+# ============================================================
 
-# FUNCTIONS
+@onready var _base: Control = $Base
+@onready var _tip: Control = $Base/Tip
+
+@onready var _base_default_position: Vector2 = _base.position
+@onready var _tip_default_position: Vector2 = _tip.position
+
+@onready var _default_color: Color = _tip.modulate
+
+
+# ============================================================
+# INICIALIZAÇÃO
+# ============================================================
 
 func _ready() -> void:
-	if not DisplayServer.is_touchscreen_available() and visibility_mode == Visibility_mode.TOUCHSCREEN_ONLY:
+	if (
+		not DisplayServer.is_touchscreen_available()
+		and visibility_mode == Visibility_mode.TOUCHSCREEN_ONLY
+	):
 		hide()
-	
+
 	if visibility_mode == Visibility_mode.WHEN_TOUCHED:
 		hide()
 
+
+# ============================================================
+# ENTRADA MULTITOUCH
+# ============================================================
+
 func _input(event: InputEvent) -> void:
-	# ============================================================
-	# SUPORTE A TOUCHSCREEN (TELA TÁTIL / CELULAR)
-	# ============================================================
+	# --------------------------------------------------------
+	# TOQUE NA TELA
+	# --------------------------------------------------------
+
 	if event is InputEventScreenTouch:
 		if event.pressed:
-			if _is_point_inside_joystick_area(event.position) and _touch_index == -1:
-				if joystick_mode == Joystick_mode.DYNAMIC or joystick_mode == Joystick_mode.FOLLOWING or (joystick_mode == Joystick_mode.FIXED and _is_point_inside_base(event.position)):
-					if joystick_mode == Joystick_mode.DYNAMIC or joystick_mode == Joystick_mode.FOLLOWING:
-						_move_base(event.position)
-					if visibility_mode == Visibility_mode.WHEN_TOUCHED:
-						show()
-					_touch_index = event.index
-					_tip.modulate = pressed_color
-					_update_joystick(event.position)
-					get_viewport().set_input_as_handled()
-		elif event.index == _touch_index:
+			# Só captura o dedo que iniciou o movimento
+			# dentro da área do joystick.
+			if _touch_index == -1:
+				if not _is_point_inside_joystick_area(event.position):
+					return
+
+				if not _pode_iniciar_joystick(event.position):
+					return
+
+				_iniciar_joystick(event.index, event.position)
+
+		else:
+			# Ignora a soltura de outros dedos.
+			if event.index != _touch_index:
+				return
+
 			_reset()
+
 			if visibility_mode == Visibility_mode.WHEN_TOUCHED:
 				hide()
-			get_viewport().set_input_as_handled()
+
+	# --------------------------------------------------------
+	# MOVIMENTAÇÃO DO DEDO
+	# --------------------------------------------------------
 
 	elif event is InputEventScreenDrag:
 		if event.index == _touch_index:
 			_update_joystick(event.position)
-			get_viewport().set_input_as_handled()
 
-	# ============================================================
-	# NOVO: SUPORTE A MOUSE (TESTES NO COMPUTADOR)
-	# ============================================================
-	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+	# --------------------------------------------------------
+	# MOUSE PARA TESTES NO PC
+	# --------------------------------------------------------
+
+	elif event is InputEventMouseButton:
+		if event.button_index != MOUSE_BUTTON_LEFT:
+			return
+
 		if event.pressed:
-			if _is_point_inside_joystick_area(event.position) and _touch_index == -1:
-				if joystick_mode == Joystick_mode.DYNAMIC or joystick_mode == Joystick_mode.FOLLOWING or (joystick_mode == Joystick_mode.FIXED and _is_point_inside_base(event.position)):
-					if joystick_mode == Joystick_mode.DYNAMIC or joystick_mode == Joystick_mode.FOLLOWING:
-						_move_base(event.position)
-					if visibility_mode == Visibility_mode.WHEN_TOUCHED:
-						show()
-					_touch_index = 999 # Índice reservado para o mouse
-					_tip.modulate = pressed_color
-					_update_joystick(event.position)
-					get_viewport().set_input_as_handled()
-		elif _touch_index == 999:
+			if _touch_index != -1:
+				return
+
+			if not _is_point_inside_joystick_area(event.position):
+				return
+
+			if not _pode_iniciar_joystick(event.position):
+				return
+
+			_iniciar_joystick(
+				MOUSE_TOUCH_INDEX,
+				event.position
+			)
+
+		elif _touch_index == MOUSE_TOUCH_INDEX:
 			_reset()
+
 			if visibility_mode == Visibility_mode.WHEN_TOUCHED:
 				hide()
-			get_viewport().set_input_as_handled()
 
-	elif event is InputEventMouseMotion and _touch_index == 999:
-		_update_joystick(event.position)
-		get_viewport().set_input_as_handled()
+	elif event is InputEventMouseMotion:
+		if _touch_index == MOUSE_TOUCH_INDEX:
+			_update_joystick(event.position)
+
+
+# ============================================================
+# INICIAR JOYSTICK
+# ============================================================
+
+func _pode_iniciar_joystick(position_to_check: Vector2) -> bool:
+	return (
+		joystick_mode == Joystick_mode.DYNAMIC
+		or joystick_mode == Joystick_mode.FOLLOWING
+		or _is_point_inside_base(position_to_check)
+	)
+
+
+func _iniciar_joystick(
+	touch_id: int,
+	touch_position: Vector2
+) -> void:
+	_touch_index = touch_id
+
+	if (
+		joystick_mode == Joystick_mode.DYNAMIC
+		or joystick_mode == Joystick_mode.FOLLOWING
+	):
+		_move_base(touch_position)
+
+	if visibility_mode == Visibility_mode.WHEN_TOUCHED:
+		show()
+
+	_tip.modulate = pressed_color
+
+	_update_joystick(touch_position)
+
+
+# ============================================================
+# POSICIONAMENTO
+# ============================================================
 
 func _move_base(new_position: Vector2) -> void:
-	_base.global_position = new_position - _base.pivot_offset * get_global_transform_with_canvas().get_scale()
+	_base.global_position = (
+		new_position
+		- _base.pivot_offset
+		* get_global_transform_with_canvas().get_scale()
+	)
+
 
 func _move_tip(new_position: Vector2) -> void:
-	_tip.global_position = new_position - _tip.pivot_offset * _base.get_global_transform_with_canvas().get_scale()
+	_tip.global_position = (
+		new_position
+		- _tip.pivot_offset
+		* _base.get_global_transform_with_canvas().get_scale()
+	)
+
 
 func _is_point_inside_joystick_area(point: Vector2) -> bool:
-	var x: bool = point.x >= global_position.x and point.x <= global_position.x + (size.x * get_global_transform_with_canvas().get_scale().x)
-	var y: bool = point.y >= global_position.y and point.y <= global_position.y + (size.y * get_global_transform_with_canvas().get_scale().y)
-	return x and y
+	var scale_canvas := get_global_transform_with_canvas().get_scale()
+
+	var rect := Rect2(
+		global_position,
+		size * scale_canvas
+	)
+
+	return rect.has_point(point)
+
 
 func _get_base_radius() -> Vector2:
-	return _base.size * _base.get_global_transform_with_canvas().get_scale() / 2
+	return (
+		_base.size
+		* _base.get_global_transform_with_canvas().get_scale()
+		/ 2.0
+	)
+
 
 func _is_point_inside_base(point: Vector2) -> bool:
-	var _base_radius = _get_base_radius()
-	var center : Vector2 = _base.global_position + _base_radius
-	var vector : Vector2 = point - center
-	if vector.length_squared() <= _base_radius.x * _base_radius.x:
-		return true
-	else:
-		return false
+	var radius := _get_base_radius()
+	var center := _base.global_position + radius
+	var vector := point - center
+
+	return vector.length_squared() <= radius.x * radius.x
+
+
+# ============================================================
+# ATUALIZAR DIREÇÃO
+# ============================================================
 
 func _update_joystick(touch_position: Vector2) -> void:
-	var _base_radius = _get_base_radius()
-	var center : Vector2 = _base.global_position + _base_radius
-	var vector : Vector2 = touch_position - center
+	var radius := _get_base_radius()
+	var center := _base.global_position + radius
+
+	var vector := touch_position - center
 	vector = vector.limit_length(clampzone_size)
-	
-	if joystick_mode == Joystick_mode.FOLLOWING and touch_position.distance_to(center) > clampzone_size:
+
+	if (
+		joystick_mode == Joystick_mode.FOLLOWING
+		and touch_position.distance_to(center) > clampzone_size
+	):
 		_move_base(touch_position - vector)
-	
+
 	_move_tip(center + vector)
-	
-	if vector.length_squared() > deadzone_size * deadzone_size:
+
+	if vector.length() > deadzone_size:
 		is_pressed = true
-		output = (vector - (vector.normalized() * deadzone_size)) / (clampzone_size - deadzone_size)
+
+		output = (
+			vector - vector.normalized() * deadzone_size
+		) / maxf(clampzone_size - deadzone_size, 1.0)
+
+		output = output.limit_length(1.0)
 	else:
 		is_pressed = false
 		output = Vector2.ZERO
-	
-	if use_input_actions:
-		# Release actions
-		if output.x >= 0 and Input.is_action_pressed(action_left):
-			Input.action_release(action_left)
-		if output.x <= 0 and Input.is_action_pressed(action_right):
-			Input.action_release(action_right)
-		if output.y >= 0 and Input.is_action_pressed(action_up):
-			Input.action_release(action_up)
-		if output.y <= 0 and Input.is_action_pressed(action_down):
-			Input.action_release(action_down)
-		# Press actions
-		if output.x < 0:
-			Input.action_press(action_left, -output.x)
-		if output.x > 0:
-			Input.action_press(action_right, output.x)
-		if output.y < 0:
-			Input.action_press(action_up, -output.y)
-		if output.y > 0:
-			Input.action_press(action_down, output.y)
 
-func _reset():
+	if use_input_actions:
+		_atualizar_input_actions()
+
+
+# ============================================================
+# INPUT ACTIONS
+# ============================================================
+
+func _atualizar_input_actions() -> void:
+	_atualizar_action(action_left, output.x < 0, -output.x)
+	_atualizar_action(action_right, output.x > 0, output.x)
+	_atualizar_action(action_up, output.y < 0, -output.y)
+	_atualizar_action(action_down, output.y > 0, output.y)
+
+
+func _atualizar_action(
+	action_name: String,
+	should_press: bool,
+	strength: float
+) -> void:
+	var estava_ativa: bool = _actions_ativas.get(
+		action_name,
+		false
+	)
+
+	if should_press:
+		Input.action_press(
+			action_name,
+			clampf(strength, 0.0, 1.0)
+		)
+
+		_actions_ativas[action_name] = true
+
+	elif estava_ativa:
+		Input.action_release(action_name)
+		_actions_ativas[action_name] = false
+
+
+# ============================================================
+# RESET
+# ============================================================
+
+func _reset() -> void:
 	is_pressed = false
 	output = Vector2.ZERO
 	_touch_index = -1
+
 	_tip.modulate = _default_color
+
 	_base.position = _base_default_position
 	_tip.position = _tip_default_position
-	# Release actions
-	if use_input_actions:
-		for action in [action_left, action_right, action_down, action_up]:
-			if Input.is_action_pressed(action):
-				Input.action_release(action)
+
+	_liberar_input_actions()
+
+
+func _liberar_input_actions() -> void:
+	if not use_input_actions:
+		return
+
+	for action_name in _actions_ativas.keys():
+		if _actions_ativas[action_name]:
+			Input.action_release(action_name)
+
+		_actions_ativas[action_name] = false
+
+
+func _exit_tree() -> void:
+	_liberar_input_actions()

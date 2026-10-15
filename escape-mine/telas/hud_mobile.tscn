@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bu0jsqiq0wurx"]
 
 [ext_resource type="Texture2D" uid="uid://87ugma5vt5o0" path="res://sprites/objects/items/dynamite_image.png" id="1_eg35x"]
-[ext_resource type="Script" path="res://scripts/hud_mobile.gd" id="1_wa824"]
+[ext_resource type="Script" uid="uid://dda3aj18an4ip" path="res://scripts/hud_mobile.gd" id="1_wa824"]
 [ext_resource type="Texture2D" uid="uid://b7tci6e4dxnfj" path="res://sprites/objects/items/chave_image.png" id="2_1cu5s"]
 [ext_resource type="FontFile" uid="uid://cyyjq5h0cbep8" path="res://telas/Temas/CutePixel.ttf" id="3_e05di"]
 [ext_resource type="Texture2D" uid="uid://cbm5edo0xmqch" path="res://sprites/artes/menu_icone.png" id="4_e05di"]
@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://sgqo8ct7qoxt" path="res://sprites/Bars/whiteMeter10.png" id="11_quyq6"]
 [ext_resource type="Script" uid="uid://f0k0gqhbby3d" path="res://scripts/barra_xp_textura.gd" id="12_a85sq"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="13_1cu5s"]
-[ext_resource type="Texture2D" uid="uid://ctr2hdwvp6ff0" path="res://sprites/objects/items/upgrade.png" id="15_m2mts"]
-[ext_resource type="Texture2D" uid="uid://dhfwfkkjm1vey" path="res://sprites/objects/items/ataque.png" id="16_agknn"]
+[ext_resource type="Texture2D" uid="uid://t5ffsujnkc7f" path="res://sprites/objects/items/icons8-upgrade-64.png" id="15_m2mts"]
+[ext_resource type="Texture2D" uid="uid://5xxsuoab18xu" path="res://sprites/objects/items/ataque.png" id="16_agknn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wa824"]
 content_margin_left = 0.0
@@ -59,7 +59,8 @@ corner_radius_bottom_left = 80
 corner_detail = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_17pay"]
-font_size = 25
+font_size = 45
+font_color = Color(1, 1, 1, 0.61960787)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bgss"]
 content_margin_left = 4.0
@@ -102,6 +103,41 @@ load_path = "res://.godot/imported/força.png-6f8765de488ba37385b088703259a136.c
 
 [sub_resource type="Theme" id="Theme_a85sq"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17pay"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_quyq6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a85sq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
 [node name="hud_mobile" type="CanvasLayer" unique_id=542393176]
 
 [node name="hud_mobile" type="Control" parent="." unique_id=967921721]
@@ -129,14 +165,14 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="MarginContainer" type="MarginContainer" parent="hud_mobile/Container/containerMargin" unique_id=616827754]
 layout_mode = 2
-theme_override_constants/margin_top = 70
+theme_override_constants/margin_top = 130
 
 [node name="BoxContainerAtributos" type="BoxContainer" parent="hud_mobile/Container/containerMargin/MarginContainer" unique_id=1332973682]
 layout_mode = 2
@@ -248,7 +284,7 @@ texture = ExtResource("2_1cu5s")
 [node name="BoxContainerUpgrade" type="BoxContainer" parent="hud_mobile/Container/containerMargin" unique_id=977929917]
 layout_mode = 2
 size_flags_horizontal = 6
-size_flags_vertical = 0
+size_flags_vertical = 4
 
 [node name="TextoUpgrade" type="Label" parent="hud_mobile/Container/containerMargin/BoxContainerUpgrade" unique_id=1557355920]
 layout_mode = 2
@@ -260,6 +296,7 @@ label_settings = SubResource("LabelSettings_17pay")
 horizontal_alignment = 1
 
 [node name="BoxContainerMenu" type="BoxContainer" parent="hud_mobile/Container/containerMargin" unique_id=513059365]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
@@ -268,17 +305,27 @@ mouse_filter = 2
 [node name="Button" type="Button" parent="hud_mobile/Container/containerMargin/BoxContainerMenu" unique_id=1072376337]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_8bgss")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_he700")
 theme_override_styles/hover = SubResource("StyleBoxFlat_65uya")
-icon = ExtResource("4_e05di")
 expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="hud_mobile/Container/containerMargin/BoxContainerMenu/Button" unique_id=1915374860]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_e05di")
 
 [node name="MarginContainer2" type="MarginContainer" parent="hud_mobile/Container/containerMargin" unique_id=1576322893]
 layout_mode = 2
-theme_override_constants/margin_left = 70
+theme_override_constants/margin_left = 150
 
 [node name="HSplitContainer" type="HSplitContainer" parent="hud_mobile/Container/containerMargin/MarginContainer2" unique_id=129325212]
 layout_mode = 2
@@ -298,6 +345,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="BoxContainerDano" type="BoxContainer" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer" unique_id=560912411]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
@@ -306,13 +354,13 @@ size_flags_vertical = 4
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer" unique_id=1250730426]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(60, 50)
 layout_mode = 2
 texture = SubResource("CompressedTexture2D_quyq6")
 expand_mode = 1
 
 [node name="BarraDanoTextura" type="TextureProgressBar" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer" unique_id=285950068]
-custom_minimum_size = Vector2(250, 20)
+custom_minimum_size = Vector2(250, 65)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -323,17 +371,25 @@ script = ExtResource("6_m2mts")
 
 [node name="TextoForca" type="Label" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerDano/HSplitContainer/BarraDanoTextura" unique_id=1742316641]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -8.0
+offset_right = 2.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_a85sq")
 theme_override_fonts/font = ExtResource("3_e05di")
+theme_override_font_sizes/font_size = 45
 text = "1"
 horizontal_alignment = 1
 
 [node name="BoxContainerVida" type="BoxContainer" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer" unique_id=674365340]
+custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
@@ -345,7 +401,7 @@ split_offsets = PackedInt32Array(-105)
 split_offset = -105
 
 [node name="TextureRect" type="TextureRect" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer" unique_id=529689608]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -353,7 +409,7 @@ texture = ExtResource("7_agknn")
 expand_mode = 1
 
 [node name="BarraVidaTextura" type="TextureProgressBar" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer/BoxContainerStatus/VSplitContainer/BoxContainerVida/HSplitContainer" unique_id=1816202491]
-custom_minimum_size = Vector2(250, 20)
+custom_minimum_size = Vector2(250, 65)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -377,6 +433,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_a85sq")
 theme_override_fonts/font = ExtResource("3_e05di")
+theme_override_font_sizes/font_size = 45
 text = "100/200"
 
 [node name="BoxContainerPontos" type="BoxContainer" parent="hud_mobile/Container/containerMargin/MarginContainer2/HSplitContainer" unique_id=1500447856]
@@ -468,15 +525,24 @@ size_flags_vertical = 10
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_17pay")
 
 [node name="TextureRect" type="TextureRect" parent="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainerUpgrade/BtnUpgrade" unique_id=1040622878]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("15_m2mts")
+expand_mode = 1
 
 [node name="BoxContainer" type="BoxContainer" parent="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer" unique_id=1377800817]
 layout_mode = 2
@@ -491,6 +557,7 @@ size_flags_vertical = 0
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_quyq6")
 
 [node name="TextureRect" type="TextureRect" parent="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainer/BoxContainerItem/BtnItem" unique_id=2012778881]
 layout_mode = 1
@@ -511,15 +578,24 @@ size_flags_vertical = 8
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_a85sq")
 
 [node name="TextureRect" type="TextureRect" parent="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainer/BoxContainerAtaque/BtnAtaque" unique_id=32589071]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("16_agknn")
+expand_mode = 1
 
 [node name="BoxContainerJoystick" type="BoxContainer" parent="hud_mobile/Container/containerMargin" unique_id=758830240]
 custom_minimum_size = Vector2(200, 200)
@@ -532,14 +608,13 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-theme_override_constants/margin_left = 150
-theme_override_constants/margin_bottom = 80
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_bottom = 30
 
 [node name="Virtual Joystick" parent="hud_mobile/Container/containerMargin/BoxContainerJoystick/MarginContainer" unique_id=2084266493 instance=ExtResource("13_1cu5s")]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+size_flags_horizontal = 3
 pressed_color = Color(0.74509805, 0.74509805, 0.74509805, 0.827451)
 
 [connection signal="pressed" from="hud_mobile/Container/containerMargin/BoxContainerMenu/Button" to="hud_mobile" method="_on_button_pressed"]

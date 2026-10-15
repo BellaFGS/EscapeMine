@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bmf7v555iqyes" path="res://scenes/characters/esqueleto.tscn" id="10_u0ie8"]
 [ext_resource type="PackedScene" uid="uid://m4aukhpqlmv8" path="res://scenes/characters/fantasma.tscn" id="11_y1qxk"]
 [ext_resource type="PackedScene" uid="uid://c0xwusfiy3thv" path="res://scenes/Elements/dunger_zone.tscn" id="13_ccxyu"]
-[ext_resource type="PackedScene" uid="uid://cixpcdgmomouj" path="res://scenes/items/item_chave.tscn" id="15_1qe0x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ig046"]
 texture = ExtResource("6_4w60o")
@@ -10525,9 +10524,6 @@ position = Vector2(632, 41)
 
 [node name="DungerZone" parent="." unique_id=1069560770 instance=ExtResource("13_ccxyu")]
 position = Vector2(53, 15)
-
-[node name="ItemChave" parent="." unique_id=82965891 instance=ExtResource("15_1qe0x")]
-position = Vector2(1200, 13)
 
 [connection signal="body_entered" from="AreaObserver" to="AreaObserver" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaObserver" to="AreaObserver" method="_on_body_exited"]
