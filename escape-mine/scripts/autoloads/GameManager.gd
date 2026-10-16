@@ -1,11 +1,22 @@
 extends Node
 
+# ============================================================
+# SINAIS
+# ============================================================
+
 signal tempo_alterado(valor)
 signal modo_controle_alterado(mobile: bool)
 signal partida_resetada
 
 
+# ============================================================
+# CONFIGURAÇÕES
+# ============================================================
+
+const CAMINHO_CONFIGURACOES := "user://configuracoes.json"
+
 var tempo_total: float = 0.0
+
 var modo_mobile: bool = false
 var _modo_controle_inicializado: bool = false
 
@@ -29,17 +40,99 @@ var player_dinamite: int = 0
 
 
 # ============================================================
-# INICIALIZAÇÃO (PADRÃO DESKTOP MANUAL)
+# INICIALIZAÇÃO
 # ============================================================
 
 func _ready() -> void:
-	# Define o padrão como Desktop (false) sem detecção automática[cite: 1]
-	definir_modo_mobile(false)
+	carregar_modo_controle()
 
 
-func atualizar_modo_controle() -> void:
-	definir_modo_mobile(modo_mobile)
+# ============================================================
+# CARREGAR MODO DE CONTROLE
+# ============================================================
 
+func carregar_modo_controle() -> void:
+	if not FileAccess.file_exists(CAMINHO_CONFIGURACOES):
+		definir_modo_mobile(false)
+		return
+
+	var arquivo := FileAccess.open(
+		CAMINHO_CONFIGURACOES,
+		FileAccess.READ
+	)
+
+	if arquivo == null:
+		push_warning("Não foi possível carregar as configurações.")
+		definir_modo_mobile(false)
+		return
+
+	var conteudo := arquivo.get_as_text()
+	arquivo.close()
+
+	var json := JSON.new()
+
+	if json.parse(conteudo) != OK:
+		push_warning("Arquivo de configurações inválido.")
+		definir_modo_mobile(false)
+		return
+
+	var dados = json.data
+
+	if typeof(dados) != TYPE_DICTIONARY:
+		definir_modo_mobile(false)
+		return
+
+	var mobile: bool = dados.get("modo_mobile", false)
+
+	definir_modo_mobile(mobile)
+
+
+# ============================================================
+# SALVAR MODO DE CONTROLE
+# ============================================================
+
+func salvar_modo_controle() -> void:
+	var dados: Dictionary = {}
+
+	# Preserva outras configurações existentes.
+	if FileAccess.file_exists(CAMINHO_CONFIGURACOES):
+		var arquivo_leitura := FileAccess.open(
+			CAMINHO_CONFIGURACOES,
+			FileAccess.READ
+		)
+
+		if arquivo_leitura:
+			var json := JSON.new()
+
+			if json.parse(arquivo_leitura.get_as_text()) == OK:
+				if typeof(json.data) == TYPE_DICTIONARY:
+					dados = json.data
+
+			arquivo_leitura.close()
+
+	dados["modo_mobile"] = modo_mobile
+
+	var arquivo := FileAccess.open(
+		CAMINHO_CONFIGURACOES,
+		FileAccess.WRITE
+	)
+
+	if arquivo == null:
+		push_error("Não foi possível salvar o modo de controle.")
+		return
+
+	arquivo.store_string(JSON.stringify(dados, "\t"))
+	arquivo.close()
+
+	print(
+		"Modo de controle salvo: ",
+		"Mobile" if modo_mobile else "PC"
+	)
+
+
+# ============================================================
+# ALTERAR MODO DE CONTROLE
+# ============================================================
 
 func definir_modo_mobile(valor: bool) -> void:
 	if _modo_controle_inicializado and modo_mobile == valor:
@@ -51,9 +144,13 @@ func definir_modo_mobile(valor: bool) -> void:
 	modo_controle_alterado.emit(modo_mobile)
 
 	print(
-		"Modo de controle: ",
+		"Modo de controle alterado para: ",
 		"Mobile" if modo_mobile else "PC"
 	)
+
+
+func atualizar_modo_controle() -> void:
+	modo_controle_alterado.emit(modo_mobile)
 
 
 # ============================================================
@@ -123,6 +220,7 @@ func finalizar_jogo(resultado: String) -> void:
 
 	if resultado == "WIN":
 		GameFacade.vitoria()
+
 	elif resultado == "LOSE":
 		GameFacade.game_over()
 
