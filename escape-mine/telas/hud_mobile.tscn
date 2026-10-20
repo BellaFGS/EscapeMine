@@ -598,24 +598,24 @@ texture = ExtResource("16_agknn")
 expand_mode = 1
 
 [node name="BoxContainerJoystick" type="BoxContainer" parent="hud_mobile/Container/containerMargin" unique_id=758830240]
-custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="hud_mobile/Container/containerMargin/BoxContainerJoystick" unique_id=2009973065]
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 80
 theme_override_constants/margin_bottom = 30
 
-[node name="Virtual Joystick" parent="hud_mobile/Container/containerMargin/BoxContainerJoystick/MarginContainer" unique_id=2084266493 instance=ExtResource("13_1cu5s")]
-custom_minimum_size = Vector2(250, 250)
+[node name="Virtual Joystick" parent="hud_mobile/Container/containerMargin/BoxContainerJoystick/MarginContainer" unique_id=1799382028 instance=ExtResource("13_1cu5s")]
+custom_minimum_size = Vector2(300, 290)
 layout_mode = 2
-size_flags_horizontal = 3
-pressed_color = Color(0.74509805, 0.74509805, 0.74509805, 0.827451)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [connection signal="pressed" from="hud_mobile/Container/containerMargin/BoxContainerMenu/Button" to="hud_mobile" method="_on_button_pressed"]
 [connection signal="pressed" from="hud_mobile/Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainerUpgrade/BtnUpgrade" to="hud_mobile" method="_on_btn_upgrade_pressed"]
