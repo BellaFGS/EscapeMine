@@ -5,12 +5,10 @@ extends Control
 # ============================================================
 
 @onready var joystick_movimento: VirtualJoystick = $"Container/containerMargin/BoxContainerJoystick/MarginContainer/Virtual Joystick"
-
 @onready var btn_upgrade: Button = $Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainerUpgrade/BtnUpgrade
-
 @onready var btn_item: Button = $Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainer/BoxContainerItem/BtnItem
-
 @onready var btn_menu: Button = $Container/containerMargin/BoxContainerMenu/Button
+@onready var btn_ataque: Button = $Container/containerMargin/BoxContainerButtons/MarginContainer/VSplitContainer/BoxContainer/BoxContainerAtaque/BtnAtaque
 
 
 # ============================================================
@@ -107,6 +105,7 @@ func _ready() -> void:
 	var botoes: Array[Button] = [
 		btn_upgrade,
 		btn_item,
+		btn_ataque,
 		btn_menu
 	]
 
@@ -196,30 +195,48 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if event is InputEventScreenTouch:
-		if event.pressed:
-			# Cada dedo pode controlar seu próprio botão.
-			var botao := _encontrar_botao(event.position)
 
-			if botao != null:
-				_toques_botoes[event.index] = botao
-		else:
-			# A soltura de um dedo não afeta os outros.
-			if not _toques_botoes.has(event.index):
+		var indice_dedo: int = event.index
+
+		if event.pressed:
+
+			# Verifica se o dedo pressionou algum botão.
+			var botao: Button = _encontrar_botao(
+				event.position
+			)
+
+			if botao == null:
 				return
 
-			var botao: Button = _toques_botoes[event.index]
-			_toques_botoes.erase(event.index)
+			# Associa o dedo ao botão pressionado.
+			_toques_botoes[indice_dedo] = botao
+
+		else:
+
+			# Ignora dedos que não iniciaram em botões.
+			if not _toques_botoes.has(indice_dedo):
+				return
+
+			var botao: Button = _toques_botoes[indice_dedo]
+
+			# Remove somente o dedo que foi solto.
+			_toques_botoes.erase(indice_dedo)
 
 			if not is_instance_valid(botao):
 				return
 
-			if not botao.is_visible_in_tree() or botao.disabled:
+			if not botao.is_visible_in_tree():
 				return
 
-			# Só ativa se o dedo terminar dentro do botão.
-			if _ponto_dentro_do_botao(botao, event.position):
-				_acionar_botao(botao)
+			if botao.disabled:
+				return
 
+			# Aciona somente se o dedo terminou dentro do botão.
+			if _ponto_dentro_do_botao(
+				botao,
+				event.position
+			):
+				_acionar_botao(botao)
 
 func _encontrar_botao(posicao_tela: Vector2) -> Button:
 	var botoes := find_children("*", "Button", true, false)
@@ -262,12 +279,11 @@ func _acionar_botao(botao: Button) -> void:
 	elif botao == btn_item:
 		_on_btn_item_pressed()
 
+	elif botao == btn_ataque:
+		_on_btn_ataque_pressed()
+
 	elif botao == btn_menu:
 		_on_button_pressed()
-
-	# O botão de ataque não foi associado diretamente
-	# porque o caminho dele não foi informado neste script.
-
 
 # ============================================================
 # MODO DE CONTROLE

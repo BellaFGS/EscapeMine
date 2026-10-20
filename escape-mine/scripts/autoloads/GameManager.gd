@@ -183,8 +183,6 @@ func tem_chave() -> bool:
 	return player_tem_chave
 
 
-func resetarChave() -> void:
-	player_tem_chave = false
 
 
 # ============================================================

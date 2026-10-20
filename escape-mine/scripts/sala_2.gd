@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	GameManager.resetarChave()
+	GameManager.resetar_chave()
 	AudioManager.tocar_musica("main")
 	UIManager.registrar_telas(
 	$Tela_Pause,

@@ -20,6 +20,7 @@ func _ready() -> void:
 	camera_sala.zoom = Vector2(1.5, 1.5)
 	camera_sala.position_smoothing_enabled = false
 	camera_sala.make_current()
+	GameManager.resetar_chave()
 
 	AudioManager.tocar_musica("main")
 
