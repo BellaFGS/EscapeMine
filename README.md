@@ -26,36 +26,6 @@ Afinal, depois de um dia desses, tudo o que Lucas merece é uma boa xícara de *
 
 ---
 
-## 🕹️ Jogabilidade
-
-Explore a mina, enfrente criaturas hostis, colete itens e sobreviva aos desafios para encontrar o caminho de volta.
-
-### ⚔️ Combate
-
-<p align="center">
-  <img src="docs/images/gameplay-combate.png" alt="EscapeMine - Sistema de combate" width="720"/>
-</p>
-
-Enfrente inimigos e utilize suas habilidades de combate para sobreviver aos perigos escondidos na mina.
-
-### 🧪 Itens e melhorias
-
-<p align="center">
-  <img src="docs/images/gameplay-itens.png" alt="EscapeMine - Itens e melhorias" width="720"/>
-</p>
-
-Colete itens durante sua jornada para aumentar suas chances de sobrevivência e superar os desafios encontrados pelo caminho.
-
-### 🔑 A fuga
-
-<p align="center">
-  <img src="docs/images/gameplay-fuga.png" alt="EscapeMine - Encontro final e fuga" width="720"/>
-</p>
-
-Sobreviva aos desafios, obtenha a chave e abra a porta que representa sua liberdade.
-
----
-
 ## 🛠️ Ferramentas e tecnologias
 
 O desenvolvimento do EscapeMine reúne ferramentas de programação, criação de arte, edição de áudio, controle de versão e distribuição de jogos.
