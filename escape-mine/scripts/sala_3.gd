@@ -7,6 +7,9 @@ var player: Node2D
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+	GameManager.resetar_chave()
+	if player:
+		BossCheckpointManager.preparar_sala(player)
 
 	if player:
 		var camera_player = player.get_node_or_null("Camera2D")
@@ -20,7 +23,6 @@ func _ready() -> void:
 	camera_sala.zoom = Vector2(1.5, 1.5)
 	camera_sala.position_smoothing_enabled = false
 	camera_sala.make_current()
-	GameManager.resetar_chave()
 
 	AudioManager.tocar_musica("main")
 

@@ -9,6 +9,7 @@ extends CanvasLayer
 @onready var registrar: Button = $Fundo/Center/Painel/Conteudo/Registro/Registrar
 @onready var aviso: Label = $Fundo/Center/Painel/Conteudo/Aviso
 @onready var ranking: Label = $Fundo/Center/Painel/Conteudo/Ranking
+@onready var tentar_chefe: Button = $Fundo/Center/Painel/Conteudo/TentarChefe
 @onready var menu: HBoxContainer = $Fundo/Center/Painel/Conteudo/Menu
 
 
@@ -22,6 +23,7 @@ func _ready() -> void:
 	multiplicador.text = "MULTIPLICADOR DE TEMPO  x%d" % ScoreManager.multiplicador_tempo
 	bonus.visible = venceu and ScoreManager.bonus_boss > 0
 	bonus.text = "+%d BÔNUS DO BOSS" % ScoreManager.bonus_boss
+	tentar_chefe.visible = BossCheckpointManager.pode_tentar_novamente()
 	#menu.visible = ScoreManager.pontuacao_registrada
 	menu.visible = true
 	registrar.disabled = ScoreManager.pontuacao_registrada
@@ -44,6 +46,7 @@ func _on_registrar_pressed() -> void:
 	nome.editable = false
 	registrar.disabled = true
 	registrar.text = "SALVO"
+	tentar_chefe.visible = false
 	menu.visible = true
 	_atualizar_ranking()
 
@@ -76,6 +79,11 @@ func _on_reiniciar_pressed() -> void:
 	GameManager.resetar()
 	get_tree().paused = false
 	GameFacade.reiniciar_jogo()
+
+
+func _on_tentar_chefe_pressed() -> void:
+	if BossCheckpointManager.tentar_novamente():
+		AudioManager.tocar_sfx("click")
 
 
 func _on_menu_pressed() -> void:
