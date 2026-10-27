@@ -121,6 +121,16 @@ func resetar():
 	emit_signal("liberar_upgrade", false)
 
 
+func restaurar_checkpoint(novo_nivel: int, novo_xp: int) -> void:
+	nivel = novo_nivel
+	xp = novo_xp
+	calcular_limite()
+	upgrade_disponivel = xp >= limite
+	emit_signal("nivel_up", nivel)
+	emit_signal("xp_alterado", xp)
+	emit_signal("liberar_upgrade", upgrade_disponivel)
+
+
 # ============================================================
 # LIMITE DE XP
 # ============================================================

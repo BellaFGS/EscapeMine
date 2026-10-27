@@ -12,6 +12,7 @@ var bonus_boss_aplicado: bool = false
 var resultado_atual: String = ""
 var pontuacao_registrada: bool = false
 var multiplicador_tempo: int = 1
+var penalidade_tentativas: int = 0
 
 var _registros: Array = []
 
@@ -36,6 +37,7 @@ func iniciar_partida() -> void:
 	resultado_atual = ""
 	pontuacao_registrada = false
 	multiplicador_tempo = 1
+	penalidade_tentativas = 0
 
 	pontuacao_alterada.emit(pontuacao_atual)
 
@@ -80,8 +82,10 @@ func finalizar_partida(resultado: String) -> void:
 	resultado_atual = resultado
 
 	if resultado_atual == "WIN":
-		multiplicador_tempo = calcular_multiplicador_tempo(
-			GameManager.tempo_total
+		multiplicador_tempo = maxi(
+			1,
+			calcular_multiplicador_tempo(GameManager.tempo_total)
+			- penalidade_tentativas
 		)
 	else:
 		multiplicador_tempo = 1
@@ -106,6 +110,22 @@ func calcular_multiplicador_tempo(tempo_segundos: float) -> int:
 
 func obter_pontuacao_final() -> int:
 	return pontuacao_atual * multiplicador_tempo
+
+
+func restaurar_checkpoint(
+	pontos: int,
+	bonus: int,
+	bonus_aplicado: bool,
+	tentativas: int
+) -> void:
+	pontuacao_atual = pontos
+	bonus_boss = bonus
+	bonus_boss_aplicado = bonus_aplicado
+	penalidade_tentativas = tentativas
+	multiplicador_tempo = 1
+	resultado_atual = ""
+	pontuacao_registrada = false
+	pontuacao_alterada.emit(pontuacao_atual)
 
 
 # ============================================================

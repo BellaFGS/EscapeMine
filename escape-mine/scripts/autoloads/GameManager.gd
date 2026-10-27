@@ -229,6 +229,7 @@ func finalizar_jogo(resultado: String) -> void:
 
 func resetar() -> void:
 	print("Resetando estado do jogo...")
+	BossCheckpointManager.limpar()
 
 	estado = "RUNNING"
 	tempo_total = 0.0

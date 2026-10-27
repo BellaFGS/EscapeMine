@@ -187,6 +187,14 @@ theme_override_font_sizes/font_size = 20
 text = "TOP 5 — MELHORES DA MINA"
 horizontal_alignment = 1
 
+[node name="TentarChefe" type="Button" parent="Fundo/Center/Painel/Conteudo"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButton")
+text = "TENTAR CHEFE (-20% PONTOS; MULT. -1 ATÉ x1)"
+
 [node name="Menu" type="HBoxContainer" parent="Fundo/Center/Painel/Conteudo" unique_id=1774728589]
 layout_mode = 2
 theme_override_constants/separation = 18
@@ -208,5 +216,6 @@ text = "MENU PRINCIPAL"
 
 [connection signal="text_submitted" from="Fundo/Center/Painel/Conteudo/Registro/Nome" to="." method="_on_nome_text_submitted"]
 [connection signal="pressed" from="Fundo/Center/Painel/Conteudo/Registro/Registrar" to="." method="_on_registrar_pressed"]
+[connection signal="pressed" from="Fundo/Center/Painel/Conteudo/TentarChefe" to="." method="_on_tentar_chefe_pressed"]
 [connection signal="pressed" from="Fundo/Center/Painel/Conteudo/Menu/Reiniciar" to="." method="_on_reiniciar_pressed"]
 [connection signal="pressed" from="Fundo/Center/Painel/Conteudo/Menu/MenuPrincipal" to="." method="_on_menu_pressed"]

@@ -28,6 +28,7 @@ UpgradeSystem="*uid://cho4wt25sflff"
 EffectManager="*res://scripts/autoloads/EffectManager.gd"
 ChunkManager="*uid://djwv1ekebyrd6"
 ScoreManager="*res://scripts/autoloads/ScoreManager.gd"
+BossCheckpointManager="*res://scripts/autoloads/BossCheckpointManager.gd"
 
 [display]
 
