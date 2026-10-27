@@ -51,7 +51,14 @@ func mover(direcao):
 	if tomando_dano:
 
 		velocity = knockback_velocity
+		if is_in_group("player"):
+			velocity += direcao * speed
 		move_and_slide()
+
+		for i in get_slide_collision_count():
+			var normal = get_slide_collision(i).get_normal()
+			if knockback_velocity.dot(normal) < 0.0:
+				knockback_velocity = knockback_velocity.slide(normal)
 
 		knockback_velocity = knockback_velocity.lerp(
 			Vector2.ZERO,

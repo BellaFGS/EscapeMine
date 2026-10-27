@@ -183,8 +183,6 @@ func tem_chave() -> bool:
 	return player_tem_chave
 
 
-func resetarChave() -> void:
-	player_tem_chave = false
 
 
 # ============================================================
@@ -231,6 +229,7 @@ func finalizar_jogo(resultado: String) -> void:
 
 func resetar() -> void:
 	print("Resetando estado do jogo...")
+	BossCheckpointManager.limpar()
 
 	estado = "RUNNING"
 	tempo_total = 0.0

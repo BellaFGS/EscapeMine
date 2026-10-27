@@ -7,6 +7,9 @@ var player: Node2D
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+	GameManager.resetar_chave()
+	if player:
+		BossCheckpointManager.preparar_sala(player)
 
 	if player:
 		var camera_player = player.get_node_or_null("Camera2D")
