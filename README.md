@@ -65,6 +65,7 @@ O EscapeMine utiliza padrões de projeto para organizar responsabilidades, favor
 | **Observer** | Permite a comunicação entre objetos por meio de eventos e notificações. |
 | **State** | Organiza o comportamento de um objeto de acordo com seu estado atual. |
 | **Strategy** | Encapsula algoritmos ou comportamentos intercambiáveis. |
+| **Memento** | Salva estado de um objeto ou método e reutiliza. |
 
 A aplicação desses padrões contribui para uma arquitetura mais organizada e demonstra o uso de conceitos de orientação a objetos e boas práticas de desenvolvimento de software.
 
